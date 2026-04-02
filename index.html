@@ -1756,6 +1756,330 @@
             background: var(--color-gray-100);
         }
 
+        /* Customer Stories Section */
+        .customer-stories {
+            padding: 6rem 2rem;
+            background: var(--color-white);
+        }
+
+        .stories-carousel {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 1rem;
+            position: relative;
+        }
+
+        .stories-carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .stories-carousel::-webkit-scrollbar-track {
+            background: var(--color-gray-100);
+            border-radius: 10px;
+        }
+
+        .stories-carousel::-webkit-scrollbar-thumb {
+            background: var(--color-orange);
+            border-radius: 10px;
+        }
+
+        .story-card {
+            flex: 0 0 320px;
+            scroll-snap-align: start;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid var(--color-gray-200);
+        }
+
+        .story-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 69, 145, 0.12);
+        }
+
+        .story-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .story-card-body {
+            padding: 2rem;
+            position: relative;
+        }
+
+        .story-card-body::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: linear-gradient(to bottom, rgba(255, 231, 200, 0.4), transparent);
+            pointer-events: none;
+        }
+
+        .story-rating {
+            color: var(--color-orange);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: 1px;
+        }
+
+        .story-card-body h3 {
+            font-family: var(--font-secondary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .story-card-body p {
+            color: var(--color-gray-700);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .story-service {
+            color: var(--color-orange);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            background: var(--color-orange-light);
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .carousel-nav {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .carousel-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--color-orange);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn:hover {
+            background: var(--color-orange-dark);
+            transform: scale(1.1);
+        }
+
+        .carousel-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Modal Popup */
+        .story-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .story-modal.active {
+            display: flex;
+        }
+
+        .story-modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .story-modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--color-gray-100);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--color-gray-800);
+        }
+
+        .story-modal-close:hover {
+            background: var(--color-orange);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .story-modal-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .story-modal-rating {
+            color: var(--color-orange);
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: 2px;
+        }
+
+        .story-modal-title {
+            font-family: var(--font-secondary);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .story-modal-service {
+            color: var(--color-orange);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-modal-text {
+            color: var(--color-gray-800);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .story-modal-footer {
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--color-gray-200);
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .story-modal-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .story-modal-avatar.orange {
+            background: linear-gradient(135deg, var(--color-orange), var(--color-orange-dark));
+        }
+
+        .story-modal-avatar.blue {
+            background: linear-gradient(135deg, var(--color-blue), var(--color-blue-dark));
+        }
+
+        .story-modal-info h4 {
+            font-weight: 700;
+            color: var(--color-gray-900);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .story-modal-info span {
+            color: var(--color-gray-600);
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .story-card {
+                flex: 0 0 280px;
+            }
+
+            .carousel-nav {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .customer-stories {
+                padding: 4rem 1.5rem;
+            }
+
+            .stories-carousel {
+                gap: 1.5rem;
+            }
+
+            .story-card {
+                flex: 0 0 250px;
+            }
+
+            .story-card-body {
+                padding: 1.5rem;
+            }
+
+            .carousel-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -2181,6 +2505,87 @@
         </div>
     </section>
 
+    <!-- Customer Stories Section -->
+    <section class="customer-stories" id="customer-stories">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Customer Stories</span>
+                <h2>See How <span>ServiceKru Changed Lives</span></h2>
+                <p>Real experiences from customers and service providers in our community.</p>
+            </div>
+            <div class="stories-carousel">
+                <div class="story-card" onclick="openStoryModal(this)" data-name="Rahmah M." data-service="Home Cleaning" data-role="Satisfied Customer" data-avatar="orange" data-text="ServiceKru transformed how I manage my household. The cleaning service is professional and reliable. Now I have more time with my family! The team is always punctual and thorough, paying attention to every detail. I've been recommending them to all my friends and family.">
+                    <img src="https://picsum.photos/320/200?random=1" alt="Customer story" class="story-card-image">
+                    <div class="story-card-body">
+                        <div class="story-rating">★★★★★</div>
+                        <h3>Rahmah M.</h3>
+                        <p>ServiceKru transformed how I manage my household. The cleaning service is professional and reliable. Now I have more time with my family!</p>
+                        <span class="story-service">Home Cleaning</span>
+                    </div>
+                </div>
+                <div class="story-card" onclick="openStoryModal(this)" data-name="Ahmad K." data-service="Elder Care" data-role="Family Member" data-avatar="blue" data-text="My mother received excellent elder care from their certified companions. They're compassionate, professional, and truly make a difference in her daily life. The caregivers are trained, patient, and treat my mother with genuine respect and kindness. I cannot recommend them enough.">
+                    <img src="https://picsum.photos/320/200?random=2" alt="Customer story" class="story-card-image">
+                    <div class="story-card-body">
+                        <div class="story-rating">★★★★★</div>
+                        <h3>Ahmad K.</h3>
+                        <p>My mother received excellent elder care from their certified companions. They're compassionate, professional, and truly make a difference in her daily life.</p>
+                        <span class="story-service">Elder Care</span>
+                    </div>
+                </div>
+                <div class="story-card" onclick="openStoryModal(this)" data-name="Priya L." data-service="Childcare" data-role="Working Parent" data-avatar="orange" data-text="As a working mother, ServiceKru's childcare professionals have been a lifesaver. Reliable, caring, and my child absolutely loves them. Highly recommended! The caregivers are certified, background-checked, and treat the children like their own. Peace of mind is priceless.">
+                    <img src="https://picsum.photos/320/200?random=3" alt="Customer story" class="story-card-image">
+                    <div class="story-card-body">
+                        <div class="story-rating">★★★★★</div>
+                        <h3>Priya L.</h3>
+                        <p>As a working mother, ServiceKru's childcare professionals have been a lifesaver. Reliable, caring, and my child absolutely loves them. Highly recommended!</p>
+                        <span class="story-service">Childcare</span>
+                    </div>
+                </div>
+                <div class="story-card" onclick="openStoryModal(this)" data-name="David C." data-service="Service Provider" data-role="Certified Professional" data-avatar="blue" data-text="I joined ServiceKru as a provider and my income doubled. The platform is transparent, payment is reliable, and I work on my own schedule. Best decision ever! The support team is helpful, the app is user-friendly, and I've built genuine relationships with my regular clients.">
+                    <img src="https://picsum.photos/320/200?random=4" alt="Customer story" class="story-card-image">
+                    <div class="story-card-body">
+                        <div class="story-rating">★★★★★</div>
+                        <h3>David C.</h3>
+                        <p>I joined ServiceKru as a provider and my income doubled. The platform is transparent, payment is reliable, and I work on my own schedule. Best decision ever!</p>
+                        <span class="story-service">Service Provider</span>
+                    </div>
+                </div>
+                <div class="story-card" onclick="openStoryModal(this)" data-name="Nurul S." data-service="Laundry Service" data-role="Loyal Customer" data-avatar="orange" data-text="The laundry service is impeccable. My clothes come back fresh, perfectly folded, and on time. I've been a loyal customer for 6 months now without any issues. The quality is consistent, prices are fair, and the delivery is always reliable. This service has freed up so much time in my week!">
+                    <img src="https://picsum.photos/320/200?random=5" alt="Customer story" class="story-card-image">
+                    <div class="story-card-body">
+                        <div class="story-rating">★★★★★</div>
+                        <h3>Nurul S.</h3>
+                        <p>The laundry service is impeccable. My clothes come back fresh, perfectly folded, and on time. I've been a loyal customer for 6 months now without any issues.</p>
+                        <span class="story-service">Laundry Service</span>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <button class="carousel-btn" onclick="scrollCarousel(-1)" aria-label="Previous">←</button>
+                <button class="carousel-btn" onclick="scrollCarousel(1)" aria-label="Next">→</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Modal -->
+    <div class="story-modal" id="storyModal">
+        <div class="story-modal-content">
+            <button class="story-modal-close" onclick="closeStoryModal()">✕</button>
+            <img id="modalImage" src="" alt="Customer story" class="story-modal-image">
+            <div id="modalRating" class="story-modal-rating">★★★★★</div>
+            <h2 id="modalName" class="story-modal-title"></h2>
+            <p id="modalService" class="story-modal-service"></p>
+            <p id="modalText" class="story-modal-text"></p>
+            <div class="story-modal-footer">
+                <div id="modalAvatar" class="story-modal-avatar"></div>
+                <div class="story-modal-info">
+                    <h4 id="modalAuthorName"></h4>
+                    <span id="modalAuthorRole"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Enquiry Form -->
     <section class="enquiry" id="enquiry">
         <div class="enquiry-pattern"></div>
@@ -2346,6 +2751,61 @@
                 navLinks.classList.remove('active');
                 document.querySelector('.mobile-menu-btn').classList.remove('active');
             });
+        });
+
+        // Carousel navigation
+        function scrollCarousel(direction) {
+            const carousel = document.querySelector('.stories-carousel');
+            const scrollAmount = 340; // card width (320px) + gap (20px)
+            carousel.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        // Story Modal Functions
+        function openStoryModal(element) {
+            const modal = document.getElementById('storyModal');
+            const name = element.dataset.name;
+            const service = element.dataset.service;
+            const role = element.dataset.role;
+            const avatar = element.dataset.avatar;
+            const text = element.dataset.text;
+            const imageSrc = element.querySelector('.story-card-image').src;
+
+            document.getElementById('modalImage').src = imageSrc;
+            document.getElementById('modalName').textContent = name;
+            document.getElementById('modalService').textContent = service;
+            document.getElementById('modalText').textContent = text;
+            document.getElementById('modalAuthorName').textContent = name;
+            document.getElementById('modalAuthorRole').textContent = role;
+
+            const avatarElement = document.getElementById('modalAvatar');
+            avatarElement.textContent = name.match(/\b(\w)/g).join('');
+            avatarElement.className = `story-modal-avatar ${avatar}`;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeStoryModal() {
+            const modal = document.getElementById('storyModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on outside click
+        document.getElementById('storyModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeStoryModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeStoryModal();
+            }
         });
     </script>
 </body>
