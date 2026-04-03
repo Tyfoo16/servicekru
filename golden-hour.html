@@ -1,0 +1,1847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ServiceKru — Trusted Home Services in Malaysia</title>
+    <style>
+        /* ===== DESIGN TOKENS ===== */
+        :root {
+            --color-primary:       #f4a900;
+            --color-primary-dark:  #c1666b;
+            --color-primary-light: #f5ede0;
+            --color-dark:          #4a403a;
+            --color-dark-deep:     #3a322c;
+            --color-dark-light:    #ede0d0;
+            --color-page:          #2e2520;
+            --color-white:         #ffffff;
+            --color-gray-100:      #f8f9fa;
+            --color-gray-200:      #e9ecef;
+            --color-gray-600:      #6c757d;
+            --font: 'FreeSans', 'Liberation Sans', Arial, sans-serif;
+            --radius-sm:  12px;
+            --radius-md:  20px;
+            --radius-lg:  24px;
+            --radius-pill: 50px;
+            --shadow-sm:  0 4px 15px rgba(74,64,58,0.10);
+            --shadow-md:  0 15px 40px rgba(74,64,58,0.12);
+            --shadow-lg:  0 25px 80px rgba(74,64,58,0.15);
+        }
+
+        /* ===== RESET ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font);
+            background: var(--color-white);
+            color: var(--color-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== SHARED UTILITIES ===== */
+        .section-container { max-width: 1200px; margin: 0 auto; }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--color-page);
+            margin-bottom: 1rem;
+        }
+        .section-header h2 span { color: var(--color-primary); }
+        .section-header p {
+            color: var(--color-gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--color-dark-light);
+            color: var(--color-dark);
+            padding: 0.5rem 1.25rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: white;
+            padding: 1.15rem 2.5rem;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-family: var(--font);
+            box-shadow: 0 6px 25px rgba(244,169,0,0.4);
+        }
+        .btn-primary:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(244,169,0,0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-dark);
+            padding: 1.15rem 2.5rem;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            border: 3px solid var(--color-dark);
+        }
+        .btn-secondary:hover {
+            background: var(--color-dark);
+            color: white;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(74,64,58,0.08);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .logo-dark { color: var(--color-dark); }
+        .logo-accent { color: var(--color-primary); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-dark);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        .nav-links a:not(.nav-cta)::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 2px;
+            background: var(--color-primary);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:not(.nav-cta):hover { color: var(--color-dark); }
+        .nav-links a:not(.nav-cta):hover::after { width: 100%; }
+
+        .nav-cta {
+            background: var(--color-primary);
+            color: white !important;
+            padding: 0.75rem 1.75rem;
+            border-radius: var(--radius-pill);
+            font-weight: 600;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 4px 15px rgba(244,169,0,0.3);
+        }
+        .nav-cta:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(244,169,0,0.4);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px; height: 3px;
+            background: var(--color-dark);
+            margin: 5px 0;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 7rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--color-white) 0%, var(--color-dark-light) 50%, var(--color-primary-light) 100%);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(244,169,0,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(74,64,58,0.08) 0%, transparent 50%);
+        }
+        .hero-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+        .hero-shape-1 {
+            width: 400px; height: 400px;
+            background: linear-gradient(135deg, rgba(244,169,0,0.1), transparent);
+            top: -100px; right: -100px;
+        }
+        .hero-shape-2 {
+            width: 300px; height: 300px;
+            background: linear-gradient(135deg, rgba(74,64,58,0.1), transparent);
+            bottom: -50px; left: -50px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50%       { transform: translateY(-20px) rotate(5deg); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text { animation: fadeInUp 0.8s ease-out; }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--color-dark);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(74,64,58,0.3);
+        }
+        .hero-badge::before { content: '✦'; color: var(--color-primary); }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--color-page);
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 .highlight { color: var(--color-primary); }
+        .hero h1 .highlight-dark { color: var(--color-dark); }
+
+        .hero > .hero-content p {
+            font-size: 1.1rem;
+            color: var(--color-gray-600);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-dark));
+        }
+        .hero-card-header { text-align: center; margin-bottom: 2rem; }
+        .hero-card-icon {
+            width: 100px; height: 100px;
+            background: linear-gradient(135deg, var(--color-primary-light), var(--color-dark-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2.5rem;
+        }
+        .hero-card h3 { font-size: 1.3rem; color: var(--color-dark); }
+        .hero-card p  { color: var(--color-gray-600); font-size: 0.9rem; margin: 0; }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--color-gray-200);
+        }
+        .stat { text-align: center; }
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            display: block;
+        }
+        .stat-label { font-size: 0.8rem; color: var(--color-gray-600); }
+
+        .floating-badge {
+            position: absolute;
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            animation: float 5s ease-in-out infinite;
+        }
+        .floating-badge-1 { top: -20px; right: -30px; }
+        .floating-badge-2 { bottom: 30px; left: -40px; animation-delay: 1s; }
+
+        .badge-icon {
+            width: 45px; height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+        .badge-icon.warm  { background: var(--color-primary-light); }
+        .badge-icon.muted { background: var(--color-dark-light); }
+        .badge-text strong { display: block; font-size: 0.9rem; color: var(--color-dark); }
+        .badge-text span   { font-size: 0.75rem; color: var(--color-gray-600); }
+
+        /* ===== FEATURES ===== */
+        .features {
+            padding: 6rem 2rem;
+            background: var(--color-primary-light);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        .feature-card {
+            padding: 2.5rem;
+            background: var(--color-gray-100);
+            border-radius: var(--radius-md);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid transparent;
+        }
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-dark));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        .feature-card:hover {
+            background: var(--color-white);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-gray-200);
+        }
+        .feature-card:hover::before { transform: scaleX(1); }
+
+        .feature-icon {
+            width: 65px; height: 65px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            box-shadow: 0 8px 25px rgba(244,169,0,0.3);
+        }
+        .feature-card:nth-child(even) .feature-icon {
+            background: linear-gradient(135deg, var(--color-dark), var(--color-dark-deep));
+            box-shadow: 0 8px 25px rgba(74,64,58,0.3);
+        }
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--color-page);
+            margin-bottom: 0.75rem;
+        }
+        .feature-card p { color: var(--color-gray-600); font-size: 0.95rem; line-height: 1.7; }
+
+        /* ===== SERVICES ===== */
+        .services {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--color-dark-light) 0%, var(--color-white) 100%);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .service-card {
+            background: var(--color-white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--color-gray-200);
+            transition: all 0.4s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        .service-card-image {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .service-card-image.cleaning  { background: linear-gradient(135deg, #f5ede0, #d4b896); }
+        .service-card-image.childcare { background: linear-gradient(135deg, #f4a900, #c1666b); }
+        .service-card-image.eldercare { background: linear-gradient(135deg, #c1666b, #4a403a); }
+
+        .service-card-icon {
+            width: 80px; height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+        .service-card-badge {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            background: var(--color-primary);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        .service-card-content { padding: 1.75rem; }
+        .service-card-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--color-page);
+            margin-bottom: 0.5rem;
+        }
+        .service-card-content p {
+            color: var(--color-gray-600);
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+        }
+        .service-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--color-gray-200);
+        }
+        .service-price {
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+        .service-card-footer .btn-primary {
+            padding: 0.6rem 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        /* ===== BOOKING ===== */
+        .booking {
+            padding: 6rem 2rem;
+            background: var(--color-dark);
+            position: relative;
+        }
+        .booking .section-header h2 { color: white; }
+        .booking .section-header p  { color: rgba(255,255,255,0.8); }
+        .booking .section-tag {
+            background: rgba(244,169,0,0.2);
+            color: var(--color-primary);
+        }
+        .booking h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .options-table-wrap {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            margin-bottom: 4rem;
+        }
+        .options-table { width: 100%; border-collapse: collapse; }
+        .options-table thead { background: rgba(255,255,255,0.15); }
+        .options-table th {
+            padding: 1.25rem 1.5rem;
+            text-align: left;
+            font-weight: 700;
+            color: white;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+        }
+        .options-table td {
+            padding: 1.15rem 1.5rem;
+            color: rgba(255,255,255,0.9);
+            font-size: 0.95rem;
+        }
+        .options-table tbody tr {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: background 0.2s ease;
+        }
+        .options-table tbody tr:hover { background: rgba(255,255,255,0.08); }
+        .options-table tbody tr:last-child { border-bottom: none; }
+
+        .stepper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+        .stepper::before {
+            content: '';
+            position: absolute;
+            top: 28px; left: 56px; right: 56px;
+            height: 3px;
+            background: rgba(255,255,255,0.2);
+            z-index: 0;
+        }
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+        }
+        .step-number {
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            background: white;
+            color: var(--color-dark);
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            box-shadow: 0 6px 20px rgba(74,64,58,0.3);
+        }
+        .step:nth-child(even) .step-number {
+            background: var(--color-primary-light);
+            color: var(--color-primary);
+        }
+        .step-label { font-weight: 700; color: white; font-size: 1rem; margin-bottom: 0.25rem; }
+        .step-desc  { color: rgba(255,255,255,0.7); font-size: 0.85rem; max-width: 160px; }
+
+        .safety-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+        .safety-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.95);
+        }
+        .safety-check {
+            width: 40px; height: 40px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .booking-cta { text-align: center; }
+        .btn-whatsapp {
+            background: var(--color-primary);
+            color: white;
+            padding: 1.25rem 3rem;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.15rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 25px rgba(244,169,0,0.4);
+            border: none;
+            cursor: pointer;
+            font-family: var(--font);
+        }
+        .btn-whatsapp:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(244,169,0,0.5);
+        }
+        .booking-cta-note {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        /* ===== HOW IT WORKS ===== */
+        .how-it-works { padding: 6rem 2rem; background: var(--color-white); }
+        .how-it-works .stepper::before { background: var(--color-gray-200); }
+        .how-it-works .step-number {
+            background: var(--color-primary);
+            color: white;
+            box-shadow: 0 6px 20px rgba(244,169,0,0.3);
+        }
+        .how-it-works .step:nth-child(even) .step-number {
+            background: var(--color-dark);
+            color: white;
+            box-shadow: 0 6px 20px rgba(74,64,58,0.3);
+        }
+        .how-it-works .step-label { color: var(--color-page); }
+        .how-it-works .step-desc  { color: var(--color-gray-600); }
+        .how-it-works .stepper    { margin-bottom: 3rem; }
+
+        /* ===== BECOME A SERVICEKRU ===== */
+        .become { padding: 6rem 2rem; background: var(--color-primary-light); }
+        .become h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-page);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .benefits-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            max-width: 700px;
+            margin-bottom: 3rem;
+        }
+        .benefits-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--color-dark);
+        }
+        .benefit-icon {
+            width: 44px; height: 44px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .earnings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 600px;
+            margin: 1.5rem auto 3rem;
+        }
+        .earnings-card {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 2.5rem;
+            text-align: center;
+            border: 2px solid var(--color-gray-200);
+            transition: all 0.3s ease;
+        }
+        .earnings-card:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(244,169,0,0.15);
+        }
+        .earnings-label {
+            font-weight: 700;
+            color: var(--color-dark);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .earnings-amount {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            margin-bottom: 0.25rem;
+        }
+        .earnings-period { color: var(--color-gray-600); font-size: 0.9rem; }
+
+        .tier-table {
+            width: 100%;
+            max-width: 900px;
+            margin: 1.5rem auto 3rem;
+            border-collapse: separate;
+            border-spacing: 0 0.75rem;
+        }
+        .tier-table td {
+            padding: 1.15rem 1.5rem;
+            background: white;
+            font-size: 1rem;
+        }
+        .tier-table tr td:first-child { border-radius: 12px 0 0 12px; font-weight: 600; }
+        .tier-table tr td:last-child  { border-radius: 0 12px 12px 0; }
+        .tier-focus { color: var(--color-gray-600); font-size: 0.9rem; }
+        .tier-badge {
+            display: inline-block;
+            background: var(--color-primary);
+            color: white;
+            padding: 0.35rem 1rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.8rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .digital-cert-note {
+            text-align: center;
+            color: var(--color-gray-600);
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-top: -1.5rem;
+            margin-bottom: 3rem;
+        }
+        .become-cta { text-align: center; }
+
+        /* ===== CUSTOMER STORIES ===== */
+        .stories { padding: 6rem 2rem; background: var(--color-white); }
+
+        .stories-carousel {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 1rem;
+        }
+        .stories-carousel::-webkit-scrollbar { height: 8px; }
+        .stories-carousel::-webkit-scrollbar-track { background: var(--color-gray-100); border-radius: 10px; }
+        .stories-carousel::-webkit-scrollbar-thumb { background: var(--color-primary); border-radius: 10px; }
+
+        .story-card {
+            flex: 0 0 320px;
+            scroll-snap-align: start;
+            background: white;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--color-gray-200);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .story-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+        }
+        .story-card-image {
+            width: 100%; height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .story-card-body { padding: 2rem; }
+        .story-rating {
+            color: var(--color-primary);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: 1px;
+        }
+        .story-card-body h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-page);
+            margin-bottom: 0.5rem;
+        }
+        .story-card-body p {
+            color: var(--color-gray-600);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .story-service {
+            color: var(--color-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            background: var(--color-primary-light);
+            border-radius: var(--radius-pill);
+            display: inline-block;
+        }
+
+        .carousel-nav {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        .carousel-btn {
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .carousel-btn:hover { background: var(--color-primary-dark); transform: scale(1.1); }
+        .carousel-btn:active { transform: scale(0.95); }
+
+        /* ===== STORY MODAL ===== */
+        .story-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        .story-modal.active { display: flex; animation: fadeIn 0.3s ease; }
+
+        .story-modal-content {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 3rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .story-modal-close {
+            position: absolute;
+            top: 1.5rem; right: 1.5rem;
+            background: var(--color-gray-100);
+            border: none;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--color-dark);
+        }
+        .story-modal-close:hover { background: var(--color-primary); color: white; transform: rotate(90deg); }
+
+        .story-modal-image {
+            width: 100%; height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+        .story-modal-rating { color: var(--color-primary); font-size: 1.1rem; margin-bottom: 0.75rem; letter-spacing: 2px; }
+        .story-modal-title  { font-size: 1.8rem; font-weight: 700; color: var(--color-page); margin-bottom: 0.5rem; }
+        .story-modal-service { color: var(--color-primary); font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem; }
+        .story-modal-text   { color: var(--color-dark); font-size: 1rem; line-height: 1.8; margin-bottom: 2rem; }
+
+        .story-modal-footer {
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--color-gray-200);
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .story-modal-avatar {
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        .story-modal-avatar.orange { background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); }
+        .story-modal-avatar.blue   { background: linear-gradient(135deg, var(--color-dark), var(--color-dark-deep)); }
+        .story-modal-info h4  { font-weight: 700; color: var(--color-page); font-size: 1.1rem; margin: 0; }
+        .story-modal-info span { color: var(--color-gray-600); font-size: 0.9rem; }
+
+        /* ===== ENQUIRY FORM ===== */
+        .enquiry {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-deep) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .enquiry::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 10% 90%, rgba(244,169,0,0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 10%, rgba(255,255,255,0.1) 0%, transparent 40%);
+        }
+        .enquiry-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .enquiry .section-header h2 { color: white; }
+        .enquiry .section-header p  { color: rgba(255,255,255,0.8); }
+        .enquiry .section-tag {
+            background: rgba(244,169,0,0.2);
+            color: var(--color-primary);
+        }
+
+        .enquiry-form {
+            background: white;
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group:last-of-type { margin-bottom: 0; }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--color-dark);
+            font-size: 0.9rem;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid var(--color-gray-200);
+            border-radius: var(--radius-sm);
+            font-family: var(--font);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--color-gray-100);
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(244,169,0,0.1);
+        }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6,9 12,15 18,9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 20px;
+            background-color: var(--color-gray-100);
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .checkbox-group input {
+            width: 20px; height: 20px;
+            margin-top: 2px;
+            accent-color: var(--color-primary);
+            cursor: pointer;
+        }
+        .checkbox-group label {
+            color: var(--color-gray-600);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            cursor: pointer;
+        }
+        .checkbox-group a { color: var(--color-primary); font-weight: 600; }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            color: white;
+            padding: 1.25rem 2rem;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: var(--font);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            box-shadow: 0 8px 25px rgba(244,169,0,0.35);
+        }
+        .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(244,169,0,0.45); }
+
+        .success-message { display: none; text-align: center; padding: 2rem; }
+        .success-message.show { display: block; animation: fadeInUp 0.5s ease-out; }
+        .success-icon {
+            width: 90px; height: 90px;
+            background: linear-gradient(135deg, var(--color-primary-light), var(--color-dark-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.8rem;
+        }
+        .success-message h3 { font-size: 1.6rem; color: var(--color-dark); margin-bottom: 0.75rem; }
+        .success-message p  { color: var(--color-gray-600); }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--color-page);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+        .footer-logo { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .footer-tagline { color: var(--color-primary); font-size: 0.85rem; font-style: italic; margin-bottom: 1rem; }
+        .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7; max-width: 280px; }
+
+        .footer-links h4 { font-size: 1rem; margin-bottom: 1.25rem; color: var(--color-primary); font-weight: 600; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 0.75rem; }
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .footer-links a:hover { color: white; padding-left: 5px; }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-bottom p { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+
+        .social-links { display: flex; gap: 0.75rem; }
+        .social-links a {
+            width: 42px; height: 42px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover { background: var(--color-primary); transform: translateY(-3px); }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-content { grid-template-columns: 1fr; text-align: center; }
+            .hero h1 { font-size: 3rem; }
+            .hero > .hero-content p { margin: 0 auto 2rem; }
+            .hero-buttons { justify-content: center; }
+            .hero-visual { max-width: 450px; margin: 0 auto; }
+            .floating-badge-1 { right: 0; }
+            .floating-badge-2 { left: 0; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+            .story-card { flex: 0 0 280px; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 0.75rem 1rem; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .nav-links.active {
+                display: flex !important;
+                flex-direction: column;
+                position: absolute;
+                top: 100%; left: 0; right: 0;
+                background: rgba(255,255,255,0.98);
+                backdrop-filter: blur(10px);
+                padding: 1rem 2rem 2rem;
+                box-shadow: 0 10px 30px rgba(74,64,58,0.1);
+                gap: 0;
+            }
+            .nav-links.active li {
+                padding: 0.75rem 0;
+                border-bottom: 1px solid var(--color-gray-200);
+            }
+            .nav-links.active li:last-child { border-bottom: none; padding-top: 1rem; }
+
+            .hero { padding: 6rem 1rem 3rem; }
+            .hero h1 { font-size: 2.4rem; }
+            .floating-badge { display: none; }
+            .section-header h2 { font-size: 2.2rem; }
+
+            .features-grid,
+            .services-grid { grid-template-columns: 1fr; }
+
+            .stepper { flex-direction: column; align-items: flex-start; gap: 2rem; }
+            .stepper::before { top: 0; bottom: 0; left: 28px; right: auto; width: 3px; height: 100%; }
+            .step { flex-direction: row; text-align: left; gap: 1.5rem; }
+            .step-content, .step-desc { text-align: left; max-width: none; }
+
+            .options-table-wrap { overflow-x: auto; }
+            .safety-grid { grid-template-columns: 1fr; }
+            .benefits-list { grid-template-columns: 1fr; }
+            .earnings-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .enquiry-form { padding: 2rem 1.5rem; }
+            .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .story-card { flex: 0 0 250px; }
+            .story-card-body { padding: 1.5rem; }
+            .carousel-btn { width: 45px; height: 45px; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">
+            <span class="logo-text">
+                <span class="logo-dark">ser</span><span class="logo-accent">V</span><span class="logo-dark">ice</span><span class="logo-accent">KRU</span>
+            </span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#booking">Booking</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#become">Become a ServiceKru</a></li>
+            <li><a href="#booking" class="nav-cta">Book a Service</a></li>
+        </ul>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-shape hero-shape-1"></div>
+        <div class="hero-shape hero-shape-2"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-badge">Certified Women Professionals</span>
+                <h1>Trusted <span class="highlight">Home Services</span> by <span class="highlight-dark">Certified Professionals</span></h1>
+                <p>Book reliable cleaning, childcare, and elder care services — or start your journey as a certified ServiceKru professional.</p>
+                <div class="hero-buttons">
+                    <a href="#booking" class="btn-primary">
+                        Book a Service
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="#become" class="btn-secondary">Become a ServiceKru</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="hero-card-header">
+                        <div class="hero-card-icon">🏠</div>
+                        <h3>Trusted by Thousands</h3>
+                        <p>Insured, verified home service professionals</p>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">1,200+</span>
+                            <span class="stat-label">Providers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">4.8</span>
+                            <span class="stat-label">Rating</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">50K+</span>
+                            <span class="stat-label">Bookings</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-badge floating-badge-1">
+                    <div class="badge-icon warm">🛡️</div>
+                    <div class="badge-text">
+                        <strong>Insured</strong>
+                        <span>All providers covered</span>
+                    </div>
+                </div>
+                <div class="floating-badge floating-badge-2">
+                    <div class="badge-icon muted">⚡</div>
+                    <div class="badge-text">
+                        <strong>Fast Booking</strong>
+                        <span>Same-day available</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features / Trust -->
+    <section class="features" id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Why ServiceKru</span>
+                <h2>Why Families <span>Trust Us</span></h2>
+                <p>Every ServiceKru professional is trained, verified, and insured — so you can book with complete confidence.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>Certified & Trained</h3>
+                    <p>All ServiceKrus complete our structured training programme and earn Digital Certification before their first job.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Background Checked</h3>
+                    <p>We ensure safety and reliability for every home and office with thorough background verification on all providers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Fully Insured</h3>
+                    <p>Every booking is protected and insured for your peace of mind. Service guaranteed on every visit.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Rated & Reviewed</h3>
+                    <p>Transparent reviews and ratings after every job. Choose your provider based on real customer feedback.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Our Services</span>
+                <h2>Professional <span>Home Services</span></h2>
+                <p>Verified, insured professionals at your fingertips. Book with confidence.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-card-image cleaning">
+                        <div class="service-card-icon">🧹</div>
+                        <span class="service-card-badge">From RM120</span>
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Home Cleaning</h3>
+                        <p>Professional cleaning for homes, offices and Airbnb units. Deep cleaning, regular maintenance, and move-in/out services.</p>
+                        <div class="service-card-footer">
+                            <span class="service-price">From RM120/session</span>
+                            <a href="#booking" class="btn-primary">Book Now
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-image childcare">
+                        <div class="service-card-icon">👶</div>
+                        <span class="service-card-badge">Hourly</span>
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Childcare Support</h3>
+                        <p>Safe and reliable care for your children at home or centre. Babysitting, after-school care, and full-day supervision.</p>
+                        <div class="service-card-footer">
+                            <span class="service-price">Flexible hourly rates</span>
+                            <a href="#booking" class="btn-primary">Book Now
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-image eldercare">
+                        <div class="service-card-icon">🤝</div>
+                        <span class="service-card-badge">From RM130</span>
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Elder Care Companion</h3>
+                        <p>Compassionate support for seniors — companionship, daily assistance, hospital visits, and mobility help.</p>
+                        <div class="service-card-footer">
+                            <span class="service-price">From RM130/session</span>
+                            <a href="#booking" class="btn-primary">Book Now
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking -->
+    <section class="booking" id="booking">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Book a Service</span>
+                <h2>Book Trusted <span>Home Services</span></h2>
+                <p>Certified professionals — trained, reviewed, and documents verified.</p>
+            </div>
+
+            <div class="options-table-wrap">
+                <table class="options-table">
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Options</th>
+                            <th>Starting Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Home Cleaning</strong></td>
+                            <td>3 Hours / Hourly</td>
+                            <td><strong>From RM130</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Childcare</strong></td>
+                            <td>Hourly / Half Day</td>
+                            <td>Contact for pricing</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Elder Care</strong></td>
+                            <td>Companionship / Assistance</td>
+                            <td><strong>From RM130/session</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Simple Booking Process</h3>
+            <div class="stepper">
+                <div class="step">
+                    <div class="step-number" aria-label="Step 1: Choose your service">1</div>
+                    <div class="step-content">
+                        <div class="step-label">Choose Service</div>
+                        <div class="step-desc">Select the service you need</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number" aria-label="Step 2: Select date and time">2</div>
+                    <div class="step-content">
+                        <div class="step-label">Select Date & Time</div>
+                        <div class="step-desc">Pick a slot that works for you</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number" aria-label="Step 3: Confirm booking">3</div>
+                    <div class="step-content">
+                        <div class="step-label">Confirm Booking</div>
+                        <div class="step-desc">Review and confirm details</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number" aria-label="Step 4: Get matched">4</div>
+                    <div class="step-content">
+                        <div class="step-label">Get Matched</div>
+                        <div class="step-desc">We assign a certified professional</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Your Safety Matters</h3>
+            <div class="safety-grid">
+                <div class="safety-item"><div class="safety-check">✅</div> Background-checked professionals</div>
+                <div class="safety-item"><div class="safety-check">🛡️</div> Fully insured services</div>
+                <div class="safety-item"><div class="safety-check">📋</div> Service quality guaranteed</div>
+                <div class="safety-item"><div class="safety-check">💬</div> Customer support available</div>
+            </div>
+
+            <div class="booking-cta">
+                <a href="https://wa.me/" class="btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Book via WhatsApp">
+                    📱 Confirm Booking via WhatsApp
+                </a>
+                <p class="booking-cta-note">All ServiceKrus are insured and protected</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">For Professionals</span>
+                <h2>How It <span>Works</span></h2>
+                <p>Join our network of certified professionals and start earning with flexible hours.</p>
+            </div>
+            <div class="stepper">
+                <div class="step">
+                    <div class="step-number" aria-label="Step 1: Apply online">1</div>
+                    <div class="step-content">
+                        <div class="step-label">Apply Online</div>
+                        <div class="step-desc">Fill out a quick application form</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number" aria-label="Step 2: Attend training">2</div>
+                    <div class="step-content">
+                        <div class="step-label">Attend Training</div>
+                        <div class="step-desc">Complete our structured programme</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number" aria-label="Step 3: Get certified">3</div>
+                    <div class="step-content">
+                        <div class="step-label">Get Certified</div>
+                        <div class="step-desc">Earn your Digital Certification</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number" aria-label="Step 4: Start earning">4</div>
+                    <div class="step-content">
+                        <div class="step-label">Start Earning</div>
+                        <div class="step-desc">Receive bookings and build your reputation</div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center;">
+                <a href="#become" class="btn-primary">
+                    Apply Now
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Become a ServiceKru -->
+    <section class="become" id="become">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Join Our Team</span>
+                <h2>Become a <span>ServiceKru</span></h2>
+                <p>Get trained, certified and earn income with flexible earning opportunities.</p>
+            </div>
+
+            <ul class="benefits-list">
+                <li><div class="benefit-icon">⏰</div> Flexible working hours — you choose when</li>
+                <li><div class="benefit-icon">📅</div> Flexible or fixed training schedule</li>
+                <li><div class="benefit-icon">💰</div> Earn from RM80–RM120 per job</li>
+                <li><div class="benefit-icon">📈</div> Build professional skills & career</li>
+                <li><div class="benefit-icon">🤝</div> Supportive community of women</li>
+            </ul>
+
+            <h3>How Much Can You Earn?</h3>
+            <div class="earnings-grid">
+                <div class="earnings-card">
+                    <div class="earnings-label">Part-Time</div>
+                    <div class="earnings-amount">RM800–RM1,200</div>
+                    <div class="earnings-period">per month</div>
+                </div>
+                <div class="earnings-card">
+                    <div class="earnings-label">Full-Time</div>
+                    <div class="earnings-amount">RM1,500–RM2,400</div>
+                    <div class="earnings-period">per month</div>
+                </div>
+            </div>
+
+            <h3>Training & Certification Tiers</h3>
+            <table class="tier-table">
+                <tr>
+                    <td><span class="tier-badge">Tier 1</span></td>
+                    <td>Basic Cleaning</td>
+                    <td class="tier-focus">Basic cleaning skills for homes, offices & Airbnb units</td>
+                </tr>
+                <tr>
+                    <td><span class="tier-badge">Tier 2</span></td>
+                    <td>Professional Cleaning</td>
+                    <td class="tier-focus">Advanced cleaning techniques and standards</td>
+                </tr>
+                <tr>
+                    <td><span class="tier-badge">Tier 3</span></td>
+                    <td>Childcare Assistant</td>
+                    <td class="tier-focus">Safe, reliable childcare skills and child development basics</td>
+                </tr>
+                <tr>
+                    <td><span class="tier-badge">Tier 4</span></td>
+                    <td>Eldercare Assistant</td>
+                    <td class="tier-focus">Person-centred senior care — companionship, daily assistance & hospital visits</td>
+                </tr>
+            </table>
+            <p class="digital-cert-note">Training progresses from task-based skills (Tier 1) to complex, person-centred care (Tier 4). All ServiceKrus receive a Digital Certification upon completion of each tier.</p>
+
+            <div class="become-cta">
+                <a href="#enquiry" class="btn-primary" style="font-size:1.2rem; padding:1.25rem 3rem;">
+                    Apply Now
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Stories -->
+    <section class="stories" id="customer-stories">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Customer Stories</span>
+                <h2>See How <span>ServiceKru Changed Lives</span></h2>
+                <p>Real experiences from customers and service providers in our community.</p>
+            </div>
+            <div class="stories-carousel">
+                <div class="story-card" onclick="openStoryModal(this)"
+                    data-name="Rahmah M." data-service="Home Cleaning" data-role="Satisfied Customer" data-avatar="orange"
+                    data-text="ServiceKru transformed how I manage my household. The cleaning service is professional and reliable. Now I have more time with my family! The team is always punctual and thorough, paying attention to every detail. I've been recommending them to all my friends and family.">
+                    <img src="https://picsum.photos/320/200?random=1" alt="Rahmah M." class="story-card-image">
+                    <div class="story-card-body">
+                        <div class="story-rating">★★★★★</div>
+                        <h3>Rahmah M.</h3>
+                        <p>ServiceKru transformed how I manage my household. The cleaning service is professional and reliable. Now I have more time with my family!</p>
+                        <span class="story-service">Home Cleaning</span>
+                    </div>
+                </div>
+                <div class="story-card" onclick="openStoryModal(this)"
+                    data-name="Ahmad K." data-service="Elder Care" data-role="Family Member" data-avatar="blue"
+                    data-text="My mother received excellent elder care from their certified companions. They're compassionate, professional, and truly make a difference in her daily life. The caregivers are trained, patient, and treat my mother with genuine respect and kindness. I cannot recommend them enough.">
+                    <img src="https://picsum.photos/320/200?random=2" alt="Ahmad K." class="story-card-image">
+                    <div class="story-card-body">
+                        <div class="story-rating">★★★★★</div>
+                        <h3>Ahmad K.</h3>
+                        <p>My mother received excellent elder care from their certified companions. They're compassionate, professional, and truly make a difference in her daily life.</p>
+                        <span class="story-service">Elder Care</span>
+                    </div>
+                </div>
+                <div class="story-card" onclick="openStoryModal(this)"
+                    data-name="Priya L." data-service="Childcare" data-role="Working Parent" data-avatar="orange"
+                    data-text="As a working mother, ServiceKru's childcare professionals have been a lifesaver. Reliable, caring, and my child absolutely loves them. Highly recommended! The caregivers are certified, background-checked, and treat the children like their own. Peace of mind is priceless.">
+                    <img src="https://picsum.photos/320/200?random=3" alt="Priya L." class="story-card-image">
+                    <div class="story-card-body">
+                        <div class="story-rating">★★★★★</div>
+                        <h3>Priya L.</h3>
+                        <p>As a working mother, ServiceKru's childcare professionals have been a lifesaver. Reliable, caring, and my child absolutely loves them. Highly recommended!</p>
+                        <span class="story-service">Childcare</span>
+                    </div>
+                </div>
+                <div class="story-card" onclick="openStoryModal(this)"
+                    data-name="David C." data-service="Service Provider" data-role="Certified Professional" data-avatar="blue"
+                    data-text="I joined ServiceKru as a provider and my income doubled. The platform is transparent, payment is reliable, and I work on my own schedule. Best decision ever! The support team is helpful, the app is user-friendly, and I've built genuine relationships with my regular clients.">
+                    <img src="https://picsum.photos/320/200?random=4" alt="David C." class="story-card-image">
+                    <div class="story-card-body">
+                        <div class="story-rating">★★★★★</div>
+                        <h3>David C.</h3>
+                        <p>I joined ServiceKru as a provider and my income doubled. The platform is transparent, payment is reliable, and I work on my own schedule. Best decision ever!</p>
+                        <span class="story-service">Service Provider</span>
+                    </div>
+                </div>
+                <div class="story-card" onclick="openStoryModal(this)"
+                    data-name="Nurul S." data-service="Laundry Service" data-role="Loyal Customer" data-avatar="orange"
+                    data-text="The laundry service is impeccable. My clothes come back fresh, perfectly folded, and on time. I've been a loyal customer for 6 months now without any issues. The quality is consistent, prices are fair, and the delivery is always reliable. This service has freed up so much time in my week!">
+                    <img src="https://picsum.photos/320/200?random=5" alt="Nurul S." class="story-card-image">
+                    <div class="story-card-body">
+                        <div class="story-rating">★★★★★</div>
+                        <h3>Nurul S.</h3>
+                        <p>The laundry service is impeccable. My clothes come back fresh, perfectly folded, and on time. I've been a loyal customer for 6 months now without any issues.</p>
+                        <span class="story-service">Laundry Service</span>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <button class="carousel-btn" onclick="scrollCarousel(-1)" aria-label="Previous">←</button>
+                <button class="carousel-btn" onclick="scrollCarousel(1)"  aria-label="Next">→</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Modal -->
+    <div class="story-modal" id="storyModal" role="dialog" aria-modal="true" aria-labelledby="modalName">
+        <div class="story-modal-content">
+            <button class="story-modal-close" onclick="closeStoryModal()" aria-label="Close">✕</button>
+            <img id="modalImage" src="" alt="" class="story-modal-image">
+            <div id="modalRating" class="story-modal-rating">★★★★★</div>
+            <h2 id="modalName" class="story-modal-title"></h2>
+            <p id="modalService" class="story-modal-service"></p>
+            <p id="modalText" class="story-modal-text"></p>
+            <div class="story-modal-footer">
+                <div id="modalAvatar" class="story-modal-avatar"></div>
+                <div class="story-modal-info">
+                    <h4 id="modalAuthorName"></h4>
+                    <span id="modalAuthorRole"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enquiry Form -->
+    <section class="enquiry" id="enquiry">
+        <div class="enquiry-container">
+            <div class="section-header">
+                <span class="section-tag">Apply Now</span>
+                <h2>Start Your <span>Application</span></h2>
+                <p>Whether you want to book a service or join our team, fill out the form below and we'll get back to you within 24 hours.</p>
+            </div>
+            <div class="enquiry-form">
+                <form id="enquiryForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+60 12-345 6789">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">I'm interested in *</label>
+                        <select id="interest" name="interest" required>
+                            <option value="">Select an option...</option>
+                            <option value="cleaning">Book Home Cleaning</option>
+                            <option value="childcare">Book Childcare</option>
+                            <option value="eldercare">Book Elder Care</option>
+                            <option value="multiple">Book Multiple Services</option>
+                            <option value="provider">Become a ServiceKru Provider</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="situation">Tell us about your needs</label>
+                        <textarea id="situation" name="situation" placeholder="Describe what you're looking for..."></textarea>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="consent" name="consent" required>
+                        <label for="consent">I agree to receive communications about services and updates. View our <a href="#">Privacy Policy</a>.</label>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        Submit Enquiry
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                    </button>
+                </form>
+                <div class="success-message" id="successMessage">
+                    <div class="success-icon">✓</div>
+                    <h3>Thank You!</h3>
+                    <p>Your enquiry has been submitted successfully. Our team will contact you within 24 hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <span class="logo-dark">ser</span><span class="logo-accent">V</span><span class="logo-dark">ice</span><span class="logo-accent">KRU</span>
+                </div>
+                <p class="footer-tagline">Trusted Home Services by Certified Professionals</p>
+                <p>Connecting Malaysian families with certified, insured women professionals for cleaning, childcare, and elder care.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">Home Cleaning</a></li>
+                    <li><a href="#services">Childcare</a></li>
+                    <li><a href="#services">Elder Care</a></li>
+                    <li><a href="#booking">Book a Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>For Providers</h4>
+                <ul>
+                    <li><a href="#become">Become a ServiceKru</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#become">Training & Certification</a></li>
+                    <li><a href="#enquiry">Apply Now</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 ServiceKru. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">f</a>
+                <a href="#" aria-label="Instagram">ig</a>
+                <a href="#" aria-label="LinkedIn">in</a>
+                <a href="#" aria-label="WhatsApp">wa</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission
+        document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('successMessage').classList.add('show');
+            console.log('Form submitted:', Object.fromEntries(new FormData(this)));
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            });
+        });
+
+        // Nav shadow on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            nav.style.boxShadow = window.scrollY > 50
+                ? '0 4px 30px rgba(74,64,58,0.12)'
+                : '0 2px 20px rgba(74,64,58,0.08)';
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+                document.querySelector('.mobile-menu-btn').classList.remove('active');
+            });
+        });
+
+        // Carousel
+        function scrollCarousel(direction) {
+            document.querySelector('.stories-carousel').scrollBy({ left: direction * 340, behavior: 'smooth' });
+        }
+
+        // Story modal
+        function openStoryModal(el) {
+            const { name, service, role, avatar, text } = el.dataset;
+            const imageSrc = el.querySelector('.story-card-image').src;
+
+            document.getElementById('modalImage').src = imageSrc;
+            document.getElementById('modalName').textContent = name;
+            document.getElementById('modalService').textContent = service;
+            document.getElementById('modalText').textContent = text;
+            document.getElementById('modalAuthorName').textContent = name;
+            document.getElementById('modalAuthorRole').textContent = role;
+
+            const avatarEl = document.getElementById('modalAvatar');
+            avatarEl.textContent = name.match(/\b(\w)/g).join('');
+            avatarEl.className = `story-modal-avatar ${avatar}`;
+
+            document.getElementById('storyModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeStoryModal() {
+            document.getElementById('storyModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('storyModal').addEventListener('click', e => { if (e.target === e.currentTarget) closeStoryModal(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeStoryModal(); });
+    </script>
+</body>
+</html>
