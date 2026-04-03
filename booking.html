@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Services — ServiceKru</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-orange: #ee751e;
+            --color-orange-dark: #d56510;
+            --color-orange-light: #fff4eb;
+            --color-blue: #d6336c;
+            --color-blue-dark: #a71d60;
+            
+            --color-pink: #ad1457;
+            --color-pink-dark: #6a003b;
+            --color-pink-light: #f8bbd0;
+            --color-white: #FFFFFF;
+            --color-gray-100: #f8f9fa;
+            --color-gray-200: #e9ecef;
+            --color-gray-600: #6c757d;
+            --color-gray-800: #343a40;
+            --color-gray-900: #212529;
+            --font-primary: 'Poppins', sans-serif;
+            --font-secondary: 'Montserrat', sans-serif;
+        }
+            --font-body: 'Söhne', sans-serif;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: linear-gradient(135deg, var(--color-gray-100) 0%, var(--color-white) 100%);
+            color: var(--color-gray-800);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-gray-200);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--color-pink), var(--color-pink-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-family: var(--font-secondary);
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-service {
+            color: var(--color-pink);
+        }
+
+        .logo-kru {
+            color: var(--color-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-gray-800);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-pink), var(--color-pink-dark));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-pink);
+            transform: translateY(-1px);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--color-pink), var(--color-pink-dark));
+            color: white !important;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease !important;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-pink-dark) 100%);
+            color: white;
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 30% 20%, rgba(238, 117, 30, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: var(--font-secondary);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        /* Booking Section */
+        .booking {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .booking-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .booking-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .booking-title {
+            font-family: var(--font-secondary);
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--color-gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .booking-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .booking-form {
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+            border: 1px solid var(--color-gray-200);
+        }
+
+        .form-header {
+            background: linear-gradient(135deg, var(--color-orange-light), var(--color-pink-light));
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .form-header h3 {
+            font-family: var(--font-secondary);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: var(--color-gray-600);
+        }
+
+        .form-content {
+            padding: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--color-gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--color-gray-200);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: var(--font-primary);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--color-pink);
+            box-shadow: 0 0 0 3px rgba(0, 69, 145, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .service-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-option {
+            position: relative;
+        }
+
+        .service-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        .service-option label {
+            display: block;
+            background: var(--color-gray-100);
+            border: 2px solid var(--color-gray-200);
+            border-radius: 12px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .service-option input[type="radio"]:checked+label {
+            background: linear-gradient(135deg, var(--color-orange-light), var(--color-pink-light));
+            border-color: var(--color-pink);
+        }
+
+        .service-option-title {
+            font-weight: 600;
+            color: var(--color-gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-option-price {
+            color: var(--color-pink);
+            font-weight: 700;
+        }
+
+        .booking-process {
+            background: var(--color-gray-100);
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .process-title {
+            font-family: var(--font-secondary);
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--color-gray-900);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-pink), var(--color-pink-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        .step-title {
+            font-weight: 600;
+            color: var(--color-gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-description {
+            color: var(--color-gray-600);
+            font-size: 0.9rem;
+        }
+
+        .safety-section {
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-gray-200);
+            margin-bottom: 3rem;
+        }
+
+        .safety-title {
+            font-family: var(--font-secondary);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-gray-900);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .safety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .safety-item {
+            text-align: center;
+        }
+
+        .safety-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .safety-item h4 {
+            font-weight: 600;
+            color: var(--color-gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .safety-item p {
+            color: var(--color-gray-600);
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-pink), var(--color-pink-dark));
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-gray-900);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: white;
+        }
+
+        .footer-description {
+            color: var(--color-gray-200);
+            line-height: 1.6;
+        }
+
+        .footer-links h3 {
+            font-family: var(--font-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--color-gray-200);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-orange);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--color-gray-800);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--color-gray-600);
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 6rem 1rem 4rem;
+            }
+
+            .form-content {
+                padding: 2rem;
+            }
+
+            .service-options {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .safety-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="redesigned-index.html" class="logo">
+            <div class="logo-icon">SK</div>
+            <div class="logo-text">
+                <span class="logo-service">Service</span><span class="logo-kru">Kru</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="redesigned-index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="booking.html">Book Now</a></li>
+            <li><a href="become.html">Become a Kru</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://wa.me/60123456789" class="nav-cta">WhatsApp Us</a></li>
+        </ul>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Book Trusted Home Services</h1>
+                <p>Certified professionals (with title, reviews and documents verified). Get reliable cleaning,
+                    childcare, and elder care services.</p>
+            </div>
+        </section>
+
+        <section class="booking">
+            <div class="booking-container">
+                <div class="booking-header">
+                    <h2 class="booking-title">Choose Your Service</h2>
+                    <p class="booking-subtitle">Select the service that best fits your needs. Our certified
+                        professionals are ready to help.</p>
+                </div>
+
+                <form class="booking-form" action="https://wa.me/60123456789" method="get" target="_blank">
+                    <div class="form-header">
+                        <h3>Service Options</h3>
+                        <p>All prices are standardized and include insurance coverage</p>
+                    </div>
+
+                    <div class="form-content">
+                        <div class="form-group">
+                            <label class="form-label">Select Service</label>
+                            <div class="service-options">
+                                <div class="service-option">
+                                    <input type="radio" id="cleaning" name="service" value="Home Cleaning - RM120"
+                                        required>
+                                    <label for="cleaning">
+                                        <div class="service-option-title">Home Cleaning</div>
+                                        <div class="service-option-price">RM120</div>
+                                    </label>
+                                </div>
+                                <div class="service-option">
+                                    <input type="radio" id="childcare" name="service"
+                                        value="Childcare Support - Hourly">
+                                    <label for="childcare">
+                                        <div class="service-option-title">Childcare Support</div>
+                                        <div class="service-option-price">Hourly Rates</div>
+                                    </label>
+                                </div>
+                                <div class="service-option">
+                                    <input type="radio" id="eldercare" name="service" value="Elder Care - From RM130">
+                                    <label for="eldercare">
+                                        <div class="service-option-title">Elder Care</div>
+                                        <div class="service-option-price">From RM130</div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="name">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="address">Service Address</label>
+                            <input type="text" id="address" name="address" class="form-input"
+                                placeholder="Full address for service" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="date">Preferred Date</label>
+                            <input type="date" id="date" name="date" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="time">Preferred Time</label>
+                            <select id="time" name="time" class="form-select" required>
+                                <option value="">Select time</option>
+                                <option value="9:00 AM">9:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="1:00 PM">1:00 PM</option>
+                                <option value="2:00 PM">2:00 PM</option>
+                                <option value="3:00 PM">3:00 PM</option>
+                                <option value="4:00 PM">4:00 PM</option>
+                                <option value="5:00 PM">5:00 PM</option>
+                                <option value="6:00 PM">6:00 PM</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="message">Additional Details</label>
+                            <textarea id="message" name="message" class="form-textarea"
+                                placeholder="Any special requirements or instructions..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Confirm Booking — WhatsApp</button>
+                    </div>
+                </form>
+
+                <section class="booking-process">
+                    <h3 class="process-title">Simple Booking Process</h3>
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <h4 class="step-title">Choose Service</h4>
+                            <p class="step-description">Select your preferred service and provide details</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <h4 class="step-title">Select Date & Time</h4>
+                            <p class="step-description">Pick your convenient schedule</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <h4 class="step-title">Confirm Booking</h4>
+                            <p class="step-description">We'll match you with a certified professional</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <h4 class="step-title">Service Delivered</h4>
+                            <p class="step-description">Enjoy reliable, professional service</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="safety-section">
+                    <h3 class="safety-title">Your Safety Matters</h3>
+                    <div class="safety-grid">
+                        <div class="safety-item">
+                            <div class="safety-icon">🛡️</div>
+                            <h4>Background Checked</h4>
+                            <p>Every professional undergoes thorough background verification</p>
+                        </div>
+                        <div class="safety-item">
+                            <div class="safety-icon">🔒</div>
+                            <h4>Service Guaranteed</h4>
+                            <p>100% satisfaction guarantee on all services</p>
+                        </div>
+                        <div class="safety-item">
+                            <div class="safety-icon">📞</div>
+                            <h4>Customer Support</h4>
+                            <p>24/7 support for any concerns or questions</p>
+                        </div>
+                        <div class="safety-item">
+                            <div class="safety-icon">💼</div>
+                            <h4>All Insured</h4>
+                            <p>Insured by [Provider] for complete peace of mind</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="redesigned-index.html" class="footer-logo">
+                    <div class="logo-icon">SK</div>
+                    <div class="logo-text">
+                        <span class="logo-service">Service</span><span class="logo-kru">Kru</span>
+                    </div>
+                </a>
+                <p class="footer-description">Connecting Malaysian households with certified women professionals for
+                    trusted home services. Building a community of empowered women and satisfied families.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="services.html">Home Cleaning</a></li>
+                    <li><a href="services.html">Childcare</a></li>
+                    <li><a href="services.html">Elder Care</a></li>
+                    <li><a href="booking.html">Book Now</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="become.html">Become a Kru</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="redesigned-index.html#about">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="https://wa.me/60123456789">WhatsApp: +60 12 345 6789</a></li>
+                    <li><a href="mailto:hello@servicekru.com">Email Support</a></li>
+                    <li><a href="#help">Help Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ServiceKru. All rights reserved. | Insured by [Provider]</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Form handling
+        const bookingForm = document.querySelector('.booking-form');
+        bookingForm.addEventListener('submit', function (e) {
+            const formData = new FormData(this);
+            const message = `Hi ServiceKru! I'd like to book a service:\n\nService: ${formData.get('service')}\nName: ${formData.get('name')}\nPhone: ${formData.get('phone')}\nEmail: ${formData.get('email')}\nAddress: ${formData.get('address')}\nDate: ${formData.get('date')}\nTime: ${formData.get('time')}\nDetails: ${formData.get('message') || 'None'}`;
+
+            // Update WhatsApp link with message
+            const whatsappUrl = `https://wa.me/60123456789?text=${encodeURIComponent(message)}`;
+            this.action = whatsappUrl;
+        });
+    </script>
+</body>
+
+</html>
+</content>
+<parameter name="filePath">/Users/michaelyongfoo/custom-projects/servicekru/booking.html
