@@ -66,3 +66,7 @@ Required sections per `page-specs.md`:
 - `#how-it-works` - Provider onboarding steps
 - `#become` - Provider benefits, earnings, training tiers
 - `#enquiry` - Application form
+
+## Communication Style
+
+Keep explanations brief and direct by default. Only provide detailed explanations if the user explicitly asks for more detail or clarification.
