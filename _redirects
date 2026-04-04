@@ -1,0 +1,11 @@
+# Cloudflare Pages _redirects
+# Clean URL routing for HTML pages
+/booking        /redesigned-site/booking.html    200
+/services       /redesigned-site/services.html   200
+/become         /redesigned-site/become.html      200
+/contact        /redesigned-site/contact.html     200
+/faq            /redesigned-site/faq.html         200
+
+# 404 fallback
+/*              /index.html                        404
+
