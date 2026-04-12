@@ -1944,6 +1944,59 @@
         }
 
         /* Modal Popup */
+        /* Service Modals (Booking & Become a Pro) */
+        .service-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+            padding: 1rem;
+        }
+
+        .service-modal.active { display: flex; }
+
+        .service-modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 760px;
+            width: 100%;
+            max-height: 88vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-modal-content .section-header h2 { color: var(--color-gray-900); font-size: 2rem; }
+        .service-modal-content .section-header h2 span { color: var(--color-orange); }
+        .service-modal-content .section-header p { color: var(--color-gray-600); }
+        .service-modal-content h3 { color: var(--color-gray-800); }
+
+        /* Table: was white-on-dark, override for white modal */
+        .service-modal-content .options-table thead { background: var(--color-pink-light); }
+        .service-modal-content .options-table th { color: var(--color-gray-800); border-bottom-color: var(--color-gray-200); }
+        .service-modal-content .options-table td { color: var(--color-gray-800); }
+        .service-modal-content .options-table tbody tr { border-bottom-color: var(--color-gray-200); }
+        .service-modal-content .options-table tbody tr:hover { background: var(--color-gray-100); }
+
+        /* Stepper: was white-on-dark, override for white modal */
+        .service-modal-content .stepper-light::before { background: var(--color-gray-200); }
+        .service-modal-content .stepper-light .step-label { color: var(--color-gray-900); }
+        .service-modal-content .stepper-light .step-desc { color: var(--color-gray-600); }
+
+        /* Safety items: was white-on-dark, override for white modal */
+        .service-modal-content .safety-item { color: var(--color-gray-800); }
+        .service-modal-content .safety-check { background: var(--color-orange-light); }
+
+        @media (max-width: 768px) {
+            .service-modal-content { padding: 2rem 1.5rem; }
+        }
+
         .story-modal {
             display: none;
             position: fixed;
@@ -2142,10 +2195,10 @@
         </a>
         <ul class="nav-links">
             <li><a href="#services">Services</a></li>
-            <li><a href="#booking">Booking</a></li>
+            <li><a href="#" onclick="openServiceModal('bookingModal'); return false;">Booking</a></li>
             <li><a href="#how-it-works">How It Works</a></li>
-            <li><a href="#become">Become a Pro</a></li>
-            <li><a href="#booking" class="nav-cta">Book a Service</a></li>
+            <li><a href="#" onclick="openServiceModal('becomeModal'); return false;">Become a Pro</a></li>
+            <li><a href="#" class="nav-cta" onclick="openServiceModal('bookingModal'); return false;">Book a Service</a></li>
         </ul>
         <button class="mobile-menu-btn" aria-label="Menu">
             <span></span>
@@ -2170,7 +2223,7 @@
                         <h1>Start Your Journey as a <span class="highlight-orange">Certified Pro</span></h1>
                         <p>Get trained, earn RM800–RM2,400/month, and join a community of certified women professionals with flexible hours.</p>
                         <div class="hero-buttons">
-                            <a href="#become" class="btn-primary">
+                            <a href="#" class="btn-primary" onclick="openServiceModal('becomeModal'); return false;">
                                 Become a Pro
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             </a>
@@ -2221,7 +2274,7 @@
                         <h1>Trusted <span class="highlight-orange">Home Services</span> by <span class="highlight-blue">Certified Professionals</span></h1>
                         <p>Book reliable cleaning, childcare, and elder care services from certified, insured professionals — same-day available.</p>
                         <div class="hero-buttons">
-                            <a href="#booking" class="btn-primary">
+                            <a href="#" class="btn-primary" onclick="openServiceModal('bookingModal'); return false;">
                                 Book a Service
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             </a>
@@ -2345,7 +2398,7 @@
                         <p>Professional cleaning for homes, offices and Airbnb units. Deep cleaning, regular maintenance, and move-in/out services.</p>
                         <div class="service-card-footer">
                             <span style="font-weight:700; color:var(--color-orange);">From RM120/session</span>
-                            <a href="#booking" class="btn-primary">Book Now
+                            <a href="#" class="btn-primary" onclick="openServiceModal('bookingModal'); return false;">Book Now
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             </a>
                         </div>
@@ -2361,7 +2414,7 @@
                         <p>Safe and reliable care for your children at home or centre. Babysitting, after-school care, and full-day supervision.</p>
                         <div class="service-card-footer">
                             <span style="font-weight:700; color:var(--color-orange);">Flexible hourly rates</span>
-                            <a href="#booking" class="btn-primary">Book Now
+                            <a href="#" class="btn-primary" onclick="openServiceModal('bookingModal'); return false;">Book Now
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             </a>
                         </div>
@@ -2377,7 +2430,7 @@
                         <p>Compassionate support for seniors — companionship, daily assistance, hospital visits, and mobility help.</p>
                         <div class="service-card-footer">
                             <span style="font-weight:700; color:var(--color-orange);">From RM130/session</span>
-                            <a href="#booking" class="btn-primary">Book Now
+                            <a href="#" class="btn-primary" onclick="openServiceModal('bookingModal'); return false;">Book Now
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             </a>
                         </div>
@@ -2388,92 +2441,6 @@
     </section>
 
     <!-- Booking Section -->
-    <section class="booking-section" id="booking">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-tag">Book a Service</span>
-                <h2>Book Trusted <span>Home Services</span></h2>
-                <p>Certified professionals — trained, reviewed, and documents verified.</p>
-            </div>
-
-            <div class="options-table-wrap" style="margin-bottom: 4rem;">
-                <table class="options-table">
-                    <thead>
-                        <tr>
-                            <th>Service</th>
-                            <th>Options</th>
-                            <th>Starting Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Home Cleaning</strong></td>
-                            <td>3 Hours / Hourly</td>
-                            <td><strong>From RM130</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Childcare</strong></td>
-                            <td>Hourly / Half Day</td>
-                            <td>Contact for pricing</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Elder Care</strong></td>
-                            <td>Companionship / Assistance</td>
-                            <td><strong>From RM130/session</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h3>Simple Booking Process</h3>
-            <div class="stepper stepper-light" style="margin-bottom: 4rem;">
-                <div class="step">
-                    <div class="step-number" aria-label="Step 1 of 4: Choose your service">1</div>
-                    <div class="step-content">
-                        <div class="step-label">Choose Service</div>
-                        <div class="step-desc">Select the service you need</div>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number" aria-label="Step 2 of 4: Select date and time">2</div>
-                    <div class="step-content">
-                        <div class="step-label">Select Date & Time</div>
-                        <div class="step-desc">Pick a slot that works for you</div>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number" aria-label="Step 3 of 4: Confirm booking">3</div>
-                    <div class="step-content">
-                        <div class="step-label">Confirm Booking</div>
-                        <div class="step-desc">Review and confirm details</div>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number" aria-label="Step 4 of 4: We assign a professional">4</div>
-                    <div class="step-content">
-                        <div class="step-label">Get Matched</div>
-                        <div class="step-desc">We assign a certified professional</div>
-                    </div>
-                </div>
-            </div>
-
-            <h3>Your Safety Matters</h3>
-            <div class="safety-grid" style="margin: 0 auto 3rem;">
-                <div class="safety-item"><div class="safety-check">✅</div> Background-checked professionals</div>
-                <div class="safety-item"><div class="safety-check">🛡️</div> Fully insured services</div>
-                <div class="safety-item"><div class="safety-check">📋</div> Service quality guaranteed</div>
-                <div class="safety-item"><div class="safety-check">💬</div> Customer support available</div>
-            </div>
-
-            <div style="text-align: center;">
-                <a href="https://wa.me/" class="btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Book a service via WhatsApp">
-                    📱 Confirm Booking via WhatsApp
-                </a>
-                <p style="color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: 1rem;">All ServiceKrus are insured and protected</p>
-            </div>
-        </div>
-    </section>
-
     <!-- How It Works (For Providers) -->
     <section class="how-it-works-section" id="how-it-works">
         <div class="section-container">
@@ -2513,68 +2480,7 @@
                 </div>
             </div>
             <div style="text-align: center;">
-                <a href="#become" class="btn-primary">
-                    Apply Now
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Become a Pro -->
-    <section class="become-section" id="become">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-tag">Join Our Team</span>
-                <h2>Become a <span>ServiceKru</span></h2>
-                <p>Get trained, certified and earn income with flexible earning opportunities.</p>
-            </div>
-
-            <ul class="benefits-list">
-                <li><div class="benefit-icon"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=44&h=44&fit=crop&auto=format" alt="Flexible hours"></div> Flexible working hours — you choose when</li>
-                <li><div class="benefit-icon"><img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=44&h=44&fit=crop&auto=format" alt="Training schedule"></div> Flexible or fixed training schedule</li>
-                <li><div class="benefit-icon"><img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=44&h=44&fit=crop&auto=format" alt="Earn income"></div> Earn from RM80–RM120 per job</li>
-                <li><div class="benefit-icon"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=44&h=44&fit=crop&auto=format" alt="Career growth"></div> Build professional skills & career</li>
-                <li><div class="benefit-icon"><img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=44&h=44&fit=crop&auto=format" alt="Women community"></div> Supportive community of women</li>
-            </ul>
-
-            <h3>How Much Can You Earn?</h3>
-            <div class="earnings-grid">
-                <div class="earnings-card">
-                    <div class="earnings-label">Part-Time</div>
-                    <div class="earnings-amount">RM800–RM1,200</div>
-                    <div class="earnings-period">per month</div>
-                </div>
-                <div class="earnings-card">
-                    <div class="earnings-label">Full-Time</div>
-                    <div class="earnings-amount">RM1,500–RM2,400</div>
-                    <div class="earnings-period">per month</div>
-                </div>
-            </div>
-
-            <h3>Training & Certification Tiers</h3>
-            <table class="tier-table">
-                <tr>
-                    <td><span class="tier-badge">Tier 1</span></td>
-                    <td>Basic Cleaning</td>
-                </tr>
-                <tr>
-                    <td><span class="tier-badge">Tier 2</span></td>
-                    <td>Professional Cleaning</td>
-                </tr>
-                <tr>
-                    <td><span class="tier-badge">Tier 3</span></td>
-                    <td>Childcare Assistant</td>
-                </tr>
-                <tr>
-                    <td><span class="tier-badge">Tier 4</span></td>
-                    <td>Eldercare Assistant</td>
-                </tr>
-            </table>
-            <p class="digital-cert-note">All ServiceKrus receive Digital Certification upon completion.</p>
-
-            <div style="text-align: center;">
-                <a href="#enquiry" class="btn-primary" style="font-size: 1.2rem; padding: 1.25rem 3rem;">
+                <a href="#" class="btn-primary" onclick="openServiceModal('becomeModal'); return false;">
                     Apply Now
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
@@ -2697,6 +2603,156 @@
     </section>
 
     <!-- Story Modal -->
+    <!-- Book a Service Modal -->
+    <div class="service-modal" id="bookingModal">
+        <div class="service-modal-content">
+            <button class="story-modal-close" onclick="closeServiceModal('bookingModal')">✕</button>
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <span class="section-tag">Book a Service</span>
+                <h2>Book Trusted <span>Home Services</span></h2>
+                <p>Certified professionals — trained, reviewed, and documents verified.</p>
+            </div>
+
+            <div class="options-table-wrap" style="margin-bottom: 3rem;">
+                <table class="options-table">
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Options</th>
+                            <th>Starting Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Home Cleaning</strong></td>
+                            <td>3 Hours / Hourly</td>
+                            <td><strong>From RM130</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Childcare</strong></td>
+                            <td>Hourly / Half Day</td>
+                            <td>Contact for pricing</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Elder Care</strong></td>
+                            <td>Companionship / Assistance</td>
+                            <td><strong>From RM130/session</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="margin-bottom: 1.5rem;">Simple Booking Process</h3>
+            <div class="stepper stepper-light" style="margin-bottom: 3rem;">
+                <div class="step">
+                    <div class="step-number" aria-label="Step 1 of 4: Choose your service">1</div>
+                    <div class="step-content">
+                        <div class="step-label">Choose Service</div>
+                        <div class="step-desc">Select the service you need</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number" aria-label="Step 2 of 4: Select date and time">2</div>
+                    <div class="step-content">
+                        <div class="step-label">Select Date &amp; Time</div>
+                        <div class="step-desc">Pick a slot that works for you</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number" aria-label="Step 3 of 4: Confirm booking">3</div>
+                    <div class="step-content">
+                        <div class="step-label">Confirm Booking</div>
+                        <div class="step-desc">Review and confirm details</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number" aria-label="Step 4 of 4: We assign a professional">4</div>
+                    <div class="step-content">
+                        <div class="step-label">Get Matched</div>
+                        <div class="step-desc">We assign a certified professional</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 1.5rem;">Your Safety Matters</h3>
+            <div class="safety-grid" style="margin: 0 auto 3rem;">
+                <div class="safety-item"><div class="safety-check">✅</div> Background-checked professionals</div>
+                <div class="safety-item"><div class="safety-check">🛡️</div> Fully insured services</div>
+                <div class="safety-item"><div class="safety-check">📋</div> Service quality guaranteed</div>
+                <div class="safety-item"><div class="safety-check">💬</div> Customer support available</div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="https://wa.me/" class="btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Book a service via WhatsApp">
+                    📱 Confirm Booking via WhatsApp
+                </a>
+                <p style="color: var(--color-gray-600); font-size: 0.85rem; margin-top: 1rem;">All ServiceKrus are insured and protected</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Become a Pro Modal -->
+    <div class="service-modal" id="becomeModal">
+        <div class="service-modal-content">
+            <button class="story-modal-close" onclick="closeServiceModal('becomeModal')">✕</button>
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <span class="section-tag">Join Our Team</span>
+                <h2>Become a <span>Pro</span></h2>
+                <p>Get trained, certified and earn income with flexible earning opportunities.</p>
+            </div>
+
+            <ul class="benefits-list">
+                <li><div class="benefit-icon"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=44&h=44&fit=crop&auto=format" alt="Flexible hours"></div> Flexible working hours — you choose when</li>
+                <li><div class="benefit-icon"><img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=44&h=44&fit=crop&auto=format" alt="Training schedule"></div> Flexible or fixed training schedule</li>
+                <li><div class="benefit-icon"><img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=44&h=44&fit=crop&auto=format" alt="Earn income"></div> Earn from RM80–RM120 per job</li>
+                <li><div class="benefit-icon"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=44&h=44&fit=crop&auto=format" alt="Career growth"></div> Build professional skills &amp; career</li>
+                <li><div class="benefit-icon"><img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=44&h=44&fit=crop&auto=format" alt="Women community"></div> Supportive community of women</li>
+            </ul>
+
+            <h3 style="margin-bottom: 1.5rem;">How Much Can You Earn?</h3>
+            <div class="earnings-grid">
+                <div class="earnings-card">
+                    <div class="earnings-label">Part-Time</div>
+                    <div class="earnings-amount">RM800–RM1,200</div>
+                    <div class="earnings-period">per month</div>
+                </div>
+                <div class="earnings-card">
+                    <div class="earnings-label">Full-Time</div>
+                    <div class="earnings-amount">RM1,500–RM2,400</div>
+                    <div class="earnings-period">per month</div>
+                </div>
+            </div>
+
+            <h3 style="margin: 2rem 0 1.5rem;">Training &amp; Certification Tiers</h3>
+            <table class="tier-table">
+                <tr>
+                    <td><span class="tier-badge">Tier 1</span></td>
+                    <td>Basic Cleaning</td>
+                </tr>
+                <tr>
+                    <td><span class="tier-badge">Tier 2</span></td>
+                    <td>Professional Cleaning</td>
+                </tr>
+                <tr>
+                    <td><span class="tier-badge">Tier 3</span></td>
+                    <td>Childcare Assistant</td>
+                </tr>
+                <tr>
+                    <td><span class="tier-badge">Tier 4</span></td>
+                    <td>Eldercare Assistant</td>
+                </tr>
+            </table>
+            <p class="digital-cert-note">All ServiceKrus receive Digital Certification upon completion.</p>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#enquiry" class="btn-primary" style="font-size: 1.2rem; padding: 1.25rem 3rem;" onclick="closeServiceModal('becomeModal')">
+                    Apply Now
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <div class="story-modal" id="storyModal">
         <div class="story-modal-content">
             <button class="story-modal-close" onclick="closeStoryModal()">✕</button>
@@ -2795,15 +2851,15 @@
                     <li><a href="#services">Home Cleaning</a></li>
                     <li><a href="#services">Childcare</a></li>
                     <li><a href="#services">Elder Care</a></li>
-                    <li><a href="#booking">Book a Service</a></li>
+                    <li><a href="#" onclick="openServiceModal('bookingModal'); return false;">Book a Service</a></li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h4>For Providers</h4>
                 <ul>
-                    <li><a href="#become">Become a Pro</a></li>
+                    <li><a href="#" onclick="openServiceModal('becomeModal'); return false;">Become a Pro</a></li>
                     <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#become">Training & Certification</a></li>
+                    <li><a href="#" onclick="openServiceModal('becomeModal'); return false;">Training &amp; Certification</a></li>
                     <li><a href="#enquiry">Apply Now</a></li>
                 </ul>
             </div>
@@ -2966,7 +3022,26 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeStoryModal();
+                closeServiceModal('bookingModal');
+                closeServiceModal('becomeModal');
             }
+        });
+
+        // Service modal functions
+        function openServiceModal(id) {
+            document.getElementById(id).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeServiceModal(id) {
+            document.getElementById(id).classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        ['bookingModal', 'becomeModal'].forEach(function(id) {
+            document.getElementById(id).addEventListener('click', function(e) {
+                if (e.target === this) closeServiceModal(id);
+            });
         });
     </script>
 </body>
