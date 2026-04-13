@@ -167,4 +167,4 @@ Training progresses from task-based skills (Tier 1) to complex, person-centred c
 | Support     | FAQ, Payment Options, Subsidies, Privacy Policy |
 
 **Social icons:** Facebook, Instagram, LinkedIn, WhatsApp  
-**Copyright:** © 2025 ServiceKru. All rights reserved.
+**Copyright:** © 2026 ServiceKru. All rights reserved.
