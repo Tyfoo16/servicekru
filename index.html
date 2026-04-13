@@ -2194,11 +2194,6 @@
             </span>
         </a>
         <ul class="nav-links">
-            <li><a href="#services">Services</a></li>
-            <li><a href="#" onclick="openServiceModal('bookingModal'); return false;">Booking</a></li>
-            <li><a href="#how-it-works">How It Works</a></li>
-            <li><a href="#" onclick="openServiceModal('becomeModal'); return false;">Become a Pro</a></li>
-            <li><a href="#" class="nav-cta" onclick="openServiceModal('bookingModal'); return false;">Book a Service</a></li>
         </ul>
         <button class="mobile-menu-btn" aria-label="Menu">
             <span></span>
@@ -2220,8 +2215,8 @@
                 <div class="hero-slide hero-slide--active">
                     <div class="hero-text">
                         <span class="hero-badge">Certified Women Professionals</span>
-                        <h1>Start Your Journey as a <span class="highlight-orange">Certified Pro</span></h1>
-                        <p>Get trained, earn RM800–RM2,400/month, and join a community of certified women professionals with flexible hours.</p>
+                        <h1>Empowering Women Entrepreneurs with <span class="highlight-orange">Training & Certification</span></h1>
+                        <p>We help identify your potential and provide the best Professional Training to empower and boost your skills and income. Join a growing community of certified women professionals.</p>
                         <div class="hero-buttons">
                             <a href="#" class="btn-primary" onclick="openServiceModal('becomeModal'); return false;">
                                 Become a Pro
@@ -2252,7 +2247,7 @@
                             </div>
                         </div>
                         <div class="floating-badge floating-badge-1">
-                            <div class="badge-icon orange"><img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=45&h=45&fit=crop&auto=format" alt="Digital Certification"></div>
+                            <div class="badge-icon orange" style="display:flex;align-items:center;justify-content:center;font-size:1.5rem;">🎓</div>
                             <div class="badge-text">
                                 <strong>Digital Certification</strong>
                                 <span>Structured training</span>
@@ -2379,114 +2374,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="courses" id="services" style="background: linear-gradient(180deg, var(--color-pink-light) 0%, var(--color-pink-light) 60%, var(--color-white) 100%);">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-tag">Our Services</span>
-                <h2>Professional <span>Home Services</span></h2>
-                <p>Verified, insured professionals at your fingertips. Book with confidence.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-card-image">
-                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&auto=format" alt="Professional home cleaning service" width="400" height="300" loading="lazy">
-                        <span class="service-card-badge">From RM120</span>
-                    </div>
-                    <div class="service-card-content">
-                        <h3>Home Cleaning</h3>
-                        <p>Professional cleaning for homes, offices and Airbnb units. Deep cleaning, regular maintenance, and move-in/out services.</p>
-                        <div class="service-card-footer">
-                            <span style="font-weight:700; color:var(--color-orange);">From RM120/session</span>
-                            <a href="#" class="btn-primary" onclick="openServiceModal('bookingModal'); return false;">Book Now
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-card-image">
-                        <img src="https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=400&h=300&fit=crop&auto=format" alt="Childcare support service" width="400" height="300" loading="lazy">
-                        <span class="service-card-badge">Hourly</span>
-                    </div>
-                    <div class="service-card-content">
-                        <h3>Childcare Support</h3>
-                        <p>Safe and reliable care for your children at home or centre. Babysitting, after-school care, and full-day supervision.</p>
-                        <div class="service-card-footer">
-                            <span style="font-weight:700; color:var(--color-orange);">Flexible hourly rates</span>
-                            <a href="#" class="btn-primary" onclick="openServiceModal('bookingModal'); return false;">Book Now
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-card-image">
-                        <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=400&h=300&fit=crop&auto=format" alt="Elder care companion service" width="400" height="300" loading="lazy">
-                        <span class="service-card-badge">From RM130</span>
-                    </div>
-                    <div class="service-card-content">
-                        <h3>Elder Care Companion</h3>
-                        <p>Compassionate support for seniors — companionship, daily assistance, hospital visits, and mobility help.</p>
-                        <div class="service-card-footer">
-                            <span style="font-weight:700; color:var(--color-orange);">From RM130/session</span>
-                            <a href="#" class="btn-primary" onclick="openServiceModal('bookingModal'); return false;">Book Now
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Booking Section -->
-    <!-- How It Works (For Providers) -->
-    <section class="how-it-works-section" id="how-it-works">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-tag">For Professionals</span>
-                <h2>How It <span>Works</span></h2>
-                <p>Join our network of certified professionals and start earning with flexible hours.</p>
-            </div>
-            <div class="stepper" style="margin-bottom: 3rem;">
-                <div class="step">
-                    <div class="step-number" aria-label="Step 1 of 4: Apply online">1</div>
-                    <div class="step-content">
-                        <div class="step-label">Apply Online</div>
-                        <div class="step-desc">Fill out a quick application form</div>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number" aria-label="Step 2 of 4: Attend training">2</div>
-                    <div class="step-content">
-                        <div class="step-label">Attend Training</div>
-                        <div class="step-desc">Complete our structured programme</div>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number" aria-label="Step 3 of 4: Get certified">3</div>
-                    <div class="step-content">
-                        <div class="step-label">Get Certified</div>
-                        <div class="step-desc">Earn your Digital Certification</div>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number" aria-label="Step 4 of 4: Start earning">4</div>
-                    <div class="step-content">
-                        <div class="step-label">Start Earning</div>
-                        <div class="step-desc">Receive bookings and build your reputation</div>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center;">
-                <a href="#" class="btn-primary" onclick="openServiceModal('becomeModal'); return false;">
-                    Apply Now
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-            </div>
-        </div>
-    </section>
 
     <!-- Testimonials (Social Proof for Providers) -->
     <section class="testimonials-relocated" id="testimonials">
@@ -2613,80 +2500,16 @@
                 <p>Certified professionals — trained, reviewed, and documents verified.</p>
             </div>
 
-            <div class="options-table-wrap" style="margin-bottom: 3rem;">
-                <table class="options-table">
-                    <thead>
-                        <tr>
-                            <th>Service</th>
-                            <th>Options</th>
-                            <th>Starting Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Home Cleaning</strong></td>
-                            <td>3 Hours / Hourly</td>
-                            <td><strong>From RM130</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Childcare</strong></td>
-                            <td>Hourly / Half Day</td>
-                            <td>Contact for pricing</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Elder Care</strong></td>
-                            <td>Companionship / Assistance</td>
-                            <td><strong>From RM130/session</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <ul style="list-style:none;padding:0;margin:0 0 2rem;display:flex;flex-direction:column;gap:0.85rem;">
+                <li><span style="color:var(--color-orange);font-weight:700;">✦</span> Home Cleaning from RM130</li>
+                <li><span style="color:var(--color-orange);font-weight:700;">✦</span> Childcare &amp; Elder Care — flexible sessions</li>
+                <li><span style="color:var(--color-orange);font-weight:700;">✦</span> Background-checked, insured professionals</li>
+            </ul>
 
-            <h3 style="margin-bottom: 1.5rem;">Simple Booking Process</h3>
-            <div class="stepper stepper-light" style="margin-bottom: 3rem;">
-                <div class="step">
-                    <div class="step-number" aria-label="Step 1 of 4: Choose your service">1</div>
-                    <div class="step-content">
-                        <div class="step-label">Choose Service</div>
-                        <div class="step-desc">Select the service you need</div>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number" aria-label="Step 2 of 4: Select date and time">2</div>
-                    <div class="step-content">
-                        <div class="step-label">Select Date &amp; Time</div>
-                        <div class="step-desc">Pick a slot that works for you</div>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number" aria-label="Step 3 of 4: Confirm booking">3</div>
-                    <div class="step-content">
-                        <div class="step-label">Confirm Booking</div>
-                        <div class="step-desc">Review and confirm details</div>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number" aria-label="Step 4 of 4: We assign a professional">4</div>
-                    <div class="step-content">
-                        <div class="step-label">Get Matched</div>
-                        <div class="step-desc">We assign a certified professional</div>
-                    </div>
-                </div>
-            </div>
-
-            <h3 style="margin-bottom: 1.5rem;">Your Safety Matters</h3>
-            <div class="safety-grid" style="margin: 0 auto 3rem;">
-                <div class="safety-item"><div class="safety-check">✅</div> Background-checked professionals</div>
-                <div class="safety-item"><div class="safety-check">🛡️</div> Fully insured services</div>
-                <div class="safety-item"><div class="safety-check">📋</div> Service quality guaranteed</div>
-                <div class="safety-item"><div class="safety-check">💬</div> Customer support available</div>
-            </div>
-
-            <div style="text-align: center;">
-                <a href="https://wa.me/" class="btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Book a service via WhatsApp">
-                    📱 Confirm Booking via WhatsApp
+            <div style="text-align:center;margin-top:1rem;">
+                <a href="redesigned-site/booking.html" class="btn-primary" style="font-size:1.1rem;padding:1rem 2.5rem;">
+                    Book Now →
                 </a>
-                <p style="color: var(--color-gray-600); font-size: 0.85rem; margin-top: 1rem;">All ServiceKrus are insured and protected</p>
             </div>
         </div>
     </div>
@@ -2698,55 +2521,24 @@
             <div class="section-header" style="margin-bottom: 2rem;">
                 <span class="section-tag">Join Our Team</span>
                 <h2>Become a <span>Pro</span></h2>
-                <p>Get trained, certified and earn income with flexible earning opportunities.</p>
+                <p>Get trained, certified, and earn up to RM2,400/month — on your schedule.</p>
             </div>
 
-            <ul class="benefits-list">
-                <li><div class="benefit-icon"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=44&h=44&fit=crop&auto=format" alt="Flexible hours"></div> Flexible working hours — you choose when</li>
-                <li><div class="benefit-icon"><img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=44&h=44&fit=crop&auto=format" alt="Training schedule"></div> Flexible or fixed training schedule</li>
-                <li><div class="benefit-icon"><img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=44&h=44&fit=crop&auto=format" alt="Earn income"></div> Earn from RM80–RM120 per job</li>
-                <li><div class="benefit-icon"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=44&h=44&fit=crop&auto=format" alt="Career growth"></div> Build professional skills &amp; career</li>
-                <li><div class="benefit-icon"><img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=44&h=44&fit=crop&auto=format" alt="Women community"></div> Supportive community of women</li>
+            <ul style="list-style: none; padding: 0; margin: 0 0 2rem; display: flex; flex-direction: column; gap: 0.85rem;">
+                <li style="display: flex; align-items: center; gap: 0.75rem; font-size: 1rem; color: var(--color-gray-800);">
+                    <span style="color: var(--color-orange); font-weight: 700;">✦</span> Earn RM800–RM2,400/month
+                </li>
+                <li style="display: flex; align-items: center; gap: 0.75rem; font-size: 1rem; color: var(--color-gray-800);">
+                    <span style="color: var(--color-orange); font-weight: 700;">✦</span> Flexible hours &amp; Digital Certification
+                </li>
+                <li style="display: flex; align-items: center; gap: 0.75rem; font-size: 1rem; color: var(--color-gray-800);">
+                    <span style="color: var(--color-orange); font-weight: 700;">✦</span> Training + career placement support
+                </li>
             </ul>
 
-            <h3 style="margin-bottom: 1.5rem;">How Much Can You Earn?</h3>
-            <div class="earnings-grid">
-                <div class="earnings-card">
-                    <div class="earnings-label">Part-Time</div>
-                    <div class="earnings-amount">RM800–RM1,200</div>
-                    <div class="earnings-period">per month</div>
-                </div>
-                <div class="earnings-card">
-                    <div class="earnings-label">Full-Time</div>
-                    <div class="earnings-amount">RM1,500–RM2,400</div>
-                    <div class="earnings-period">per month</div>
-                </div>
-            </div>
-
-            <h3 style="margin: 2rem 0 1.5rem;">Training &amp; Certification Tiers</h3>
-            <table class="tier-table">
-                <tr>
-                    <td><span class="tier-badge">Tier 1</span></td>
-                    <td>Basic Cleaning</td>
-                </tr>
-                <tr>
-                    <td><span class="tier-badge">Tier 2</span></td>
-                    <td>Professional Cleaning</td>
-                </tr>
-                <tr>
-                    <td><span class="tier-badge">Tier 3</span></td>
-                    <td>Childcare Assistant</td>
-                </tr>
-                <tr>
-                    <td><span class="tier-badge">Tier 4</span></td>
-                    <td>Eldercare Assistant</td>
-                </tr>
-            </table>
-            <p class="digital-cert-note">All ServiceKrus receive Digital Certification upon completion.</p>
-
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="#enquiry" class="btn-primary" style="font-size: 1.2rem; padding: 1.25rem 3rem;" onclick="closeServiceModal('becomeModal')">
-                    Apply Now
+            <div style="text-align: center; margin-top: 1rem;">
+                <a href="redesigned-site/become.html" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
+                    Explore Full Details
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
             </div>
@@ -2771,70 +2563,6 @@
         </div>
     </div>
 
-    <!-- Enquiry Form -->
-    <section class="enquiry" id="enquiry">
-        <div class="enquiry-pattern"></div>
-        <div class="enquiry-container">
-            <div class="section-header">
-                <span class="section-tag">Apply Now</span>
-                <h2>Start Your <span>Application</span></h2>
-                <p>Whether you want to book a service or join our team, fill out the form below and we'll get back to you within 24 hours.</p>
-            </div>
-            <div class="enquiry-form">
-                <form id="enquiryForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name *</label>
-                            <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="+60 12-345 6789">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="interest">I'm interested in *</label>
-                        <select id="interest" name="interest" required>
-                            <option value="">Select an option...</option>
-                            <option value="cleaning">Book Home Cleaning</option>
-                            <option value="childcare">Book Childcare</option>
-                            <option value="eldercare">Book Elder Care</option>
-                            <option value="multiple">Book Multiple Services</option>
-                            <option value="provider">Become a Pro</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="situation">Tell us about your needs</label>
-                        <textarea id="situation" name="situation" placeholder="Describe what you're looking for (e.g., service type, schedule preferences, or if you'd like to join as a provider)..."></textarea>
-                    </div>
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="consent" name="consent" required>
-                        <label for="consent">I agree to receive communications about services and updates. View our <a href="#">Privacy Policy</a>.</label>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        Submit Enquiry
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-                    </button>
-                </form>
-                <div class="success-message" id="successMessage">
-                    <div class="success-icon"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=90&h=90&fit=crop&auto=format" alt="Success"></div>
-                    <h3>Thank You!</h3>
-                    <p>Your enquiry has been submitted successfully. Our team will contact you within 24 hours.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -2848,19 +2576,19 @@
             <div class="footer-links">
                 <h4>Services</h4>
                 <ul>
-                    <li><a href="#services">Home Cleaning</a></li>
-                    <li><a href="#services">Childcare</a></li>
-                    <li><a href="#services">Elder Care</a></li>
-                    <li><a href="#" onclick="openServiceModal('bookingModal'); return false;">Book a Service</a></li>
+                    <li><a href="redesigned-site/booking.html#services">Home Cleaning</a></li>
+                    <li><a href="redesigned-site/booking.html#services">Childcare</a></li>
+                    <li><a href="redesigned-site/booking.html#services">Elder Care</a></li>
+                    <li><a href="redesigned-site/booking.html">Book a Service</a></li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h4>For Providers</h4>
                 <ul>
                     <li><a href="#" onclick="openServiceModal('becomeModal'); return false;">Become a Pro</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="redesigned-site/become.html#how-it-works">How It Works</a></li>
                     <li><a href="#" onclick="openServiceModal('becomeModal'); return false;">Training &amp; Certification</a></li>
-                    <li><a href="#enquiry">Apply Now</a></li>
+                    <li><a href="redesigned-site/become.html#enquiry">Register Interest</a></li>
                 </ul>
             </div>
             <div class="footer-links">
@@ -2885,19 +2613,6 @@
     </footer>
 
     <script>
-        // Form submission handler
-        document.getElementById('enquiryForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Hide form and show success message
-            this.style.display = 'none';
-            document.getElementById('successMessage').classList.add('show');
-
-            // In production, you would send data to your backend here
-            const formData = new FormData(this);
-            console.log('Form submitted:', Object.fromEntries(formData));
-        });
-
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {

@@ -4,6 +4,25 @@ Compiled from handwritten wireframe notes. Currency: **MYR (RM)**.
 
 ---
 
+## Brand Messaging — Provider Empowerment
+*(Source: live site servicekru.my)*
+
+### Hero Headline (Provider)
+Empowering Women Entrepreneurs with Training & Certification
+
+### Value Proposition
+At ServiceKru, we help identify your potential and provide the best Professional Training to empower and boost your skills and income. Join us to be a women entrepreneur and have a more fulfilling professional life!
+
+### Three Pillars
+- **Professional Training** — Gain in-demand skills through expert-led training designed for cleaners and caregivers, combining practical learning and digital courses to prepare women for real jobs and long-term success
+- **Career Placements** — We connect trained, certified women with trusted employers, helping you secure stable jobs faster through smart matching, verified profiles, and a growing network of households and care centres
+- **Credential Certification** — Stand out with recognised e-certification that proves your skills, boosts our professional image, and opens doors to better job opportunities with reliable employers who value quality and trust
+
+### CTA
+Register Your Interest
+
+---
+
 ## Page 1 — Home Page
 
 ### Headline
