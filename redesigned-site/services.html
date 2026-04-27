@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services — ServiceKru</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-orange: #ee751e;
+            --color-orange-dark: #d56510;
+            --color-orange-light: #fff4eb;
+            --color-blue: #d6336c;
+            --color-blue-dark: #a71d60;
+            
+            --color-pink: #ad1457;
+            --color-pink-dark: #6a003b;
+            --color-pink-light: #f8bbd0;
+            --color-white: #FFFFFF;
+            --color-gray-100: #f8f9fa;
+            --color-gray-200: #e9ecef;
+            --color-gray-600: #6c757d;
+            --color-gray-800: #343a40;
+            --color-gray-900: #212529;
+            --font-primary: 'Poppins', sans-serif;
+            --font-secondary: 'Montserrat', sans-serif;
+        }
+            --font-body: 'Söhne', sans-serif;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: linear-gradient(135deg, var(--color-gray-100) 0%, var(--color-white) 100%);
+            color: var(--color-gray-800);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-gray-200);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--color-pink), var(--color-pink-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-family: var(--font-secondary);
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-service {
+            color: var(--color-pink);
+        }
+
+        .logo-kru {
+            color: var(--color-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-gray-800);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-pink), var(--color-pink-dark));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-pink);
+            transform: translateY(-1px);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--color-pink), var(--color-pink-dark));
+            color: white !important;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease !important;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-pink-dark) 100%);
+            color: white;
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 30% 20%, rgba(238, 117, 30, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: var(--font-secondary);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--color-gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .service-header {
+            background: linear-gradient(135deg, var(--color-orange-light), var(--color-pink-light));
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-pink), var(--color-pink-dark));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .service-title {
+            font-family: var(--font-secondary);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-pink);
+            margin-bottom: 1rem;
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-description {
+            color: var(--color-gray-600);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-gray-800);
+        }
+
+        .service-features li::before {
+            content: '✓';
+            color: var(--color-orange);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .service-cta {
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-pink), var(--color-pink-dark));
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Referral Section */
+        .referral {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--color-orange-light) 0%, var(--color-pink-light) 100%);
+        }
+
+        .referral-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .referral h2 {
+            font-family: var(--font-secondary);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            color: var(--color-gray-900);
+            margin-bottom: 1.5rem;
+        }
+
+        .referral p {
+            font-size: 1.1rem;
+            color: var(--color-gray-800);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .referral-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .benefit-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .benefit-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-title {
+            font-weight: 600;
+            color: var(--color-gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-description {
+            color: var(--color-gray-600);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-gray-900);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: white;
+        }
+
+        .footer-description {
+            color: var(--color-gray-200);
+            line-height: 1.6;
+        }
+
+        .footer-links h3 {
+            font-family: var(--font-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--color-gray-200);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-orange);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--color-gray-800);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--color-gray-600);
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 6rem 1rem 4rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .referral-benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="redesigned-index.html" class="logo">
+            <div class="logo-icon">SK</div>
+            <div class="logo-text">
+                <span class="logo-service">Service</span><span class="logo-kru">Kru</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="redesigned-index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="booking.html">Book Now</a></li>
+            <li><a href="become.html">Become a Kru</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="booking.html" class="nav-cta">Book Service</a></li>
+        </ul>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Our Services</h1>
+                <p>Professional home services delivered by certified women professionals. Choose from our range of
+                    trusted services designed for your convenience.</p>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🧹</div>
+                        <h3 class="service-title">Home Cleaning</h3>
+                        <div class="service-price">From RM120</div>
+                    </div>
+                    <div class="service-content">
+                        <p class="service-description">Professional cleaning for homes, offices & Airbnb units. Our
+                            certified professionals ensure every corner is spotless and sanitized.</p>
+                        <ul class="service-features">
+                            <li>Deep cleaning of all rooms</li>
+                            <li>Kitchen and bathroom sanitization</li>
+                            <li>Floor cleaning and polishing</li>
+                            <li>Insured service guarantee</li>
+                        </ul>
+                        <div class="service-cta">
+                            <a href="booking.html" class="btn-primary">Book Cleaning</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">👶</div>
+                        <h3 class="service-title">Childcare Support</h3>
+                        <div class="service-price">Hourly Rates</div>
+                    </div>
+                    <div class="service-content">
+                        <p class="service-description">Safe and reliable childcare at home or center. Our certified
+                            caregivers provide nurturing care while you focus on work or other commitments.</p>
+                        <ul class="service-features">
+                            <li>Certified childcare professionals</li>
+                            <li>Flexible hourly scheduling</li>
+                            <li>Educational activities included</li>
+                            <li>Background verified caregivers</li>
+                        </ul>
+                        <div class="service-cta">
+                            <a href="booking.html" class="btn-primary">Book Childcare</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">👴</div>
+                        <h3 class="service-title">Elder Care Companion</h3>
+                        <div class="service-price">From RM130/session</div>
+                    </div>
+                    <div class="service-content">
+                        <p class="service-description">Compassionate support for seniors including companionship, daily
+                            assistance, and hospital visits. Our trained professionals treat elders like family.</p>
+                        <ul class="service-features">
+                            <li>Personalized care plans</li>
+                            <li>Companionship and conversation</li>
+                            <li>Daily living assistance</li>
+                            <li>Medical appointment support</li>
+                        </ul>
+                        <div class="service-cta">
+                            <a href="booking.html" class="btn-primary">Book Elder Care</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="referral">
+            <div class="referral-content">
+                <h2>Refer & Earn Program</h2>
+                <p>Love our services? Share the ServiceKru experience with friends and family. Earn rewards for every
+                    successful referral!</p>
+                <div class="referral-benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🎁</div>
+                        <h3 class="benefit-title">RM50 Reward</h3>
+                        <p class="benefit-description">Get RM50 credit for each successful referral who books a service
+                        </p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">⭐</div>
+                        <h3 class="benefit-title">Priority Booking</h3>
+                        <p class="benefit-description">Referrers get priority booking and special discounts</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">📈</div>
+                        <h3 class="benefit-title">Unlimited Earnings</h3>
+                        <p class="benefit-description">No limit on referrals - earn as much as you want</p>
+                    </div>
+                </div>
+                <a href="contact.html" class="btn-primary">Start Referring Today</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="redesigned-index.html" class="footer-logo">
+                    <div class="logo-icon">SK</div>
+                    <div class="logo-text">
+                        <span class="logo-service">Service</span><span class="logo-kru">Kru</span>
+                    </div>
+                </a>
+                <p class="footer-description">Connecting Malaysian households with certified women professionals for
+                    trusted home services. Building a community of empowered women and satisfied families.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="services.html">Home Cleaning</a></li>
+                    <li><a href="services.html">Childcare</a></li>
+                    <li><a href="services.html">Elder Care</a></li>
+                    <li><a href="booking.html">Book Now</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="become.html">Become a Kru</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="redesigned-index.html#about">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="https://wa.me/60123456789">WhatsApp: +60 12 345 6789</a></li>
+                    <li><a href="mailto:hello@servicekru.com">Email Support</a></li>
+                    <li><a href="#help">Help Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ServiceKru. All rights reserved. | Insured by [Provider]</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+
+</html>
+</content>
+<parameter name="filePath">/Users/michaelyongfoo/custom-projects/servicekru/services.html

@@ -142,14 +142,14 @@ Each section maps to a `<section>` element in `index.html`. The **ID** column sh
 
 **Training & Certification Tiers:**
 
-| Tier   | Specialisation        |
-|--------|-----------------------|
-| Tier 1 | Basic Cleaning        |
-| Tier 2 | Professional Cleaning |
-| Tier 3 | Childcare Assistant   |
-| Tier 4 | Eldercare Assistant   |
+| Tier   | Specialisation        | Focus |
+|--------|-----------------------|-------|
+| Tier 1 | Basic Cleaning        | Basic cleaning skills for homes, offices & Airbnb units |
+| Tier 2 | Professional Cleaning | Advanced cleaning techniques and standards |
+| Tier 3 | Childcare Assistant   | Safe, reliable childcare skills and child development basics |
+| Tier 4 | Eldercare Assistant   | Person-centred senior care — companionship, daily assistance & hospital visits |
 
-*All ServiceKrus receive Digital Certification upon completion.*
+Training progresses from task-based skills (Tier 1) to complex, person-centred care (Tier 4). All ServiceKrus go through structured training and receive a **Digital Certification** upon completion of each tier.
 
 **CTA:** **Apply Now** → `#enquiry` (existing form) or `[Application URL TBD]`
 
@@ -167,4 +167,4 @@ Each section maps to a `<section>` element in `index.html`. The **ID** column sh
 | Support     | FAQ, Payment Options, Subsidies, Privacy Policy |
 
 **Social icons:** Facebook, Instagram, LinkedIn, WhatsApp  
-**Copyright:** © 2025 ServiceKru. All rights reserved.
+**Copyright:** © 2026 ServiceKru. All rights reserved.

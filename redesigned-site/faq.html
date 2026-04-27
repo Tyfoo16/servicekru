@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ — ServiceKru</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Freight+Display:wght@400;500;600;700&family=S%C3%B6hne:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --color-orange: #ee751e;
+            --color-orange-dark: #d56510;
+            --color-orange-light: #fff4eb;
+            --color-blue: #d6336c;
+            --color-blue-dark: #a71d60;
+            
+            --color-pink: #ad1457;
+            --color-pink-dark: #6a003b;
+            --color-pink-light: #f8bbd0;
+            --color-white: #FFFFFF;
+            --color-gray-50: #f9fafb;
+            --color-gray-100: #f3f4f6;
+            --color-gray-200: #e5e7eb;
+            --color-gray-300: #d1d5db;
+            --color-gray-600: #4b5563;
+            --color-gray-700: #374151;
+            --color-gray-800: #1f2937;
+            --color-gray-900: #111827;
+            --font-display: 'Freight Display', serif;
+            --font-body: 'Söhne', sans-serif;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: linear-gradient(135deg, var(--color-gray-100) 0%, var(--color-white) 100%);
+            color: var(--color-gray-800);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-gray-200);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--color-pink), var(--color-pink-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-family: var(--font-secondary);
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-service {
+            color: var(--color-pink);
+        }
+
+        .logo-kru {
+            color: var(--color-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-gray-800);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-pink), var(--color-pink-dark));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-pink);
+            transform: translateY(-1px);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--color-pink), var(--color-pink-dark));
+            color: white !important;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease !important;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-pink-dark) 100%);
+            color: white;
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 30% 20%, rgba(238, 117, 30, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: var(--font-secondary);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-search {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .faq-search input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--color-gray-200);
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: var(--font-primary);
+            transition: all 0.3s ease;
+        }
+
+        .faq-search input:focus {
+            outline: none;
+            border-color: var(--color-pink);
+            box-shadow: 0 0 0 3px rgba(0, 69, 145, 0.1);
+        }
+
+        .faq-categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            background: var(--color-gray-100);
+            color: var(--color-gray-800);
+            border: 2px solid var(--color-gray-200);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: linear-gradient(135deg, var(--color-orange-light), var(--color-pink-light));
+            border-color: var(--color-pink);
+            color: var(--color-pink);
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--color-gray-200);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 1.5rem 2rem;
+            text-align: left;
+            font-family: var(--font-primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-gray-900);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--color-gray-100);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--color-orange);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--color-gray-100);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 2rem 2rem;
+            color: var(--color-gray-600);
+            line-height: 1.6;
+        }
+
+        /* Contact CTA */
+        .contact-cta {
+            background: linear-gradient(135deg, var(--color-orange-light), var(--color-pink-light));
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .contact-cta h2 {
+            font-family: var(--font-secondary);
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--color-gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .contact-cta p {
+            color: var(--color-gray-600);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-pink), var(--color-pink-dark));
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-gray-900);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: white;
+        }
+
+        .footer-description {
+            color: var(--color-gray-200);
+            line-height: 1.6;
+        }
+
+        .footer-links h3 {
+            font-family: var(--font-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--color-gray-200);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-orange);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--color-gray-800);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--color-gray-600);
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 6rem 1rem 4rem;
+            }
+
+            .faq-categories {
+                gap: 0.5rem;
+            }
+
+            .category-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .faq-question {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .faq-answer-content {
+                padding: 0 1.5rem 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="redesigned-index.html" class="logo">
+            <div class="logo-icon">SK</div>
+            <div class="logo-text">
+                <span class="logo-service">Service</span><span class="logo-kru">Kru</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="redesigned-index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="booking.html">Book Now</a></li>
+            <li><a href="become.html">Become a Kru</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="booking.html" class="nav-cta">Book Service</a></li>
+        </ul>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Frequently Asked Questions</h1>
+                <p>Find answers to common questions about ServiceKru services, booking, and becoming a professional.</p>
+            </div>
+        </section>
+
+        <section class="faq">
+            <div class="faq-container">
+                <div class="faq-search">
+                    <input type="text" placeholder="Search FAQs..." id="faq-search">
+                </div>
+
+                <div class="faq-categories">
+                    <button class="category-btn active" data-category="all">All</button>
+                    <button class="category-btn" data-category="services">Services</button>
+                    <button class="category-btn" data-category="booking">Booking</button>
+                    <button class="category-btn" data-category="professionals">For Professionals</button>
+                    <button class="category-btn" data-category="safety">Safety & Insurance</button>
+                </div>
+
+                <div class="faq-list">
+                    <!-- Services FAQs -->
+                    <div class="faq-item" data-category="services">
+                        <button class="faq-question">What services does ServiceKru offer?</button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>ServiceKru offers three main services:</p>
+                                <ul>
+                                    <li><strong>Home Cleaning:</strong> Professional cleaning for homes, offices, and
+                                        Airbnb units starting from RM120</li>
+                                    <li><strong>Childcare Support:</strong> Flexible hourly care for children at home or
+                                        centers</li>
+                                    <li><strong>Elder Care Companion:</strong> Compassionate support for seniors
+                                        including companionship and daily assistance from RM130 per session</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="services">
+                        <button class="faq-question">How much does home cleaning cost?</button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Home cleaning services are standardized at RM120 per cleaning session. This includes
+                                    deep cleaning of all rooms, kitchen and bathroom sanitization, and floor cleaning.
+                                    The price is fixed to ensure transparency and fairness for both customers and our
+                                    professional ServiceKrus.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="services">
+                        <button class="faq-question">Are your services insured?</button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes, all ServiceKru services are fully insured by [Provider]. Every booking is
+                                    protected for your peace of mind, covering both the service professional and your
+                                    property during the service.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Booking FAQs -->
+                    <div class="faq-item" data-category="booking">
+                        <button class="faq-question">How do I book a service?</button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Booking is simple:</p>
+                                <ol>
+                                    <li>Choose your preferred service and fill out the booking form</li>
+                                    <li>Select your date and time</li>
+                                    <li>Provide your contact details and service address</li>
+                                    <li>Click "Confirm Booking — WhatsApp" to send your booking request</li>
+                                    <li>We'll match you with a certified professional and confirm via WhatsApp</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="booking">
+                        <button class="faq-question">Can I reschedule or cancel my booking?</button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes, you can reschedule or cancel your booking. Please contact us via WhatsApp at +60
+                                    12 345 6789 at least 24 hours before your scheduled service time. We'll work with
+                                    you to find a suitable alternative time or process your cancellation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="booking">
+                        <button class="faq-question">How far in advance should I book?</button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>We recommend booking at least 2-3 days in advance to ensure availability of our
+                                    certified professionals. However, same-day bookings may be possible depending on
+                                    demand and location. Contact us via WhatsApp to check availability.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Professionals FAQs -->
+                    <div class="faq-item" data-category="professionals">
+                        <button class="faq-question">How do I become a ServiceKru professional?</button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Becoming a ServiceKru is a straightforward process:</p>
+                                <ol>
+                                    <li>Apply online through our contact form</li>
+                                    <li>Attend our comprehensive training program</li>
+                                    <li>Get certified in your chosen service area</li>
+                                    <li>Start receiving job assignments with flexible scheduling</li>
+                                </ol>
+                                <p>All our professionals are women who receive proper training and certification.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="professionals">
+                        <button class="faq-question">What are the earnings like for ServiceKru professionals?</button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>ServiceKru professionals earn competitive rates:</p>
+                                <ul>
+                                    <li><strong>Home Cleaning:</strong> RM120 per job</li>
+                                    <li><strong>Childcare:</strong> RM80 per hour</li>
+                                    <li><strong>Elder Care:</strong> RM130 per session</li>
+                                </ul>
+                                <p>You can work flexibly and choose your schedule. Many professionals earn
+                                    RM1,000–RM3,000 monthly depending on their availability and the number of jobs they
+                                    accept.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="professionals">
+                        <button class="faq-question">Do I need prior experience to become a ServiceKru?</button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>No prior professional experience is required. We provide comprehensive training for
+                                    all our ServiceKru professionals. What matters most is your commitment to providing
+                                    quality service and your willingness to learn. Our training covers everything from
+                                    basic service skills to safety protocols and customer service.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Safety FAQs -->
+                    <div class="faq-item" data-category="safety">
+                        <button class="faq-question">Are ServiceKru professionals background checked?</button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes, all ServiceKru professionals undergo thorough background checks before being
+                                    certified. We ensure safety and reliability for every home and office through
+                                    comprehensive verification processes, including reference checks and criminal
+                                    background screening.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="safety">
+                        <button class="faq-question">What happens if I'm not satisfied with the service?</button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Your satisfaction is our priority. If you're not completely satisfied with the
+                                    service, please contact us immediately via WhatsApp. We'll work to resolve the
+                                    issue, which may include sending another professional at no extra cost or providing
+                                    a refund. We offer a 100% satisfaction guarantee.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="safety">
+                        <button class="faq-question">How does the referral program work?</button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Our referral program rewards you for sharing ServiceKru with friends and family:</p>
+                                <ul>
+                                    <li>Earn RM50 credit for each successful referral who books a service</li>
+                                    <li>No limit on referrals - earn as much as you want</li>
+                                    <li>Referrers get priority booking and special discounts</li>
+                                    <li>Contact us to start referring and track your rewards</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-cta">
+            <h2>Still have questions?</h2>
+            <p>Can't find the answer you're looking for? Our support team is here to help.</p>
+            <a href="contact.html" class="btn-primary">Contact Us</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="redesigned-index.html" class="footer-logo">
+                    <div class="logo-icon">SK</div>
+                    <div class="logo-text">
+                        <span class="logo-service">Service</span><span class="logo-kru">Kru</span>
+                    </div>
+                </a>
+                <p class="footer-description">Connecting Malaysian households with certified women professionals for
+                    trusted home services. Building a community of empowered women and satisfied families.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="services.html">Home Cleaning</a></li>
+                    <li><a href="services.html">Childcare</a></li>
+                    <li><a href="services.html">Elder Care</a></li>
+                    <li><a href="booking.html">Book Now</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="become.html">Become a Kru</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="redesigned-index.html#about">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="https://wa.me/60123456789">WhatsApp: +60 12 345 6789</a></li>
+                    <li><a href="mailto:hello@servicekru.com">Email Support</a></li>
+                    <li><a href="#help">Help Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ServiceKru. All rights reserved. | Insured by [Provider]</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // FAQ functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const searchInput = document.getElementById('faq-search');
+
+        // Toggle FAQ answers
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+        // Category filtering
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const category = btn.dataset.category;
+
+                faqItems.forEach(item => {
+                    if (category === 'all' || item.dataset.category === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Search functionality
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer-content').textContent.toLowerCase();
+
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
+</content>
+<parameter name="filePath">/Users/michaelyongfoo/custom-projects/servicekru/faq.html

@@ -12,9 +12,12 @@
             --color-orange: #ee751e;
             --color-orange-dark: #d56510;
             --color-orange-light: #fff4eb;
-            --color-blue: #004591;
-            --color-blue-dark: #003470;
-            --color-blue-light: #e8f0fa;
+            --color-blue: #1565C0;
+            --color-blue-dark: #0D47A1;
+            
+            --color-pink: #1565C0;
+            --color-pink-dark: #0D47A1;
+            --color-pink-light: #BBDEFB;
             --color-white: #FFFFFF;
             --color-gray-100: #f8f9fa;
             --color-gray-200: #e9ecef;
@@ -66,6 +69,9 @@
             gap: 0.25rem;
         }
 
+        .logo-img { height: 44px; width: auto; display: block; }
+        .logo-img--footer { height: 48px; margin-bottom: 0.75rem; filter: brightness(0) invert(1); }
+
         .logo-text {
             font-family: var(--font-secondary);
             font-size: 1.6rem;
@@ -74,7 +80,7 @@
         }
 
         .logo-service {
-            color: var(--color-blue);
+            color: var(--color-pink);
         }
 
         .logo-v {
@@ -84,19 +90,6 @@
 
         .logo-kru {
             color: var(--color-orange);
-        }
-
-        .logo-icon {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0 -2px;
-        }
-
-        .bowtie {
-            font-size: 0.6rem;
-            color: var(--color-orange);
-            margin-bottom: -4px;
         }
 
         .nav-links {
@@ -127,7 +120,7 @@
         }
 
         .nav-links a:not(.nav-cta):hover {
-            color: var(--color-blue);
+            color: var(--color-pink);
         }
 
         .nav-links a:not(.nav-cta):hover::after {
@@ -141,13 +134,13 @@
             border-radius: 50px;
             font-weight: 600;
             transition: all 0.3s ease !important;
-            box-shadow: 0 4px 15px rgba(238, 117, 30, 0.3);
+            box-shadow: 0 4px 15px rgba(173, 20, 87, 0.3);
         }
 
         .nav-cta:hover {
             background: var(--color-orange-dark);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(238, 117, 30, 0.4);
+            box-shadow: 0 6px 20px rgba(173, 20, 87, 0.4);
         }
 
         .mobile-menu-btn {
@@ -162,7 +155,7 @@
             display: block;
             width: 25px;
             height: 3px;
-            background: var(--color-blue);
+            background: var(--color-pink);
             margin: 5px 0;
             border-radius: 2px;
             transition: all 0.3s ease;
@@ -176,7 +169,7 @@
             padding: 7rem 2rem 4rem;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--color-white) 0%, var(--color-blue-light) 50%, var(--color-orange-light) 100%);
+            background: linear-gradient(135deg, var(--color-white) 0%, var(--color-pink-light) 50%, var(--color-orange-light) 100%);
         }
 
         .hero-pattern {
@@ -249,12 +242,54 @@
         .hero-content {
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-carousel {
+            position: relative;
+        }
+
+        .hero-slide {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.6s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .hero-slide--active {
+            opacity: 1;
+            pointer-events: auto;
             position: relative;
-            z-index: 1;
+        }
+
+        .hero-dots {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--color-gray-200);
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .dot--active {
+            background: var(--color-orange);
+            transform: scale(1.3);
         }
 
         .hero-text {
@@ -276,7 +311,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: var(--color-blue);
+            background: var(--color-pink);
             color: white;
             padding: 0.5rem 1.25rem;
             border-radius: 50px;
@@ -287,7 +322,7 @@
         }
 
         .hero-badge::before {
-            content: '✦';
+            content: '▸';
             color: var(--color-orange);
         }
 
@@ -306,7 +341,7 @@
         }
 
         .hero h1 .highlight-blue {
-            color: var(--color-blue);
+            color: var(--color-pink);
         }
 
         .hero p {
@@ -337,18 +372,18 @@
             border: none;
             cursor: pointer;
             font-size: 1.1rem;
-            box-shadow: 0 6px 25px rgba(238, 117, 30, 0.4);
+            box-shadow: 0 6px 25px rgba(173, 20, 87, 0.4);
         }
 
         .btn-primary:hover {
             background: var(--color-orange-dark);
             transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(238, 117, 30, 0.4);
+            box-shadow: 0 8px 30px rgba(173, 20, 87, 0.4);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--color-blue);
+            color: var(--color-pink);
             padding: 1.15rem 2.5rem;
             border-radius: 50px;
             text-decoration: none;
@@ -357,11 +392,11 @@
             align-items: center;
             gap: 0.5rem;
             transition: all 0.3s ease;
-            border: 3px solid var(--color-blue);
+            border: 3px solid var(--color-pink);
         }
 
         .btn-secondary:hover {
-            background: var(--color-blue);
+            background: var(--color-pink);
             color: white;
         }
 
@@ -386,7 +421,7 @@
             left: 0;
             right: 0;
             height: 6px;
-            background: linear-gradient(90deg, var(--color-orange), var(--color-blue));
+            background: linear-gradient(90deg, var(--color-pink), var(--color-pink-dark));
         }
 
         .hero-card-header {
@@ -397,19 +432,21 @@
         .hero-card-icon {
             width: 100px;
             height: 100px;
-            background: linear-gradient(135deg, var(--color-orange-light), var(--color-blue-light));
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden;
             margin: 0 auto 1rem;
-            font-size: 2.5rem;
+        }
+
+        .hero-card-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .hero-card h3 {
             font-family: var(--font-secondary);
             font-size: 1.3rem;
-            color: var(--color-blue);
+            color: var(--color-pink);
         }
 
         .hero-card p {
@@ -443,6 +480,30 @@
             color: var(--color-gray-600);
         }
 
+        .hero-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--color-gray-200);
+            list-style: none;
+            margin: 0;
+        }
+
+        .hero-benefits li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--color-gray-800);
+            line-height: 1.4;
+        }
+
+        .hero-benefits li svg {
+            flex-shrink: 0;
+            color: var(--color-orange);
+        }
+
         .floating-badge {
             position: absolute;
             background: white;
@@ -457,12 +518,12 @@
 
         .floating-badge-1 {
             top: -20px;
-            right: -30px;
+            right: -20px;
         }
 
         .floating-badge-2 {
-            bottom: 30px;
-            left: -40px;
+            bottom: -20px;
+            left: -20px;
             animation-delay: 1s;
         }
 
@@ -470,20 +531,14 @@
             width: 45px;
             height: 45px;
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
+            overflow: hidden;
+            flex-shrink: 0;
         }
 
-        .badge-icon.orange {
-            background: var(--color-orange-light);
-            color: var(--color-orange);
-        }
-
-        .badge-icon.blue {
-            background: var(--color-blue-light);
-            color: var(--color-blue);
+        .badge-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .badge-text strong {
@@ -500,7 +555,7 @@
         /* Features Section */
         .features {
             padding: 6rem 2rem;
-            background: var(--color-orange-light);
+            background: linear-gradient(180deg, var(--color-white) 0%, var(--color-orange-light) 100%);
         }
 
         .section-container {
@@ -515,8 +570,8 @@
 
         .section-tag {
             display: inline-block;
-            background: var(--color-blue-light);
-            color: var(--color-blue);
+            background: var(--color-pink-light);
+            color: var(--color-pink);
             padding: 0.5rem 1.25rem;
             border-radius: 50px;
             font-size: 0.85rem;
@@ -547,80 +602,194 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
         }
 
         .feature-card {
-            padding: 2.5rem;
-            background: var(--color-gray-100);
-            border-radius: 20px;
-            transition: all 0.4s ease;
-            position: relative;
+            background: var(--color-white);
+            border-radius: 24px;
             overflow: hidden;
-            border: 1px solid transparent;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--color-orange), var(--color-blue));
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
+            transition: all 0.4s ease;
+            border: 1px solid var(--color-gray-200);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
         .feature-card:hover {
-            background: var(--color-white);
-            transform: translateY(-8px);
-            box-shadow: 0 25px 60px rgba(0, 69, 145, 0.12);
-            border-color: var(--color-gray-200);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0, 69, 145, 0.13);
+            border-color: transparent;
         }
 
-        .feature-card:hover::before {
-            transform: scaleX(1);
+        .feature-img {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
         }
 
-        .feature-icon {
-            width: 65px;
-            height: 65px;
-            background: linear-gradient(135deg, var(--color-orange), var(--color-orange-dark));
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.6rem;
-            color: white;
-            box-shadow: 0 8px 25px rgba(238, 117, 30, 0.3);
+        .feature-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .feature-card:nth-child(even) .feature-icon {
-            background: linear-gradient(135deg, var(--color-blue), var(--color-blue-dark));
-            box-shadow: 0 8px 25px rgba(0, 69, 145, 0.3);
+        .feature-card:hover .feature-img img {
+            transform: scale(1.05);
+        }
+
+        .feature-img-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to top, rgba(0,0,0,0.35), transparent);
+        }
+
+        .feature-card-body {
+            padding: 2rem 2rem 2rem;
+            position: relative;
+        }
+
+        .feature-card-body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 2rem;
+            width: 48px;
+            height: 4px;
+            border-radius: 0 0 4px 4px;
+            background: var(--color-orange);
+        }
+
+        .feature-card:nth-child(even) .feature-card-body::before {
+            background: var(--color-blue);
         }
 
         .feature-card h3 {
             font-family: var(--font-secondary);
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             margin-bottom: 0.75rem;
             color: var(--color-gray-900);
-            font-weight: 600;
+            font-weight: 700;
+            padding-top: 1.25rem;
         }
 
         .feature-card p {
             color: var(--color-gray-600);
             font-size: 0.95rem;
-            line-height: 1.7;
+            line-height: 1.75;
+            margin: 0;
         }
+
+        /* ===== Our Purpose / Features animated treatment ===== */
+        .features {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features-shapes {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .features-shapes .shape {
+            position: absolute;
+        }
+
+        .shape-fp-1 {
+            width: 380px;
+            height: 380px;
+            background: linear-gradient(135deg, rgba(238, 117, 30, 0.12), transparent);
+            top: -120px;
+            right: -120px;
+            opacity: 0.7;
+        }
+
+        .shape-fp-2 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(173, 20, 87, 0.08), transparent);
+            bottom: -100px;
+            left: -100px;
+            opacity: 0.7;
+        }
+
+        .shape-fp-3 {
+            width: 110px;
+            height: 110px;
+            border: 3px solid rgba(238, 117, 30, 0.18);
+            top: 14%;
+            left: 6%;
+            animation: float 7s ease-in-out infinite;
+        }
+
+        .shape-fp-4 {
+            width: 70px;
+            height: 70px;
+            background: rgba(173, 20, 87, 0.12);
+            bottom: 18%;
+            right: 6%;
+            animation: float 9s ease-in-out infinite reverse;
+        }
+
+        .features .section-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .features-header-wrap {
+            position: relative;
+            max-width: 760px;
+            margin: 0 auto 4rem;
+        }
+
+        .features-header-wrap .section-header {
+            margin-bottom: 0;
+        }
+
+        .floating-badge-fp-1 {
+            top: -18px;
+            right: -8px;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .floating-badge-fp-2 {
+            bottom: -28px;
+            left: -8px;
+            animation: float 5s ease-in-out infinite;
+            animation-delay: 1.2s;
+        }
+
+        .floating-badge-fp-1 .badge-icon,
+        .floating-badge-fp-2 .badge-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .floating-badge-fp-1 .badge-icon { background: var(--color-orange); }
+        .floating-badge-fp-2 .badge-icon { background: var(--color-pink); }
+
+        .feature-card {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .feature-card:nth-child(1) { animation-delay: 0.1s; }
+        .feature-card:nth-child(2) { animation-delay: 0.25s; }
+        .feature-card:nth-child(3) { animation-delay: 0.4s; }
+        .feature-card:nth-child(4) { animation-delay: 0.55s; }
 
         /* Courses Section */
         .courses {
             padding: 6rem 2rem;
-            background: linear-gradient(180deg, var(--color-blue-light) 0%, var(--color-white) 100%);
+            background: linear-gradient(180deg, var(--color-pink-light) 0%, var(--color-white) 100%);
         }
 
         .courses-grid {
@@ -744,109 +913,14 @@
             align-items: center;
             gap: 0.4rem;
             font-weight: 600;
-            color: var(--color-blue);
-            font-size: 0.85rem;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 6rem 2rem;
-            background: var(--color-white);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: var(--color-gray-100);
-            padding: 2.5rem;
-            border-radius: 20px;
-            position: relative;
-            border: 1px solid var(--color-gray-200);
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            background: white;
-            box-shadow: 0 20px 50px rgba(0, 69, 145, 0.1);
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            font-family: var(--font-secondary);
-            font-size: 5rem;
-            color: var(--color-orange);
-            opacity: 0.2;
-            position: absolute;
-            top: 0.5rem;
-            left: 1.5rem;
-            line-height: 1;
-        }
-
-        .testimonial-stars {
-            color: var(--color-orange);
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-        }
-
-        .testimonial-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial-content p {
-            color: var(--color-gray-800);
-            font-size: 1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .testimonial-avatar {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .testimonial-avatar.orange {
-            background: linear-gradient(135deg, var(--color-orange), var(--color-orange-dark));
-        }
-
-        .testimonial-avatar.blue {
-            background: linear-gradient(135deg, var(--color-blue), var(--color-blue-dark));
-        }
-
-        .testimonial-info h4 {
-            font-weight: 600;
-            color: var(--color-gray-900);
-            font-size: 1rem;
-        }
-
-        .testimonial-info span {
-            color: var(--color-gray-600);
+            color: var(--color-pink);
             font-size: 0.85rem;
         }
 
         /* Enquiry Form */
         .enquiry {
             padding: 6rem 2rem;
-            background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-blue-dark) 100%);
+            background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-pink-dark) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -858,7 +932,7 @@
             right: 0;
             bottom: 0;
             background-image:
-                radial-gradient(circle at 10% 90%, rgba(238, 117, 30, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 10% 90%, rgba(173, 20, 87, 0.15) 0%, transparent 40%),
                 radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.1) 0%, transparent 40%);
         }
 
@@ -999,7 +1073,7 @@
             align-items: center;
             justify-content: center;
             gap: 0.75rem;
-            box-shadow: 0 8px 25px rgba(238, 117, 30, 0.35);
+            box-shadow: 0 8px 25px rgba(173, 20, 87, 0.35);
         }
 
         .submit-btn:hover {
@@ -1123,19 +1197,22 @@
         .success-icon {
             width: 90px;
             height: 90px;
-            background: linear-gradient(135deg, var(--color-orange-light), var(--color-blue-light));
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden;
             margin: 0 auto 1.5rem;
-            font-size: 2.8rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .success-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .success-message h3 {
             font-family: var(--font-secondary);
             font-size: 1.6rem;
-            color: var(--color-blue);
+            color: var(--color-pink);
             margin-bottom: 0.75rem;
         }
 
@@ -1147,8 +1224,15 @@
         /* Mobile Responsive */
         @media (max-width: 1024px) {
             .hero-content {
-                grid-template-columns: 1fr;
                 text-align: center;
+            }
+
+            .hero-slide {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-dots {
+                justify-content: center;
             }
 
             .hero h1 {
@@ -1174,14 +1258,6 @@
 
             .floating-badge-2 {
                 left: 0;
-            }
-
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .testimonials-grid {
-                grid-template-columns: repeat(2, 1fr);
             }
 
             .services-grid {
@@ -1218,9 +1294,12 @@
                 font-size: 2.2rem;
             }
 
-            .features-grid,
-            .testimonials-grid {
+            .features-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .features-header-wrap {
+                margin-bottom: 2.5rem;
             }
 
             .courses-grid,
@@ -1343,28 +1422,17 @@
         }
 
         .service-card-image {
-            height: 160px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 200px;
             position: relative;
+            overflow: hidden;
         }
 
-        .service-card-image.cleaning { background: linear-gradient(135deg, #D6F5E8, #B8ECD6); }
-        .service-card-image.childcare { background: linear-gradient(135deg, #FFE8D6, #FFDCC3); }
-        .service-card-image.eldercare { background: linear-gradient(135deg, #E8E0D6, #D4C8B8); }
-
-        .service-card-icon {
-            width: 80px;
-            height: 80px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            z-index: 1;
+        .service-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
         }
 
         .service-card-badge {
@@ -1503,11 +1571,11 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 1rem;
-            box-shadow: 0 6px 20px rgba(238, 117, 30, 0.3);
+            box-shadow: 0 6px 20px rgba(173, 20, 87, 0.3);
         }
 
         .step:nth-child(even) .step-number {
-            background: var(--color-blue);
+            background: var(--color-pink);
             box-shadow: 0 6px 20px rgba(0, 69, 145, 0.3);
         }
 
@@ -1518,7 +1586,7 @@
 
         .stepper-light .step:nth-child(odd) .step-number {
             background: white;
-            color: var(--color-blue);
+            color: var(--color-pink);
         }
 
         .step-label {
@@ -1592,12 +1660,12 @@
         .earnings-card:hover {
             border-color: var(--color-orange);
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(238, 117, 30, 0.15);
+            box-shadow: 0 15px 40px rgba(173, 20, 87, 0.15);
         }
 
         .earnings-label {
             font-weight: 700;
-            color: var(--color-blue);
+            color: var(--color-pink);
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
             text-transform: uppercase;
@@ -1664,7 +1732,7 @@
             align-items: center;
             gap: 0.75rem;
             transition: all 0.3s ease;
-            box-shadow: 0 6px 25px rgba(238, 117, 30, 0.4);
+            box-shadow: 0 6px 25px rgba(173, 20, 87, 0.4);
             border: none;
             cursor: pointer;
         }
@@ -1697,20 +1765,22 @@
         .benefit-icon {
             width: 44px;
             height: 44px;
-            background: white;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
+            overflow: hidden;
             flex-shrink: 0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .benefit-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Section Background Helpers */
         .booking-section {
             padding: 6rem 2rem;
-            background: var(--color-blue);
+            background: var(--color-pink);
             position: relative;
         }
 
@@ -1764,9 +1834,366 @@
             font-style: italic;
         }
 
-        .testimonials-relocated {
+        /* Modal Popup */
+        /* Service Modals (Booking & Become a Pro) */
+        .service-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+            padding: 1rem;
+        }
+
+        .service-modal.active { display: flex; }
+
+        .service-modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 760px;
+            width: 100%;
+            max-height: 88vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-modal-content .section-header h2 { color: var(--color-gray-900); font-size: 2rem; }
+        .service-modal-content .section-header h2 span { color: var(--color-orange); }
+        .service-modal-content .section-header p { color: var(--color-gray-600); }
+        .service-modal-content h3 { color: var(--color-gray-800); }
+
+        /* Table: was white-on-dark, override for white modal */
+        .service-modal-content .options-table thead { background: var(--color-pink-light); }
+        .service-modal-content .options-table th { color: var(--color-gray-800); border-bottom-color: var(--color-gray-200); }
+        .service-modal-content .options-table td { color: var(--color-gray-800); }
+        .service-modal-content .options-table tbody tr { border-bottom-color: var(--color-gray-200); }
+        .service-modal-content .options-table tbody tr:hover { background: var(--color-gray-100); }
+
+        /* Stepper: was white-on-dark, override for white modal */
+        .service-modal-content .stepper-light::before { background: var(--color-gray-200); }
+        .service-modal-content .stepper-light .step-label { color: var(--color-gray-900); }
+        .service-modal-content .stepper-light .step-desc { color: var(--color-gray-600); }
+
+        /* Safety items: was white-on-dark, override for white modal */
+        .service-modal-content .safety-item { color: var(--color-gray-800); }
+        .service-modal-content .safety-check { background: var(--color-orange-light); }
+
+        @media (max-width: 768px) {
+            .service-modal-content { padding: 2rem 1.5rem; }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* ===== Our Story Section ===== */
+        .our-story {
             padding: 6rem 2rem;
-            background: var(--color-gray-100);
+            background: linear-gradient(180deg, var(--color-white) 0%, var(--color-orange-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .our-story-shapes {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .our-story-shapes .shape {
+            position: absolute;
+        }
+
+        .shape-os-1 {
+            width: 360px;
+            height: 360px;
+            background: linear-gradient(135deg, rgba(238, 117, 30, 0.1), transparent);
+            top: -120px;
+            left: -120px;
+            opacity: 0.6;
+        }
+
+        .shape-os-2 {
+            width: 280px;
+            height: 280px;
+            background: linear-gradient(135deg, rgba(21, 101, 192, 0.1), transparent);
+            bottom: -80px;
+            right: -80px;
+            opacity: 0.6;
+        }
+
+        .shape-os-3 {
+            width: 120px;
+            height: 120px;
+            border: 3px solid rgba(238, 117, 30, 0.18);
+            top: 18%;
+            right: 8%;
+            animation: float 7s ease-in-out infinite;
+        }
+
+        .shape-os-4 {
+            width: 70px;
+            height: 70px;
+            background: rgba(21, 101, 192, 0.12);
+            bottom: 22%;
+            left: 7%;
+            animation: float 9s ease-in-out infinite reverse;
+        }
+
+        .our-story .section-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .our-story-card-wrap {
+            position: relative;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .our-story-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem 2.75rem;
+            box-shadow: 0 25px 80px rgba(0, 69, 145, 0.12);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .our-story-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--color-orange), var(--color-pink));
+        }
+
+        .our-story-card .story-block {
+            text-align: center;
+        }
+
+        .our-story-card .story-block + .story-block {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-gray-200);
+        }
+
+        .our-story-card .story-eyebrow {
+            display: inline-block;
+            font-family: var(--font-secondary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--color-orange);
+            margin-bottom: 0.75rem;
+        }
+
+        .our-story-card .story-block:nth-child(2) .story-eyebrow {
+            color: var(--color-pink);
+        }
+
+        .our-story-card .story-block h3 {
+            font-family: var(--font-secondary);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--color-gray-900);
+            margin-bottom: 0.85rem;
+            line-height: 1.3;
+        }
+
+        .our-story-card .story-block p {
+            color: var(--color-gray-600);
+            font-size: 1rem;
+            line-height: 1.75;
+            max-width: 580px;
+            margin: 0 auto;
+        }
+
+        .floating-badge-os-1 {
+            top: -28px;
+            right: -28px;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .floating-badge-os-2 {
+            bottom: -28px;
+            left: -28px;
+            animation: float 5s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        .floating-badge-os-1 .badge-icon,
+        .floating-badge-os-2 .badge-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .floating-badge-os-1 .badge-icon {
+            background: var(--color-orange);
+        }
+
+        .floating-badge-os-2 .badge-icon {
+            background: var(--color-pink);
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 5rem;
+        }
+
+        .pillar-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.25rem 2rem;
+            border: 1px solid var(--color-gray-200);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--color-orange);
+        }
+
+        .pillar-card:nth-child(2)::before {
+            background: var(--color-pink);
+        }
+
+        .pillar-card:nth-child(3)::before {
+            background: linear-gradient(90deg, var(--color-orange), var(--color-pink));
+        }
+
+        .pillar-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .pillar-card:nth-child(2) {
+            animation-delay: 0.25s;
+        }
+
+        .pillar-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 55px rgba(0, 69, 145, 0.14);
+            border-color: transparent;
+        }
+
+        .pillar-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: var(--color-orange-light);
+            color: var(--color-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: transform 0.4s ease;
+        }
+
+        .pillar-card:nth-child(2) .pillar-icon {
+            background: var(--color-pink-light);
+            color: var(--color-pink);
+        }
+
+        .pillar-card:nth-child(3) .pillar-icon {
+            background: linear-gradient(135deg, var(--color-orange-light), var(--color-pink-light));
+            color: var(--color-orange);
+        }
+
+        .pillar-card:hover .pillar-icon {
+            transform: scale(1.08) rotate(-4deg);
+        }
+
+        .pillar-card h3 {
+            font-family: var(--font-secondary);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--color-gray-900);
+            margin-bottom: 0.6rem;
+        }
+
+        .pillar-card p {
+            color: var(--color-gray-600);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .pillars-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                max-width: 520px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .our-story {
+                padding: 4.5rem 1rem;
+            }
+
+            .our-story-card {
+                padding: 2.25rem 1.5rem;
+            }
+
+            .our-story-card .story-block h3 {
+                font-size: 1.35rem;
+            }
+
+            .floating-badge-os-1,
+            .floating-badge-os-2 {
+                display: none;
+            }
+
+            .pillars-grid {
+                margin-top: 3rem;
+            }
         }
 
     </style>
@@ -1775,16 +2202,9 @@
     <!-- Navigation -->
     <nav>
         <a href="#" class="logo">
-            <span class="logo-text">
-                <span class="logo-service">ser</span><span class="logo-icon"><span class="bowtie">🎀</span><span class="logo-v">V</span></span><span class="logo-service">ice</span><span class="logo-kru">KRU</span>
-            </span>
+            <img src="assets/logo.png" alt="ServiceKru" class="logo-img">
         </a>
         <ul class="nav-links">
-            <li><a href="#services">Services</a></li>
-            <li><a href="#booking">Booking</a></li>
-            <li><a href="#how-it-works">How It Works</a></li>
-            <li><a href="#become">Become a ServiceKru</a></li>
-            <li><a href="#booking" class="nav-cta">Book a Service</a></li>
         </ul>
         <button class="mobile-menu-btn" aria-label="Menu">
             <span></span>
@@ -1801,489 +2221,355 @@
             <div class="shape shape-2"></div>
         </div>
         <div class="hero-content">
-            <div class="hero-text">
-                <span class="hero-badge">Certified Women Professionals</span>
-                <h1>Trusted <span class="highlight-orange">Home Services</span> by <span class="highlight-blue">Certified Professionals</span></h1>
-                <p>Book reliable cleaning, childcare, and elder care services — or start your journey as a certified ServiceKru professional.</p>
-                <div class="hero-buttons">
-                    <a href="#booking" class="btn-primary">
-                        Book a Service
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
-                    <a href="#become" class="btn-secondary">Become a ServiceKru</a>
+            <div class="hero-carousel">
+                <!-- Slide 1: Customer -->
+                <div class="hero-slide hero-slide--active">
+                    <div class="hero-text">
+                        <span class="hero-badge">Certified Women Professionals</span>
+                        <h1>Trusted <span class="highlight-orange">Home Services</span> by <span class="highlight-blue">Certified Professionals</span></h1>
+                        <p>Book reliable cleaning, childcare, and elder care services from certified, insured professionals — same-day available.</p>
+                        <div class="hero-buttons">
+                            <a href="#" class="btn-primary" onclick="openServiceModal('bookingModal'); return false;">
+                                Book a Service
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="hero-card">
+                            <div class="hero-card-header">
+                                <div class="hero-card-icon"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=100&h=100&fit=crop&auto=format" alt="Trusted home services"></div>
+                                <h3>Trusted by Thousands</h3>
+                                <p>Insured, verified home service professionals</p>
+                            </div>
+                            <div class="hero-stats">
+                                <div class="stat">
+                                    <span class="stat-number">1,200+</span>
+                                    <span class="stat-label">Providers</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">4.8</span>
+                                    <span class="stat-label">Rating</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">50K+</span>
+                                    <span class="stat-label">Bookings</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="floating-badge floating-badge-1">
+                            <div class="badge-icon orange"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=45&h=45&fit=crop&auto=format" alt="Insured"></div>
+                            <div class="badge-text">
+                                <strong>Insured</strong>
+                                <span>All providers covered</span>
+                            </div>
+                        </div>
+                        <div class="floating-badge floating-badge-2">
+                            <div class="badge-icon blue"><img src="https://images.unsplash.com/photo-1495364141860-b0d03eccd065?w=45&h=45&fit=crop&auto=format" alt="Fast Booking"></div>
+                            <div class="badge-text">
+                                <strong>Fast Booking</strong>
+                                <span>Same-day available</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2: Provider -->
+                <div class="hero-slide">
+                    <div class="hero-text">
+                        <span class="hero-badge">Empowering Women Through Meaningful Work</span>
+                        <h1>More Than a Platform — <span class="highlight-orange">A Career for Life</span></h1>
+                        <p>ServiceKru is more than a home services platform. We provide training, certification, and career placement to help Malaysian women — especially single mothers and low-income housewives — build sustainable income and professional recognition.</p>
+                        <div class="hero-buttons">
+                            <a href="#" class="btn-primary" onclick="openServiceModal('becomeModal'); return false;">
+                                Become a Pro
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="hero-card">
+                            <div class="hero-card-header">
+                                <div class="hero-card-icon"><img src="https://images.unsplash.com/photo-1570771887955-9d20fd91403e?w=100&h=100&fit=crop&auto=format" alt="Malaysian professional woman"></div>
+                                <h3>Earn &amp; Grow with ServiceKru</h3>
+                                <p>Train, certify, and earn — on your schedule</p>
+                            </div>
+                            <ul class="hero-benefits">
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Earn RM800–RM2,400/month
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Flexible hours &amp; Digital Certification
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Training + career placement support
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="floating-badge floating-badge-1">
+                            <div class="badge-icon orange" style="display:flex;align-items:center;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                            <div class="badge-text">
+                                <strong>Digital Certification</strong>
+                                <span>Structured training</span>
+                            </div>
+                        </div>
+                        <div class="floating-badge floating-badge-2">
+                            <div class="badge-icon blue"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=45&h=45&fit=crop&auto=format" alt="Flexible Hours"></div>
+                            <div class="badge-text">
+                                <strong>Flexible Hours</strong>
+                                <span>Work on your schedule</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="hero-card">
-                    <div class="hero-card-header">
-                        <div class="hero-card-icon">🏠</div>
-                        <h3>Trusted by Thousands</h3>
-                        <p>Insured, verified home service professionals</p>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <span class="stat-number">1,200+</span>
-                            <span class="stat-label">Providers</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">4.8</span>
-                            <span class="stat-label">Rating</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">50K+</span>
-                            <span class="stat-label">Bookings</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="floating-badge floating-badge-1">
-                    <div class="badge-icon orange">🛡️</div>
-                    <div class="badge-text">
-                        <strong>Insured</strong>
-                        <span>All providers covered</span>
-                    </div>
-                </div>
-                <div class="floating-badge floating-badge-2">
-                    <div class="badge-icon blue">⚡</div>
-                    <div class="badge-text">
-                        <strong>Fast Booking</strong>
-                        <span>Same-day available</span>
-                    </div>
-                </div>
+            <div class="hero-dots">
+                <button class="dot dot--active" onclick="goToSlide(0)" aria-label="Customer slide"></button>
+                <button class="dot" onclick="goToSlide(1)" aria-label="Provider slide"></button>
             </div>
         </div>
     </section>
 
     <!-- Why Choose ServiceKru -->
     <section class="features" id="about">
+        <div class="features-shapes" aria-hidden="true">
+            <div class="shape shape-fp-1"></div>
+            <div class="shape shape-fp-2"></div>
+            <div class="shape shape-fp-3"></div>
+            <div class="shape shape-fp-4"></div>
+        </div>
         <div class="section-container">
-            <div class="section-header">
-                <span class="section-tag">Why ServiceKru</span>
-                <h2>Why Families <span>Trust Us</span></h2>
-                <p>Every ServiceKru professional is trained, verified, and insured — so you can book with complete confidence.</p>
+            <div class="features-header-wrap">
+                <div class="section-header">
+                    <span class="section-tag">Our Purpose</span>
+                    <h2>More Than a <span>Service Platform</span></h2>
+                    <p>ServiceKru trains, certifies, and places Malaysian women into dignified careers — empowering single mothers and low-income housewives while digitalising and elevating the professional standard of Malaysia's home services workforce.</p>
+                </div>
+
+                <div class="floating-badge floating-badge-fp-1">
+                    <div class="badge-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg>
+                    </div>
+                    <div class="badge-text">
+                        <strong>Certified</strong>
+                        <span>Trained Pros</span>
+                    </div>
+                </div>
+
+                <div class="floating-badge floating-badge-fp-2">
+                    <div class="badge-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"/></svg>
+                    </div>
+                    <div class="badge-text">
+                        <strong>Insured</strong>
+                        <span>Every Booking</span>
+                    </div>
+                </div>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">✅</div>
-                    <h3>Certified & Trained</h3>
-                    <p>All ServiceKrus complete our structured training programme and earn Digital Certification before their first job.</p>
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=700&h=220&fit=crop&auto=format" alt="Certified and Trained">
+                        <div class="feature-img-overlay"></div>
+                    </div>
+                    <div class="feature-card-body">
+                        <h3>Certified & Trained</h3>
+                        <p>All ServiceKrus complete our structured training programme and earn Digital Certification before their first job.</p>
+                    </div>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🔍</div>
-                    <h3>Background Checked</h3>
-                    <p>We ensure safety and reliability for every home and office with thorough background verification on all providers.</p>
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=700&h=220&fit=crop&auto=format" alt="Background Checked">
+                        <div class="feature-img-overlay"></div>
+                    </div>
+                    <div class="feature-card-body">
+                        <h3>Background Checked</h3>
+                        <p>We ensure safety and reliability for every home and office with thorough background verification on all providers.</p>
+                    </div>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Fully Insured</h3>
-                    <p>Every booking is protected and insured for your peace of mind. Service guaranteed on every visit.</p>
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&h=220&fit=crop&auto=format" alt="Fully Insured">
+                        <div class="feature-img-overlay"></div>
+                    </div>
+                    <div class="feature-card-body">
+                        <h3>Fully Insured</h3>
+                        <p>Every booking is protected and insured for your peace of mind. Service guaranteed on every visit.</p>
+                    </div>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">⭐</div>
-                    <h3>Rated & Reviewed</h3>
-                    <p>Transparent reviews and ratings after every job. Choose your provider based on real customer feedback.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="courses" id="services" style="background: linear-gradient(180deg, var(--color-blue-light) 0%, var(--color-blue-light) 60%, var(--color-white) 100%);">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-tag">Our Services</span>
-                <h2>Professional <span>Home Services</span></h2>
-                <p>Verified, insured professionals at your fingertips. Book with confidence.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-card-image cleaning">
-                        <div class="service-card-icon">🧹</div>
-                        <span class="service-card-badge">From RM120</span>
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&h=220&fit=crop&auto=format" alt="Rated and Reviewed">
+                        <div class="feature-img-overlay"></div>
                     </div>
-                    <div class="service-card-content">
-                        <h3>Home Cleaning</h3>
-                        <p>Professional cleaning for homes, offices and Airbnb units. Deep cleaning, regular maintenance, and move-in/out services.</p>
-                        <div class="service-card-footer">
-                            <span style="font-weight:700; color:var(--color-orange);">From RM120/session</span>
-                            <a href="#booking" class="btn-primary">Book Now
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-card-image childcare">
-                        <div class="service-card-icon">👶</div>
-                        <span class="service-card-badge">Hourly</span>
-                    </div>
-                    <div class="service-card-content">
-                        <h3>Childcare Support</h3>
-                        <p>Safe and reliable care for your children at home or centre. Babysitting, after-school care, and full-day supervision.</p>
-                        <div class="service-card-footer">
-                            <span style="font-weight:700; color:var(--color-orange);">Flexible hourly rates</span>
-                            <a href="#booking" class="btn-primary">Book Now
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-card-image eldercare">
-                        <div class="service-card-icon">🤝</div>
-                        <span class="service-card-badge">From RM130</span>
-                    </div>
-                    <div class="service-card-content">
-                        <h3>Elder Care Companion</h3>
-                        <p>Compassionate support for seniors — companionship, daily assistance, hospital visits, and mobility help.</p>
-                        <div class="service-card-footer">
-                            <span style="font-weight:700; color:var(--color-orange);">From RM130/session</span>
-                            <a href="#booking" class="btn-primary">Book Now
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                            </a>
-                        </div>
+                    <div class="feature-card-body">
+                        <h3>Rated & Reviewed</h3>
+                        <p>Transparent reviews and ratings after every job. Choose your provider based on real customer feedback.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Booking Section -->
-    <section class="booking-section" id="booking">
+
+    <!-- Our Story -->
+    <section class="our-story" id="our-story">
+        <div class="our-story-shapes" aria-hidden="true">
+            <div class="shape shape-os-1"></div>
+            <div class="shape shape-os-2"></div>
+            <div class="shape shape-os-3"></div>
+            <div class="shape shape-os-4"></div>
+        </div>
         <div class="section-container">
             <div class="section-header">
+                <span class="section-tag">Our Story</span>
+                <h2>Empowering Women Through <span>Meaningful Work</span></h2>
+                <p>ServiceKru is more than a home services platform. We provide training, certification, and career placement to help Malaysian women — especially single mothers and low-income housewives — build sustainable income and professional recognition.</p>
+            </div>
+
+            <div class="our-story-card-wrap">
+                <div class="our-story-card">
+                    <div class="story-block">
+                        <span class="story-eyebrow">Our Vision</span>
+                        <h3>A Malaysia where every woman can build a career for life</h3>
+                        <p>We see a future where every woman — single mother, housewife, or career-changer — earns dignified income, holds professional recognition, and builds a sustainable career in the home services industry.</p>
+                    </div>
+                    <div class="story-block">
+                        <span class="story-eyebrow">Our Mission</span>
+                        <h3>Train. Certify. Place. Empower.</h3>
+                        <p>To empower Malaysian women through structured training, digital certification, and career placement — creating economic independence while leading the digitalization of Malaysia's domestic workforce.</p>
+                    </div>
+                </div>
+
+                <div class="floating-badge floating-badge-os-1">
+                    <div class="badge-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/></svg>
+                    </div>
+                    <div class="badge-text">
+                        <strong>Empowerment</strong>
+                        <span>Women-led Workforce</span>
+                    </div>
+                </div>
+
+                <div class="floating-badge floating-badge-os-2">
+                    <div class="badge-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>
+                    </div>
+                    <div class="badge-text">
+                        <strong>Digital First</strong>
+                        <span>Industry Innovation</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.25 14.15v4.073a2.25 2.25 0 0 1-2.25 2.25h-12a2.25 2.25 0 0 1-2.25-2.25v-4.072m16.5 0a2.31 2.31 0 0 0 .968-1.876V8.625a2.25 2.25 0 0 0-2.25-2.25h-15a2.25 2.25 0 0 0-2.25 2.25v3.65a2.31 2.31 0 0 0 .969 1.876m16.5 0a2.317 2.317 0 0 1-.969.21H4.219a2.317 2.317 0 0 1-.969-.21M16.5 6.375v-1.5a1.5 1.5 0 0 0-1.5-1.5h-6a1.5 1.5 0 0 0-1.5 1.5v1.5m9 4.875v.008h-.008v-.008h.008Zm0 0H8.625m7.875 0v-.008h-.008v.008h.008Zm-7.875 0v-.008h-.008v.008h.008Zm0 0H8.625m0 0v-.008h-.008v.008h.008Zm0 0V12m0-1.125V12"/></svg>
+                    </div>
+                    <h3>Increase Job Opportunities</h3>
+                    <p>Accessible income pathways for women, single mothers, and low-income housewives often excluded from formal employment.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z"/></svg>
+                    </div>
+                    <h3>National Digitalization</h3>
+                    <p>Modernising and formalising Malaysia's domestic workforce sector through technology and verified credentialing.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 0 1 2.916.52 6.003 6.003 0 0 1-5.395 4.972m0 0a6.726 6.726 0 0 1-2.749 1.35m0 0a6.772 6.772 0 0 1-3.044 0"/></svg>
+                    </div>
+                    <h3>Professional Recognition</h3>
+                    <p>Elevating the status and dignity of home service workers through structured training and Digital Certification.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Modal -->
+    <!-- Book a Service Modal -->
+    <div class="service-modal" id="bookingModal">
+        <div class="service-modal-content">
+            <button class="story-modal-close" onclick="closeServiceModal('bookingModal')"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+            <div class="section-header" style="margin-bottom: 2rem;">
                 <span class="section-tag">Book a Service</span>
                 <h2>Book Trusted <span>Home Services</span></h2>
                 <p>Certified professionals — trained, reviewed, and documents verified.</p>
             </div>
 
-            <div class="options-table-wrap" style="margin-bottom: 4rem;">
-                <table class="options-table">
-                    <thead>
-                        <tr>
-                            <th>Service</th>
-                            <th>Options</th>
-                            <th>Starting Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Home Cleaning</strong></td>
-                            <td>3 Hours / Hourly</td>
-                            <td><strong>From RM130</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Childcare</strong></td>
-                            <td>Hourly / Half Day</td>
-                            <td>Contact for pricing</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Elder Care</strong></td>
-                            <td>Companionship / Assistance</td>
-                            <td><strong>From RM130/session</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h3>Simple Booking Process</h3>
-            <div class="stepper stepper-light" style="margin-bottom: 4rem;">
-                <div class="step">
-                    <div class="step-number" aria-label="Step 1 of 4: Choose your service">1</div>
-                    <div class="step-content">
-                        <div class="step-label">Choose Service</div>
-                        <div class="step-desc">Select the service you need</div>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number" aria-label="Step 2 of 4: Select date and time">2</div>
-                    <div class="step-content">
-                        <div class="step-label">Select Date & Time</div>
-                        <div class="step-desc">Pick a slot that works for you</div>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number" aria-label="Step 3 of 4: Confirm booking">3</div>
-                    <div class="step-content">
-                        <div class="step-label">Confirm Booking</div>
-                        <div class="step-desc">Review and confirm details</div>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number" aria-label="Step 4 of 4: We assign a professional">4</div>
-                    <div class="step-content">
-                        <div class="step-label">Get Matched</div>
-                        <div class="step-desc">We assign a certified professional</div>
-                    </div>
-                </div>
-            </div>
-
-            <h3>Your Safety Matters</h3>
-            <div class="safety-grid" style="margin: 0 auto 3rem;">
-                <div class="safety-item"><div class="safety-check">✅</div> Background-checked professionals</div>
-                <div class="safety-item"><div class="safety-check">🛡️</div> Fully insured services</div>
-                <div class="safety-item"><div class="safety-check">📋</div> Service quality guaranteed</div>
-                <div class="safety-item"><div class="safety-check">💬</div> Customer support available</div>
-            </div>
-
-            <div style="text-align: center;">
-                <a href="https://wa.me/" class="btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Book a service via WhatsApp">
-                    📱 Confirm Booking via WhatsApp
-                </a>
-                <p style="color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: 1rem;">All ServiceKrus are insured and protected</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works (For Providers) -->
-    <section class="how-it-works-section" id="how-it-works">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-tag">For Professionals</span>
-                <h2>How It <span>Works</span></h2>
-                <p>Join our network of certified professionals and start earning with flexible hours.</p>
-            </div>
-            <div class="stepper" style="margin-bottom: 3rem;">
-                <div class="step">
-                    <div class="step-number" aria-label="Step 1 of 4: Apply online">1</div>
-                    <div class="step-content">
-                        <div class="step-label">Apply Online</div>
-                        <div class="step-desc">Fill out a quick application form</div>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number" aria-label="Step 2 of 4: Attend training">2</div>
-                    <div class="step-content">
-                        <div class="step-label">Attend Training</div>
-                        <div class="step-desc">Complete our structured programme</div>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number" aria-label="Step 3 of 4: Get certified">3</div>
-                    <div class="step-content">
-                        <div class="step-label">Get Certified</div>
-                        <div class="step-desc">Earn your Digital Certification</div>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number" aria-label="Step 4 of 4: Start earning">4</div>
-                    <div class="step-content">
-                        <div class="step-label">Start Earning</div>
-                        <div class="step-desc">Receive bookings and build your reputation</div>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center;">
-                <a href="#become" class="btn-primary">
-                    Apply Now
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Become a ServiceKru -->
-    <section class="become-section" id="become">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-tag">Join Our Team</span>
-                <h2>Become a <span>ServiceKru</span></h2>
-                <p>Get trained, certified and earn income with flexible earning opportunities.</p>
-            </div>
-
-            <ul class="benefits-list">
-                <li><div class="benefit-icon">⏰</div> Flexible working hours — you choose when</li>
-                <li><div class="benefit-icon">📅</div> Flexible or fixed training schedule</li>
-                <li><div class="benefit-icon">💰</div> Earn from RM80–RM120 per job</li>
-                <li><div class="benefit-icon">📈</div> Build professional skills & career</li>
-                <li><div class="benefit-icon">🤝</div> Supportive community of women</li>
+            <ul style="list-style:none;padding:0;margin:0 0 2rem;display:flex;flex-direction:column;gap:0.85rem;">
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> Home Cleaning from RM130</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> Childcare &amp; Elder Care — flexible sessions</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> Background-checked, insured professionals</li>
             </ul>
 
-            <h3>How Much Can You Earn?</h3>
-            <div class="earnings-grid">
-                <div class="earnings-card">
-                    <div class="earnings-label">Part-Time</div>
-                    <div class="earnings-amount">RM800–RM1,200</div>
-                    <div class="earnings-period">per month</div>
-                </div>
-                <div class="earnings-card">
-                    <div class="earnings-label">Full-Time</div>
-                    <div class="earnings-amount">RM1,500–RM2,400</div>
-                    <div class="earnings-period">per month</div>
-                </div>
+            <div style="text-align:center;margin-top:1rem;">
+                <a href="redesigned-site/booking.html" class="btn-primary" style="font-size:1.1rem;padding:1rem 2.5rem;">
+                    Book Now →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Become a Pro Modal -->
+    <div class="service-modal" id="becomeModal">
+        <div class="service-modal-content">
+            <button class="story-modal-close" onclick="closeServiceModal('becomeModal')"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <span class="section-tag">Start Your Career</span>
+                <h2>Become a <span>Pro</span></h2>
+                <p>Get trained, certified, and earn up to RM2,400/month — on your schedule.</p>
             </div>
 
-            <h3>Training & Certification Tiers</h3>
-            <table class="tier-table">
-                <tr>
-                    <td><span class="tier-badge">Tier 1</span></td>
-                    <td>Basic Cleaning</td>
-                </tr>
-                <tr>
-                    <td><span class="tier-badge">Tier 2</span></td>
-                    <td>Professional Cleaning</td>
-                </tr>
-                <tr>
-                    <td><span class="tier-badge">Tier 3</span></td>
-                    <td>Childcare Assistant</td>
-                </tr>
-                <tr>
-                    <td><span class="tier-badge">Tier 4</span></td>
-                    <td>Eldercare Assistant</td>
-                </tr>
-            </table>
-            <p class="digital-cert-note">All ServiceKrus receive Digital Certification upon completion.</p>
+            <ul style="list-style: none; padding: 0; margin: 0 0 2rem; display: flex; flex-direction: column; gap: 0.85rem;">
+                <li style="display: flex; align-items: center; gap: 0.75rem; font-size: 1rem; color: var(--color-gray-800);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> Earn RM800–RM2,400/month
+                </li>
+                <li style="display: flex; align-items: center; gap: 0.75rem; font-size: 1rem; color: var(--color-gray-800);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> Flexible hours &amp; Digital Certification
+                </li>
+                <li style="display: flex; align-items: center; gap: 0.75rem; font-size: 1rem; color: var(--color-gray-800);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> Training + career placement support
+                </li>
+            </ul>
 
-            <div style="text-align: center;">
-                <a href="#enquiry" class="btn-primary" style="font-size: 1.2rem; padding: 1.25rem 3rem;">
-                    Apply Now
+            <div style="text-align: center; margin-top: 1rem;">
+                <a href="redesigned-site/become.html" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
+                    Explore Full Details
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
             </div>
         </div>
-    </section>
-
-    <!-- Testimonials (Social Proof for Providers) -->
-    <section class="testimonials-relocated" id="testimonials">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-tag">What Our Community Says</span>
-                <h2>Trusted by <span>Families & Providers</span></h2>
-                <p>Real stories from the ServiceKru community.</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p>ServiceKru gave me the confidence and skills I needed. After 8 years as a full-time mum, I now earn a stable income with flexible hours that fit my family life.</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar orange">SA</div>
-                            <div class="testimonial-info">
-                                <h4>Sarah A.</h4>
-                                <span>Certified Childcare Provider</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p>I've been using ServiceKru for home cleaning and elder care for my parents. The professionals are always punctual, thorough, and genuinely caring. Highly recommended!</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar blue">AR</div>
-                            <div class="testimonial-info">
-                                <h4>Aisyah R.</h4>
-                                <span>Customer, Kuala Lumpur</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p>As a single mother, the flexible schedule is a lifesaver. I completed my certification and now earn well doing what I love — helping families while supporting my own.</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar orange">JL</div>
-                            <div class="testimonial-info">
-                                <h4>Jenny L.</h4>
-                                <span>Certified Elder Care Companion</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enquiry Form -->
-    <section class="enquiry" id="enquiry">
-        <div class="enquiry-pattern"></div>
-        <div class="enquiry-container">
-            <div class="section-header">
-                <span class="section-tag">Apply Now</span>
-                <h2>Start Your <span>Application</span></h2>
-                <p>Whether you want to book a service or join our team, fill out the form below and we'll get back to you within 24 hours.</p>
-            </div>
-            <div class="enquiry-form">
-                <form id="enquiryForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name *</label>
-                            <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="+60 12-345 6789">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="interest">I'm interested in *</label>
-                        <select id="interest" name="interest" required>
-                            <option value="">Select an option...</option>
-                            <option value="cleaning">Book Home Cleaning</option>
-                            <option value="childcare">Book Childcare</option>
-                            <option value="eldercare">Book Elder Care</option>
-                            <option value="multiple">Book Multiple Services</option>
-                            <option value="provider">Become a ServiceKru Provider</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="situation">Tell us about your needs</label>
-                        <textarea id="situation" name="situation" placeholder="Describe what you're looking for (e.g., service type, schedule preferences, or if you'd like to join as a provider)..."></textarea>
-                    </div>
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="consent" name="consent" required>
-                        <label for="consent">I agree to receive communications about services and updates. View our <a href="#">Privacy Policy</a>.</label>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        Submit Enquiry
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-                    </button>
-                </form>
-                <div class="success-message" id="successMessage">
-                    <div class="success-icon">✓</div>
-                    <h3>Thank You!</h3>
-                    <p>Your enquiry has been submitted successfully. Our team will contact you within 24 hours.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
-                <div class="logo-text">
-                    <span class="logo-service">ser</span><span class="logo-v">V</span><span class="logo-service">ice</span><span class="logo-kru">KRU</span>
-                </div>
+                <img src="assets/logo.png" alt="ServiceKru" class="logo-img logo-img--footer">
                 <p class="footer-tagline">Trusted Home Services by Certified Professionals</p>
                 <p>Connecting Malaysian families with certified, insured women professionals for cleaning, childcare, and elder care.</p>
             </div>
             <div class="footer-links">
                 <h4>Services</h4>
                 <ul>
-                    <li><a href="#services">Home Cleaning</a></li>
-                    <li><a href="#services">Childcare</a></li>
-                    <li><a href="#services">Elder Care</a></li>
-                    <li><a href="#booking">Book a Service</a></li>
+                    <li><a href="redesigned-site/booking.html#services">Home Cleaning</a></li>
+                    <li><a href="redesigned-site/booking.html#services">Childcare</a></li>
+                    <li><a href="redesigned-site/booking.html#services">Elder Care</a></li>
+                    <li><a href="redesigned-site/booking.html">Book a Service</a></li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h4>For Providers</h4>
                 <ul>
-                    <li><a href="#become">Become a ServiceKru</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#become">Training & Certification</a></li>
-                    <li><a href="#enquiry">Apply Now</a></li>
+                    <li><a href="#" onclick="openServiceModal('becomeModal'); return false;">Become a Pro</a></li>
+                    <li><a href="redesigned-site/become.html#how-it-works">How It Works</a></li>
+                    <li><a href="#" onclick="openServiceModal('becomeModal'); return false;">Training &amp; Certification</a></li>
+                    <li><a href="redesigned-site/become.html#enquiry">Register Interest</a></li>
                 </ul>
             </div>
             <div class="footer-links">
@@ -2297,7 +2583,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 ServiceKru. All rights reserved.</p>
+            <p>© 2026 ServiceKru. All rights reserved.</p>
             <div class="social-links">
                 <a href="#" aria-label="Facebook">f</a>
                 <a href="#" aria-label="Instagram">ig</a>
@@ -2308,19 +2594,6 @@
     </footer>
 
     <script>
-        // Form submission handler
-        document.getElementById('enquiryForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Hide form and show success message
-            this.style.display = 'none';
-            document.getElementById('successMessage').classList.add('show');
-
-            // In production, you would send data to your backend here
-            const formData = new FormData(this);
-            console.log('Form submitted:', Object.fromEntries(formData));
-        });
-
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -2358,6 +2631,65 @@
                 const navLinks = document.querySelector('.nav-links');
                 navLinks.classList.remove('active');
                 document.querySelector('.mobile-menu-btn').classList.remove('active');
+            });
+        });
+
+        // Hero carousel
+        (function() {
+            let currentSlide = 0;
+            let autoPlayTimer;
+            const slides = document.querySelectorAll('.hero-slide');
+            const dots = document.querySelectorAll('.dot');
+
+            window.goToSlide = function(index) {
+                slides[currentSlide].classList.remove('hero-slide--active');
+                dots[currentSlide].classList.remove('dot--active');
+                currentSlide = index;
+                slides[currentSlide].classList.add('hero-slide--active');
+                dots[currentSlide].classList.add('dot--active');
+            };
+
+            function startAutoPlay() {
+                autoPlayTimer = setInterval(function() {
+                    goToSlide((currentSlide + 1) % slides.length);
+                }, 5000);
+            }
+
+            function stopAutoPlay() {
+                clearInterval(autoPlayTimer);
+            }
+
+            const heroSection = document.querySelector('.hero');
+            heroSection.addEventListener('mouseenter', stopAutoPlay);
+            heroSection.addEventListener('mouseleave', startAutoPlay);
+
+            startAutoPlay();
+        })();
+
+
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeServiceModal('bookingModal');
+                closeServiceModal('becomeModal');
+            }
+        });
+
+        // Service modal functions
+        function openServiceModal(id) {
+            document.getElementById(id).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeServiceModal(id) {
+            document.getElementById(id).classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        ['bookingModal', 'becomeModal'].forEach(function(id) {
+            document.getElementById(id).addEventListener('click', function(e) {
+                if (e.target === this) closeServiceModal(id);
             });
         });
     </script>
