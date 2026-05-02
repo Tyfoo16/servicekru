@@ -70,7 +70,7 @@
         }
 
         .logo-img { height: 44px; width: auto; display: block; }
-        .logo-img--footer { height: 48px; margin-bottom: 0.75rem; filter: brightness(0) invert(1); }
+        .logo-img--footer { height: 48px; margin-bottom: 0.75rem; }
 
         .logo-text {
             font-family: var(--font-secondary);
@@ -126,6 +126,9 @@
         .nav-links a:not(.nav-cta):hover::after {
             width: 100%;
         }
+
+        .nav-active { color: var(--color-orange) !important; font-weight: 600 !important; }
+        .nav-active::after { width: 100% !important; }
 
         .nav-cta {
             background: var(--color-orange);
@@ -2205,6 +2208,9 @@
             <img src="assets/logo.png" alt="ServiceKru" class="logo-img">
         </a>
         <ul class="nav-links">
+            <li><a href="#hero" class="nav-active">Home</a></li>
+            <li><a href="redesigned-site/booking.html">Book a Service</a></li>
+            <li><a href="redesigned-site/become.html">Become a Pro</a></li>
         </ul>
         <button class="mobile-menu-btn" aria-label="Menu">
             <span></span>

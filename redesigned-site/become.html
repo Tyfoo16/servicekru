@@ -123,6 +123,9 @@
             width: 100%;
         }
 
+        .nav-active { color: var(--color-orange) !important; font-weight: 600 !important; }
+        .nav-active::after { width: 100% !important; }
+
         .nav-cta {
             background: var(--color-orange);
             color: white !important;
@@ -1018,6 +1021,9 @@
             </div>
         </a>
         <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="booking.html">Book a Service</a></li>
+            <li><a href="become.html" class="nav-active">Become a Pro</a></li>
         </ul>
         <button class="mobile-menu-btn" aria-label="Toggle menu">
             <span></span>
