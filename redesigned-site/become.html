@@ -1443,8 +1443,23 @@
         // Enquiry form submission
         document.getElementById('enquiryForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            var course = document.querySelector('input[name=course]:checked');
+            var firstName = document.getElementById('firstName').value.trim();
+            var lastName = document.getElementById('lastName').value.trim();
+            var phone = document.getElementById('phone').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var courseValue = course ? course.value : 'Not selected';
+            var msg = 'Hi ServiceKru! I would like to register as a provider.' + '
+
+' + 'Name: ' + firstName + ' ' + lastName + '
+' + 'Phone: ' + phone + '
+' + 'Email: ' + email + '
+' + 'Course Interest: ' + courseValue + '
+
+' + 'I have agreed to receive communications from ServiceKru.';
             this.style.display = 'none';
             document.getElementById('successMessage').classList.add('show');
+            window.open('https://wa.me/60173249590?text=' + encodeURIComponent(msg), '_blank');
         });
     </script>
     <script>
