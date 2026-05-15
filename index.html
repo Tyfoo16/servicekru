@@ -2199,6 +2199,15 @@
             }
         }
 
+        /* Lang Switcher */
+        .lang-switcher { position: relative; display: inline-block; margin-left: 0.5rem; }
+        .lang-current { display: inline-flex; align-items: center; gap: 6px; background: transparent; border: 1px solid #e0e0e0; border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 0.875rem; color: var(--color-gray-800, #343a40); cursor: pointer; line-height: 1; }
+        .lang-current:hover { border-color: var(--color-orange, #ee751e); color: var(--color-orange, #ee751e); }
+        .lang-menu { position: absolute; top: calc(100% + 6px); right: 0; min-width: 160px; background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); list-style: none; margin: 0; padding: 6px; z-index: 1000; }
+        .lang-menu li { padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; color: var(--color-gray-800, #343a40); }
+        .lang-menu li:hover { background: #fff5ec; color: var(--color-orange, #ee751e); }
+        .lang-menu li.active { background: var(--color-orange, #ee751e); color: #fff; }
+        @media (max-width: 768px) { .lang-switcher { order: 2; margin-left: auto; margin-right: 8px; } }
     </style>
 </head>
 <body>
@@ -2208,10 +2217,21 @@
             <img src="assets/logo.png" alt="ServiceKru" class="logo-img">
         </a>
         <ul class="nav-links">
-            <li><a href="#hero" class="nav-active">Home</a></li>
-            <li><a href="redesigned-site/booking.html">Book a Service</a></li>
-            <li><a href="redesigned-site/become.html">Become a Pro</a></li>
+            <li><a href="#hero" class="nav-active" data-i18n="nav.home">Home</a></li>
+            <li><a href="redesigned-site/booking.html" data-i18n="main.nav.book_service">Book a Service</a></li>
+            <li><a href="redesigned-site/become.html" data-i18n="main.nav.become_pro">Become a Pro</a></li>
         </ul>
+        <div class="lang-switcher">
+            <button class="lang-current" aria-haspopup="listbox" aria-expanded="false" data-i18n="nav.lang_aria" data-i18n-attr="aria-label">
+                <span data-lang-label>EN</span>
+                <svg width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+            </button>
+            <ul class="lang-menu" role="listbox" hidden>
+                <li data-lang="en" role="option">English</li>
+                <li data-lang="ms" role="option">Bahasa Melayu</li>
+                <li data-lang="zh" role="option">中文</li>
+            </ul>
+        </div>
         <button class="mobile-menu-btn" aria-label="Menu">
             <span></span>
             <span></span>
@@ -2231,12 +2251,12 @@
                 <!-- Slide 1: Customer -->
                 <div class="hero-slide hero-slide--active">
                     <div class="hero-text">
-                        <span class="hero-badge">Certified Women Professionals</span>
-                        <h1>Trusted <span class="highlight-orange">Home Services</span> by <span class="highlight-blue">Certified Professionals</span></h1>
-                        <p>Book reliable cleaning, childcare, and elder care services from certified, insured professionals — same-day available.</p>
+                        <span class="hero-badge" data-i18n="main.hero.slide1_badge">Certified Women Professionals</span>
+                        <h1><span data-i18n="main.hero.slide1_title_pre">Trusted</span> <span class="highlight-orange" data-i18n="main.hero.slide1_title_hl1">Home Services</span> <span data-i18n="main.hero.slide1_title_mid">by</span> <span class="highlight-blue" data-i18n="main.hero.slide1_title_hl2">Certified Professionals</span></h1>
+                        <p data-i18n="main.hero.slide1_desc">Book reliable cleaning, childcare, and elder care services from certified, insured professionals — same-day available.</p>
                         <div class="hero-buttons">
                             <a href="#" class="btn-primary" onclick="openServiceModal('bookingModal'); return false;">
-                                Book a Service
+                                <span data-i18n="main.hero.slide1_cta">Book a Service</span>
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             </a>
                         </div>
@@ -2245,36 +2265,36 @@
                         <div class="hero-card">
                             <div class="hero-card-header">
                                 <div class="hero-card-icon"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=100&h=100&fit=crop&auto=format" alt="Trusted home services"></div>
-                                <h3>Trusted by Thousands</h3>
-                                <p>Insured, verified home service professionals</p>
+                                <h3 data-i18n="main.hero.slide1_card_title">Trusted by Thousands</h3>
+                                <p data-i18n="main.hero.slide1_card_subtitle">Insured, verified home service professionals</p>
                             </div>
                             <div class="hero-stats">
                                 <div class="stat">
                                     <span class="stat-number">1,200+</span>
-                                    <span class="stat-label">Providers</span>
+                                    <span class="stat-label" data-i18n="main.hero.stat_providers">Providers</span>
                                 </div>
                                 <div class="stat">
                                     <span class="stat-number">4.8</span>
-                                    <span class="stat-label">Rating</span>
+                                    <span class="stat-label" data-i18n="main.hero.stat_rating">Rating</span>
                                 </div>
                                 <div class="stat">
                                     <span class="stat-number">50K+</span>
-                                    <span class="stat-label">Bookings</span>
+                                    <span class="stat-label" data-i18n="main.hero.stat_bookings">Bookings</span>
                                 </div>
                             </div>
                         </div>
                         <div class="floating-badge floating-badge-1">
                             <div class="badge-icon orange"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=45&h=45&fit=crop&auto=format" alt="Insured"></div>
                             <div class="badge-text">
-                                <strong>Insured</strong>
-                                <span>All providers covered</span>
+                                <strong data-i18n="main.hero.badge1_title">Insured</strong>
+                                <span data-i18n="main.hero.badge1_sub">All providers covered</span>
                             </div>
                         </div>
                         <div class="floating-badge floating-badge-2">
                             <div class="badge-icon blue"><img src="https://images.unsplash.com/photo-1495364141860-b0d03eccd065?w=45&h=45&fit=crop&auto=format" alt="Fast Booking"></div>
                             <div class="badge-text">
-                                <strong>Fast Booking</strong>
-                                <span>Same-day available</span>
+                                <strong data-i18n="main.hero.badge2_title">Fast Booking</strong>
+                                <span data-i18n="main.hero.badge2_sub">Same-day available</span>
                             </div>
                         </div>
                     </div>
@@ -2282,12 +2302,12 @@
                 <!-- Slide 2: Provider -->
                 <div class="hero-slide">
                     <div class="hero-text">
-                        <span class="hero-badge">Empowering Women Through Meaningful Work</span>
-                        <h1>More Than a Platform — <span class="highlight-orange">A Career for Life</span></h1>
-                        <p>ServiceKru is more than a home services platform. We provide training, certification, and career placement to help Malaysian women build sustainable income, professional recognition, and fulfilling careers.</p>
+                        <span class="hero-badge" data-i18n="main.hero.slide2_badge">Empowering Women Through Meaningful Work</span>
+                        <h1><span data-i18n="main.hero.slide2_title_pre">More Than a Platform —</span> <span class="highlight-orange" data-i18n="main.hero.slide2_title_hl">A Career for Life</span></h1>
+                        <p data-i18n="main.hero.slide2_desc">ServiceKru is more than a home services platform. We provide training, certification, and career placement to help Malaysian women build sustainable income, professional recognition, and fulfilling careers.</p>
                         <div class="hero-buttons">
                             <a href="#" class="btn-primary" onclick="openServiceModal('becomeModal'); return false;">
-                                Become a Pro
+                                <span data-i18n="main.hero.slide2_cta">Become a Pro</span>
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             </a>
                         </div>
@@ -2296,21 +2316,21 @@
                         <div class="hero-card">
                             <div class="hero-card-header">
                                 <div class="hero-card-icon"><img src="https://images.unsplash.com/photo-1570771887955-9d20fd91403e?w=100&h=100&fit=crop&auto=format" alt="Malaysian professional woman"></div>
-                                <h3>Earn &amp; Grow with ServiceKru</h3>
-                                <p>Train, certify, and earn — on your schedule</p>
+                                <h3 data-i18n="main.hero.slide2_card_title">Earn &amp; Grow with ServiceKru</h3>
+                                <p data-i18n="main.hero.slide2_card_subtitle">Train, certify, and earn — on your schedule</p>
                             </div>
                             <ul class="hero-benefits">
                                 <li>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                                    Earn RM800–RM2,400/month
+                                    <span data-i18n="main.hero.slide2_benefit1_pre">Earn</span> RM800–RM2,400<span data-i18n="main.hero.slide2_benefit1_post">/month</span>
                                 </li>
                                 <li>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                                    Flexible hours &amp; Digital Certification
+                                    <span data-i18n="main.hero.slide2_benefit2">Flexible hours &amp; Digital Certification</span>
                                 </li>
                                 <li>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                                    Training + career placement support
+                                    <span data-i18n="main.hero.slide2_benefit3">Training + career placement support</span>
                                 </li>
                             </ul>
                         </div>
@@ -2318,22 +2338,22 @@
                             <div class="badge-icon orange" style="display:flex;align-items:center;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
                             <div class="badge-text">
                                 <strong>Digital Certification</strong>
-                                <span>Structured training</span>
+                                <span data-i18n="main.hero.slide2_badge1_sub">Structured training</span>
                             </div>
                         </div>
                         <div class="floating-badge floating-badge-2">
                             <div class="badge-icon blue"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=45&h=45&fit=crop&auto=format" alt="Flexible Hours"></div>
                             <div class="badge-text">
-                                <strong>Flexible Hours</strong>
-                                <span>Work on your schedule</span>
+                                <strong data-i18n="main.hero.slide2_badge2_title">Flexible Hours</strong>
+                                <span data-i18n="main.hero.slide2_badge2_sub">Work on your schedule</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="hero-dots">
-                <button class="dot dot--active" onclick="goToSlide(0)" aria-label="Customer slide"></button>
-                <button class="dot" onclick="goToSlide(1)" aria-label="Provider slide"></button>
+                <button class="dot dot--active" onclick="goToSlide(0)" data-i18n="main.hero.dot1_aria" data-i18n-attr="aria-label" aria-label="Customer slide"></button>
+                <button class="dot" onclick="goToSlide(1)" data-i18n="main.hero.dot2_aria" data-i18n-attr="aria-label" aria-label="Provider slide"></button>
             </div>
         </div>
     </section>
@@ -2349,9 +2369,9 @@
         <div class="section-container">
             <div class="features-header-wrap">
                 <div class="section-header">
-                    <span class="section-tag">Our Purpose</span>
-                    <h2>More Than a <span>Service Platform</span></h2>
-                    <p>ServiceKru trains, certifies, and places Malaysian women into dignified careers — digitalising and elevating the professional standard of Malaysia's home services workforce.</p>
+                    <span class="section-tag" data-i18n="main.about.tag">Our Purpose</span>
+                    <h2><span data-i18n="main.about.title_pre">More Than a</span> <span data-i18n="main.about.title_hl">Service Platform</span></h2>
+                    <p data-i18n="main.about.desc">ServiceKru trains, certifies, and places Malaysian women into dignified careers — digitalising and elevating the professional standard of Malaysia's home services workforce.</p>
                 </div>
 
                 <div class="floating-badge floating-badge-fp-1">
@@ -2359,8 +2379,8 @@
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg>
                     </div>
                     <div class="badge-text">
-                        <strong>Certified</strong>
-                        <span>Trained Pros</span>
+                        <strong data-i18n="main.about.fp_badge1_title">Certified</strong>
+                        <span data-i18n="main.about.fp_badge1_sub">Trained Pros</span>
                     </div>
                 </div>
 
@@ -2369,8 +2389,8 @@
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"/></svg>
                     </div>
                     <div class="badge-text">
-                        <strong>Insured</strong>
-                        <span>Every Booking</span>
+                        <strong data-i18n="main.about.fp_badge2_title">Insured</strong>
+                        <span data-i18n="main.about.fp_badge2_sub">Every Booking</span>
                     </div>
                 </div>
             </div>
@@ -2381,8 +2401,8 @@
                         <div class="feature-img-overlay"></div>
                     </div>
                     <div class="feature-card-body">
-                        <h3>Certified & Trained</h3>
-                        <p>All ServiceKrus complete our structured training programme and earn Digital Certification before their first job.</p>
+                        <h3 data-i18n="main.about.card1_title">Certified & Trained</h3>
+                        <p data-i18n="main.about.card1_desc">All ServiceKrus complete our structured training programme and earn Digital Certification before their first job.</p>
                     </div>
                 </div>
                 <div class="feature-card">
@@ -2391,8 +2411,8 @@
                         <div class="feature-img-overlay"></div>
                     </div>
                     <div class="feature-card-body">
-                        <h3>Background Checked</h3>
-                        <p>We ensure safety and reliability for every home and office with thorough background verification on all providers.</p>
+                        <h3 data-i18n="main.about.card2_title">Background Checked</h3>
+                        <p data-i18n="main.about.card2_desc">We ensure safety and reliability for every home and office with thorough background verification on all providers.</p>
                     </div>
                 </div>
                 <div class="feature-card">
@@ -2401,8 +2421,8 @@
                         <div class="feature-img-overlay"></div>
                     </div>
                     <div class="feature-card-body">
-                        <h3>Fully Insured</h3>
-                        <p>Every booking is protected and insured for your peace of mind. Service guaranteed on every visit.</p>
+                        <h3 data-i18n="main.about.card3_title">Fully Insured</h3>
+                        <p data-i18n="main.about.card3_desc">Every booking is protected and insured for your peace of mind. Service guaranteed on every visit.</p>
                     </div>
                 </div>
                 <div class="feature-card">
@@ -2411,8 +2431,8 @@
                         <div class="feature-img-overlay"></div>
                     </div>
                     <div class="feature-card-body">
-                        <h3>Rated & Reviewed</h3>
-                        <p>Transparent reviews and ratings after every job. Choose your provider based on real customer feedback.</p>
+                        <h3 data-i18n="main.about.card4_title">Rated & Reviewed</h3>
+                        <p data-i18n="main.about.card4_desc">Transparent reviews and ratings after every job. Choose your provider based on real customer feedback.</p>
                     </div>
                 </div>
             </div>
@@ -2430,22 +2450,22 @@
         </div>
         <div class="section-container">
             <div class="section-header">
-                <span class="section-tag">Our Story</span>
-                <h2>Empowering Women Through <span>Meaningful Work</span></h2>
-                <p>ServiceKru is more than a home services platform. We provide training, certification, and career placement to help Malaysian women build sustainable income, professional recognition, and fulfilling careers.</p>
+                <span class="section-tag" data-i18n="main.story.tag">Our Story</span>
+                <h2><span data-i18n="main.story.title_pre">Empowering Women Through</span> <span data-i18n="main.story.title_hl">Meaningful Work</span></h2>
+                <p data-i18n="main.story.desc">ServiceKru is more than a home services platform. We provide training, certification, and career placement to help Malaysian women build sustainable income, professional recognition, and fulfilling careers.</p>
             </div>
 
             <div class="our-story-card-wrap">
                 <div class="our-story-card">
                     <div class="story-block">
-                        <span class="story-eyebrow">Our Vision</span>
-                        <h3>A Malaysia where every woman can build a career for life</h3>
-                        <p>We see a future where every woman earns dignified income, holds professional recognition, and builds a sustainable career in the home services industry.</p>
+                        <span class="story-eyebrow" data-i18n="main.story.vision_eyebrow">Our Vision</span>
+                        <h3 data-i18n="main.story.vision_title">A Malaysia where every woman can build a career for life</h3>
+                        <p data-i18n="main.story.vision_desc">We see a future where every woman earns dignified income, holds professional recognition, and builds a sustainable career in the home services industry.</p>
                     </div>
                     <div class="story-block">
-                        <span class="story-eyebrow">Our Mission</span>
-                        <h3>Train. Certify. Place. Empower.</h3>
-                        <p>To empower Malaysian women through structured training, digital certification, and career placement — creating economic independence while leading the digitalization of Malaysia's domestic workforce.</p>
+                        <span class="story-eyebrow" data-i18n="main.story.mission_eyebrow">Our Mission</span>
+                        <h3 data-i18n="main.story.mission_title">Train. Certify. Place. Empower.</h3>
+                        <p data-i18n="main.story.mission_desc">To empower Malaysian women through structured training, digital certification, and career placement — creating economic independence while leading the digitalization of Malaysia's domestic workforce.</p>
                     </div>
                 </div>
 
@@ -2454,8 +2474,8 @@
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/></svg>
                     </div>
                     <div class="badge-text">
-                        <strong>Empowerment</strong>
-                        <span>Women-led Workforce</span>
+                        <strong data-i18n="main.story.os_badge1_title">Empowerment</strong>
+                        <span data-i18n="main.story.os_badge1_sub">Women-led Workforce</span>
                     </div>
                 </div>
 
@@ -2464,8 +2484,8 @@
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>
                     </div>
                     <div class="badge-text">
-                        <strong>Digital First</strong>
-                        <span>Industry Innovation</span>
+                        <strong data-i18n="main.story.os_badge2_title">Digital First</strong>
+                        <span data-i18n="main.story.os_badge2_sub">Industry Innovation</span>
                     </div>
                 </div>
             </div>
@@ -2475,22 +2495,22 @@
                     <div class="pillar-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.25 14.15v4.073a2.25 2.25 0 0 1-2.25 2.25h-12a2.25 2.25 0 0 1-2.25-2.25v-4.072m16.5 0a2.31 2.31 0 0 0 .968-1.876V8.625a2.25 2.25 0 0 0-2.25-2.25h-15a2.25 2.25 0 0 0-2.25 2.25v3.65a2.31 2.31 0 0 0 .969 1.876m16.5 0a2.317 2.317 0 0 1-.969.21H4.219a2.317 2.317 0 0 1-.969-.21M16.5 6.375v-1.5a1.5 1.5 0 0 0-1.5-1.5h-6a1.5 1.5 0 0 0-1.5 1.5v1.5m9 4.875v.008h-.008v-.008h.008Zm0 0H8.625m7.875 0v-.008h-.008v.008h.008Zm-7.875 0v-.008h-.008v.008h.008Zm0 0H8.625m0 0v-.008h-.008v.008h.008Zm0 0V12m0-1.125V12"/></svg>
                     </div>
-                    <h3>Increase Job Opportunities</h3>
-                    <p>Accessible income pathways for women seeking flexible, dignified work with professional growth opportunities.</p>
+                    <h3 data-i18n="main.story.pillar1_title">Increase Job Opportunities</h3>
+                    <p data-i18n="main.story.pillar1_desc">Accessible income pathways for women seeking flexible, dignified work with professional growth opportunities.</p>
                 </div>
                 <div class="pillar-card">
                     <div class="pillar-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z"/></svg>
                     </div>
-                    <h3>National Digitalization</h3>
-                    <p>Modernising and formalising Malaysia's domestic workforce sector through technology and verified credentialing.</p>
+                    <h3 data-i18n="main.story.pillar2_title">National Digitalization</h3>
+                    <p data-i18n="main.story.pillar2_desc">Modernising and formalising Malaysia's domestic workforce sector through technology and verified credentialing.</p>
                 </div>
                 <div class="pillar-card">
                     <div class="pillar-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 0 1 2.916.52 6.003 6.003 0 0 1-5.395 4.972m0 0a6.726 6.726 0 0 1-2.749 1.35m0 0a6.772 6.772 0 0 1-3.044 0"/></svg>
                     </div>
-                    <h3>Professional Recognition</h3>
-                    <p>Elevating the status and dignity of home service workers through structured training and Digital Certification.</p>
+                    <h3 data-i18n="main.story.pillar3_title">Professional Recognition</h3>
+                    <p data-i18n="main.story.pillar3_desc">Elevating the status and dignity of home service workers through structured training and Digital Certification.</p>
                 </div>
             </div>
         </div>
@@ -2502,19 +2522,19 @@
         <div class="service-modal-content">
             <button class="story-modal-close" onclick="closeServiceModal('bookingModal')"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
             <div class="section-header" style="margin-bottom: 2rem;">
-                <span class="section-tag">Book a Service</span>
-                <h2>Book Trusted <span>Home Services</span></h2>
-                <p>Certified professionals — trained, reviewed, and documents verified.</p>
+                <span class="section-tag" data-i18n="main.modal_book.tag">Book a Service</span>
+                <h2><span data-i18n="main.modal_book.title_pre">Book Trusted</span> <span data-i18n="main.modal_book.title_hl">Home Services</span></h2>
+                <p data-i18n="main.modal_book.desc">Certified professionals — trained, reviewed, and documents verified.</p>
             </div>
 
             <ul style="list-style:none;padding:0;margin:0 0 2rem;display:flex;flex-direction:column;gap:0.85rem;">
-                <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> Home Cleaning from RM130</li>
-                <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> Childcare &amp; Elder Care — flexible sessions</li>
-                <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> Background-checked, insured professionals</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="main.modal_book.li1_pre">Home Cleaning from</span> RM130</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="main.modal_book.li2">Childcare &amp; Elder Care — flexible sessions</span></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="main.modal_book.li3">Background-checked, insured professionals</span></li>
             </ul>
 
             <div style="text-align:center;margin-top:1rem;">
-                <a href="redesigned-site/booking.html" class="btn-primary" style="font-size:1.1rem;padding:1rem 2.5rem;">
+                <a href="redesigned-site/booking.html" class="btn-primary" style="font-size:1.1rem;padding:1rem 2.5rem;" data-i18n="main.modal_book.cta">
                     Book Now →
                 </a>
             </div>
@@ -2526,26 +2546,26 @@
         <div class="service-modal-content">
             <button class="story-modal-close" onclick="closeServiceModal('becomeModal')"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
             <div class="section-header" style="margin-bottom: 2rem;">
-                <span class="section-tag">Start Your Career</span>
-                <h2>Become a <span>Pro</span></h2>
-                <p>Get trained, certified, and earn up to RM2,400/month — on your schedule.</p>
+                <span class="section-tag" data-i18n="main.modal_become.tag">Start Your Career</span>
+                <h2><span data-i18n="main.modal_become.title_pre">Become a</span> <span data-i18n="main.modal_become.title_hl">Pro</span></h2>
+                <p data-i18n="main.modal_become.desc">Get trained, certified, and earn up to RM2,400/month — on your schedule.</p>
             </div>
 
             <ul style="list-style: none; padding: 0; margin: 0 0 2rem; display: flex; flex-direction: column; gap: 0.85rem;">
                 <li style="display: flex; align-items: center; gap: 0.75rem; font-size: 1rem; color: var(--color-gray-800);">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> Earn RM800–RM2,400/month
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="main.modal_become.li1_pre">Earn</span> RM800–RM2,400<span data-i18n="main.modal_become.li1_post">/month</span>
                 </li>
                 <li style="display: flex; align-items: center; gap: 0.75rem; font-size: 1rem; color: var(--color-gray-800);">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> Flexible hours &amp; Digital Certification
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="main.modal_become.li2">Flexible hours &amp; Digital Certification</span>
                 </li>
                 <li style="display: flex; align-items: center; gap: 0.75rem; font-size: 1rem; color: var(--color-gray-800);">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> Training + career placement support
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="main.modal_become.li3">Training + career placement support</span>
                 </li>
             </ul>
 
             <div style="text-align: center; margin-top: 1rem;">
                 <a href="redesigned-site/become.html" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
-                    Explore Full Details
+                    <span data-i18n="main.modal_become.cta">Explore Full Details</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
             </div>
@@ -2557,39 +2577,39 @@
         <div class="footer-content">
             <div class="footer-brand">
                 <img src="assets/logo.png" alt="ServiceKru" class="logo-img logo-img--footer">
-                <p class="footer-tagline">Trusted Home Services by Certified Professionals</p>
-                <p>Connecting Malaysian families with certified, insured women professionals for cleaning, childcare, and elder care.</p>
+                <p class="footer-tagline" data-i18n="main.footer.tagline">Trusted Home Services by Certified Professionals</p>
+                <p data-i18n="main.footer.about_desc">Connecting Malaysian families with certified, insured women professionals for cleaning, childcare, and elder care.</p>
             </div>
             <div class="footer-links">
-                <h4>Services</h4>
+                <h4 data-i18n="footer.col_services">Services</h4>
                 <ul>
-                    <li><a href="redesigned-site/booking.html#services">Home Cleaning</a></li>
-                    <li><a href="redesigned-site/booking.html#services">Childcare</a></li>
-                    <li><a href="redesigned-site/booking.html#services">Elder Care</a></li>
-                    <li><a href="redesigned-site/booking.html">Book a Service</a></li>
+                    <li><a href="redesigned-site/booking.html#services" data-i18n="footer.link_cleaning">Home Cleaning</a></li>
+                    <li><a href="redesigned-site/booking.html#services" data-i18n="footer.link_childcare">Childcare</a></li>
+                    <li><a href="redesigned-site/booking.html#services" data-i18n="footer.link_eldercare">Elder Care</a></li>
+                    <li><a href="redesigned-site/booking.html" data-i18n="footer.link_booking">Book a Service</a></li>
                 </ul>
             </div>
             <div class="footer-links">
-                <h4>For Providers</h4>
+                <h4 data-i18n="main.footer.col_providers">For Providers</h4>
                 <ul>
-                    <li><a href="#" onclick="openServiceModal('becomeModal'); return false;">Become a Pro</a></li>
-                    <li><a href="redesigned-site/become.html#how-it-works">How It Works</a></li>
-                    <li><a href="#" onclick="openServiceModal('becomeModal'); return false;">Training &amp; Certification</a></li>
-                    <li><a href="redesigned-site/become.html#enquiry">Register Interest</a></li>
+                    <li><a href="#" onclick="openServiceModal('becomeModal'); return false;" data-i18n="main.footer.link_become_pro">Become a Pro</a></li>
+                    <li><a href="redesigned-site/become.html#how-it-works" data-i18n="main.footer.link_how_it_works">How It Works</a></li>
+                    <li><a href="#" onclick="openServiceModal('becomeModal'); return false;" data-i18n="main.footer.link_training">Training &amp; Certification</a></li>
+                    <li><a href="redesigned-site/become.html#enquiry" data-i18n="main.footer.link_register">Register Interest</a></li>
                 </ul>
             </div>
             <div class="footer-links">
-                <h4>Support</h4>
+                <h4 data-i18n="footer.col_support">Support</h4>
                 <ul>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#about" data-i18n="footer.link_about">About Us</a></li>
+                    <li><a href="#" data-i18n="footer.link_faq">FAQ</a></li>
+                    <li><a href="#" data-i18n="footer.link_contact">Contact</a></li>
+                    <li><a href="#" data-i18n="footer.link_privacy">Privacy Policy</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 ServiceKru. All rights reserved.</p>
+            <p data-i18n="footer.copyright">© 2026 ServiceKru. All rights reserved.</p>
             <div class="social-links">
                 <a href="#" aria-label="Facebook">f</a>
                 <a href="#" aria-label="Instagram">ig</a>
@@ -2699,5 +2719,346 @@
             });
         });
     </script>
+
+<script>
+window.I18N_EXTEND = {
+  en: {
+    /* nav */
+    'main.nav.book_service': 'Book a Service',
+    'main.nav.become_pro': 'Become a Pro',
+
+    /* hero slide 1 */
+    'main.hero.slide1_badge': 'Certified Women Professionals',
+    'main.hero.slide1_title_pre': 'Trusted',
+    'main.hero.slide1_title_hl1': 'Home Services',
+    'main.hero.slide1_title_mid': 'by',
+    'main.hero.slide1_title_hl2': 'Certified Professionals',
+    'main.hero.slide1_desc': 'Book reliable cleaning, childcare, and elder care services from certified, insured professionals — same-day available.',
+    'main.hero.slide1_cta': 'Book a Service',
+    'main.hero.slide1_card_title': 'Trusted by Thousands',
+    'main.hero.slide1_card_subtitle': 'Insured, verified home service professionals',
+    'main.hero.stat_providers': 'Providers',
+    'main.hero.stat_rating': 'Rating',
+    'main.hero.stat_bookings': 'Bookings',
+    'main.hero.badge1_title': 'Insured',
+    'main.hero.badge1_sub': 'All providers covered',
+    'main.hero.badge2_title': 'Fast Booking',
+    'main.hero.badge2_sub': 'Same-day available',
+
+    /* hero slide 2 */
+    'main.hero.slide2_badge': 'Empowering Women Through Meaningful Work',
+    'main.hero.slide2_title_pre': 'More Than a Platform —',
+    'main.hero.slide2_title_hl': 'A Career for Life',
+    'main.hero.slide2_desc': 'ServiceKru is more than a home services platform. We provide training, certification, and career placement to help Malaysian women build sustainable income, professional recognition, and fulfilling careers.',
+    'main.hero.slide2_cta': 'Become a Pro',
+    'main.hero.slide2_card_title': 'Earn & Grow with ServiceKru',
+    'main.hero.slide2_card_subtitle': 'Train, certify, and earn — on your schedule',
+    'main.hero.slide2_benefit1_pre': 'Earn',
+    'main.hero.slide2_benefit1_post': '/month',
+    'main.hero.slide2_benefit2': 'Flexible hours & Digital Certification',
+    'main.hero.slide2_benefit3': 'Training + career placement support',
+    'main.hero.slide2_badge1_sub': 'Structured training',
+    'main.hero.slide2_badge2_title': 'Flexible Hours',
+    'main.hero.slide2_badge2_sub': 'Work on your schedule',
+    'main.hero.dot1_aria': 'Customer slide',
+    'main.hero.dot2_aria': 'Provider slide',
+
+    /* about / features */
+    'main.about.tag': 'Our Purpose',
+    'main.about.title_pre': 'More Than a',
+    'main.about.title_hl': 'Service Platform',
+    'main.about.desc': 'ServiceKru trains, certifies, and places Malaysian women into dignified careers — digitalising and elevating the professional standard of Malaysia\'s home services workforce.',
+    'main.about.fp_badge1_title': 'Certified',
+    'main.about.fp_badge1_sub': 'Trained Pros',
+    'main.about.fp_badge2_title': 'Insured',
+    'main.about.fp_badge2_sub': 'Every Booking',
+    'main.about.card1_title': 'Certified & Trained',
+    'main.about.card1_desc': 'All ServiceKrus complete our structured training programme and earn Digital Certification before their first job.',
+    'main.about.card2_title': 'Background Checked',
+    'main.about.card2_desc': 'We ensure safety and reliability for every home and office with thorough background verification on all providers.',
+    'main.about.card3_title': 'Fully Insured',
+    'main.about.card3_desc': 'Every booking is protected and insured for your peace of mind. Service guaranteed on every visit.',
+    'main.about.card4_title': 'Rated & Reviewed',
+    'main.about.card4_desc': 'Transparent reviews and ratings after every job. Choose your provider based on real customer feedback.',
+
+    /* our story */
+    'main.story.tag': 'Our Story',
+    'main.story.title_pre': 'Empowering Women Through',
+    'main.story.title_hl': 'Meaningful Work',
+    'main.story.desc': 'ServiceKru is more than a home services platform. We provide training, certification, and career placement to help Malaysian women build sustainable income, professional recognition, and fulfilling careers.',
+    'main.story.vision_eyebrow': 'Our Vision',
+    'main.story.vision_title': 'A Malaysia where every woman can build a career for life',
+    'main.story.vision_desc': 'We see a future where every woman earns dignified income, holds professional recognition, and builds a sustainable career in the home services industry.',
+    'main.story.mission_eyebrow': 'Our Mission',
+    'main.story.mission_title': 'Train. Certify. Place. Empower.',
+    'main.story.mission_desc': 'To empower Malaysian women through structured training, digital certification, and career placement — creating economic independence while leading the digitalization of Malaysia\'s domestic workforce.',
+    'main.story.os_badge1_title': 'Empowerment',
+    'main.story.os_badge1_sub': 'Women-led Workforce',
+    'main.story.os_badge2_title': 'Digital First',
+    'main.story.os_badge2_sub': 'Industry Innovation',
+    'main.story.pillar1_title': 'Increase Job Opportunities',
+    'main.story.pillar1_desc': 'Accessible income pathways for women seeking flexible, dignified work with professional growth opportunities.',
+    'main.story.pillar2_title': 'National Digitalization',
+    'main.story.pillar2_desc': 'Modernising and formalising Malaysia\'s domestic workforce sector through technology and verified credentialing.',
+    'main.story.pillar3_title': 'Professional Recognition',
+    'main.story.pillar3_desc': 'Elevating the status and dignity of home service workers through structured training and Digital Certification.',
+
+    /* booking modal */
+    'main.modal_book.tag': 'Book a Service',
+    'main.modal_book.title_pre': 'Book Trusted',
+    'main.modal_book.title_hl': 'Home Services',
+    'main.modal_book.desc': 'Certified professionals — trained, reviewed, and documents verified.',
+    'main.modal_book.li1_pre': 'Home Cleaning from',
+    'main.modal_book.li2': 'Childcare & Elder Care — flexible sessions',
+    'main.modal_book.li3': 'Background-checked, insured professionals',
+    'main.modal_book.cta': 'Book Now →',
+
+    /* become modal */
+    'main.modal_become.tag': 'Start Your Career',
+    'main.modal_become.title_pre': 'Become a',
+    'main.modal_become.title_hl': 'Pro',
+    'main.modal_become.desc': 'Get trained, certified, and earn up to RM2,400/month — on your schedule.',
+    'main.modal_become.li1_pre': 'Earn',
+    'main.modal_become.li1_post': '/month',
+    'main.modal_become.li2': 'Flexible hours & Digital Certification',
+    'main.modal_become.li3': 'Training + career placement support',
+    'main.modal_become.cta': 'Explore Full Details',
+
+    /* footer */
+    'main.footer.tagline': 'Trusted Home Services by Certified Professionals',
+    'main.footer.about_desc': 'Connecting Malaysian families with certified, insured women professionals for cleaning, childcare, and elder care.',
+    'main.footer.col_providers': 'For Providers',
+    'main.footer.link_become_pro': 'Become a Pro',
+    'main.footer.link_how_it_works': 'How It Works',
+    'main.footer.link_training': 'Training & Certification',
+    'main.footer.link_register': 'Register Interest',
+  },
+
+  ms: {
+    /* nav */
+    'main.nav.book_service': 'Tempah Perkhidmatan',
+    'main.nav.become_pro': 'Jadi Pro',
+
+    /* hero slide 1 */
+    'main.hero.slide1_badge': 'Wanita Profesional Bertauliah',
+    'main.hero.slide1_title_pre': 'Perkhidmatan',
+    'main.hero.slide1_title_hl1': 'Rumah Dipercayai',
+    'main.hero.slide1_title_mid': 'oleh',
+    'main.hero.slide1_title_hl2': 'Profesional Bertauliah',
+    'main.hero.slide1_desc': 'Tempah perkhidmatan pembersihan, penjagaan anak, dan penjagaan warga emas yang boleh dipercayai daripada profesional bertauliah dan dilindungi insurans — tersedia pada hari yang sama.',
+    'main.hero.slide1_cta': 'Tempah Perkhidmatan',
+    'main.hero.slide1_card_title': 'Dipercayai Ribuan Pelanggan',
+    'main.hero.slide1_card_subtitle': 'Profesional perkhidmatan rumah yang diinsuranskan dan disahkan',
+    'main.hero.stat_providers': 'Penyedia',
+    'main.hero.stat_rating': 'Penilaian',
+    'main.hero.stat_bookings': 'Tempahan',
+    'main.hero.badge1_title': 'Diinsuranskan',
+    'main.hero.badge1_sub': 'Semua penyedia dilindungi',
+    'main.hero.badge2_title': 'Tempahan Pantas',
+    'main.hero.badge2_sub': 'Tersedia pada hari yang sama',
+
+    /* hero slide 2 */
+    'main.hero.slide2_badge': 'Memperkasa Wanita Melalui Kerja Bermakna',
+    'main.hero.slide2_title_pre': 'Lebih Daripada Platform —',
+    'main.hero.slide2_title_hl': 'Kerjaya Seumur Hidup',
+    'main.hero.slide2_desc': 'ServiceKru lebih daripada sekadar platform perkhidmatan rumah. Kami menyediakan latihan, persijilan, dan penempatan kerjaya untuk membantu wanita Malaysia membina pendapatan mampan, pengiktirafan profesional, dan kerjaya yang bermakna.',
+    'main.hero.slide2_cta': 'Jadi Pro',
+    'main.hero.slide2_card_title': 'Jana Pendapatan & Berkembang dengan ServiceKru',
+    'main.hero.slide2_card_subtitle': 'Latih, sijilkan, dan jana pendapatan — mengikut jadual anda',
+    'main.hero.slide2_benefit1_pre': 'Jana',
+    'main.hero.slide2_benefit1_post': '/bulan',
+    'main.hero.slide2_benefit2': 'Waktu kerja fleksibel & Digital Certification',
+    'main.hero.slide2_benefit3': 'Latihan + sokongan penempatan kerjaya',
+    'main.hero.slide2_badge1_sub': 'Latihan berstruktur',
+    'main.hero.slide2_badge2_title': 'Waktu Fleksibel',
+    'main.hero.slide2_badge2_sub': 'Bekerja mengikut jadual anda',
+    'main.hero.dot1_aria': 'Slaid pelanggan',
+    'main.hero.dot2_aria': 'Slaid penyedia',
+
+    /* about / features */
+    'main.about.tag': 'Tujuan Kami',
+    'main.about.title_pre': 'Lebih Daripada',
+    'main.about.title_hl': 'Platform Perkhidmatan',
+    'main.about.desc': 'ServiceKru melatih, mensijilkan, dan menempatkan wanita Malaysia dalam kerjaya yang bermaruah — mendigitalkan dan meningkatkan standard profesional tenaga kerja perkhidmatan rumah Malaysia.',
+    'main.about.fp_badge1_title': 'Bertauliah',
+    'main.about.fp_badge1_sub': 'Pro Terlatih',
+    'main.about.fp_badge2_title': 'Diinsuranskan',
+    'main.about.fp_badge2_sub': 'Setiap Tempahan',
+    'main.about.card1_title': 'Bertauliah & Terlatih',
+    'main.about.card1_desc': 'Semua ServiceKru melengkapkan program latihan berstruktur kami dan memperoleh Digital Certification sebelum kerja pertama mereka.',
+    'main.about.card2_title': 'Semakan Latar Belakang',
+    'main.about.card2_desc': 'Kami memastikan keselamatan dan kebolehpercayaan untuk setiap rumah dan pejabat dengan pengesahan latar belakang menyeluruh ke atas semua penyedia.',
+    'main.about.card3_title': 'Dilindungi Sepenuhnya',
+    'main.about.card3_desc': 'Setiap tempahan dilindungi dan diinsuranskan untuk ketenangan fikiran anda. Perkhidmatan dijamin pada setiap kunjungan.',
+    'main.about.card4_title': 'Dinilai & Disemak',
+    'main.about.card4_desc': 'Ulasan dan penilaian telus selepas setiap kerja. Pilih penyedia anda berdasarkan maklum balas pelanggan sebenar.',
+
+    /* our story */
+    'main.story.tag': 'Kisah Kami',
+    'main.story.title_pre': 'Memperkasa Wanita Melalui',
+    'main.story.title_hl': 'Kerja Bermakna',
+    'main.story.desc': 'ServiceKru lebih daripada sekadar platform perkhidmatan rumah. Kami menyediakan latihan, persijilan, dan penempatan kerjaya untuk membantu wanita Malaysia membina pendapatan mampan, pengiktirafan profesional, dan kerjaya yang bermakna.',
+    'main.story.vision_eyebrow': 'Visi Kami',
+    'main.story.vision_title': 'Malaysia di mana setiap wanita boleh membina kerjaya seumur hidup',
+    'main.story.vision_desc': 'Kami melihat masa depan di mana setiap wanita memperoleh pendapatan yang bermaruah, memegang pengiktirafan profesional, dan membina kerjaya mampan dalam industri perkhidmatan rumah.',
+    'main.story.mission_eyebrow': 'Misi Kami',
+    'main.story.mission_title': 'Latih. Sijilkan. Tempatkan. Perkasa.',
+    'main.story.mission_desc': 'Untuk memperkasa wanita Malaysia melalui latihan berstruktur, persijilan digital, dan penempatan kerjaya — mewujudkan kebebasan ekonomi sambil memimpin pendigitalan tenaga kerja domestik Malaysia.',
+    'main.story.os_badge1_title': 'Pemberdayaan',
+    'main.story.os_badge1_sub': 'Tenaga Kerja Wanita',
+    'main.story.os_badge2_title': 'Digital Dulu',
+    'main.story.os_badge2_sub': 'Inovasi Industri',
+    'main.story.pillar1_title': 'Peluang Pekerjaan Lebih Banyak',
+    'main.story.pillar1_desc': 'Laluan pendapatan yang mudah diakses untuk wanita yang mencari kerja fleksibel dan bermaruah dengan peluang pertumbuhan profesional.',
+    'main.story.pillar2_title': 'Pendigitalan Nasional',
+    'main.story.pillar2_desc': 'Memodenkan dan memformalkan sektor tenaga kerja domestik Malaysia melalui teknologi dan kelayakan yang disahkan.',
+    'main.story.pillar3_title': 'Pengiktirafan Profesional',
+    'main.story.pillar3_desc': 'Meningkatkan status dan maruah pekerja perkhidmatan rumah melalui latihan berstruktur dan Digital Certification.',
+
+    /* booking modal */
+    'main.modal_book.tag': 'Tempah Perkhidmatan',
+    'main.modal_book.title_pre': 'Tempah Perkhidmatan',
+    'main.modal_book.title_hl': 'Rumah Dipercayai',
+    'main.modal_book.desc': 'Profesional bertauliah — terlatih, disemak, dan dokumen disahkan.',
+    'main.modal_book.li1_pre': 'Pembersihan Rumah dari',
+    'main.modal_book.li2': 'Penjagaan Anak & Warga Emas — sesi fleksibel',
+    'main.modal_book.li3': 'Profesional bersemak latar belakang dan diinsuranskan',
+    'main.modal_book.cta': 'Tempah Sekarang →',
+
+    /* become modal */
+    'main.modal_become.tag': 'Mulakan Kerjaya Anda',
+    'main.modal_become.title_pre': 'Jadi',
+    'main.modal_become.title_hl': 'Pro',
+    'main.modal_become.desc': 'Dapatkan latihan, persijilan, dan jana sehingga RM2,400/bulan — mengikut jadual anda.',
+    'main.modal_become.li1_pre': 'Jana',
+    'main.modal_become.li1_post': '/bulan',
+    'main.modal_become.li2': 'Waktu fleksibel & Digital Certification',
+    'main.modal_become.li3': 'Latihan + sokongan penempatan kerjaya',
+    'main.modal_become.cta': 'Terokai Butiran Penuh',
+
+    /* footer */
+    'main.footer.tagline': 'Perkhidmatan Rumah Dipercayai oleh Profesional Bertauliah',
+    'main.footer.about_desc': 'Menghubungkan keluarga Malaysia dengan wanita profesional bertauliah dan diinsuranskan untuk pembersihan, penjagaan anak, dan penjagaan warga emas.',
+    'main.footer.col_providers': 'Untuk Penyedia',
+    'main.footer.link_become_pro': 'Jadi Pro',
+    'main.footer.link_how_it_works': 'Cara Ia Berfungsi',
+    'main.footer.link_training': 'Latihan & Persijilan',
+    'main.footer.link_register': 'Daftar Minat',
+  },
+
+  zh: {
+    /* nav */
+    'main.nav.book_service': '预订服务',
+    'main.nav.become_pro': '成为专业人员',
+
+    /* hero slide 1 */
+    'main.hero.slide1_badge': '认证女性专业人员',
+    'main.hero.slide1_title_pre': '值得信赖的',
+    'main.hero.slide1_title_hl1': '家居服务',
+    'main.hero.slide1_title_mid': '由',
+    'main.hero.slide1_title_hl2': '认证专业人员',
+    'main.hero.slide1_desc': '从经过认证、投保的专业人员处预订可靠的清洁、托儿和长者护理服务——当天即可提供。',
+    'main.hero.slide1_cta': '预订服务',
+    'main.hero.slide1_card_title': '深受数千人信赖',
+    'main.hero.slide1_card_subtitle': '投保、经过验证的家居服务专业人员',
+    'main.hero.stat_providers': '服务人员',
+    'main.hero.stat_rating': '评分',
+    'main.hero.stat_bookings': '预订次数',
+    'main.hero.badge1_title': '已投保',
+    'main.hero.badge1_sub': '所有服务人员均受保障',
+    'main.hero.badge2_title': '快速预订',
+    'main.hero.badge2_sub': '当天可提供服务',
+
+    /* hero slide 2 */
+    'main.hero.slide2_badge': '通过有意义的工作赋能女性',
+    'main.hero.slide2_title_pre': '不只是平台——',
+    'main.hero.slide2_title_hl': '终身职业',
+    'main.hero.slide2_desc': 'ServiceKru 不只是家居服务平台。我们提供培训、认证和职业安置，帮助马来西亚女性建立可持续收入、专业认可和充实的职业生涯。',
+    'main.hero.slide2_cta': '成为专业人员',
+    'main.hero.slide2_card_title': '与 ServiceKru 一起赚取收入并成长',
+    'main.hero.slide2_card_subtitle': '培训、认证，按您的时间赚取收入',
+    'main.hero.slide2_benefit1_pre': '赚取',
+    'main.hero.slide2_benefit1_post': '/月',
+    'main.hero.slide2_benefit2': '灵活工时及 Digital Certification',
+    'main.hero.slide2_benefit3': '培训 + 职业安置支持',
+    'main.hero.slide2_badge1_sub': '系统化培训',
+    'main.hero.slide2_badge2_title': '灵活工时',
+    'main.hero.slide2_badge2_sub': '按您的时间表工作',
+    'main.hero.dot1_aria': '顾客幻灯片',
+    'main.hero.dot2_aria': '服务人员幻灯片',
+
+    /* about / features */
+    'main.about.tag': '我们的使命',
+    'main.about.title_pre': '不只是',
+    'main.about.title_hl': '服务平台',
+    'main.about.desc': 'ServiceKru 培训、认证并安置马来西亚女性进入有尊严的职业——数字化并提升马来西亚家居服务行业的专业标准。',
+    'main.about.fp_badge1_title': '已认证',
+    'main.about.fp_badge1_sub': '训练有素的专业人员',
+    'main.about.fp_badge2_title': '已投保',
+    'main.about.fp_badge2_sub': '每次预订',
+    'main.about.card1_title': '认证且训练有素',
+    'main.about.card1_desc': '所有 ServiceKru 人员均完成我们的系统化培训计划，并在首次工作前获得 Digital Certification。',
+    'main.about.card2_title': '背景调查',
+    'main.about.card2_desc': '我们对所有服务人员进行彻底的背景核查，确保每个家庭和办公室的安全与可靠性。',
+    'main.about.card3_title': '全面投保',
+    'main.about.card3_desc': '每次预订均受保障和投保，让您安心。每次上门服务均有保证。',
+    'main.about.card4_title': '评分与评价',
+    'main.about.card4_desc': '每次工作后均有透明的评价和评分。根据真实的客户反馈选择您的服务人员。',
+
+    /* our story */
+    'main.story.tag': '我们的故事',
+    'main.story.title_pre': '通过有意义的工作',
+    'main.story.title_hl': '赋能女性',
+    'main.story.desc': 'ServiceKru 不只是家居服务平台。我们提供培训、认证和职业安置，帮助马来西亚女性建立可持续收入、专业认可和充实的职业生涯。',
+    'main.story.vision_eyebrow': '我们的愿景',
+    'main.story.vision_title': '一个每位女性都能建立终身职业的马来西亚',
+    'main.story.vision_desc': '我们期望每位女性都能获得有尊严的收入、持有专业认可，并在家居服务行业建立可持续的职业生涯。',
+    'main.story.mission_eyebrow': '我们的使命',
+    'main.story.mission_title': '培训。认证。安置。赋能。',
+    'main.story.mission_desc': '通过系统化培训、数字认证和职业安置赋能马来西亚女性——在引领马来西亚家政行业数字化的同时创造经济独立。',
+    'main.story.os_badge1_title': '赋能',
+    'main.story.os_badge1_sub': '女性主导的劳动力',
+    'main.story.os_badge2_title': '数字优先',
+    'main.story.os_badge2_sub': '行业创新',
+    'main.story.pillar1_title': '增加就业机会',
+    'main.story.pillar1_desc': '为寻求灵活、有尊严工作及专业成长机会的女性提供便捷的收入渠道。',
+    'main.story.pillar2_title': '全国数字化',
+    'main.story.pillar2_desc': '通过技术和经过验证的资质认证，推动马来西亚家政行业的现代化与规范化。',
+    'main.story.pillar3_title': '专业认可',
+    'main.story.pillar3_desc': '通过系统化培训和 Digital Certification 提升家居服务工作者的地位与尊严。',
+
+    /* booking modal */
+    'main.modal_book.tag': '预订服务',
+    'main.modal_book.title_pre': '预订值得信赖的',
+    'main.modal_book.title_hl': '家居服务',
+    'main.modal_book.desc': '经过认证的专业人员——训练有素、经过评价，文件已核实。',
+    'main.modal_book.li1_pre': '家居清洁，起价',
+    'main.modal_book.li2': '托儿及长者护理——灵活安排',
+    'main.modal_book.li3': '经背景调查、已投保的专业人员',
+    'main.modal_book.cta': '立即预订 →',
+
+    /* become modal */
+    'main.modal_become.tag': '开启您的职业生涯',
+    'main.modal_become.title_pre': '成为',
+    'main.modal_become.title_hl': '专业人员',
+    'main.modal_become.desc': '接受培训、获得认证，按您的时间表赚取高达 RM2,400/月。',
+    'main.modal_become.li1_pre': '赚取',
+    'main.modal_become.li1_post': '/月',
+    'main.modal_become.li2': '灵活工时及 Digital Certification',
+    'main.modal_become.li3': '培训 + 职业安置支持',
+    'main.modal_become.cta': '了解完整详情',
+
+    /* footer */
+    'main.footer.tagline': '由认证专业人员提供值得信赖的家居服务',
+    'main.footer.about_desc': '为马来西亚家庭连接经过认证、投保的女性专业人员，提供清洁、托儿和长者护理服务。',
+    'main.footer.col_providers': '服务人员专区',
+    'main.footer.link_become_pro': '成为专业人员',
+    'main.footer.link_how_it_works': '运作方式',
+    'main.footer.link_training': '培训与认证',
+    'main.footer.link_register': '登记意向',
+  },
+};
+</script>
+<script src="redesigned-site/js/i18n.js"></script>
 </body>
 </html>

@@ -443,6 +443,15 @@
         }
 
         /* Mobile Styles */
+        .lang-switcher { position: relative; display: inline-block; margin-left: 0.5rem; }
+        .lang-current { display: inline-flex; align-items: center; gap: 6px; background: transparent; border: 1px solid #e0e0e0; border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 0.875rem; color: var(--color-gray-800, #343a40); cursor: pointer; line-height: 1; }
+        .lang-current:hover { border-color: var(--color-orange, #ee751e); color: var(--color-orange, #ee751e); }
+        .lang-menu { position: absolute; top: calc(100% + 6px); right: 0; min-width: 160px; background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); list-style: none; margin: 0; padding: 6px; z-index: 1000; }
+        .lang-menu li { padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; color: var(--color-gray-800, #343a40); }
+        .lang-menu li:hover { background: #fff5ec; color: var(--color-orange, #ee751e); }
+        .lang-menu li.active { background: var(--color-orange, #ee751e); color: #fff; }
+        @media (max-width: 1280px) { .lang-switcher { order: 2; margin-left: auto; margin-right: 8px; } }
+
         @media (max-width: 768px) {
             nav {
                 padding: 1rem;
@@ -479,21 +488,30 @@
 
 <body>
     <nav>
-        <a href="redesigned-index.html" class="logo">
+        <a href="../index.html" class="logo">
             <div class="logo-icon">SK</div>
             <div class="logo-text">
                 <span class="logo-service">Service</span><span class="logo-kru">Kru</span>
             </div>
         </a>
         <ul class="nav-links">
-            <li><a href="redesigned-index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="booking.html">Book Now</a></li>
-            <li><a href="become.html">Become a Kru</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="booking.html" class="nav-cta">Book Service</a></li>
+            <li><a href="../index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+            <li><a href="booking.html" data-i18n="nav.book">Book Now</a></li>
+            <li><a href="become.html" data-i18n="nav.become">Become a Kru</a></li>
+            <li><a href="booking.html" class="nav-cta" data-i18n="nav.cta">Book Service</a></li>
         </ul>
+        <div class="lang-switcher">
+            <button class="lang-current" aria-haspopup="listbox" aria-expanded="false" data-i18n="nav.lang_aria" data-i18n-attr="aria-label">
+                <span data-lang-label>EN</span>
+                <svg width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+            </button>
+            <ul class="lang-menu" role="listbox" hidden>
+                <li data-lang="en" role="option">English</li>
+                <li data-lang="ms" role="option">Bahasa Melayu</li>
+                <li data-lang="zh" role="option">中文</li>
+            </ul>
+        </div>
         <button class="mobile-menu-btn" aria-label="Toggle menu">
             <span></span>
             <span></span>
@@ -504,8 +522,8 @@
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h1>Our Services</h1>
-                <p>Professional home services delivered by certified women professionals. Choose from our range of
+                <h1 data-i18n="services.hero.title">Our Services</h1>
+                <p data-i18n="services.hero.subtitle">Professional home services delivered by certified women professionals. Choose from our range of
                     trusted services designed for your convenience.</p>
             </div>
         </section>
@@ -515,20 +533,20 @@
                 <div class="service-card">
                     <div class="service-header">
                         <div class="service-icon">🧹</div>
-                        <h3 class="service-title">Home Cleaning</h3>
-                        <div class="service-price">From RM120</div>
+                        <h3 class="service-title" data-i18n="services.cleaning.title">Home Cleaning</h3>
+                        <div class="service-price"><span data-i18n="services.price.from">From</span> RM120</div>
                     </div>
                     <div class="service-content">
-                        <p class="service-description">Professional cleaning for homes, offices & Airbnb units. Our
+                        <p class="service-description" data-i18n="services.cleaning.body">Professional cleaning for homes, offices & Airbnb units. Our
                             certified professionals ensure every corner is spotless and sanitized.</p>
                         <ul class="service-features">
-                            <li>Deep cleaning of all rooms</li>
-                            <li>Kitchen and bathroom sanitization</li>
-                            <li>Floor cleaning and polishing</li>
-                            <li>Insured service guarantee</li>
+                            <li data-i18n="services.cleaning.f1">Deep cleaning of all rooms</li>
+                            <li data-i18n="services.cleaning.f2">Kitchen and bathroom sanitization</li>
+                            <li data-i18n="services.cleaning.f3">Floor cleaning and polishing</li>
+                            <li data-i18n="services.cleaning.f4">Insured service guarantee</li>
                         </ul>
                         <div class="service-cta">
-                            <a href="booking.html" class="btn-primary">Book Cleaning</a>
+                            <a href="booking.html" class="btn-primary" data-i18n="services.cleaning.cta">Book Cleaning</a>
                         </div>
                     </div>
                 </div>
@@ -536,20 +554,20 @@
                 <div class="service-card">
                     <div class="service-header">
                         <div class="service-icon">👶</div>
-                        <h3 class="service-title">Childcare Support</h3>
-                        <div class="service-price">Hourly Rates</div>
+                        <h3 class="service-title" data-i18n="services.childcare.title">Childcare Support</h3>
+                        <div class="service-price" data-i18n="services.childcare.price">Hourly Rates</div>
                     </div>
                     <div class="service-content">
-                        <p class="service-description">Safe and reliable childcare at home or center. Our certified
+                        <p class="service-description" data-i18n="services.childcare.body">Safe and reliable childcare at home or center. Our certified
                             caregivers provide nurturing care while you focus on work or other commitments.</p>
                         <ul class="service-features">
-                            <li>Certified childcare professionals</li>
-                            <li>Flexible hourly scheduling</li>
-                            <li>Educational activities included</li>
-                            <li>Background verified caregivers</li>
+                            <li data-i18n="services.childcare.f1">Certified childcare professionals</li>
+                            <li data-i18n="services.childcare.f2">Flexible hourly scheduling</li>
+                            <li data-i18n="services.childcare.f3">Educational activities included</li>
+                            <li data-i18n="services.childcare.f4">Background verified caregivers</li>
                         </ul>
                         <div class="service-cta">
-                            <a href="booking.html" class="btn-primary">Book Childcare</a>
+                            <a href="booking.html" class="btn-primary" data-i18n="services.childcare.cta">Book Childcare</a>
                         </div>
                     </div>
                 </div>
@@ -557,20 +575,20 @@
                 <div class="service-card">
                     <div class="service-header">
                         <div class="service-icon">👴</div>
-                        <h3 class="service-title">Elder Care Companion</h3>
-                        <div class="service-price">From RM130/session</div>
+                        <h3 class="service-title" data-i18n="services.elder.title">Elder Care Companion</h3>
+                        <div class="service-price"><span data-i18n="services.price.from">From</span> RM130<span data-i18n="services.price.per_session">/session</span></div>
                     </div>
                     <div class="service-content">
-                        <p class="service-description">Compassionate support for seniors including companionship, daily
+                        <p class="service-description" data-i18n="services.elder.body">Compassionate support for seniors including companionship, daily
                             assistance, and hospital visits. Our trained professionals treat elders like family.</p>
                         <ul class="service-features">
-                            <li>Personalized care plans</li>
-                            <li>Companionship and conversation</li>
-                            <li>Daily living assistance</li>
-                            <li>Medical appointment support</li>
+                            <li data-i18n="services.elder.f1">Personalized care plans</li>
+                            <li data-i18n="services.elder.f2">Companionship and conversation</li>
+                            <li data-i18n="services.elder.f3">Daily living assistance</li>
+                            <li data-i18n="services.elder.f4">Medical appointment support</li>
                         </ul>
                         <div class="service-cta">
-                            <a href="booking.html" class="btn-primary">Book Elder Care</a>
+                            <a href="booking.html" class="btn-primary" data-i18n="services.elder.cta">Book Elder Care</a>
                         </div>
                     </div>
                 </div>
@@ -579,28 +597,28 @@
 
         <section class="referral">
             <div class="referral-content">
-                <h2>Refer & Earn Program</h2>
-                <p>Love our services? Share the ServiceKru experience with friends and family. Earn rewards for every
+                <h2 data-i18n="services.referral.title">Refer & Earn Program</h2>
+                <p data-i18n="services.referral.body">Love our services? Share the ServiceKru experience with friends and family. Earn rewards for every
                     successful referral!</p>
                 <div class="referral-benefits">
                     <div class="benefit-item">
                         <div class="benefit-icon">🎁</div>
-                        <h3 class="benefit-title">RM50 Reward</h3>
-                        <p class="benefit-description">Get RM50 credit for each successful referral who books a service
+                        <h3 class="benefit-title" data-i18n="services.referral.b1_title">RM50 Reward</h3>
+                        <p class="benefit-description" data-i18n="services.referral.b1_desc">Get RM50 credit for each successful referral who books a service
                         </p>
                     </div>
                     <div class="benefit-item">
                         <div class="benefit-icon">⭐</div>
-                        <h3 class="benefit-title">Priority Booking</h3>
-                        <p class="benefit-description">Referrers get priority booking and special discounts</p>
+                        <h3 class="benefit-title" data-i18n="services.referral.b2_title">Priority Booking</h3>
+                        <p class="benefit-description" data-i18n="services.referral.b2_desc">Referrers get priority booking and special discounts</p>
                     </div>
                     <div class="benefit-item">
                         <div class="benefit-icon">📈</div>
-                        <h3 class="benefit-title">Unlimited Earnings</h3>
-                        <p class="benefit-description">No limit on referrals - earn as much as you want</p>
+                        <h3 class="benefit-title" data-i18n="services.referral.b3_title">Unlimited Earnings</h3>
+                        <p class="benefit-description" data-i18n="services.referral.b3_desc">No limit on referrals - earn as much as you want</p>
                     </div>
                 </div>
-                <a href="contact.html" class="btn-primary">Start Referring Today</a>
+                <a href="booking.html" class="btn-primary" data-i18n="services.referral.cta">Start Referring Today</a>
             </div>
         </section>
     </main>
@@ -608,44 +626,42 @@
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
-                <a href="redesigned-index.html" class="footer-logo">
+                <a href="../index.html" class="footer-logo">
                     <div class="logo-icon">SK</div>
                     <div class="logo-text">
                         <span class="logo-service">Service</span><span class="logo-kru">Kru</span>
                     </div>
                 </a>
-                <p class="footer-description">Connecting Malaysian households with certified women professionals for
+                <p class="footer-description" data-i18n="footer.tagline">Connecting Malaysian households with certified women professionals for
                     trusted home services. Building a community of empowered women and satisfied families.</p>
             </div>
             <div class="footer-links">
-                <h3>Services</h3>
+                <h3 data-i18n="footer.col_services">Services</h3>
                 <ul>
-                    <li><a href="services.html">Home Cleaning</a></li>
-                    <li><a href="services.html">Childcare</a></li>
-                    <li><a href="services.html">Elder Care</a></li>
-                    <li><a href="booking.html">Book Now</a></li>
+                    <li><a href="services.html" data-i18n="footer.link_cleaning">Home Cleaning</a></li>
+                    <li><a href="services.html" data-i18n="footer.link_childcare">Childcare</a></li>
+                    <li><a href="services.html" data-i18n="footer.link_eldercare">Elder Care</a></li>
+                    <li><a href="booking.html" data-i18n="footer.link_booking">Book Now</a></li>
                 </ul>
             </div>
             <div class="footer-links">
-                <h3>Company</h3>
+                <h3 data-i18n="footer.col_company">Company</h3>
                 <ul>
-                    <li><a href="become.html">Become a Kru</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="redesigned-index.html#about">About Us</a></li>
+                    <li><a href="become.html" data-i18n="footer.link_become">Become a Kru</a></li>
+                    <li><a href="../index.html#about" data-i18n="footer.link_about">About Us</a></li>
                 </ul>
             </div>
             <div class="footer-links">
-                <h3>Support</h3>
+                <h3 data-i18n="footer.col_support">Support</h3>
                 <ul>
                     <li><a href="https://wa.me/60123456789">WhatsApp: +60 12 345 6789</a></li>
-                    <li><a href="mailto:hello@servicekru.com">Email Support</a></li>
-                    <li><a href="#help">Help Center</a></li>
+                    <li><a href="mailto:hello@servicekru.com" data-i18n="services.footer.email_support">Email Support</a></li>
+                    <li><a href="#help" data-i18n="services.footer.help_center">Help Center</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 ServiceKru. All rights reserved. | Insured by [Provider]</p>
+            <p data-i18n="footer.copyright">&copy; 2024 ServiceKru. All rights reserved. | Insured by [Provider]</p>
         </div>
     </footer>
 
@@ -660,6 +676,128 @@
             });
         }
     </script>
+    <script>
+    window.I18N_EXTEND = {
+      en: {
+        'services.hero.title': 'Our Services',
+        'services.hero.subtitle': 'Professional home services delivered by certified women professionals. Choose from our range of trusted services designed for your convenience.',
+        'services.price.from': 'From',
+        'services.price.per_session': '/session',
+        'services.cleaning.title': 'Home Cleaning',
+        'services.cleaning.body': 'Professional cleaning for homes, offices & Airbnb units. Our certified professionals ensure every corner is spotless and sanitized.',
+        'services.cleaning.f1': 'Deep cleaning of all rooms',
+        'services.cleaning.f2': 'Kitchen and bathroom sanitization',
+        'services.cleaning.f3': 'Floor cleaning and polishing',
+        'services.cleaning.f4': 'Insured service guarantee',
+        'services.cleaning.cta': 'Book Cleaning',
+        'services.childcare.title': 'Childcare Support',
+        'services.childcare.price': 'Hourly Rates',
+        'services.childcare.body': 'Safe and reliable childcare at home or center. Our certified caregivers provide nurturing care while you focus on work or other commitments.',
+        'services.childcare.f1': 'Certified childcare professionals',
+        'services.childcare.f2': 'Flexible hourly scheduling',
+        'services.childcare.f3': 'Educational activities included',
+        'services.childcare.f4': 'Background verified caregivers',
+        'services.childcare.cta': 'Book Childcare',
+        'services.elder.title': 'Elder Care Companion',
+        'services.elder.body': 'Compassionate support for seniors including companionship, daily assistance, and hospital visits. Our trained professionals treat elders like family.',
+        'services.elder.f1': 'Personalized care plans',
+        'services.elder.f2': 'Companionship and conversation',
+        'services.elder.f3': 'Daily living assistance',
+        'services.elder.f4': 'Medical appointment support',
+        'services.elder.cta': 'Book Elder Care',
+        'services.referral.title': 'Refer & Earn Program',
+        'services.referral.body': 'Love our services? Share the ServiceKru experience with friends and family. Earn rewards for every successful referral!',
+        'services.referral.b1_title': 'RM50 Reward',
+        'services.referral.b1_desc': 'Get RM50 credit for each successful referral who books a service',
+        'services.referral.b2_title': 'Priority Booking',
+        'services.referral.b2_desc': 'Referrers get priority booking and special discounts',
+        'services.referral.b3_title': 'Unlimited Earnings',
+        'services.referral.b3_desc': 'No limit on referrals - earn as much as you want',
+        'services.referral.cta': 'Start Referring Today',
+        'services.footer.email_support': 'Email Support',
+        'services.footer.help_center': 'Help Center'
+      },
+      ms: {
+        'services.hero.title': 'Perkhidmatan Kami',
+        'services.hero.subtitle': 'Perkhidmatan rumah profesional yang disampaikan oleh wanita profesional bertauliah. Pilih dari rangkaian perkhidmatan kami yang dipercayai untuk keselesaan anda.',
+        'services.price.from': 'Dari',
+        'services.price.per_session': '/sesi',
+        'services.cleaning.title': 'Pembersihan Rumah',
+        'services.cleaning.body': 'Pembersihan profesional untuk rumah, pejabat & unit Airbnb. ServiceKru bertauliah kami memastikan setiap sudut bersih dan disanitasi.',
+        'services.cleaning.f1': 'Pembersihan mendalam semua bilik',
+        'services.cleaning.f2': 'Sanitasi dapur dan bilik mandi',
+        'services.cleaning.f3': 'Pembersihan dan penggilapan lantai',
+        'services.cleaning.f4': 'Jaminan perkhidmatan berinsurans',
+        'services.cleaning.cta': 'Tempah Pembersihan',
+        'services.childcare.title': 'Sokongan Penjagaan Kanak-kanak',
+        'services.childcare.price': 'Kadar Sejam',
+        'services.childcare.body': 'Penjagaan kanak-kanak yang selamat dan boleh dipercayai di rumah atau pusat. Penjaga bertauliah kami memberikan penjagaan penuh kasih sayang sementara anda fokus pada kerja atau komitmen lain.',
+        'services.childcare.f1': 'Profesional penjagaan kanak-kanak bertauliah',
+        'services.childcare.f2': 'Jadual sejam yang fleksibel',
+        'services.childcare.f3': 'Aktiviti pendidikan disertakan',
+        'services.childcare.f4': 'Penjaga yang disahkan latar belakang',
+        'services.childcare.cta': 'Tempah Penjagaan Kanak-kanak',
+        'services.elder.title': 'Teman Penjagaan Warga Emas',
+        'services.elder.body': 'Sokongan penuh kasih sayang untuk warga emas termasuk teman, bantuan harian, dan lawatan hospital. Profesional terlatih kami melayan warga emas seperti keluarga.',
+        'services.elder.f1': 'Pelan penjagaan diperibadikan',
+        'services.elder.f2': 'Teman dan perbualan',
+        'services.elder.f3': 'Bantuan kehidupan harian',
+        'services.elder.f4': 'Sokongan temujanji perubatan',
+        'services.elder.cta': 'Tempah Penjagaan Warga Emas',
+        'services.referral.title': 'Program Rujuk & Raih',
+        'services.referral.body': 'Suka perkhidmatan kami? Kongsi pengalaman ServiceKru dengan rakan dan keluarga. Raih ganjaran untuk setiap rujukan yang berjaya!',
+        'services.referral.b1_title': 'Ganjaran RM50',
+        'services.referral.b1_desc': 'Dapatkan kredit RM50 untuk setiap rujukan berjaya yang menempah perkhidmatan',
+        'services.referral.b2_title': 'Tempahan Keutamaan',
+        'services.referral.b2_desc': 'Perujuk mendapat tempahan keutamaan dan diskaun istimewa',
+        'services.referral.b3_title': 'Pendapatan Tanpa Had',
+        'services.referral.b3_desc': 'Tiada had rujukan - raih seberapa banyak yang anda mahu',
+        'services.referral.cta': 'Mula Merujuk Hari Ini',
+        'services.footer.email_support': 'Sokongan E-mel',
+        'services.footer.help_center': 'Pusat Bantuan'
+      },
+      zh: {
+        'services.hero.title': '我们的服务',
+        'services.hero.subtitle': '由认证女性专业人员提供的专业家居服务。从我们一系列值得信赖的服务中选择,为您的便利而设计。',
+        'services.price.from': '起价',
+        'services.price.per_session': '/次',
+        'services.cleaning.title': '家居清洁',
+        'services.cleaning.body': '为住家、办公室和Airbnb单位提供专业清洁。我们认证的ServiceKru确保每个角落都洁净并经过消毒。',
+        'services.cleaning.f1': '所有房间深度清洁',
+        'services.cleaning.f2': '厨房和浴室消毒',
+        'services.cleaning.f3': '地板清洁与抛光',
+        'services.cleaning.f4': '受保险的服务保障',
+        'services.cleaning.cta': '预订清洁服务',
+        'services.childcare.title': '儿童照护支援',
+        'services.childcare.price': '按小时收费',
+        'services.childcare.body': '在家中或中心提供安全可靠的儿童照护。我们认证的照护者在您专注工作或其他事务时提供贴心照顾。',
+        'services.childcare.f1': '认证的儿童照护专业人员',
+        'services.childcare.f2': '灵活的小时排程',
+        'services.childcare.f3': '包含教育活动',
+        'services.childcare.f4': '经过背景核实的照护者',
+        'services.childcare.cta': '预订儿童照护',
+        'services.elder.title': '长者陪伴照护',
+        'services.elder.body': '为长者提供贴心支援,包括陪伴、日常协助和医院陪诊。我们训练有素的专业人员视长者如家人。',
+        'services.elder.f1': '个性化照护计划',
+        'services.elder.f2': '陪伴与交谈',
+        'services.elder.f3': '日常生活协助',
+        'services.elder.f4': '医疗预约支援',
+        'services.elder.cta': '预订长者照护',
+        'services.referral.title': '推荐有奖计划',
+        'services.referral.body': '喜爱我们的服务?与亲友分享ServiceKru体验。每一次成功推荐都能赚取奖励!',
+        'services.referral.b1_title': 'RM50奖励',
+        'services.referral.b1_desc': '每位成功推荐并预订服务的客户可获RM50信用额',
+        'services.referral.b2_title': '优先预订',
+        'services.referral.b2_desc': '推荐者享有优先预订与特别折扣',
+        'services.referral.b3_title': '无限收益',
+        'services.referral.b3_desc': '推荐无上限 - 想赚多少就赚多少',
+        'services.referral.cta': '立即开始推荐',
+        'services.footer.email_support': '电邮支援',
+        'services.footer.help_center': '帮助中心'
+      }
+    };
+    </script>
+    <script src="js/i18n.js"></script>
 </body>
 
 </html>

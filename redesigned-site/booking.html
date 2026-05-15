@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book a Service — ServiceKru</title>
+    <title data-i18n="booking.page_title">Book a Service — ServiceKru</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -732,6 +732,15 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        .lang-switcher { position: relative; display: inline-block; margin-left: 0.5rem; }
+        .lang-current { display: inline-flex; align-items: center; gap: 6px; background: transparent; border: 1px solid #e0e0e0; border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 0.875rem; color: var(--color-gray-800, #343a40); cursor: pointer; line-height: 1; }
+        .lang-current:hover { border-color: var(--color-orange, #ee751e); color: var(--color-orange, #ee751e); }
+        .lang-menu { position: absolute; top: calc(100% + 6px); right: 0; min-width: 160px; background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); list-style: none; margin: 0; padding: 6px; z-index: 1000; }
+        .lang-menu li { padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; color: var(--color-gray-800, #343a40); }
+        .lang-menu li:hover { background: #fff5ec; color: var(--color-orange, #ee751e); }
+        .lang-menu li.active { background: var(--color-orange, #ee751e); color: #fff; }
+        @media (max-width: 1280px) { .lang-switcher { order: 2; margin-left: auto; margin-right: 8px; } }
     </style>
 </head>
 
@@ -741,10 +750,21 @@
             <img src="../assets/logo.png" alt="ServiceKru" class="logo-img">
         </a>
         <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="booking.html" class="nav-active">Book a Service</a></li>
-            <li><a href="become.html">Become a Pro</a></li>
+            <li><a href="../index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="booking.html" class="nav-active" data-i18n="booking.nav.book">Book a Service</a></li>
+            <li><a href="become.html" data-i18n="booking.nav.become_pro">Become a Pro</a></li>
         </ul>
+        <div class="lang-switcher">
+            <button class="lang-current" aria-haspopup="listbox" aria-expanded="false" data-i18n="nav.lang_aria" data-i18n-attr="aria-label">
+                <span data-lang-label>EN</span>
+                <svg width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+            </button>
+            <ul class="lang-menu" role="listbox" hidden>
+                <li data-lang="en" role="option">English</li>
+                <li data-lang="ms" role="option">Bahasa Melayu</li>
+                <li data-lang="zh" role="option">中文</li>
+            </ul>
+        </div>
         <button class="mobile-menu-btn" aria-label="Toggle menu">
             <span></span>
             <span></span>
@@ -756,11 +776,11 @@
         <!-- Hero -->
         <section class="hero">
             <div class="hero-content">
-                <span class="section-tag">Book a Service</span>
-                <h1>Trusted Home Services, <span>Booked in Minutes</span></h1>
-                <p>Certified, background-checked professionals for home cleaning, childcare, and elder care. Reliable, insured, and rated by customers.</p>
+                <span class="section-tag" data-i18n="booking.hero.tag">Book a Service</span>
+                <h1><span data-i18n="booking.hero.title_a">Trusted Home Services,</span> <span data-i18n="booking.hero.title_b">Booked in Minutes</span></h1>
+                <p data-i18n="booking.hero.subtitle">Certified, background-checked professionals for home cleaning, childcare, and elder care. Reliable, insured, and rated by customers.</p>
                 <a href="#book-form" class="btn-primary">
-                    Book Now
+                    <span data-i18n="booking.hero.cta">Book Now</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
             </div>
@@ -770,22 +790,22 @@
         <section class="services-section" id="services">
             <div class="section-container">
                 <div class="section-header">
-                    <span class="section-tag">Our Services</span>
-                    <h2>Professional <span>Home Services</span></h2>
-                    <p>Verified, insured professionals at your fingertips. Book with confidence.</p>
+                    <span class="section-tag" data-i18n="booking.services.tag">Our Services</span>
+                    <h2><span data-i18n="booking.services.title_a">Professional</span> <span data-i18n="booking.services.title_b">Home Services</span></h2>
+                    <p data-i18n="booking.services.subtitle">Verified, insured professionals at your fingertips. Book with confidence.</p>
                 </div>
                 <div class="services-grid">
                     <div class="service-card">
                         <div class="service-card-image">
                             <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&auto=format" alt="Professional home cleaning service" width="400" height="300" loading="lazy">
-                            <span class="service-card-badge">From RM120</span>
+                            <span class="service-card-badge"><span data-i18n="booking.services.from">From</span> RM120</span>
                         </div>
                         <div class="service-card-content">
-                            <h3>Home Cleaning</h3>
-                            <p>Professional cleaning for homes, offices and Airbnb units. Deep cleaning, regular maintenance, and move-in/out services.</p>
+                            <h3 data-i18n="booking.services.card1_title">Home Cleaning</h3>
+                            <p data-i18n="booking.services.card1_desc">Professional cleaning for homes, offices and Airbnb units. Deep cleaning, regular maintenance, and move-in/out services.</p>
                             <div class="service-card-footer">
-                                <span style="font-weight:700; color:var(--color-orange);">From RM120/session</span>
-                                <a href="#book-form" class="btn-primary">Book Now
+                                <span style="font-weight:700; color:var(--color-orange);"><span data-i18n="booking.services.from">From</span> RM120<span data-i18n="booking.services.per_session">/session</span></span>
+                                <a href="#book-form" class="btn-primary"><span data-i18n="booking.hero.cta">Book Now</span>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                                 </a>
                             </div>
@@ -794,14 +814,14 @@
                     <div class="service-card">
                         <div class="service-card-image">
                             <img src="https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=400&h=300&fit=crop&auto=format" alt="Childcare support service" width="400" height="300" loading="lazy">
-                            <span class="service-card-badge">Hourly</span>
+                            <span class="service-card-badge" data-i18n="booking.services.badge_hourly">Hourly</span>
                         </div>
                         <div class="service-card-content">
-                            <h3>Childcare Support</h3>
-                            <p>Safe and reliable care for your children at home or centre. Babysitting, after-school care, and full-day supervision.</p>
+                            <h3 data-i18n="booking.services.card2_title">Childcare Support</h3>
+                            <p data-i18n="booking.services.card2_desc">Safe and reliable care for your children at home or centre. Babysitting, after-school care, and full-day supervision.</p>
                             <div class="service-card-footer">
-                                <span style="font-weight:700; color:var(--color-orange);">Flexible hourly rates</span>
-                                <a href="#book-form" class="btn-primary">Book Now
+                                <span style="font-weight:700; color:var(--color-orange);" data-i18n="booking.services.card2_price">Flexible hourly rates</span>
+                                <a href="#book-form" class="btn-primary"><span data-i18n="booking.hero.cta">Book Now</span>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                                 </a>
                             </div>
@@ -810,14 +830,14 @@
                     <div class="service-card">
                         <div class="service-card-image">
                             <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=400&h=300&fit=crop&auto=format" alt="Elder care companion service" width="400" height="300" loading="lazy">
-                            <span class="service-card-badge">From RM130</span>
+                            <span class="service-card-badge"><span data-i18n="booking.services.from">From</span> RM130</span>
                         </div>
                         <div class="service-card-content">
-                            <h3>Elder Care Companion</h3>
-                            <p>Compassionate support for seniors — companionship, daily assistance, hospital visits, and mobility help.</p>
+                            <h3 data-i18n="booking.services.card3_title">Elder Care Companion</h3>
+                            <p data-i18n="booking.services.card3_desc">Compassionate support for seniors — companionship, daily assistance, hospital visits, and mobility help.</p>
                             <div class="service-card-footer">
-                                <span style="font-weight:700; color:var(--color-orange);">From RM130/session</span>
-                                <a href="#book-form" class="btn-primary">Book Now
+                                <span style="font-weight:700; color:var(--color-orange);"><span data-i18n="booking.services.from">From</span> RM130<span data-i18n="booking.services.per_session">/session</span></span>
+                                <a href="#book-form" class="btn-primary"><span data-i18n="booking.hero.cta">Book Now</span>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                                 </a>
                             </div>
@@ -831,52 +851,52 @@
         <section class="booking-section" id="book-form">
             <div class="section-container">
                 <div class="section-header">
-                    <span class="section-tag">Book Now</span>
-                    <h2>Confirm Your <span>Booking</span></h2>
-                    <p>Fill in your details and we'll connect you with the right certified professional via WhatsApp.</p>
+                    <span class="section-tag" data-i18n="booking.form.tag">Book Now</span>
+                    <h2><span data-i18n="booking.form.title_a">Confirm Your</span> <span data-i18n="booking.form.title_b">Booking</span></h2>
+                    <p data-i18n="booking.form.subtitle">Fill in your details and we'll connect you with the right certified professional via WhatsApp.</p>
                 </div>
                 <div class="booking-form-wrap">
                     <div class="form-header">
-                        <h3>Booking Details</h3>
-                        <p>All prices include insurance coverage. We'll confirm within 2 hours.</p>
+                        <h3 data-i18n="booking.form.header_title">Booking Details</h3>
+                        <p data-i18n="booking.form.header_subtitle">All prices include insurance coverage. We'll confirm within 2 hours.</p>
                     </div>
                     <form class="form-body" id="bookingForm">
                         <div class="form-group">
-                            <label for="service">Select Service *</label>
+                            <label for="service" data-i18n="booking.form.service_label">Select Service *</label>
                             <select id="service" name="service" required>
-                                <option value="">Choose a service...</option>
-                                <option value="Home Cleaning — From RM130/session">Home Cleaning — From RM130/session</option>
-                                <option value="Childcare Support — Hourly rates">Childcare Support — Hourly rates</option>
-                                <option value="Elder Care — From RM130/session">Elder Care — From RM130/session</option>
+                                <option value="" data-i18n="booking.form.service_placeholder">Choose a service...</option>
+                                <option value="Home Cleaning — From RM130/session" data-i18n="booking.form.service_opt1">Home Cleaning — From RM130/session</option>
+                                <option value="Childcare Support — Hourly rates" data-i18n="booking.form.service_opt2">Childcare Support — Hourly rates</option>
+                                <option value="Elder Care — From RM130/session" data-i18n="booking.form.service_opt3">Elder Care — From RM130/session</option>
                             </select>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="name">Full Name *</label>
-                                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                                <label for="name" data-i18n="booking.form.name_label">Full Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="Enter your full name" data-i18n="booking.form.name_placeholder" data-i18n-attr="placeholder">
                             </div>
                             <div class="form-group">
-                                <label for="phone">Phone Number *</label>
+                                <label for="phone" data-i18n="booking.form.phone_label">Phone Number *</label>
                                 <input type="tel" id="phone" name="phone" required placeholder="+60 12-345 6789">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email Address *</label>
+                            <label for="email" data-i18n="booking.form.email_label">Email Address *</label>
                             <input type="email" id="email" name="email" required placeholder="your.email@example.com">
                         </div>
                         <div class="form-group">
-                            <label for="address">Service Address *</label>
-                            <input type="text" id="address" name="address" required placeholder="Full address where service is needed">
+                            <label for="address" data-i18n="booking.form.address_label">Service Address *</label>
+                            <input type="text" id="address" name="address" required placeholder="Full address where service is needed" data-i18n="booking.form.address_placeholder" data-i18n-attr="placeholder">
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="date">Preferred Date *</label>
+                                <label for="date" data-i18n="booking.form.date_label">Preferred Date *</label>
                                 <input type="date" id="date" name="date" required>
                             </div>
                             <div class="form-group">
-                                <label for="time">Preferred Time *</label>
+                                <label for="time" data-i18n="booking.form.time_label">Preferred Time *</label>
                                 <select id="time" name="time" required>
-                                    <option value="">Select time...</option>
+                                    <option value="" data-i18n="booking.form.time_placeholder">Select time...</option>
                                     <option value="9:00 AM">9:00 AM</option>
                                     <option value="10:00 AM">10:00 AM</option>
                                     <option value="11:00 AM">11:00 AM</option>
@@ -891,14 +911,14 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="details">Additional Details</label>
-                            <textarea id="details" name="details" placeholder="Any special requirements, access instructions, or notes for the professional..."></textarea>
+                            <label for="details" data-i18n="booking.form.details_label">Additional Details</label>
+                            <textarea id="details" name="details" placeholder="Any special requirements, access instructions, or notes for the professional..." data-i18n="booking.form.details_placeholder" data-i18n-attr="placeholder"></textarea>
                         </div>
                         <div class="form-submit-wrap">
                             <button type="submit" class="btn-whatsapp">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Confirm Booking via WhatsApp
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> <span data-i18n="booking.form.submit">Confirm Booking via WhatsApp</span>
                             </button>
-                            <p class="form-note">All ServiceKrus are insured and protected. We'll confirm your booking within 2 hours.</p>
+                            <p class="form-note" data-i18n="booking.form.note">All ServiceKrus are insured and protected. We'll confirm your booking within 2 hours.</p>
                         </div>
                     </form>
                 </div>
@@ -909,30 +929,30 @@
         <section class="process-section" id="booking-process">
             <div class="section-container">
                 <div class="section-header">
-                    <span class="section-tag">Simple Process</span>
-                    <h2>How Booking <span>Works</span></h2>
-                    <p>Four easy steps from selecting a service to having a certified professional at your door.</p>
+                    <span class="section-tag" data-i18n="booking.process.tag">Simple Process</span>
+                    <h2><span data-i18n="booking.process.title_a">How Booking</span> <span data-i18n="booking.process.title_b">Works</span></h2>
+                    <p data-i18n="booking.process.subtitle">Four easy steps from selecting a service to having a certified professional at your door.</p>
                 </div>
                 <div class="steps-grid">
                     <div class="step-card">
                         <div class="step-number">1</div>
-                        <h3 class="step-title">Choose Service</h3>
-                        <p class="step-description">Select the service you need and fill in your details above.</p>
+                        <h3 class="step-title" data-i18n="booking.process.step1_title">Choose Service</h3>
+                        <p class="step-description" data-i18n="booking.process.step1_desc">Select the service you need and fill in your details above.</p>
                     </div>
                     <div class="step-card">
                         <div class="step-number">2</div>
-                        <h3 class="step-title">Select Date & Time</h3>
-                        <p class="step-description">Pick a slot that works for your schedule — same-day available.</p>
+                        <h3 class="step-title" data-i18n="booking.process.step2_title">Select Date & Time</h3>
+                        <p class="step-description" data-i18n="booking.process.step2_desc">Pick a slot that works for your schedule — same-day available.</p>
                     </div>
                     <div class="step-card">
                         <div class="step-number">3</div>
-                        <h3 class="step-title">Confirm via WhatsApp</h3>
-                        <p class="step-description">Submit the form and we'll confirm your booking within 2 hours.</p>
+                        <h3 class="step-title" data-i18n="booking.process.step3_title">Confirm via WhatsApp</h3>
+                        <p class="step-description" data-i18n="booking.process.step3_desc">Submit the form and we'll confirm your booking within 2 hours.</p>
                     </div>
                     <div class="step-card">
                         <div class="step-number">4</div>
-                        <h3 class="step-title">Get Matched</h3>
-                        <p class="step-description">We assign a certified, insured ServiceKru professional to your booking.</p>
+                        <h3 class="step-title" data-i18n="booking.process.step4_title">Get Matched</h3>
+                        <p class="step-description" data-i18n="booking.process.step4_desc">We assign a certified, insured ServiceKru professional to your booking.</p>
                     </div>
                 </div>
             </div>
@@ -942,37 +962,37 @@
         <section class="safety-section" id="safety">
             <div class="section-container">
                 <div class="section-header">
-                    <span class="section-tag">Your Safety</span>
-                    <h2>Your Safety <span>Matters</span></h2>
-                    <p>Every booking is backed by our safety standards — so you can book with complete confidence.</p>
+                    <span class="section-tag" data-i18n="booking.safety.tag">Your Safety</span>
+                    <h2><span data-i18n="booking.safety.title_a">Your Safety</span> <span data-i18n="booking.safety.title_b">Matters</span></h2>
+                    <p data-i18n="booking.safety.subtitle">Every booking is backed by our safety standards — so you can book with complete confidence.</p>
                 </div>
                 <div class="safety-grid">
                     <div class="safety-card">
                         <div class="safety-card-body">
                             <div class="safety-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                            <h3>Background Checked</h3>
-                            <p>Every ServiceKru undergoes thorough background verification before joining our platform.</p>
+                            <h3 data-i18n="booking.safety.card1_title">Background Checked</h3>
+                            <p data-i18n="booking.safety.card1_desc">Every ServiceKru undergoes thorough background verification before joining our platform.</p>
                         </div>
                     </div>
                     <div class="safety-card">
                         <div class="safety-card-body">
                             <div class="safety-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-                            <h3>Fully Insured</h3>
-                            <p>All services are fully insured, protecting both you and our professionals on every booking.</p>
+                            <h3 data-i18n="booking.safety.card2_title">Fully Insured</h3>
+                            <p data-i18n="booking.safety.card2_desc">All services are fully insured, protecting both you and our professionals on every booking.</p>
                         </div>
                     </div>
                     <div class="safety-card">
                         <div class="safety-card-body">
                             <div class="safety-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1" ry="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div>
-                            <h3>Service Guaranteed</h3>
-                            <p>Not satisfied? We'll send another professional or provide a full refund — no questions asked.</p>
+                            <h3 data-i18n="booking.safety.card3_title">Service Guaranteed</h3>
+                            <p data-i18n="booking.safety.card3_desc">Not satisfied? We'll send another professional or provide a full refund — no questions asked.</p>
                         </div>
                     </div>
                     <div class="safety-card">
                         <div class="safety-card-body">
                             <div class="safety-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-                            <h3>Customer Support</h3>
-                            <p>Our team is available to help before, during, and after every service booking.</p>
+                            <h3 data-i18n="booking.safety.card4_title">Customer Support</h3>
+                            <p data-i18n="booking.safety.card4_desc">Our team is available to help before, during, and after every service booking.</p>
                         </div>
                     </div>
                 </div>
@@ -988,40 +1008,40 @@
                         <span class="logo-service">ser</span><span class="logo-v">V</span><span class="logo-service">ice</span><span class="logo-kru">KRU</span>
                     </div>
                 </a>
-                <p class="footer-tagline">Trusted Home Services by Certified Professionals</p>
-                <p>Connecting Malaysian families with certified, insured women professionals for cleaning, childcare, and elder care.</p>
+                <p class="footer-tagline" data-i18n="booking.footer.tagline">Trusted Home Services by Certified Professionals</p>
+                <p data-i18n="booking.footer.about">Connecting Malaysian families with certified, insured women professionals for cleaning, childcare, and elder care.</p>
             </div>
             <div class="footer-links">
-                <h4>Services</h4>
+                <h4 data-i18n="footer.col_services">Services</h4>
                 <ul>
-                    <li><a href="#services">Home Cleaning</a></li>
-                    <li><a href="#services">Childcare</a></li>
-                    <li><a href="#services">Elder Care</a></li>
-                    <li><a href="#book-form">Book a Service</a></li>
+                    <li><a href="#services" data-i18n="booking.services.card1_title">Home Cleaning</a></li>
+                    <li><a href="#services" data-i18n="footer.link_childcare">Childcare</a></li>
+                    <li><a href="#services" data-i18n="footer.link_eldercare">Elder Care</a></li>
+                    <li><a href="#book-form" data-i18n="footer.link_booking">Book a Service</a></li>
                 </ul>
             </div>
             <div class="footer-links">
-                <h4>For Providers</h4>
+                <h4 data-i18n="booking.footer.col_providers">For Providers</h4>
                 <ul>
-                    <li><a href="become.html">Become a Pro</a></li>
-                    <li><a href="become.html#how-it-works">How It Works</a></li>
-                    <li><a href="become.html#how-it-works">Training &amp; Certification</a></li>
-                    <li><a href="become.html#enquiry">Register Interest</a></li>
+                    <li><a href="become.html" data-i18n="booking.nav.become_pro">Become a Pro</a></li>
+                    <li><a href="become.html#how-it-works" data-i18n="booking.footer.link_how">How It Works</a></li>
+                    <li><a href="become.html#how-it-works" data-i18n="booking.footer.link_training">Training & Certification</a></li>
+                    <li><a href="become.html#enquiry" data-i18n="booking.footer.link_register">Register Interest</a></li>
                 </ul>
             </div>
             <div class="footer-links">
-                <h4>Support</h4>
+                <h4 data-i18n="footer.col_support">Support</h4>
                 <ul>
-                    <li><a href="../index.html#about">About Us</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="../index.html#about" data-i18n="footer.link_about">About Us</a></li>
+                    <li><a href="#" data-i18n="footer.link_faq">FAQ</a></li>
+                    <li><a href="#" data-i18n="footer.link_contact">Contact</a></li>
+                    <li><a href="#" data-i18n="footer.link_privacy">Privacy Policy</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 ServiceKru. All rights reserved.</p>
-            <p>Trusted home services across Malaysia.</p>
+            <p data-i18n="footer.copyright">© 2026 ServiceKru. All rights reserved.</p>
+            <p data-i18n="booking.footer.tagline_bottom">Trusted home services across Malaysia.</p>
         </div>
     </footer>
 
@@ -1053,6 +1073,249 @@
             window.open(`https://wa.me/[WhatsApp number TBD]?text=${encodeURIComponent(message)}`, '_blank');
         });
     </script>
+
+    <script>
+    window.I18N_EXTEND = {
+      en: {
+        'booking.page_title': 'Book a Service — ServiceKru',
+        'booking.nav.book': 'Book a Service',
+        'booking.nav.become_pro': 'Become a Pro',
+        'booking.hero.tag': 'Book a Service',
+        'booking.hero.title_a': 'Trusted Home Services,',
+        'booking.hero.title_b': 'Booked in Minutes',
+        'booking.hero.subtitle': 'Certified, background-checked professionals for home cleaning, childcare, and elder care. Reliable, insured, and rated by customers.',
+        'booking.hero.cta': 'Book Now',
+        'booking.services.tag': 'Our Services',
+        'booking.services.title_a': 'Professional',
+        'booking.services.title_b': 'Home Services',
+        'booking.services.subtitle': 'Verified, insured professionals at your fingertips. Book with confidence.',
+        'booking.services.from': 'From',
+        'booking.services.per_session': '/session',
+        'booking.services.badge_hourly': 'Hourly',
+        'booking.services.card1_title': 'Home Cleaning',
+        'booking.services.card1_desc': 'Professional cleaning for homes, offices and Airbnb units. Deep cleaning, regular maintenance, and move-in/out services.',
+        'booking.services.card2_title': 'Childcare Support',
+        'booking.services.card2_desc': 'Safe and reliable care for your children at home or centre. Babysitting, after-school care, and full-day supervision.',
+        'booking.services.card2_price': 'Flexible hourly rates',
+        'booking.services.card3_title': 'Elder Care Companion',
+        'booking.services.card3_desc': 'Compassionate support for seniors — companionship, daily assistance, hospital visits, and mobility help.',
+        'booking.form.tag': 'Book Now',
+        'booking.form.title_a': 'Confirm Your',
+        'booking.form.title_b': 'Booking',
+        'booking.form.subtitle': "Fill in your details and we'll connect you with the right certified professional via WhatsApp.",
+        'booking.form.header_title': 'Booking Details',
+        'booking.form.header_subtitle': "All prices include insurance coverage. We'll confirm within 2 hours.",
+        'booking.form.service_label': 'Select Service *',
+        'booking.form.service_placeholder': 'Choose a service...',
+        'booking.form.service_opt1': 'Home Cleaning — From RM130/session',
+        'booking.form.service_opt2': 'Childcare Support — Hourly rates',
+        'booking.form.service_opt3': 'Elder Care — From RM130/session',
+        'booking.form.name_label': 'Full Name *',
+        'booking.form.name_placeholder': 'Enter your full name',
+        'booking.form.phone_label': 'Phone Number *',
+        'booking.form.email_label': 'Email Address *',
+        'booking.form.address_label': 'Service Address *',
+        'booking.form.address_placeholder': 'Full address where service is needed',
+        'booking.form.date_label': 'Preferred Date *',
+        'booking.form.time_label': 'Preferred Time *',
+        'booking.form.time_placeholder': 'Select time...',
+        'booking.form.details_label': 'Additional Details',
+        'booking.form.details_placeholder': 'Any special requirements, access instructions, or notes for the professional...',
+        'booking.form.submit': 'Confirm Booking via WhatsApp',
+        'booking.form.note': "All ServiceKrus are insured and protected. We'll confirm your booking within 2 hours.",
+        'booking.process.tag': 'Simple Process',
+        'booking.process.title_a': 'How Booking',
+        'booking.process.title_b': 'Works',
+        'booking.process.subtitle': 'Four easy steps from selecting a service to having a certified professional at your door.',
+        'booking.process.step1_title': 'Choose Service',
+        'booking.process.step1_desc': 'Select the service you need and fill in your details above.',
+        'booking.process.step2_title': 'Select Date & Time',
+        'booking.process.step2_desc': 'Pick a slot that works for your schedule — same-day available.',
+        'booking.process.step3_title': 'Confirm via WhatsApp',
+        'booking.process.step3_desc': "Submit the form and we'll confirm your booking within 2 hours.",
+        'booking.process.step4_title': 'Get Matched',
+        'booking.process.step4_desc': 'We assign a certified, insured ServiceKru professional to your booking.',
+        'booking.safety.tag': 'Your Safety',
+        'booking.safety.title_a': 'Your Safety',
+        'booking.safety.title_b': 'Matters',
+        'booking.safety.subtitle': 'Every booking is backed by our safety standards — so you can book with complete confidence.',
+        'booking.safety.card1_title': 'Background Checked',
+        'booking.safety.card1_desc': 'Every ServiceKru undergoes thorough background verification before joining our platform.',
+        'booking.safety.card2_title': 'Fully Insured',
+        'booking.safety.card2_desc': 'All services are fully insured, protecting both you and our professionals on every booking.',
+        'booking.safety.card3_title': 'Service Guaranteed',
+        'booking.safety.card3_desc': "Not satisfied? We'll send another professional or provide a full refund — no questions asked.",
+        'booking.safety.card4_title': 'Customer Support',
+        'booking.safety.card4_desc': 'Our team is available to help before, during, and after every service booking.',
+        'booking.footer.tagline': 'Trusted Home Services by Certified Professionals',
+        'booking.footer.about': 'Connecting Malaysian families with certified, insured women professionals for cleaning, childcare, and elder care.',
+        'booking.footer.col_providers': 'For Providers',
+        'booking.footer.link_how': 'How It Works',
+        'booking.footer.link_training': 'Training & Certification',
+        'booking.footer.link_register': 'Register Interest',
+        'booking.footer.tagline_bottom': 'Trusted home services across Malaysia.',
+      },
+      ms: {
+        'booking.page_title': 'Tempah Perkhidmatan — ServiceKru',
+        'booking.nav.book': 'Tempah Perkhidmatan',
+        'booking.nav.become_pro': 'Jadi Profesional',
+        'booking.hero.tag': 'Tempah Perkhidmatan',
+        'booking.hero.title_a': 'Perkhidmatan Rumah Dipercayai,',
+        'booking.hero.title_b': 'Ditempah dalam Beberapa Minit',
+        'booking.hero.subtitle': 'Profesional bertauliah yang telah disemak latar belakang untuk pembersihan rumah, penjagaan anak, dan penjagaan warga emas. Boleh dipercayai, diinsuranskan, dan dinilai oleh pelanggan.',
+        'booking.hero.cta': 'Tempah Sekarang',
+        'booking.services.tag': 'Perkhidmatan Kami',
+        'booking.services.title_a': 'Perkhidmatan Rumah',
+        'booking.services.title_b': 'Profesional',
+        'booking.services.subtitle': 'Profesional yang disahkan dan diinsuranskan di hujung jari anda. Tempah dengan yakin.',
+        'booking.services.from': 'Dari',
+        'booking.services.per_session': '/sesi',
+        'booking.services.badge_hourly': 'Sejam',
+        'booking.services.card1_title': 'Pembersihan Rumah',
+        'booking.services.card1_desc': 'Pembersihan profesional untuk rumah, pejabat dan unit Airbnb. Pembersihan menyeluruh, penyelenggaraan berkala, dan perkhidmatan masuk/keluar.',
+        'booking.services.card2_title': 'Sokongan Penjagaan Anak',
+        'booking.services.card2_desc': 'Penjagaan yang selamat dan boleh dipercayai untuk anak anda di rumah atau pusat. Pengasuh, penjagaan selepas sekolah, dan penyeliaan sepanjang hari.',
+        'booking.services.card2_price': 'Kadar sejam fleksibel',
+        'booking.services.card3_title': 'Pendamping Penjagaan Warga Emas',
+        'booking.services.card3_desc': 'Sokongan penuh kasih untuk warga emas — teman, bantuan harian, lawatan hospital, dan bantuan pergerakan.',
+        'booking.form.tag': 'Tempah Sekarang',
+        'booking.form.title_a': 'Sahkan',
+        'booking.form.title_b': 'Tempahan Anda',
+        'booking.form.subtitle': 'Isikan butiran anda dan kami akan menghubungkan anda dengan profesional bertauliah yang sesuai melalui WhatsApp.',
+        'booking.form.header_title': 'Butiran Tempahan',
+        'booking.form.header_subtitle': 'Semua harga termasuk perlindungan insurans. Kami akan mengesahkan dalam masa 2 jam.',
+        'booking.form.service_label': 'Pilih Perkhidmatan *',
+        'booking.form.service_placeholder': 'Pilih perkhidmatan...',
+        'booking.form.service_opt1': 'Pembersihan Rumah — Dari RM130/sesi',
+        'booking.form.service_opt2': 'Sokongan Penjagaan Anak — Kadar sejam',
+        'booking.form.service_opt3': 'Penjagaan Warga Emas — Dari RM130/sesi',
+        'booking.form.name_label': 'Nama Penuh *',
+        'booking.form.name_placeholder': 'Masukkan nama penuh anda',
+        'booking.form.phone_label': 'Nombor Telefon *',
+        'booking.form.email_label': 'Alamat Emel *',
+        'booking.form.address_label': 'Alamat Perkhidmatan *',
+        'booking.form.address_placeholder': 'Alamat penuh tempat perkhidmatan diperlukan',
+        'booking.form.date_label': 'Tarikh Pilihan *',
+        'booking.form.time_label': 'Masa Pilihan *',
+        'booking.form.time_placeholder': 'Pilih masa...',
+        'booking.form.details_label': 'Maklumat Tambahan',
+        'booking.form.details_placeholder': 'Sebarang keperluan khas, arahan akses, atau nota untuk profesional...',
+        'booking.form.submit': 'Sahkan Tempahan melalui WhatsApp',
+        'booking.form.note': 'Semua ServiceKru diinsuranskan dan dilindungi. Kami akan mengesahkan tempahan anda dalam masa 2 jam.',
+        'booking.process.tag': 'Proses Mudah',
+        'booking.process.title_a': 'Cara Tempahan',
+        'booking.process.title_b': 'Berfungsi',
+        'booking.process.subtitle': 'Empat langkah mudah daripada memilih perkhidmatan hingga profesional bertauliah tiba di pintu anda.',
+        'booking.process.step1_title': 'Pilih Perkhidmatan',
+        'booking.process.step1_desc': 'Pilih perkhidmatan yang anda perlukan dan isikan butiran anda di atas.',
+        'booking.process.step2_title': 'Pilih Tarikh & Masa',
+        'booking.process.step2_desc': 'Pilih slot yang sesuai dengan jadual anda — tersedia pada hari yang sama.',
+        'booking.process.step3_title': 'Sahkan melalui WhatsApp',
+        'booking.process.step3_desc': 'Hantar borang dan kami akan mengesahkan tempahan anda dalam masa 2 jam.',
+        'booking.process.step4_title': 'Dapatkan Padanan',
+        'booking.process.step4_desc': 'Kami akan menugaskan profesional ServiceKru bertauliah dan diinsuranskan untuk tempahan anda.',
+        'booking.safety.tag': 'Keselamatan Anda',
+        'booking.safety.title_a': 'Keselamatan Anda',
+        'booking.safety.title_b': 'Penting',
+        'booking.safety.subtitle': 'Setiap tempahan disokong oleh piawaian keselamatan kami — supaya anda boleh menempah dengan keyakinan sepenuhnya.',
+        'booking.safety.card1_title': 'Disemak Latar Belakang',
+        'booking.safety.card1_desc': 'Setiap ServiceKru menjalani pengesahan latar belakang yang menyeluruh sebelum menyertai platform kami.',
+        'booking.safety.card2_title': 'Diinsuranskan Sepenuhnya',
+        'booking.safety.card2_desc': 'Semua perkhidmatan diinsuranskan sepenuhnya, melindungi anda dan profesional kami pada setiap tempahan.',
+        'booking.safety.card3_title': 'Perkhidmatan Dijamin',
+        'booking.safety.card3_desc': 'Tidak berpuas hati? Kami akan menghantar profesional lain atau memberikan bayaran balik penuh — tanpa soalan.',
+        'booking.safety.card4_title': 'Sokongan Pelanggan',
+        'booking.safety.card4_desc': 'Pasukan kami sedia membantu sebelum, semasa, dan selepas setiap tempahan perkhidmatan.',
+        'booking.footer.tagline': 'Perkhidmatan Rumah Dipercayai oleh Profesional Bertauliah',
+        'booking.footer.about': 'Menghubungkan keluarga Malaysia dengan wanita profesional bertauliah dan diinsuranskan untuk pembersihan, penjagaan anak, dan penjagaan warga emas.',
+        'booking.footer.col_providers': 'Untuk Penyedia',
+        'booking.footer.link_how': 'Cara Ia Berfungsi',
+        'booking.footer.link_training': 'Latihan & Pensijilan',
+        'booking.footer.link_register': 'Daftar Minat',
+        'booking.footer.tagline_bottom': 'Perkhidmatan rumah dipercayai di seluruh Malaysia.',
+      },
+      zh: {
+        'booking.page_title': '预订服务 — ServiceKru',
+        'booking.nav.book': '预订服务',
+        'booking.nav.become_pro': '成为专业人员',
+        'booking.hero.tag': '预订服务',
+        'booking.hero.title_a': '值得信赖的家居服务，',
+        'booking.hero.title_b': '几分钟即可预订',
+        'booking.hero.subtitle': '经过认证和背景审查的专业人员，提供家居清洁、儿童看护和长者护理服务。可靠、有保险，并获得客户好评。',
+        'booking.hero.cta': '立即预订',
+        'booking.services.tag': '我们的服务',
+        'booking.services.title_a': '专业',
+        'booking.services.title_b': '家居服务',
+        'booking.services.subtitle': '经过验证和保险的专业人员触手可及。放心预订。',
+        'booking.services.from': '起价',
+        'booking.services.per_session': '/次',
+        'booking.services.badge_hourly': '按小时',
+        'booking.services.card1_title': '家居清洁',
+        'booking.services.card1_desc': '为住宅、办公室和 Airbnb 单位提供专业清洁。深度清洁、定期维护以及入住/搬出服务。',
+        'booking.services.card2_title': '儿童看护支持',
+        'booking.services.card2_desc': '在家中或中心为您的孩子提供安全可靠的照顾。临时看护、课后照顾和全天监护。',
+        'booking.services.card2_price': '灵活的小时费率',
+        'booking.services.card3_title': '长者护理陪伴',
+        'booking.services.card3_desc': '为长者提供贴心支持 — 陪伴、日常协助、医院探访和行动协助。',
+        'booking.form.tag': '立即预订',
+        'booking.form.title_a': '确认您的',
+        'booking.form.title_b': '预订',
+        'booking.form.subtitle': '填写您的资料，我们将通过 WhatsApp 为您联系合适的认证专业人员。',
+        'booking.form.header_title': '预订详情',
+        'booking.form.header_subtitle': '所有价格均包含保险。我们将在 2 小时内确认。',
+        'booking.form.service_label': '选择服务 *',
+        'booking.form.service_placeholder': '选择服务...',
+        'booking.form.service_opt1': '家居清洁 — 起价 RM130/次',
+        'booking.form.service_opt2': '儿童看护支持 — 按小时收费',
+        'booking.form.service_opt3': '长者护理 — 起价 RM130/次',
+        'booking.form.name_label': '全名 *',
+        'booking.form.name_placeholder': '输入您的全名',
+        'booking.form.phone_label': '电话号码 *',
+        'booking.form.email_label': '电子邮箱 *',
+        'booking.form.address_label': '服务地址 *',
+        'booking.form.address_placeholder': '需要服务的完整地址',
+        'booking.form.date_label': '首选日期 *',
+        'booking.form.time_label': '首选时间 *',
+        'booking.form.time_placeholder': '选择时间...',
+        'booking.form.details_label': '其他详情',
+        'booking.form.details_placeholder': '给专业人员的任何特殊要求、出入说明或备注...',
+        'booking.form.submit': '通过 WhatsApp 确认预订',
+        'booking.form.note': '所有 ServiceKru 均已投保并受到保护。我们将在 2 小时内确认您的预订。',
+        'booking.process.tag': '简单流程',
+        'booking.process.title_a': '预订',
+        'booking.process.title_b': '流程',
+        'booking.process.subtitle': '从选择服务到认证专业人员到您家门口，只需四个简单步骤。',
+        'booking.process.step1_title': '选择服务',
+        'booking.process.step1_desc': '选择您需要的服务并在上方填写您的详情。',
+        'booking.process.step2_title': '选择日期和时间',
+        'booking.process.step2_desc': '挑选适合您日程的时段 — 提供当日服务。',
+        'booking.process.step3_title': '通过 WhatsApp 确认',
+        'booking.process.step3_desc': '提交表单，我们将在 2 小时内确认您的预订。',
+        'booking.process.step4_title': '获得匹配',
+        'booking.process.step4_desc': '我们将为您的预订指派一位经过认证、有保险的 ServiceKru 专业人员。',
+        'booking.safety.tag': '您的安全',
+        'booking.safety.title_a': '您的安全',
+        'booking.safety.title_b': '至关重要',
+        'booking.safety.subtitle': '每次预订都有我们的安全标准作为支持 — 让您完全放心预订。',
+        'booking.safety.card1_title': '背景审查',
+        'booking.safety.card1_desc': '每位 ServiceKru 在加入我们平台之前都会经过彻底的背景核实。',
+        'booking.safety.card2_title': '全面投保',
+        'booking.safety.card2_desc': '所有服务均已全面投保，保护您和我们的专业人员在每次预订中的安全。',
+        'booking.safety.card3_title': '服务保证',
+        'booking.safety.card3_desc': '不满意？我们将另派一位专业人员或提供全额退款 — 无需多问。',
+        'booking.safety.card4_title': '客户支持',
+        'booking.safety.card4_desc': '我们的团队在每次服务预订之前、期间和之后都可提供帮助。',
+        'booking.footer.tagline': '由认证专业人员提供值得信赖的家居服务',
+        'booking.footer.about': '为马来西亚家庭对接经过认证、有保险的女性专业人员，提供清洁、儿童看护和长者护理服务。',
+        'booking.footer.col_providers': '面向服务者',
+        'booking.footer.link_how': '运作方式',
+        'booking.footer.link_training': '培训与认证',
+        'booking.footer.link_register': '登记意向',
+        'booking.footer.tagline_bottom': '遍布马来西亚的值得信赖的家居服务。',
+      },
+    };
+    </script>
+    <script src="js/i18n.js"></script>
 </body>
 
 </html>

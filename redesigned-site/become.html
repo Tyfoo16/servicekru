@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Become a ServiceKru — Join Our Team</title>
+    <title data-i18n="become.page_title">Become a ServiceKru — Join Our Team</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -269,6 +269,25 @@
 
         .hero-content h1 span {
             color: var(--color-orange);
+        }
+
+        .heading-with-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 0.75rem;
+        }
+
+        .heading-with-logo .inline-logo {
+            height: 1em;
+            width: auto;
+            max-width: 100%;
+            vertical-align: middle;
+        }
+
+        @media (min-width: 769px) {
+            .heading-with-logo .inline-logo { height: 1.1em; }
         }
 
         .hero-content p {
@@ -1012,6 +1031,14 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        .lang-switcher { position: relative; display: inline-block; margin-left: 0.5rem; }
+        .lang-current { display: inline-flex; align-items: center; gap: 6px; background: transparent; border: 1px solid #e0e0e0; border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 0.875rem; color: var(--color-gray-800, #343a40); cursor: pointer; line-height: 1; }
+        .lang-current:hover { border-color: var(--color-orange, #ee751e); color: var(--color-orange, #ee751e); }
+        .lang-menu { position: absolute; top: calc(100% + 6px); right: 0; min-width: 160px; background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); list-style: none; margin: 0; padding: 6px; z-index: 1000; }
+        .lang-menu li { padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; color: var(--color-gray-800, #343a40); }
+        .lang-menu li:hover { background: #fff5ec; color: var(--color-orange, #ee751e); }
+        .lang-menu li.active { background: var(--color-orange, #ee751e); color: #fff; }
+        @media (max-width: 1280px) { .lang-switcher { order: 2; margin-left: auto; margin-right: 8px; } }
     </style>
 </head>
 
@@ -1021,10 +1048,21 @@
             <img src="../assets/logo.png" alt="ServiceKru" class="logo-img">
         </a>
         <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="booking.html">Book a Service</a></li>
-            <li><a href="become.html" class="nav-active">Become a Pro</a></li>
+            <li><a href="../index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="booking.html" data-i18n="footer.link_booking">Book a Service</a></li>
+            <li><a href="become.html" class="nav-active" data-i18n="become.nav.become_pro">Become a Pro</a></li>
         </ul>
+        <div class="lang-switcher">
+            <button class="lang-current" aria-haspopup="listbox" aria-expanded="false" data-i18n="nav.lang_aria" data-i18n-attr="aria-label">
+                <span data-lang-label>EN</span>
+                <svg width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+            </button>
+            <ul class="lang-menu" role="listbox" hidden>
+                <li data-lang="en" role="option">English</li>
+                <li data-lang="ms" role="option">Bahasa Melayu</li>
+                <li data-lang="zh" role="option">中文</li>
+            </ul>
+        </div>
         <button class="mobile-menu-btn" aria-label="Toggle menu">
             <span></span>
             <span></span>
@@ -1036,11 +1074,11 @@
         <!-- Hero -->
         <section class="hero">
             <div class="hero-content">
-                <span class="section-tag">Join Our Team</span>
-                <h1 style="display:flex;align-items:flex-end;justify-content:center;gap:0.5rem;">Become a <img src="../assets/logo.png" alt="ServiceKru" style="height:1.8em;"></h1>
-                <p>At ServiceKru, we help identify your potential and provide the best Professional Training to empower and boost your skills and income. Join us to be a women entrepreneur and have a more fulfilling professional life!</p>
+                <span class="section-tag" data-i18n="become.hero.tag">Join Our Team</span>
+                <h1 class="heading-with-logo"><span data-i18n="become.hero.title_prefix">Become a</span> <img src="../assets/logo.png" alt="ServiceKru" class="inline-logo"></h1>
+                <p data-i18n="become.hero.desc">At ServiceKru, we help identify your potential and provide the best Professional Training to empower and boost your skills and income. Join us to be a women entrepreneur and have a more fulfilling professional life!</p>
                 <a href="#enquiry" class="btn-primary">
-                    Register Your Interest
+                    <span data-i18n="become.hero.cta">Register Your Interest</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
             </div>
@@ -1050,50 +1088,50 @@
         <section class="how-it-works">
             <div class="section-container">
                 <div class="section-header">
-                    <span class="section-tag">For Professionals</span>
-                    <h2>How It <span>Works</span></h2>
-                    <p>From training to certification to career placement — we support every step of your professional journey.</p>
+                    <span class="section-tag" data-i18n="become.how.tag">For Professionals</span>
+                    <h2><span data-i18n="become.how.title_prefix">How It</span> <span data-i18n="become.how.title_accent">Works</span></h2>
+                    <p data-i18n="become.how.desc">From training to certification to career placement — we support every step of your professional journey.</p>
                 </div>
                 <div class="steps-grid">
                     <div class="step-card">
                         <div class="step-number">1</div>
-                        <h3 class="step-title">Apply Online</h3>
-                        <p class="step-description">Fill out a quick application form.</p>
+                        <h3 class="step-title" data-i18n="become.how.step1_title">Apply Online</h3>
+                        <p class="step-description" data-i18n="become.how.step1_desc">Fill out a quick application form.</p>
                     </div>
                     <div class="step-card">
                         <div class="step-number">2</div>
-                        <h3 class="step-title">Attend Training</h3>
-                        <p class="step-description">Complete our structured programme.</p>
+                        <h3 class="step-title" data-i18n="become.how.step2_title">Attend Training</h3>
+                        <p class="step-description" data-i18n="become.how.step2_desc">Complete our structured programme.</p>
                     </div>
                     <div class="step-card">
                         <div class="step-number">3</div>
-                        <h3 class="step-title">Get Certified</h3>
-                        <p class="step-description">Earn your Digital Certification.</p>
+                        <h3 class="step-title" data-i18n="become.how.step3_title">Get Certified</h3>
+                        <p class="step-description" data-i18n="become.how.step3_desc">Earn your Digital Certification.</p>
                     </div>
                     <div class="step-card">
                         <div class="step-number">4</div>
-                        <h3 class="step-title">Start Earning</h3>
-                        <p class="step-description">Receive bookings and build your reputation.</p>
+                        <h3 class="step-title" data-i18n="become.how.step4_title">Start Earning</h3>
+                        <p class="step-description" data-i18n="become.how.step4_desc">Receive bookings and build your reputation.</p>
                     </div>
                 </div>
 
                 <div class="features-grid" style="margin-top: 3rem;">
                     <div class="feature-card">
                         <div class="feature-card-body">
-                            <h3>Professional Training</h3>
-                            <p>Expert-led practical and digital training for cleaners and caregivers, built for real jobs and long-term success.</p>
+                            <h3 data-i18n="become.feat1_title">Professional Training</h3>
+                            <p data-i18n="become.feat1_desc">Expert-led practical and digital training for cleaners and caregivers, built for real jobs and long-term success.</p>
                         </div>
                     </div>
                     <div class="feature-card">
                         <div class="feature-card-body">
-                            <h3>Career Placements</h3>
-                            <p>Smart matching with trusted employers through verified profiles and a growing network of households and care centres.</p>
+                            <h3 data-i18n="become.feat2_title">Career Placements</h3>
+                            <p data-i18n="become.feat2_desc">Smart matching with trusted employers through verified profiles and a growing network of households and care centres.</p>
                         </div>
                     </div>
                     <div class="feature-card">
                         <div class="feature-card-body">
-                            <h3>Credential Certification</h3>
-                            <p>Earn a recognised e-certification that proves your skills and opens doors to better-paying jobs with quality employers.</p>
+                            <h3 data-i18n="become.feat3_title">Credential Certification</h3>
+                            <p data-i18n="become.feat3_desc">Earn a recognised e-certification that proves your skills and opens doors to better-paying jobs with quality employers.</p>
                         </div>
                     </div>
                 </div>
@@ -1104,53 +1142,53 @@
         <section class="calculator">
             <div class="section-container">
                 <div class="section-header">
-                    <span class="section-tag">Your Earnings</span>
-                    <h2>Earnings <span>Calculator</span></h2>
-                    <p>Calculate your potential monthly income as a certified ServiceKru professional.</p>
+                    <span class="section-tag" data-i18n="become.calc.tag">Your Earnings</span>
+                    <h2><span data-i18n="become.calc.title_prefix">Earnings</span> <span data-i18n="become.calc.title_accent">Calculator</span></h2>
+                    <p data-i18n="become.calc.desc">Calculate your potential monthly income as a certified ServiceKru professional.</p>
                 </div>
                 <div class="calculator-content">
                     <div class="calculator-inputs">
                         <div class="input-group">
-                            <label class="input-label" for="service-type">Service Type</label>
+                            <label class="input-label" for="service-type" data-i18n="become.calc.service_type">Service Type</label>
                             <select id="service-type" class="input-field">
-                                <option value="cleaning">Home Cleaning (RM120/job)</option>
-                                <option value="childcare">Childcare (RM80/hour)</option>
-                                <option value="eldercare">Elder Care (RM130/session)</option>
+                                <option value="cleaning" data-i18n="become.calc.opt_cleaning">Home Cleaning (RM120/job)</option>
+                                <option value="childcare" data-i18n="become.calc.opt_childcare">Childcare (RM80/hour)</option>
+                                <option value="eldercare" data-i18n="become.calc.opt_eldercare">Elder Care (RM130/session)</option>
                             </select>
                         </div>
                         <div class="input-group">
-                            <label class="input-label" for="jobs-per-week">Jobs Per Week: <span id="jobs-value">3</span></label>
+                            <label class="input-label" for="jobs-per-week"><span data-i18n="become.calc.jobs_per_week">Jobs Per Week</span>: <span id="jobs-value">3</span></label>
                             <input type="range" id="jobs-per-week" class="range-input" min="1" max="7" value="3">
                         </div>
                         <div class="input-group">
-                            <label class="input-label" for="hours-per-job">Hours Per Job: <span id="hours-value">3</span></label>
+                            <label class="input-label" for="hours-per-job"><span data-i18n="become.calc.hours_per_job">Hours Per Job</span>: <span id="hours-value">3</span></label>
                             <input type="range" id="hours-per-job" class="range-input" min="1" max="8" value="3">
                         </div>
                         <div class="input-group">
-                            <label class="input-label" for="weeks-per-month">Weeks Per Month: <span id="weeks-value">4</span></label>
+                            <label class="input-label" for="weeks-per-month"><span data-i18n="become.calc.weeks_per_month">Weeks Per Month</span>: <span id="weeks-value">4</span></label>
                             <input type="range" id="weeks-per-month" class="range-input" min="1" max="4" value="4">
                         </div>
                     </div>
 
                     <div class="calculator-results">
                         <div class="result-item">
-                            <span class="result-label">Service Rate</span>
+                            <span class="result-label" data-i18n="become.calc.service_rate">Service Rate</span>
                             <span class="result-value" id="service-rate">RM120</span>
                         </div>
                         <div class="result-item">
-                            <span class="result-label">Weekly Earnings</span>
+                            <span class="result-label" data-i18n="become.calc.weekly">Weekly Earnings</span>
                             <span class="result-value" id="weekly-earnings">RM360</span>
                         </div>
                         <div class="result-item">
-                            <span class="result-label">Monthly Earnings</span>
+                            <span class="result-label" data-i18n="become.calc.monthly">Monthly Earnings</span>
                             <span class="result-value" id="monthly-earnings">RM1,440</span>
                         </div>
                         <div class="result-item">
-                            <span class="result-label">Annual Earnings</span>
+                            <span class="result-label" data-i18n="become.calc.annual">Annual Earnings</span>
                             <span class="result-value" id="annual-earnings">RM17,280</span>
                         </div>
                         <div class="total-earnings">
-                            <span class="result-label">Potential Monthly Income</span>
+                            <span class="result-label" data-i18n="become.calc.potential">Potential Monthly Income</span>
                             <div class="result-value" id="total-monthly">RM1,440</div>
                         </div>
                     </div>
@@ -1162,52 +1200,52 @@
         <section class="benefits">
             <div class="section-container">
                 <div class="section-header">
-                    <span class="section-tag">Why Join Us</span>
-                    <h2 style="display:flex;align-items:baseline;justify-content:center;gap:0.5rem;flex-wrap:wrap;">Why Become a <img src="../assets/logo.png" alt="ServiceKru" style="height:1.6em;vertical-align:baseline;position:relative;top:0.15em;">?</h2>
-                    <p>Flexible, dignified work with real earning potential — supported every step of the way.</p>
+                    <span class="section-tag" data-i18n="become.benefits.tag">Why Join Us</span>
+                    <h2 class="heading-with-logo"><span data-i18n="become.benefits.title_prefix">Why Become a</span> <img src="../assets/logo.png" alt="ServiceKru" class="inline-logo"><span data-i18n="become.benefits.title_suffix">?</span></h2>
+                    <p data-i18n="become.benefits.desc">Flexible, dignified work with real earning potential — supported every step of the way.</p>
                 </div>
                 <div class="benefits-grid">
                     <div class="benefit-card">
                         <div class="benefit-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V12Zm-12 0h.008v.008H6V12Z"/></svg>
                         </div>
-                        <h3 class="benefit-title">Competitive Earnings</h3>
-                        <p class="benefit-description">Earn RM80–RM120 per job with flexible scheduling that fits your lifestyle and family commitments.</p>
+                        <h3 class="benefit-title" data-i18n="become.benefit1_title">Competitive Earnings</h3>
+                        <p class="benefit-description"><span data-i18n="become.benefit1_desc_prefix">Earn</span> RM80–RM120 <span data-i18n="become.benefit1_desc_suffix">per job with flexible scheduling that fits your lifestyle and family commitments.</span></p>
                     </div>
                     <div class="benefit-card">
                         <div class="benefit-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
                         </div>
-                        <h3 class="benefit-title">Flexible Schedule</h3>
-                        <p class="benefit-description">Choose your working hours and days. Perfect for balancing work with family responsibilities.</p>
+                        <h3 class="benefit-title" data-i18n="become.benefit2_title">Flexible Schedule</h3>
+                        <p class="benefit-description" data-i18n="become.benefit2_desc">Choose your working hours and days. Perfect for balancing work with family responsibilities.</p>
                     </div>
                     <div class="benefit-card">
                         <div class="benefit-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg>
                         </div>
-                        <h3 class="benefit-title">Professional Training</h3>
-                        <p class="benefit-description">Expert-led practical and digital training for cleaners and caregivers, built for real jobs and long-term success.</p>
+                        <h3 class="benefit-title" data-i18n="become.benefit3_title">Professional Training</h3>
+                        <p class="benefit-description" data-i18n="become.benefit3_desc">Expert-led practical and digital training for cleaners and caregivers, built for real jobs and long-term success.</p>
                     </div>
                     <div class="benefit-card">
                         <div class="benefit-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"/></svg>
                         </div>
-                        <h3 class="benefit-title">Full Insurance Coverage</h3>
-                        <p class="benefit-description">Complete protection while working on every booking. Service guaranteed on every visit.</p>
+                        <h3 class="benefit-title" data-i18n="become.benefit4_title">Full Insurance Coverage</h3>
+                        <p class="benefit-description" data-i18n="become.benefit4_desc">Complete protection while working on every booking. Service guaranteed on every visit.</p>
                     </div>
                     <div class="benefit-card">
                         <div class="benefit-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.898 20.572 16.5 21.75l-.398-1.178a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.179-.398a2.25 2.25 0 0 0 1.423-1.423l.398-1.178.398 1.178a2.25 2.25 0 0 0 1.423 1.423l1.179.398-1.179.398a2.25 2.25 0 0 0-1.423 1.423Z"/></svg>
                         </div>
-                        <h3 class="benefit-title">Build Your Skills</h3>
-                        <p class="benefit-description">Develop valuable skills with Digital Certification that opens doors to better opportunities.</p>
+                        <h3 class="benefit-title" data-i18n="become.benefit5_title">Build Your Skills</h3>
+                        <p class="benefit-description"><span data-i18n="become.benefit5_desc_prefix">Develop valuable skills with</span> Digital Certification <span data-i18n="become.benefit5_desc_suffix">that opens doors to better opportunities.</span></p>
                     </div>
                     <div class="benefit-card">
                         <div class="benefit-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg>
                         </div>
-                        <h3 class="benefit-title">Supportive Community</h3>
-                        <p class="benefit-description">Join a growing community of empowered women professionals supporting each other's growth.</p>
+                        <h3 class="benefit-title" data-i18n="become.benefit6_title">Supportive Community</h3>
+                        <p class="benefit-description" data-i18n="become.benefit6_desc">Join a growing community of empowered women professionals supporting each other's growth.</p>
                     </div>
                 </div>
             </div>
@@ -1218,14 +1256,14 @@
             <div class="enquiry-pattern"></div>
             <div class="enquiry-container">
                 <div class="section-header">
-                    <span class="section-tag">Register Interest</span>
-                    <h2>Register Your <span>Interest</span></h2>
-                    <p>Choose the course you'd like to train in and we'll get back to you within 24 hours.</p>
+                    <span class="section-tag" data-i18n="become.enquiry.tag">Register Interest</span>
+                    <h2><span data-i18n="become.enquiry.title_prefix">Register Your</span> <span data-i18n="become.enquiry.title_accent">Interest</span></h2>
+                    <p data-i18n="become.enquiry.desc">Choose the course you'd like to train in and we'll get back to you within 24 hours.</p>
                 </div>
                 <div class="enquiry-form">
                     <form id="enquiryForm">
                         <div class="form-group">
-                            <label style="display:block;margin-bottom:1rem;font-weight:600;color:var(--color-gray-800);font-size:0.9rem;">Select Course *</label>
+                            <label style="display:block;margin-bottom:1rem;font-weight:600;color:var(--color-gray-800);font-size:0.9rem;" data-i18n="become.form.select_course">Select Course *</label>
                             <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:0.5rem;">
                                 <label class="course-card" for="course-cleaning">
                                     <input type="radio" id="course-cleaning" name="course" value="Cleaning" required>
@@ -1233,7 +1271,7 @@
                                         <div class="course-icon">
                                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18l4 -4l4 4l-4 4z"/><path d="M8.5 13.5l1.5 -1.5"/><path d="M9.5 6.5l8 8"/><path d="M14 4l6 6c-1 1 -2.5 1 -3.5 0l-2.5 -2.5c-1 -1 -1 -2.5 0 -3.5z"/></svg>
                                         </div>
-                                        <div class="course-name">Cleaning</div>
+                                        <div class="course-name" data-i18n="become.form.course_cleaning">Cleaning</div>
                                         <div class="course-tier">Tier 1 &amp; 2</div>
                                     </div>
                                 </label>
@@ -1243,7 +1281,7 @@
                                         <div class="course-icon">
                                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/><path d="M5 9h13.5m-2.5 -3l4 11"/><path d="M5 9v9h12"/><path d="M5 9a7 7 0 0 1 7 -7v7"/></svg>
                                         </div>
-                                        <div class="course-name">Childcare</div>
+                                        <div class="course-name" data-i18n="become.form.course_childcare">Childcare</div>
                                         <div class="course-tier">Tier 3</div>
                                     </div>
                                 </label>
@@ -1253,7 +1291,7 @@
                                         <div class="course-icon">
                                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg>
                                         </div>
-                                        <div class="course-name">Elder Care</div>
+                                        <div class="course-name" data-i18n="become.form.course_eldercare">Elder Care</div>
                                         <div class="course-tier">Tier 4</div>
                                     </div>
                                 </label>
@@ -1261,30 +1299,30 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="firstName">First Name *</label>
-                                <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+                                <label for="firstName" data-i18n="become.form.first_name">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name" data-i18n="become.form.first_name_ph" data-i18n-attr="placeholder">
                             </div>
                             <div class="form-group">
-                                <label for="lastName">Last Name *</label>
-                                <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
+                                <label for="lastName" data-i18n="become.form.last_name">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name" data-i18n="become.form.last_name_ph" data-i18n-attr="placeholder">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="phone">Phone Number *</label>
+                                <label for="phone" data-i18n="become.form.phone">Phone Number *</label>
                                 <input type="tel" id="phone" name="phone" required placeholder="+60 12-345 6789">
                             </div>
                             <div class="form-group">
-                                <label for="email">Email Address *</label>
+                                <label for="email" data-i18n="become.form.email">Email Address *</label>
                                 <input type="email" id="email" name="email" required placeholder="your.email@example.com">
                             </div>
                         </div>
                         <div class="checkbox-group">
                             <input type="checkbox" id="consent" name="consent" required>
-                            <label for="consent">I agree to receive communications about training and updates. View our <a href="#">Privacy Policy</a>.</label>
+                            <label for="consent"><span data-i18n="become.form.consent">I agree to receive communications about training and updates. View our</span> <a href="#" data-i18n="footer.link_privacy">Privacy Policy</a>.</label>
                         </div>
                         <button type="submit" class="submit-btn">
-                            Submit Application
+                            <span data-i18n="become.form.submit">Submit Application</span>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
                         </button>
                     </form>
@@ -1292,8 +1330,8 @@
                         <div class="success-icon">
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
                         </div>
-                        <h3>Application Received!</h3>
-                        <p>Thank you for your interest. Our team will contact you within 24 hours to confirm your training details.</p>
+                        <h3 data-i18n="become.form.success_title">Application Received!</h3>
+                        <p data-i18n="become.form.success_desc">Thank you for your interest. Our team will contact you within 24 hours to confirm your training details.</p>
                     </div>
                 </div>
             </div>
@@ -1308,40 +1346,40 @@
                         <span class="logo-service">ser</span><span class="logo-v">V</span><span class="logo-service">ice</span><span class="logo-kru">KRU</span>
                     </div>
                 </a>
-                <p class="footer-tagline">Trusted Home Services by Certified Professionals</p>
-                <p>Connecting Malaysian families with certified, insured women professionals for cleaning, childcare, and elder care.</p>
+                <p class="footer-tagline" data-i18n="become.footer.tagline_short">Trusted Home Services by Certified Professionals</p>
+                <p data-i18n="footer.tagline">Connecting Malaysian families with certified, insured women professionals for cleaning, childcare, and elder care.</p>
             </div>
             <div class="footer-links">
-                <h4>Services</h4>
+                <h4 data-i18n="footer.col_services">Services</h4>
                 <ul>
-                    <li><a href="booking.html#services">Home Cleaning</a></li>
-                    <li><a href="booking.html#services">Childcare</a></li>
-                    <li><a href="booking.html#services">Elder Care</a></li>
-                    <li><a href="booking.html">Book a Service</a></li>
+                    <li><a href="booking.html#services" data-i18n="become.footer.home_cleaning">Home Cleaning</a></li>
+                    <li><a href="booking.html#services" data-i18n="footer.link_childcare">Childcare</a></li>
+                    <li><a href="booking.html#services" data-i18n="footer.link_eldercare">Elder Care</a></li>
+                    <li><a href="booking.html" data-i18n="footer.link_booking">Book a Service</a></li>
                 </ul>
             </div>
             <div class="footer-links">
-                <h4>For Providers</h4>
+                <h4 data-i18n="become.footer.col_providers">For Providers</h4>
                 <ul>
-                    <li><a href="become.html">Become a Pro</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="become.html#how-it-works">Training &amp; Certification</a></li>
-                    <li><a href="#enquiry">Register Interest</a></li>
+                    <li><a href="become.html" data-i18n="become.nav.become_pro">Become a Pro</a></li>
+                    <li><a href="#how-it-works" data-i18n="become.footer.how_it_works">How It Works</a></li>
+                    <li><a href="become.html#how-it-works" data-i18n="become.footer.training_cert">Training &amp; Certification</a></li>
+                    <li><a href="#enquiry" data-i18n="become.footer.register_interest">Register Interest</a></li>
                 </ul>
             </div>
             <div class="footer-links">
-                <h4>Support</h4>
+                <h4 data-i18n="footer.col_support">Support</h4>
                 <ul>
-                    <li><a href="../index.html#about">About Us</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="../index.html#about" data-i18n="footer.link_about">About Us</a></li>
+                    <li><a href="#" data-i18n="footer.link_faq">FAQ</a></li>
+                    <li><a href="#" data-i18n="footer.link_contact">Contact</a></li>
+                    <li><a href="#" data-i18n="footer.link_privacy">Privacy Policy</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 ServiceKru. All rights reserved.</p>
-            <p>Empowering women professionals across Malaysia.</p>
+            <p data-i18n="footer.copyright">© 2026 ServiceKru. All rights reserved.</p>
+            <p data-i18n="become.footer.empowering">Empowering women professionals across Malaysia.</p>
         </div>
     </footer>
 
@@ -1409,6 +1447,266 @@
             document.getElementById('successMessage').classList.add('show');
         });
     </script>
+    <script>
+    window.I18N_EXTEND = {
+      en: {
+        'become.page_title': 'Become a ServiceKru — Join Our Team',
+        'become.nav.become_pro': 'Become a Pro',
+        'become.hero.tag': 'Join Our Team',
+        'become.hero.title_prefix': 'Become a',
+        'become.hero.desc': 'At ServiceKru, we help identify your potential and provide the best Professional Training to empower and boost your skills and income. Join us to be a women entrepreneur and have a more fulfilling professional life!',
+        'become.hero.cta': 'Register Your Interest',
+        'become.how.tag': 'For Professionals',
+        'become.how.title_prefix': 'How It',
+        'become.how.title_accent': 'Works',
+        'become.how.desc': 'From training to certification to career placement — we support every step of your professional journey.',
+        'become.how.step1_title': 'Apply Online',
+        'become.how.step1_desc': 'Fill out a quick application form.',
+        'become.how.step2_title': 'Attend Training',
+        'become.how.step2_desc': 'Complete our structured programme.',
+        'become.how.step3_title': 'Get Certified',
+        'become.how.step3_desc': 'Earn your Digital Certification.',
+        'become.how.step4_title': 'Start Earning',
+        'become.how.step4_desc': 'Receive bookings and build your reputation.',
+        'become.feat1_title': 'Professional Training',
+        'become.feat1_desc': 'Expert-led practical and digital training for cleaners and caregivers, built for real jobs and long-term success.',
+        'become.feat2_title': 'Career Placements',
+        'become.feat2_desc': 'Smart matching with trusted employers through verified profiles and a growing network of households and care centres.',
+        'become.feat3_title': 'Credential Certification',
+        'become.feat3_desc': 'Earn a recognised e-certification that proves your skills and opens doors to better-paying jobs with quality employers.',
+        'become.calc.tag': 'Your Earnings',
+        'become.calc.title_prefix': 'Earnings',
+        'become.calc.title_accent': 'Calculator',
+        'become.calc.desc': 'Calculate your potential monthly income as a certified ServiceKru professional.',
+        'become.calc.service_type': 'Service Type',
+        'become.calc.opt_cleaning': 'Home Cleaning (RM120/job)',
+        'become.calc.opt_childcare': 'Childcare (RM80/hour)',
+        'become.calc.opt_eldercare': 'Elder Care (RM130/session)',
+        'become.calc.jobs_per_week': 'Jobs Per Week',
+        'become.calc.hours_per_job': 'Hours Per Job',
+        'become.calc.weeks_per_month': 'Weeks Per Month',
+        'become.calc.service_rate': 'Service Rate',
+        'become.calc.weekly': 'Weekly Earnings',
+        'become.calc.monthly': 'Monthly Earnings',
+        'become.calc.annual': 'Annual Earnings',
+        'become.calc.potential': 'Potential Monthly Income',
+        'become.benefits.tag': 'Why Join Us',
+        'become.benefits.title_prefix': 'Why Become a',
+        'become.benefits.title_suffix': '?',
+        'become.benefits.desc': 'Flexible, dignified work with real earning potential — supported every step of the way.',
+        'become.benefit1_title': 'Competitive Earnings',
+        'become.benefit1_desc_prefix': 'Earn',
+        'become.benefit1_desc_suffix': 'per job with flexible scheduling that fits your lifestyle and family commitments.',
+        'become.benefit2_title': 'Flexible Schedule',
+        'become.benefit2_desc': 'Choose your working hours and days. Perfect for balancing work with family responsibilities.',
+        'become.benefit3_title': 'Professional Training',
+        'become.benefit3_desc': 'Expert-led practical and digital training for cleaners and caregivers, built for real jobs and long-term success.',
+        'become.benefit4_title': 'Full Insurance Coverage',
+        'become.benefit4_desc': 'Complete protection while working on every booking. Service guaranteed on every visit.',
+        'become.benefit5_title': 'Build Your Skills',
+        'become.benefit5_desc_prefix': 'Develop valuable skills with',
+        'become.benefit5_desc_suffix': 'that opens doors to better opportunities.',
+        'become.benefit6_title': 'Supportive Community',
+        'become.benefit6_desc': "Join a growing community of empowered women professionals supporting each other's growth.",
+        'become.enquiry.tag': 'Register Interest',
+        'become.enquiry.title_prefix': 'Register Your',
+        'become.enquiry.title_accent': 'Interest',
+        'become.enquiry.desc': "Choose the course you'd like to train in and we'll get back to you within 24 hours.",
+        'become.form.select_course': 'Select Course *',
+        'become.form.course_cleaning': 'Cleaning',
+        'become.form.course_childcare': 'Childcare',
+        'become.form.course_eldercare': 'Elder Care',
+        'become.form.first_name': 'First Name *',
+        'become.form.first_name_ph': 'Enter your first name',
+        'become.form.last_name': 'Last Name *',
+        'become.form.last_name_ph': 'Enter your last name',
+        'become.form.phone': 'Phone Number *',
+        'become.form.email': 'Email Address *',
+        'become.form.consent': 'I agree to receive communications about training and updates. View our',
+        'become.form.submit': 'Submit Application',
+        'become.form.success_title': 'Application Received!',
+        'become.form.success_desc': 'Thank you for your interest. Our team will contact you within 24 hours to confirm your training details.',
+        'become.footer.tagline_short': 'Trusted Home Services by Certified Professionals',
+        'become.footer.home_cleaning': 'Home Cleaning',
+        'become.footer.col_providers': 'For Providers',
+        'become.footer.how_it_works': 'How It Works',
+        'become.footer.training_cert': 'Training & Certification',
+        'become.footer.register_interest': 'Register Interest',
+        'become.footer.empowering': 'Empowering women professionals across Malaysia.',
+      },
+      ms: {
+        'become.page_title': 'Jadi ServiceKru — Sertai Pasukan Kami',
+        'become.nav.become_pro': 'Jadi Profesional',
+        'become.hero.tag': 'Sertai Pasukan Kami',
+        'become.hero.title_prefix': 'Jadi',
+        'become.hero.desc': 'Di ServiceKru, kami membantu mengenal pasti potensi anda dan menyediakan Latihan Profesional terbaik untuk memperkasakan dan meningkatkan kemahiran serta pendapatan anda. Sertai kami untuk menjadi usahawan wanita dan menikmati kehidupan profesional yang lebih bermakna!',
+        'become.hero.cta': 'Daftar Minat Anda',
+        'become.how.tag': 'Untuk Profesional',
+        'become.how.title_prefix': 'Bagaimana Ia',
+        'become.how.title_accent': 'Berfungsi',
+        'become.how.desc': 'Dari latihan ke pensijilan hingga penempatan kerjaya — kami menyokong setiap langkah perjalanan profesional anda.',
+        'become.how.step1_title': 'Mohon Dalam Talian',
+        'become.how.step1_desc': 'Isi borang permohonan ringkas.',
+        'become.how.step2_title': 'Hadiri Latihan',
+        'become.how.step2_desc': 'Lengkapkan program berstruktur kami.',
+        'become.how.step3_title': 'Dapatkan Pensijilan',
+        'become.how.step3_desc': 'Perolehi Digital Certification anda.',
+        'become.how.step4_title': 'Mula Mendapat Pendapatan',
+        'become.how.step4_desc': 'Terima tempahan dan bina reputasi anda.',
+        'become.feat1_title': 'Latihan Profesional',
+        'become.feat1_desc': 'Latihan praktikal dan digital diketuai pakar untuk pembersih dan penjaga, dibina untuk kerja sebenar dan kejayaan jangka panjang.',
+        'become.feat2_title': 'Penempatan Kerjaya',
+        'become.feat2_desc': 'Padanan pintar dengan majikan dipercayai melalui profil disahkan dan rangkaian rumah serta pusat penjagaan yang berkembang.',
+        'become.feat3_title': 'Pensijilan Kelayakan',
+        'become.feat3_desc': 'Perolehi e-pensijilan diiktiraf yang membuktikan kemahiran anda dan membuka peluang pekerjaan bergaji lebih baik dengan majikan berkualiti.',
+        'become.calc.tag': 'Pendapatan Anda',
+        'become.calc.title_prefix': 'Kalkulator',
+        'become.calc.title_accent': 'Pendapatan',
+        'become.calc.desc': 'Kira potensi pendapatan bulanan anda sebagai profesional ServiceKru bertauliah.',
+        'become.calc.service_type': 'Jenis Perkhidmatan',
+        'become.calc.opt_cleaning': 'Pembersihan Rumah (RM120/kerja)',
+        'become.calc.opt_childcare': 'Penjagaan Anak (RM80/jam)',
+        'become.calc.opt_eldercare': 'Penjagaan Warga Emas (RM130/sesi)',
+        'become.calc.jobs_per_week': 'Kerja Setiap Minggu',
+        'become.calc.hours_per_job': 'Jam Setiap Kerja',
+        'become.calc.weeks_per_month': 'Minggu Sebulan',
+        'become.calc.service_rate': 'Kadar Perkhidmatan',
+        'become.calc.weekly': 'Pendapatan Mingguan',
+        'become.calc.monthly': 'Pendapatan Bulanan',
+        'become.calc.annual': 'Pendapatan Tahunan',
+        'become.calc.potential': 'Potensi Pendapatan Bulanan',
+        'become.benefits.tag': 'Mengapa Sertai Kami',
+        'become.benefits.title_prefix': 'Mengapa Menjadi',
+        'become.benefits.title_suffix': '?',
+        'become.benefits.desc': 'Kerja fleksibel dan bermaruah dengan potensi pendapatan sebenar — disokong di setiap langkah.',
+        'become.benefit1_title': 'Pendapatan Kompetitif',
+        'become.benefit1_desc_prefix': 'Raih',
+        'become.benefit1_desc_suffix': 'setiap kerja dengan penjadualan fleksibel yang sesuai dengan gaya hidup dan komitmen keluarga anda.',
+        'become.benefit2_title': 'Jadual Fleksibel',
+        'become.benefit2_desc': 'Pilih waktu dan hari kerja anda. Sesuai untuk mengimbangi kerja dengan tanggungjawab keluarga.',
+        'become.benefit3_title': 'Latihan Profesional',
+        'become.benefit3_desc': 'Latihan praktikal dan digital diketuai pakar untuk pembersih dan penjaga, dibina untuk kerja sebenar dan kejayaan jangka panjang.',
+        'become.benefit4_title': 'Perlindungan Insurans Penuh',
+        'become.benefit4_desc': 'Perlindungan lengkap semasa bekerja pada setiap tempahan. Perkhidmatan dijamin pada setiap lawatan.',
+        'become.benefit5_title': 'Bina Kemahiran Anda',
+        'become.benefit5_desc_prefix': 'Bangunkan kemahiran berharga dengan',
+        'become.benefit5_desc_suffix': 'yang membuka peluang lebih baik.',
+        'become.benefit6_title': 'Komuniti Penyokong',
+        'become.benefit6_desc': 'Sertai komuniti wanita profesional berdaya yang saling menyokong pertumbuhan satu sama lain.',
+        'become.enquiry.tag': 'Daftar Minat',
+        'become.enquiry.title_prefix': 'Daftar',
+        'become.enquiry.title_accent': 'Minat Anda',
+        'become.enquiry.desc': 'Pilih kursus yang anda ingin sertai dan kami akan menghubungi anda dalam tempoh 24 jam.',
+        'become.form.select_course': 'Pilih Kursus *',
+        'become.form.course_cleaning': 'Pembersihan',
+        'become.form.course_childcare': 'Penjagaan Anak',
+        'become.form.course_eldercare': 'Penjagaan Warga Emas',
+        'become.form.first_name': 'Nama Pertama *',
+        'become.form.first_name_ph': 'Masukkan nama pertama anda',
+        'become.form.last_name': 'Nama Akhir *',
+        'become.form.last_name_ph': 'Masukkan nama akhir anda',
+        'become.form.phone': 'Nombor Telefon *',
+        'become.form.email': 'Alamat E-mel *',
+        'become.form.consent': 'Saya bersetuju untuk menerima komunikasi tentang latihan dan kemas kini. Lihat',
+        'become.form.submit': 'Hantar Permohonan',
+        'become.form.success_title': 'Permohonan Diterima!',
+        'become.form.success_desc': 'Terima kasih atas minat anda. Pasukan kami akan menghubungi anda dalam tempoh 24 jam untuk mengesahkan butiran latihan anda.',
+        'become.footer.tagline_short': 'Perkhidmatan Rumah Dipercayai oleh Profesional Bertauliah',
+        'become.footer.home_cleaning': 'Pembersihan Rumah',
+        'become.footer.col_providers': 'Untuk Penyedia',
+        'become.footer.how_it_works': 'Bagaimana Ia Berfungsi',
+        'become.footer.training_cert': 'Latihan & Pensijilan',
+        'become.footer.register_interest': 'Daftar Minat',
+        'become.footer.empowering': 'Memperkasakan wanita profesional di seluruh Malaysia.',
+      },
+      zh: {
+        'become.page_title': '成为 ServiceKru — 加入我们的团队',
+        'become.nav.become_pro': '成为专业人员',
+        'become.hero.tag': '加入我们的团队',
+        'become.hero.title_prefix': '成为',
+        'become.hero.desc': '在 ServiceKru，我们帮助发掘您的潜能，并提供最优质的专业培训，赋能您提升技能与收入。加入我们，成为一名女性创业者，开启更有意义的职业生涯！',
+        'become.hero.cta': '登记您的兴趣',
+        'become.how.tag': '专业人员专区',
+        'become.how.title_prefix': '运作',
+        'become.how.title_accent': '方式',
+        'become.how.desc': '从培训到认证再到职业安置——我们陪伴您专业旅程的每一步。',
+        'become.how.step1_title': '在线申请',
+        'become.how.step1_desc': '填写简短的申请表。',
+        'become.how.step2_title': '参加培训',
+        'become.how.step2_desc': '完成我们结构化的培训课程。',
+        'become.how.step3_title': '获得认证',
+        'become.how.step3_desc': '获取您的 Digital Certification。',
+        'become.how.step4_title': '开始赚取收入',
+        'become.how.step4_desc': '接收订单,建立您的口碑。',
+        'become.feat1_title': '专业培训',
+        'become.feat1_desc': '由专家主导的清洁与看护实操与数字培训,为真实工作和长期成功而设。',
+        'become.feat2_title': '职业安置',
+        'become.feat2_desc': '通过经过验证的档案及不断扩展的家庭与护理中心网络,智能匹配可信赖的雇主。',
+        'become.feat3_title': '资格认证',
+        'become.feat3_desc': '获得受认可的电子认证,证明您的技能,开启与优质雇主合作、薪酬更佳的工作机会。',
+        'become.calc.tag': '您的收入',
+        'become.calc.title_prefix': '收入',
+        'become.calc.title_accent': '计算器',
+        'become.calc.desc': '计算您作为 ServiceKru 认证专业人员的潜在月收入。',
+        'become.calc.service_type': '服务类型',
+        'become.calc.opt_cleaning': '家居清洁 (RM120/单)',
+        'become.calc.opt_childcare': '儿童看护 (RM80/小时)',
+        'become.calc.opt_eldercare': '长者护理 (RM130/次)',
+        'become.calc.jobs_per_week': '每周工作单数',
+        'become.calc.hours_per_job': '每单工作时数',
+        'become.calc.weeks_per_month': '每月工作周数',
+        'become.calc.service_rate': '服务费率',
+        'become.calc.weekly': '每周收入',
+        'become.calc.monthly': '每月收入',
+        'become.calc.annual': '年度收入',
+        'become.calc.potential': '潜在月收入',
+        'become.benefits.tag': '为何加入我们',
+        'become.benefits.title_prefix': '为何成为',
+        'become.benefits.title_suffix': '？',
+        'become.benefits.desc': '灵活、有尊严的工作,具备真实收入潜力——一路陪伴您。',
+        'become.benefit1_title': '具竞争力的收入',
+        'become.benefit1_desc_prefix': '每单赚取',
+        'become.benefit1_desc_suffix': ',灵活排班契合您的生活与家庭需要。',
+        'become.benefit2_title': '弹性时间',
+        'become.benefit2_desc': '自由选择工作时间与日子。完美平衡工作与家庭责任。',
+        'become.benefit3_title': '专业培训',
+        'become.benefit3_desc': '由专家主导的清洁与看护实操与数字培训,为真实工作和长期成功而设。',
+        'become.benefit4_title': '全面保险保障',
+        'become.benefit4_desc': '每次工作均享完整保障。每次服务均有品质保证。',
+        'become.benefit5_title': '提升您的技能',
+        'become.benefit5_desc_prefix': '通过',
+        'become.benefit5_desc_suffix': '培养有价值的技能,开启更佳机会。',
+        'become.benefit6_title': '互助社群',
+        'become.benefit6_desc': '加入不断壮大的女性专业社群,彼此扶持共同成长。',
+        'become.enquiry.tag': '登记兴趣',
+        'become.enquiry.title_prefix': '登记您的',
+        'become.enquiry.title_accent': '兴趣',
+        'become.enquiry.desc': '选择您想参加的课程,我们将在 24 小时内回复您。',
+        'become.form.select_course': '选择课程 *',
+        'become.form.course_cleaning': '清洁',
+        'become.form.course_childcare': '儿童看护',
+        'become.form.course_eldercare': '长者护理',
+        'become.form.first_name': '名字 *',
+        'become.form.first_name_ph': '请输入您的名字',
+        'become.form.last_name': '姓氏 *',
+        'become.form.last_name_ph': '请输入您的姓氏',
+        'become.form.phone': '电话号码 *',
+        'become.form.email': '电邮地址 *',
+        'become.form.consent': '我同意接收有关培训与更新的通讯。查看我们的',
+        'become.form.submit': '提交申请',
+        'become.form.success_title': '申请已收到！',
+        'become.form.success_desc': '感谢您的关注。我们的团队将在 24 小时内与您联系,确认您的培训详情。',
+        'become.footer.tagline_short': '由认证专业人员提供的可信赖家居服务',
+        'become.footer.home_cleaning': '家居清洁',
+        'become.footer.col_providers': '专业人员',
+        'become.footer.how_it_works': '运作方式',
+        'become.footer.training_cert': '培训与认证',
+        'become.footer.register_interest': '登记兴趣',
+        'become.footer.empowering': '赋能马来西亚各地的女性专业人员。',
+      },
+    };
+    </script>
+    <script src="js/i18n.js"></script>
 </body>
 
 </html>
