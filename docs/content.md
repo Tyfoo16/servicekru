@@ -55,9 +55,14 @@ Book reliable cleaning, childcare and elder care services — or start your jour
 
 ## Page 2 — Our Services
 
-### 1. Home Cleaning
+### 1a. Home Cleaning — Condo/Apartment
+- Starting from RM90
+- Professional cleaning for condos and apartments
+- CTA: **Book Cleaning**
+
+### 1b. Home Cleaning — Landed Property
 - Starting from RM120
-- Professional cleaning for homes, offices & Airbnb units
+- Professional cleaning for landed homes — terrace, semi-D, and bungalow
 - CTA: **Book Cleaning**
 
 ### 2. Childcare Support
@@ -81,11 +86,12 @@ Certified professionals (with title, reviews and documents verified)
 
 ### Service Options
 
-| Service       | Options                        | Pricing       |
-|---------------|--------------------------------|---------------|
-| Home Cleaning | 3 Hours / Hourly               | From RM130    |
-| Childcare     | Hourly / Half Day              | —             |
-| Elder Care    | Companionship / Assistance     | —             |
+| Service                            | Options                        | Pricing       |
+|------------------------------------|--------------------------------|---------------|
+| Home Cleaning — Condo/Apartment    | 3 Hours / Hourly               | From RM90     |
+| Home Cleaning — Landed Property    | 3 Hours / Hourly               | From RM120    |
+| Childcare                          | Hourly / Half Day              | —             |
+| Elder Care                         | Companionship / Assistance     | —             |
 
 ### Simple Booking Process
 1. Choose your service

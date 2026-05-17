@@ -797,12 +797,28 @@
                 <div class="services-grid">
                     <div class="service-card">
                         <div class="service-card-image">
-                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&auto=format" alt="Professional home cleaning service" width="400" height="300" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&auto=format" alt="Professional condo and apartment cleaning service" width="400" height="300" loading="lazy">
+                            <span class="service-card-badge"><span data-i18n="booking.services.from">From</span> RM90</span>
+                        </div>
+                        <div class="service-card-content">
+                            <h3 data-i18n="booking.services.card1_title">Home Cleaning — Condo/Apartment</h3>
+                            <p data-i18n="booking.services.card1_desc">Professional cleaning for condos and apartments. Deep cleaning, regular maintenance, and move-in/out services.</p>
+                            <div class="service-card-footer">
+                                <span style="font-weight:700; color:var(--color-orange);"><span data-i18n="booking.services.from">From</span> RM90<span data-i18n="booking.services.per_session">/session</span></span>
+                                <a href="#book-form" class="btn-primary"><span data-i18n="booking.hero.cta">Book Now</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-image">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&auto=format" alt="Professional landed home cleaning service" width="400" height="300" loading="lazy">
                             <span class="service-card-badge"><span data-i18n="booking.services.from">From</span> RM120</span>
                         </div>
                         <div class="service-card-content">
-                            <h3 data-i18n="booking.services.card1_title">Home Cleaning</h3>
-                            <p data-i18n="booking.services.card1_desc">Professional cleaning for homes, offices and Airbnb units. Deep cleaning, regular maintenance, and move-in/out services.</p>
+                            <h3 data-i18n="booking.services.card1b_title">Home Cleaning — Landed Property</h3>
+                            <p data-i18n="booking.services.card1b_desc">Professional cleaning for landed homes — terrace, semi-D, and bungalow. Deep cleaning, regular maintenance, and move-in/out services.</p>
                             <div class="service-card-footer">
                                 <span style="font-weight:700; color:var(--color-orange);"><span data-i18n="booking.services.from">From</span> RM120<span data-i18n="booking.services.per_session">/session</span></span>
                                 <a href="#book-form" class="btn-primary"><span data-i18n="booking.hero.cta">Book Now</span>
@@ -865,7 +881,8 @@
                             <label for="service" data-i18n="booking.form.service_label">Select Service *</label>
                             <select id="service" name="service" required>
                                 <option value="" data-i18n="booking.form.service_placeholder">Choose a service...</option>
-                                <option value="Home Cleaning — From RM130/session" data-i18n="booking.form.service_opt1">Home Cleaning — From RM130/session</option>
+                                <option value="Home Cleaning — Condo/Apartment — From RM90/session" data-i18n="booking.form.service_opt1a">Home Cleaning — Condo/Apartment — From RM90/session</option>
+                                <option value="Home Cleaning — Landed Property — From RM120/session" data-i18n="booking.form.service_opt1b">Home Cleaning — Landed Property — From RM120/session</option>
                                 <option value="Childcare Support — Hourly rates" data-i18n="booking.form.service_opt2">Childcare Support — Hourly rates</option>
                                 <option value="Elder Care — From RM130/session" data-i18n="booking.form.service_opt3">Elder Care — From RM130/session</option>
                             </select>
@@ -1092,8 +1109,10 @@
         'booking.services.from': 'From',
         'booking.services.per_session': '/session',
         'booking.services.badge_hourly': 'Hourly',
-        'booking.services.card1_title': 'Home Cleaning',
-        'booking.services.card1_desc': 'Professional cleaning for homes, offices and Airbnb units. Deep cleaning, regular maintenance, and move-in/out services.',
+        'booking.services.card1_title': 'Home Cleaning — Condo/Apartment',
+        'booking.services.card1_desc': 'Professional cleaning for condos and apartments. Deep cleaning, regular maintenance, and move-in/out services.',
+        'booking.services.card1b_title': 'Home Cleaning — Landed Property',
+        'booking.services.card1b_desc': 'Professional cleaning for landed homes — terrace, semi-D, and bungalow. Deep cleaning, regular maintenance, and move-in/out services.',
         'booking.services.card2_title': 'Childcare Support',
         'booking.services.card2_desc': 'Safe and reliable care for your children at home or centre. Babysitting, after-school care, and full-day supervision.',
         'booking.services.card2_price': 'Flexible hourly rates',
@@ -1107,7 +1126,8 @@
         'booking.form.header_subtitle': "All prices include insurance coverage. We'll confirm within 2 hours.",
         'booking.form.service_label': 'Select Service *',
         'booking.form.service_placeholder': 'Choose a service...',
-        'booking.form.service_opt1': 'Home Cleaning — From RM130/session',
+        'booking.form.service_opt1a': 'Home Cleaning — Condo/Apartment — From RM90/session',
+        'booking.form.service_opt1b': 'Home Cleaning — Landed Property — From RM120/session',
         'booking.form.service_opt2': 'Childcare Support — Hourly rates',
         'booking.form.service_opt3': 'Elder Care — From RM130/session',
         'booking.form.name_label': 'Full Name *',
@@ -1171,8 +1191,10 @@
         'booking.services.from': 'Dari',
         'booking.services.per_session': '/sesi',
         'booking.services.badge_hourly': 'Sejam',
-        'booking.services.card1_title': 'Pembersihan Rumah',
-        'booking.services.card1_desc': 'Pembersihan profesional untuk rumah, pejabat dan unit Airbnb. Pembersihan menyeluruh, penyelenggaraan berkala, dan perkhidmatan masuk/keluar.',
+        'booking.services.card1_title': 'Pembersihan Rumah — Kondo/Apartmen',
+        'booking.services.card1_desc': 'Pembersihan profesional untuk kondo dan apartmen. Pembersihan menyeluruh, penyelenggaraan berkala, dan perkhidmatan masuk/keluar.',
+        'booking.services.card1b_title': 'Pembersihan Rumah — Rumah Berkembar/Teres',
+        'booking.services.card1b_desc': 'Pembersihan profesional untuk rumah teres, berkembar dan banglo. Pembersihan menyeluruh, penyelenggaraan berkala, dan perkhidmatan masuk/keluar.',
         'booking.services.card2_title': 'Sokongan Penjagaan Anak',
         'booking.services.card2_desc': 'Penjagaan yang selamat dan boleh dipercayai untuk anak anda di rumah atau pusat. Pengasuh, penjagaan selepas sekolah, dan penyeliaan sepanjang hari.',
         'booking.services.card2_price': 'Kadar sejam fleksibel',
@@ -1186,7 +1208,8 @@
         'booking.form.header_subtitle': 'Semua harga termasuk perlindungan insurans. Kami akan mengesahkan dalam masa 2 jam.',
         'booking.form.service_label': 'Pilih Perkhidmatan *',
         'booking.form.service_placeholder': 'Pilih perkhidmatan...',
-        'booking.form.service_opt1': 'Pembersihan Rumah — Dari RM130/sesi',
+        'booking.form.service_opt1a': 'Pembersihan Rumah — Kondo/Apartmen — Dari RM90/sesi',
+        'booking.form.service_opt1b': 'Pembersihan Rumah — Rumah Berkembar/Teres — Dari RM120/sesi',
         'booking.form.service_opt2': 'Sokongan Penjagaan Anak — Kadar sejam',
         'booking.form.service_opt3': 'Penjagaan Warga Emas — Dari RM130/sesi',
         'booking.form.name_label': 'Nama Penuh *',
@@ -1250,8 +1273,10 @@
         'booking.services.from': '起价',
         'booking.services.per_session': '/次',
         'booking.services.badge_hourly': '按小时',
-        'booking.services.card1_title': '家居清洁',
-        'booking.services.card1_desc': '为住宅、办公室和 Airbnb 单位提供专业清洁。深度清洁、定期维护以及入住/搬出服务。',
+        'booking.services.card1_title': '家居清洁 — 公寓',
+        'booking.services.card1_desc': '为公寓和服务式公寓提供专业清洁。深度清洁、定期维护以及入住/搬出服务。',
+        'booking.services.card1b_title': '家居清洁 — 排屋/独立屋',
+        'booking.services.card1b_desc': '为排屋、半独立式与独立式房屋提供专业清洁。深度清洁、定期维护以及入住/搬出服务。',
         'booking.services.card2_title': '儿童看护支持',
         'booking.services.card2_desc': '在家中或中心为您的孩子提供安全可靠的照顾。临时看护、课后照顾和全天监护。',
         'booking.services.card2_price': '灵活的小时费率',
@@ -1265,7 +1290,8 @@
         'booking.form.header_subtitle': '所有价格均包含保险。我们将在 2 小时内确认。',
         'booking.form.service_label': '选择服务 *',
         'booking.form.service_placeholder': '选择服务...',
-        'booking.form.service_opt1': '家居清洁 — 起价 RM130/次',
+        'booking.form.service_opt1a': '家居清洁 — 公寓 — 起价 RM90/次',
+        'booking.form.service_opt1b': '家居清洁 — 排屋/独立屋 — 起价 RM120/次',
         'booking.form.service_opt2': '儿童看护支持 — 按小时收费',
         'booking.form.service_opt3': '长者护理 — 起价 RM130/次',
         'booking.form.name_label': '全名 *',
