@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)",
+      "Bash(git push:*)",
+      "Bash(python3 -)",
+      "WebSearch",
+      "WebFetch(domain:unsplash.com)",
+      "Bash(git commit -m ' *)",
+      "Bash(git checkout *)",
+      "Bash(git merge *)",
+      "Bash(git remote *)",
+      "Read(//Users/michaelyongfoo/.ssh/**)",
+      "Bash(ssh -T git@github.com)",
+      "Bash(git pull *)",
+      "Bash(git -C /Users/michaelyongfoo/custom-projects/servicekru diff)",
+      "Bash(xxd /Users/michaelyongfoo/custom-projects/servicekru/CNAME)",
+      "Bash(git check-ignore *)",
+      "Bash(awk '/I18N_EXTEND/ && !e {e=NR} /i18n\\\\.js/ && !l {l=NR} END{print \"EXTEND@\" e \" loader@\" l \" ok=\" \\(e<l?\"yes\":\"NO\"\\)}' index.html)",
+      "Bash(sed -n '750,770p' /Users/michaelyongfoo/custom-projects/servicekru/redesigned-site/booking.html)",
+      "Bash(sed -n '750,775p' /Users/michaelyongfoo/custom-projects/servicekru/redesigned-site/become.html)",
+      "Bash(awk 'NR==2963' /Users/michaelyongfoo/custom-projects/servicekru/index.html)"
+    ]
+  }
+}

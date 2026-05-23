@@ -1039,6 +1039,157 @@
         .lang-menu li:hover { background: #fff5ec; color: var(--color-orange, #ee751e); }
         .lang-menu li.active { background: var(--color-orange, #ee751e); color: #fff; }
         @media (max-width: 1280px) { .lang-switcher { order: 2; margin-left: auto; margin-right: 8px; } }
+
+        /* ── Certification Pathway ── */
+        .certification {
+            padding: 6rem 2rem;
+            background: var(--color-gray-100);
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cert-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--color-gray-200);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--color-orange);
+        }
+
+        .cert-card:nth-child(even)::before {
+            background: var(--color-pink);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0, 69, 145, 0.13);
+            border-color: transparent;
+        }
+
+        .cert-card-body {
+            padding: 2rem;
+            padding-top: 2.25rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cert-card-top {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .mcpc-badge {
+            display: inline-block;
+            background: var(--color-orange-light);
+            color: var(--color-orange);
+            padding: 0.3rem 0.85rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .cert-card:nth-child(even) .mcpc-badge {
+            background: var(--color-pink-light);
+            color: var(--color-pink);
+        }
+
+        .cert-card-title {
+            font-family: var(--font-secondary);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--color-gray-900);
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .cert-benefits {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex: 1;
+        }
+
+        .cert-benefits li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.55rem;
+            color: var(--color-gray-600);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 0.65rem;
+        }
+
+        .cert-benefits li:last-child { margin-bottom: 0; }
+
+        .cert-check {
+            flex-shrink: 0;
+            color: var(--color-orange);
+            margin-top: 1px;
+        }
+
+        .cert-card:nth-child(even) .cert-check {
+            color: var(--color-pink);
+        }
+
+        .cert-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--color-gray-200);
+            margin-top: auto;
+        }
+
+        .cert-duration-fee {
+            font-weight: 700;
+            color: var(--color-gray-900);
+            font-size: 0.875rem;
+        }
+
+        .hrd-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.28rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.73rem;
+            font-weight: 700;
+            border: 1px solid #a5d6a7;
+        }
+
+        @media (max-width: 768px) {
+            .cert-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 
@@ -1247,6 +1398,132 @@
                         <h3 class="benefit-title" data-i18n="become.benefit6_title">Supportive Community</h3>
                         <p class="benefit-description" data-i18n="become.benefit6_desc">Join a growing community of empowered women professionals supporting each other's growth.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certification Pathway -->
+        <section class="certification" id="certification">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">Professional Certification</span>
+                    <h2>MCPC <span>Certification Pathway</span></h2>
+                    <p>Four structured levels of Malaysia's nationally recognised cleaning certification — advance at your own pace and unlock higher-value jobs.</p>
+                </div>
+                <div class="cert-grid">
+
+                    <!-- MCPC 1 -->
+                    <div class="cert-card">
+                        <div class="cert-card-body">
+                            <div class="cert-card-top">
+                                <span class="mcpc-badge">MCPC 1</span>
+                                <h3 class="cert-card-title">Cleaning Fundamentals</h3>
+                            </div>
+                            <ul class="cert-benefits">
+                                <li>
+                                    <svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Proper mopping, vacuuming &amp; buffing
+                                </li>
+                                <li>
+                                    <svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Chemical safety &amp; equipment care
+                                </li>
+                                <li>
+                                    <svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Washroom, window &amp; wall cleaning standards
+                                </li>
+                            </ul>
+                            <div class="cert-meta">
+                                <span class="cert-duration-fee">3 Days · RM1,900</span>
+                                <span class="hrd-badge">✓ HRD Corp Claimable</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MCPC 2 -->
+                    <div class="cert-card">
+                        <div class="cert-card-body">
+                            <div class="cert-card-top">
+                                <span class="mcpc-badge">MCPC 2</span>
+                                <h3 class="cert-card-title">Floor &amp; Interior Maintenance</h3>
+                            </div>
+                            <ul class="cert-benefits">
+                                <li>
+                                    <svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Machine scrubbing &amp; floor polishing
+                                </li>
+                                <li>
+                                    <svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Strip, reapply &amp; maintain floor emulsion
+                                </li>
+                                <li>
+                                    <svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                    High-level &amp; exterior surface cleaning
+                                </li>
+                            </ul>
+                            <div class="cert-meta">
+                                <span class="cert-duration-fee">2 Days · RM1,900</span>
+                                <span class="hrd-badge">✓ HRD Corp Claimable</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MCPC 3 -->
+                    <div class="cert-card">
+                        <div class="cert-card-body">
+                            <div class="cert-card-top">
+                                <span class="mcpc-badge">MCPC 3</span>
+                                <h3 class="cert-card-title">Carpet &amp; Upholstery Care</h3>
+                            </div>
+                            <ul class="cert-benefits">
+                                <li>
+                                    <svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Spray extraction &amp; dry foam shampooing
+                                </li>
+                                <li>
+                                    <svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Upholstery &amp; carpet deep cleaning
+                                </li>
+                                <li>
+                                    <svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Professional stain removal techniques
+                                </li>
+                            </ul>
+                            <div class="cert-meta">
+                                <span class="cert-duration-fee">2 Days · RM1,900</span>
+                                <span class="hrd-badge">✓ HRD Corp Claimable</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MCPC 4 -->
+                    <div class="cert-card">
+                        <div class="cert-card-body">
+                            <div class="cert-card-top">
+                                <span class="mcpc-badge">MCPC 4</span>
+                                <h3 class="cert-card-title">Floor Restoration</h3>
+                            </div>
+                            <ul class="cert-benefits">
+                                <li>
+                                    <svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Vitrification (crystallization) of hard floors
+                                </li>
+                                <li>
+                                    <svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Semi-permanent seal application &amp; stripping
+                                </li>
+                                <li>
+                                    <svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Polish application &amp; long-term maintenance
+                                </li>
+                            </ul>
+                            <div class="cert-meta">
+                                <span class="cert-duration-fee">2 Days · RM2,600</span>
+                                <span class="hrd-badge">✓ HRD Corp Claimable</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -1678,7 +1955,7 @@
         'become.benefits.tag': '为何加入我们',
         'become.benefits.title_prefix': '为何成为',
         'become.benefits.title_suffix': '？',
-        'become.benefits.desc': '灵活而有尊严的工作，带来实在的收入潜力——我们一路相伴。',
+        'become.benefits.desc': '灵活又体面的工作，带来实在的收入潜力——我们一路相伴。',
         'become.benefit1_title': '具竞争力的收入',
         'become.benefit1_desc_prefix': '每单可赚',
         'become.benefit1_desc_suffix': '，灵活排班，契合您的生活与家庭节奏。',

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /Users/michaelyongfoo/custom-projects/servicekru worktree prune)",
+      "Bash(git -C /Users/michaelyongfoo/custom-projects/servicekru branch -d claude/pedantic-lederberg)"
+    ]
+  }
+}
