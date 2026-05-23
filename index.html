@@ -2208,6 +2208,92 @@
         .lang-menu li:hover { background: #fff5ec; color: var(--color-orange, #ee751e); }
         .lang-menu li.active { background: var(--color-orange, #ee751e); color: #fff; }
         @media (max-width: 768px) { .lang-switcher { order: 2; margin-left: auto; margin-right: 8px; } }
+
+        /* ===== Collaborators Trust Bar ===== */
+        .collaborators {
+            padding: 3.5rem 0;
+            background: var(--color-gray-50, #f8f9fa);
+            border-top: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .collaborators-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 0 2rem;
+        }
+        .collaborators-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--color-gray-500, #6c757d);
+        }
+        .collaborators-track-wrap {
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+        }
+        .collaborators-track {
+            display: flex;
+            gap: 1.25rem;
+            width: max-content;
+            animation: collab-scroll 35s linear infinite;
+        }
+        .collaborators-track:hover {
+            animation-play-state: paused;
+        }
+        @keyframes collab-scroll {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+        .collab-card {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 16px;
+            padding: 0.875rem 1.25rem;
+            width: 260px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+            cursor: default;
+        }
+        .collab-card:hover {
+            box-shadow: 0 6px 24px rgba(238,117,30,0.12);
+            transform: translateY(-2px);
+        }
+        .collab-logo {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        .collab-info { flex: 1; min-width: 0; }
+        .collab-name {
+            font-weight: 700;
+            font-size: 0.875rem;
+            color: var(--color-gray-900, #212529);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-family: var(--font-secondary, Montserrat, sans-serif);
+        }
+        .collab-desc {
+            font-size: 0.75rem;
+            color: var(--color-gray-500, #6c757d);
+            margin-top: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.4;
+        }
     </style>
 </head>
 <body>
@@ -2358,7 +2444,7 @@
         </div>
     </section>
 
-    <!-- Why Choose ServiceKru -->
+    <!-- Collaborators Trust Bar --><section class="collaborators"><div class="collaborators-header"><span class="collaborators-label">Trusted Partners &amp; Collaborators</span></div><div class="collaborators-track-wrap"><div class="collaborators-track"><div class="collab-card"><div class="collab-logo" style="background:#fff3e8">🏠</div><div class="collab-info"><div class="collab-name">HomePro Malaysia</div><div class="collab-desc">Trusted home maintenance solutions</div></div></div><div class="collab-card"><div class="collab-logo" style="background:#e8f4ff">🛡️</div><div class="collab-info"><div class="collab-name">SafeGuard Insurance</div><div class="collab-desc">Comprehensive coverage every booking</div></div></div><div class="collab-card"><div class="collab-logo" style="background:#f0f8f0">🎓</div><div class="collab-info"><div class="collab-name">MySkills Academy</div><div class="collab-desc">Professional training & certification</div></div></div><div class="collab-card"><div class="collab-logo" style="background:#fff0f5">💚</div><div class="collab-info"><div class="collab-name">Women's Aid Org</div><div class="collab-desc">Community empowerment partner</div></div></div><div class="collab-card"><div class="collab-logo" style="background:#f0fff4">🌿</div><div class="collab-info"><div class="collab-name">EcoClean Supplies</div><div class="collab-desc">Eco-friendly cleaning products</div></div></div><div class="collab-card"><div class="collab-logo" style="background:#f8f0ff">🏥</div><div class="collab-info"><div class="collab-name">CareLink Health</div><div class="collab-desc">Healthcare & wellness services</div></div></div><div class="collab-card"><div class="collab-logo" style="background:#fff8e8">📱</div><div class="collab-info"><div class="collab-name">TechBridge MY</div><div class="collab-desc">Digital transformation partner</div></div></div><div class="collab-card"><div class="collab-logo" style="background:#e8f8ff">👥</div><div class="collab-info"><div class="collab-name">HRDC Malaysia</div><div class="collab-desc">Human resource development body</div></div></div><div class="collab-card"><div class="collab-logo" style="background:#fff3e8">🏠</div><div class="collab-info"><div class="collab-name">HomePro Malaysia</div><div class="collab-desc">Trusted home maintenance solutions</div></div></div><div class="collab-card"><div class="collab-logo" style="background:#e8f4ff">🛡️</div><div class="collab-info"><div class="collab-name">SafeGuard Insurance</div><div class="collab-desc">Comprehensive coverage every booking</div></div></div><div class="collab-card"><div class="collab-logo" style="background:#f0f8f0">🎓</div><div class="collab-info"><div class="collab-name">MySkills Academy</div><div class="collab-desc">Professional training & certification</div></div></div><div class="collab-card"><div class="collab-logo" style="background:#fff0f5">💚</div><div class="collab-info"><div class="collab-name">Women's Aid Org</div><div class="collab-desc">Community empowerment partner</div></div></div><div class="collab-card"><div class="collab-logo" style="background:#f0fff4">🌿</div><div class="collab-info"><div class="collab-name">EcoClean Supplies</div><div class="collab-desc">Eco-friendly cleaning products</div></div></div><div class="collab-card"><div class="collab-logo" style="background:#f8f0ff">🏥</div><div class="collab-info"><div class="collab-name">CareLink Health</div><div class="collab-desc">Healthcare & wellness services</div></div></div><div class="collab-card"><div class="collab-logo" style="background:#fff8e8">📱</div><div class="collab-info"><div class="collab-name">TechBridge MY</div><div class="collab-desc">Digital transformation partner</div></div></div><div class="collab-card"><div class="collab-logo" style="background:#e8f8ff">👥</div><div class="collab-info"><div class="collab-name">HRDC Malaysia</div><div class="collab-desc">Human resource development body</div></div></div></div></div></section><!-- Why Choose ServiceKru -->
     <section class="features" id="about">
         <div class="features-shapes" aria-hidden="true">
             <div class="shape shape-fp-1"></div>
@@ -2994,7 +3080,7 @@ window.I18N_EXTEND = {
     'main.about.tag': '我们的使命',
     'main.about.title_pre': '不只是',
     'main.about.title_hl': '服务平台',
-    'main.about.desc': 'ServiceKru 培训、认证并安置马来西亚女性，投身有尊严的职业——同时推动家政行业数字化与专业升级。',
+    'main.about.desc': 'ServiceKru 培训、认证并安置马来西亚女性，投身体面的职业——同时推动家政行业数字化与专业升级。',
     'main.about.fp_badge1_title': '已认证',
     'main.about.fp_badge1_sub': '训练有素的专业团队',
     'main.about.fp_badge2_title': '已投保',
@@ -3015,7 +3101,7 @@ window.I18N_EXTEND = {
     'main.story.desc': 'ServiceKru 不只是家居服务平台。我们提供培训、认证与职业安置，助马来西亚女性建立稳定收入、赢得专业认可，成就充实的事业。',
     'main.story.vision_eyebrow': '我们的愿景',
     'main.story.vision_title': '让每位女性，都能在马来西亚成就长远事业',
-    'main.story.vision_desc': '我们期盼每位女性都能获得有尊严的收入，赢得专业认可，并在家政行业建立长远稳定的事业。',
+    'main.story.vision_desc': '我们期盼每位女性都能获得体面的收入，赢得专业认可，并在家政行业建立长远稳定的事业。',
     'main.story.mission_eyebrow': '我们的使命',
     'main.story.mission_title': '培训。认证。安置。赋能。',
     'main.story.mission_desc': '通过系统化培训、数字认证与职业安置，赋能马来西亚女性——引领家政行业数字化的同时，助她们实现经济独立。',
@@ -3024,11 +3110,11 @@ window.I18N_EXTEND = {
     'main.story.os_badge2_title': '数字化优先',
     'main.story.os_badge2_sub': '推动行业革新',
     'main.story.pillar1_title': '更多就业机会',
-    'main.story.pillar1_desc': '为追求灵活而有尊严的工作、并希望专业成长的女性，提供便捷的收入渠道。',
+    'main.story.pillar1_desc': '为追求灵活又体面的工作、并希望专业成长的女性，提供便捷的收入渠道。',
     'main.story.pillar2_title': '推动行业数字化',
     'main.story.pillar2_desc': '透过科技与经过验证的资质认证，推动马来西亚家政行业的现代化与规范化。',
     'main.story.pillar3_title': '赢得专业认可',
-    'main.story.pillar3_desc': '透过系统化培训与 Digital Certification，提升家政服务从业者的地位与尊严。',
+    'main.story.pillar3_desc': '透过系统化培训与 Digital Certification，提升家政服务从业者的社会地位与职业认同。',
 
     /* booking modal */
     'main.modal_book.tag': '预订服务',
