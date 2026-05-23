@@ -1195,6 +1195,7 @@
         .upcoming-events {
             padding: 6rem 2rem;
             background: #fdf6f0;
+            overflow-x: hidden;
         }
 
         .carousel-wrapper {
@@ -1510,6 +1511,9 @@
         @media (max-width: 768px) {
             .events-layout { flex-direction: column; }
             .events-sidebar { display: none; }
+            .events-layout .carousel-wrapper { flex: none; max-width: 100%; width: 100%; margin: 0; }
+            .carousel-viewport { max-width: 100%; }
+            .upcoming-events { overflow-x: hidden; }
         }
     </style>
 </head>
