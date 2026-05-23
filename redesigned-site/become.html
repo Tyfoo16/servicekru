@@ -1190,6 +1190,327 @@
         @media (max-width: 768px) {
             .cert-grid { grid-template-columns: 1fr; }
         }
+
+        /* ── Upcoming Training Dates Carousel ── */
+        .upcoming-events {
+            padding: 6rem 2rem;
+            background: #fdf6f0;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .carousel-viewport {
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 2rem;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--color-gray-200);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+            flex: 0 0 calc(50% - 1rem);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--color-orange);
+        }
+
+        .event-card:nth-child(even)::before {
+            background: var(--color-pink);
+        }
+
+        .event-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0, 69, 145, 0.13);
+            border-color: transparent;
+        }
+
+        .event-card-body {
+            padding: 2rem;
+            padding-top: 2.25rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .event-card-top {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .event-card-title {
+            font-family: var(--font-secondary);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--color-gray-900);
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .event-date-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-gray-600);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .event-date-row svg {
+            flex-shrink: 0;
+            color: var(--color-orange);
+        }
+
+        .event-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .event-duration-pill {
+            display: inline-flex;
+            align-items: center;
+            background: var(--color-gray-100);
+            color: var(--color-gray-800);
+            padding: 0.3rem 0.85rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .event-fee {
+            font-weight: 700;
+            color: var(--color-gray-900);
+            font-size: 0.95rem;
+        }
+
+        .event-status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.28rem 0.85rem;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            border: 1px solid #a5d6a7;
+        }
+
+        .event-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--color-orange);
+            color: white;
+            padding: 0.85rem 1.75rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            margin-top: auto;
+            align-self: flex-start;
+            box-shadow: 0 4px 15px rgba(238, 117, 30, 0.3);
+        }
+
+        .event-cta:hover {
+            background: var(--color-orange-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(238, 117, 30, 0.45);
+        }
+
+        /* Carousel controls */
+        .carousel-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .carousel-arrow {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px solid var(--color-gray-200);
+            background: white;
+            color: var(--color-gray-800);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-arrow:hover:not(:disabled) {
+            border-color: var(--color-orange);
+            color: var(--color-orange);
+            box-shadow: 0 4px 12px rgba(238, 117, 30, 0.2);
+        }
+
+        .carousel-arrow:disabled {
+            opacity: 0.35;
+            cursor: default;
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: none;
+            background: var(--color-gray-200);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .carousel-dot.active {
+            background: var(--color-orange);
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        /* Desktop: 2 cards visible, hide controls */
+        @media (min-width: 769px) {
+            .event-card { flex: 0 0 calc(50% - 1rem); }
+            /* Controls hidden when all cards fit; JS will show them if more cards added */
+            .carousel-controls.js-all-visible { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .event-card { flex: 0 0 100%; }
+            .upcoming-events { padding: 4rem 1.5rem; }
+        }
+
+        /* ── Events 3-column layout (desktop) ── */
+        .events-layout {
+            display: flex;
+            gap: 2.5rem;
+            align-items: flex-start;
+        }
+
+        .events-sidebar {
+            flex: 0 0 28%;
+            background: white;
+            border-radius: 20px;
+            border: 1px solid var(--color-gray-200);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-self: stretch;
+        }
+
+        .events-sidebar-logo {
+            height: 56px;
+            width: auto;
+            object-fit: contain;
+            object-position: left center;
+        }
+
+        .events-sidebar-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--color-gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .events-sidebar-divider {
+            border: none;
+            border-top: 1px solid var(--color-gray-200);
+            margin: 0.25rem 0;
+        }
+
+        .events-sidebar-heading {
+            font-family: var(--font-secondary);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--color-gray-900);
+            margin: 0;
+        }
+
+        .events-sidebar-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .events-sidebar-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.55rem;
+            font-size: 0.85rem;
+            color: var(--color-gray-800);
+            line-height: 1.45;
+        }
+
+        .events-sidebar-list .cert-check {
+            flex-shrink: 0;
+            color: var(--color-orange);
+            margin-top: 2px;
+        }
+
+        .events-sidebar .hrd-badge {
+            margin-top: auto;
+            align-self: flex-start;
+        }
+
+        .events-layout .carousel-wrapper {
+            flex: 1;
+            max-width: none;
+            margin: 0;
+        }
+
+        /* Prerequisites line */
+        .event-prereq {
+            font-size: 0.8rem;
+            color: var(--color-gray-600);
+            line-height: 1.4;
+        }
+
+        .event-prereq strong {
+            color: var(--color-gray-700);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .events-layout { flex-direction: column; }
+            .events-sidebar { display: none; }
+        }
     </style>
 </head>
 
@@ -1528,6 +1849,119 @@
             </div>
         </section>
 
+        <!-- Upcoming Training Dates -->
+        <section class="upcoming-events" id="upcoming-events">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag" style="background: rgba(238,117,30,0.15); color: var(--color-orange);">Open for Enrolment</span>
+                    <h2>Upcoming <span>Training Dates</span></h2>
+                    <p>Secure your spot in the next MCPC intake. HRD Corp claimable — limited seats per cohort.</p>
+                </div>
+
+                <div class="events-layout">
+
+                    <!-- Sidebar: Partnership + Why Get Certified -->
+                    <aside class="events-sidebar">
+                        <span class="events-sidebar-label">In Partnership With</span>
+                        <img src="../assets/mecsc-logo.png" alt="MECSc logo" class="events-sidebar-logo">
+                        <hr class="events-sidebar-divider">
+                        <p class="events-sidebar-heading">Why Get Certified?</p>
+                        <ul class="events-sidebar-list">
+                            <li>
+                                <svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                Nationally recognised MCPC qualification
+                            </li>
+                            <li>
+                                <svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                HRD Corp claimable — employer can subsidise your fee
+                            </li>
+                            <li>
+                                <svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                Unlock higher-paying cleaning &amp; facility roles
+                            </li>
+                        </ul>
+                        <span class="hrd-badge">✓ HRD Corp Claimable</span>
+                    </aside>
+
+                <div class="carousel-wrapper">
+                    <div class="carousel-viewport" id="eventsViewport">
+                        <div class="carousel-track" id="eventsTrack">
+
+                            <!-- Event Card 1: MCPC 1 -->
+                            <div class="event-card">
+                                <div class="event-card-body">
+                                    <div class="event-card-top">
+                                        <span class="mcpc-badge">MCPC 1</span>
+                                        <h3 class="event-card-title">Cleaning Fundamentals</h3>
+                                    </div>
+                                    <div class="event-date-row">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                        22 – 24 June 2026
+                                    </div>
+                                    <div class="event-meta-row">
+                                        <span class="event-duration-pill">3 Days</span>
+                                        <span class="event-fee">RM1,900</span>
+                                        <span class="event-status-badge">
+                                            <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" aria-hidden="true"><circle cx="4" cy="4" r="4"/></svg>
+                                            Enrolling Now · Limited Seats
+                                        </span>
+                                    </div>
+                                    <p class="event-prereq"><strong>Prerequisites:</strong> No prerequisites — open to all</p>
+                                    <a href="#enquiry" class="event-cta">
+                                        Register Your Interest
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Event Card 2: MCPC 2 -->
+                            <div class="event-card">
+                                <div class="event-card-body">
+                                    <div class="event-card-top">
+                                        <span class="mcpc-badge" style="background: var(--color-pink-light); color: var(--color-pink);">MCPC 2</span>
+                                        <h3 class="event-card-title">Floor &amp; Interior Maintenance</h3>
+                                    </div>
+                                    <div class="event-date-row">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                        25 – 26 June 2026
+                                    </div>
+                                    <div class="event-meta-row">
+                                        <span class="event-duration-pill">2 Days</span>
+                                        <span class="event-fee">RM1,900</span>
+                                        <span class="event-status-badge">
+                                            <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" aria-hidden="true"><circle cx="4" cy="4" r="4"/></svg>
+                                            Enrolling Now · Limited Seats
+                                        </span>
+                                    </div>
+                                    <p class="event-prereq"><strong>Prerequisites:</strong> Requires MCPC 1 completion</p>
+                                    <a href="#enquiry" class="event-cta">
+                                        Register Your Interest
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div><!-- /.carousel-track -->
+                    </div><!-- /.carousel-viewport -->
+
+                    <div class="carousel-controls" id="eventsControls">
+                        <button class="carousel-arrow" id="eventsPrev" aria-label="Previous event" disabled>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+                        </button>
+                        <div class="carousel-dots" id="eventsDots">
+                            <button class="carousel-dot active" data-index="0" aria-label="Event 1"></button>
+                            <button class="carousel-dot" data-index="1" aria-label="Event 2"></button>
+                        </div>
+                        <button class="carousel-arrow" id="eventsNext" aria-label="Next event">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                </div><!-- /.events-layout -->
+            </div>
+        </section>
+
         <!-- Enquiry Form -->
         <section class="enquiry" id="enquiry">
             <div class="enquiry-pattern"></div>
@@ -1738,6 +2172,78 @@
             document.getElementById('successMessage').classList.add('show');
             window.open('https://wa.me/60173249590?text=' + encodeURIComponent(msg), '_blank');
         });
+    </script>
+    <script>
+    // ── Events Carousel ──
+    (function () {
+        var track = document.getElementById('eventsTrack');
+        var viewport = document.getElementById('eventsViewport');
+        var controls = document.getElementById('eventsControls');
+        var prevBtn = document.getElementById('eventsPrev');
+        var nextBtn = document.getElementById('eventsNext');
+        var dotsEl = document.querySelectorAll('#eventsDots .carousel-dot');
+        if (!track) return;
+
+        var cards = track.querySelectorAll('.event-card');
+        var total = cards.length;
+        var current = 0;
+
+        function isMobile() { return window.innerWidth <= 768; }
+        function getPerPage() { return isMobile() ? 1 : 2; }
+        function maxIdx() { return Math.max(0, total - getPerPage()); }
+
+        function updateControls() {
+            var max = maxIdx();
+            // Hide controls entirely on desktop when all cards are visible
+            if (!isMobile() && max === 0) {
+                controls.classList.add('js-all-visible');
+            } else {
+                controls.classList.remove('js-all-visible');
+            }
+            if (prevBtn) prevBtn.disabled = current === 0;
+            if (nextBtn) nextBtn.disabled = current >= max;
+            dotsEl.forEach(function (d, i) {
+                d.classList.toggle('active', isMobile() ? i === current : i === 0);
+            });
+        }
+
+        function goTo(idx) {
+            var max = maxIdx();
+            idx = Math.max(0, Math.min(idx, max));
+            current = idx;
+            if (isMobile()) {
+                var card = cards[0];
+                var gap = 32; // 2rem gap in px
+                var offset = idx * (card.offsetWidth + gap);
+                track.style.transform = 'translateX(-' + offset + 'px)';
+            } else {
+                track.style.transform = 'translateX(0)';
+            }
+            updateControls();
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); });
+        if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+        dotsEl.forEach(function (dot) {
+            dot.addEventListener('click', function () {
+                goTo(parseInt(dot.getAttribute('data-index'), 10));
+            });
+        });
+
+        // Touch / swipe support
+        var startX = 0;
+        track.addEventListener('touchstart', function (e) {
+            startX = e.touches[0].clientX;
+        }, { passive: true });
+        track.addEventListener('touchend', function (e) {
+            var diff = startX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
+        }, { passive: true });
+
+        window.addEventListener('resize', function () { goTo(current); });
+        goTo(0);
+    })();
     </script>
     <script>
     window.I18N_EXTEND = {
