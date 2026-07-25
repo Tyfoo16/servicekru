@@ -2199,6 +2199,73 @@
             }
         }
 
+        /* Gallery: Our Work */
+        .gallery {
+            padding: 6rem 2rem;
+            background: var(--color-white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 4 / 5;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0, 69, 145, 0.18);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 1.75rem 1rem 0.85rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0));
+            color: #fff;
+            font-family: var(--font-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                padding: 4.5rem 1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .gallery-caption {
+                font-size: 0.8rem;
+                padding: 1.5rem 0.85rem 0.7rem;
+            }
+        }
+
         /* Lang Switcher */
         .lang-switcher { position: relative; display: inline-block; margin-left: 0.5rem; }
         .lang-current { display: inline-flex; align-items: center; gap: 6px; background: transparent; border: 1px solid #e0e0e0; border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 0.875rem; color: var(--color-gray-800, #343a40); cursor: pointer; line-height: 1; }
@@ -2651,6 +2718,50 @@
         </div>
     </section>
 
+    <!-- Our Work Gallery -->
+    <section class="gallery" id="gallery">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="main.gallery.tag">Our Work</span>
+                <h2><span data-i18n="main.gallery.title_pre">Real Jobs,</span> <span data-i18n="main.gallery.title_hl">Real Results</span></h2>
+                <p data-i18n="main.gallery.desc">A look inside real ServiceKru bookings across Malaysia — captured on the job, not staged.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <img src="assets/testimonial1.jpeg" alt="ServiceKru crew posing with cleaning equipment before a job" loading="lazy">
+                    <span class="gallery-caption" data-i18n="main.gallery.caption1">The ServiceKru Crew</span>
+                </div>
+                <div class="gallery-card">
+                    <img src="assets/testimonial2.jpeg" alt="ServiceKru crew on ladders cleaning a living room and cabinets" loading="lazy">
+                    <span class="gallery-caption" data-i18n="main.gallery.caption2">High-Reach Cleaning</span>
+                </div>
+                <div class="gallery-card">
+                    <img src="assets/testimonial3.jpeg" alt="ServiceKru crew cleaning a kitchen and refrigerator" loading="lazy">
+                    <span class="gallery-caption" data-i18n="main.gallery.caption3">Kitchen &amp; Fridge Detailing</span>
+                </div>
+                <div class="gallery-card">
+                    <img src="assets/testimonial4.jpeg" alt="ServiceKru crew unwrapping a new mattress during move-in prep" loading="lazy">
+                    <span class="gallery-caption" data-i18n="main.gallery.caption4">Move-In Mattress Set-Up</span>
+                </div>
+                <div class="gallery-card">
+                    <img src="assets/testimonial5.jpeg" alt="ServiceKru crew mopping an empty room floor" loading="lazy">
+                    <span class="gallery-caption" data-i18n="main.gallery.caption5">Deep Floor Cleaning</span>
+                </div>
+                <div class="gallery-card">
+                    <img src="assets/testimonial6.jpeg" alt="ServiceKru crew cleaning the floor beside a new mattress" loading="lazy">
+                    <span class="gallery-caption" data-i18n="main.gallery.caption6">Room Preparation</span>
+                </div>
+                <div class="gallery-card">
+                    <img src="assets/testimonial7.jpeg" alt="ServiceKru crew cleaning a high window sill in natural light" loading="lazy">
+                    <span class="gallery-caption" data-i18n="main.gallery.caption7">Window &amp; Sill Cleaning</span>
+                </div>
+                <div class="gallery-card">
+                    <img src="assets/testimonial8.jpeg" alt="ServiceKru crew measuring and prepping the floor near a new mattress" loading="lazy">
+                    <span class="gallery-caption" data-i18n="main.gallery.caption8">Move-In Prep</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Our Story -->
     <section class="our-story" id="our-story">
@@ -3031,6 +3142,20 @@ window.I18N_EXTEND = {
     'main.about.card4_title': 'Rated & Reviewed',
     'main.about.card4_desc': 'Transparent reviews and ratings after every job. Choose your provider based on real customer feedback.',
 
+    /* gallery */
+    'main.gallery.tag': 'Our Work',
+    'main.gallery.title_pre': 'Real Jobs,',
+    'main.gallery.title_hl': 'Real Results',
+    'main.gallery.desc': 'A look inside real ServiceKru bookings across Malaysia — captured on the job, not staged.',
+    'main.gallery.caption1': 'The ServiceKru Crew',
+    'main.gallery.caption2': 'High-Reach Cleaning',
+    'main.gallery.caption3': 'Kitchen & Fridge Detailing',
+    'main.gallery.caption4': 'Move-In Mattress Set-Up',
+    'main.gallery.caption5': 'Deep Floor Cleaning',
+    'main.gallery.caption6': 'Room Preparation',
+    'main.gallery.caption7': 'Window & Sill Cleaning',
+    'main.gallery.caption8': 'Move-In Prep',
+
     /* our story */
     'main.story.tag': 'Our Story',
     'main.story.title_pre': 'Empowering Women Through',
@@ -3144,6 +3269,20 @@ window.I18N_EXTEND = {
     'main.about.card4_title': 'Dinilai & Disemak',
     'main.about.card4_desc': 'Ulasan dan penilaian telus selepas setiap kerja. Pilih penyedia anda berdasarkan maklum balas pelanggan sebenar.',
 
+    /* gallery */
+    'main.gallery.tag': 'Kerja Kami',
+    'main.gallery.title_pre': 'Kerja Sebenar,',
+    'main.gallery.title_hl': 'Hasil Sebenar',
+    'main.gallery.desc': 'Intipan tempahan sebenar ServiceKru di seluruh Malaysia — dirakam semasa bertugas, bukan gambar berlakon.',
+    'main.gallery.caption1': 'Pasukan ServiceKru',
+    'main.gallery.caption2': 'Pembersihan Tempat Tinggi',
+    'main.gallery.caption3': 'Pembersihan Dapur & Peti Sejuk',
+    'main.gallery.caption4': 'Persediaan Tilam Berpindah Masuk',
+    'main.gallery.caption5': 'Pembersihan Lantai Mendalam',
+    'main.gallery.caption6': 'Persediaan Bilik',
+    'main.gallery.caption7': 'Pembersihan Tingkap & Bibir Tingkap',
+    'main.gallery.caption8': 'Persediaan Berpindah Masuk',
+
     /* our story */
     'main.story.tag': 'Kisah Kami',
     'main.story.title_pre': 'Memperkasa Wanita Melalui',
@@ -3256,6 +3395,20 @@ window.I18N_EXTEND = {
     'main.about.card3_desc': '每次预订均获完整保障与投保，让您安心。每一次上门服务，皆有承诺。',
     'main.about.card4_title': '透明评价',
     'main.about.card4_desc': '每次服务结束后皆有公开评价与评分。根据真实客户反馈，挑选最适合您的专业人员。',
+
+    /* gallery */
+    'main.gallery.tag': '我们的服务实况',
+    'main.gallery.title_pre': '真实工作，',
+    'main.gallery.title_hl': '真实成果',
+    'main.gallery.desc': '一窥马来西亚各地真实的 ServiceKru 预订现场 —— 服务当下实拍，绝非摆拍。',
+    'main.gallery.caption1': 'ServiceKru 团队',
+    'main.gallery.caption2': '高处清洁',
+    'main.gallery.caption3': '厨房与冰箱深层清洁',
+    'main.gallery.caption4': '搬迁入伙床褥安装',
+    'main.gallery.caption5': '地板深层清洁',
+    'main.gallery.caption6': '房间整理',
+    'main.gallery.caption7': '窗户与窗台清洁',
+    'main.gallery.caption8': '搬迁入伙准备',
 
     /* our story */
     'main.story.tag': '我们的故事',
