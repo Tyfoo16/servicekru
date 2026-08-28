@@ -2477,8 +2477,9 @@
         </a>
         <ul class="nav-links">
             <li><a href="#hero" class="nav-active" data-i18n="nav.home">Home</a></li>
-            <li><a href="redesigned-site/booking.html" data-i18n="main.nav.book_service">Book a Service</a></li>
+            <li><a href="redesigned-site/certification.html" data-i18n="main.nav.certification">Certification</a></li>
             <li><a href="redesigned-site/become.html" data-i18n="main.nav.become_pro">Become a Pro</a></li>
+            <li><a href="#" class="nav-cta" onclick="openServiceModal('quoteModal'); return false;" data-i18n="main.nav.request_quote">Request a Quote</a></li>
         </ul>
         <div class="lang-switcher">
             <button class="lang-current" aria-haspopup="listbox" aria-expanded="false" data-i18n="nav.lang_aria" data-i18n-attr="aria-label">
@@ -2510,12 +2511,12 @@
                 <!-- Slide 1: Customer -->
                 <div class="hero-slide hero-slide--active">
                     <div class="hero-text">
-                        <span class="hero-badge" data-i18n="main.hero.slide1_badge">Certified Women Professionals</span>
-                        <h1><span data-i18n="main.hero.slide1_title_pre">Trusted</span> <span class="highlight-orange" data-i18n="main.hero.slide1_title_hl1">Home Services</span> <span data-i18n="main.hero.slide1_title_mid">by</span> <span class="highlight-blue" data-i18n="main.hero.slide1_title_hl2">Certified Professionals</span></h1>
-                        <p data-i18n="main.hero.slide1_desc">Book reliable cleaning, childcare, and elder care services from certified, insured professionals — same-day available.</p>
+                        <span class="hero-badge" data-i18n="main.hero.slide1_badge">Corporate Home &amp; Facility Services</span>
+                        <h1><span data-i18n="main.hero.slide1_title_pre">Trusted</span> <span class="highlight-orange" data-i18n="main.hero.slide1_title_hl1">Facility Services</span> <span data-i18n="main.hero.slide1_title_mid">by</span> <span class="highlight-blue" data-i18n="main.hero.slide1_title_hl2">Certified Professionals</span></h1>
+                        <p data-i18n="main.hero.slide1_desc">A vetted, insured workforce for corporate cleaning and facility care — certified professionals, consistent service, and documentation your procurement team can verify.</p>
                         <div class="hero-buttons">
-                            <a href="#" class="btn-primary" onclick="openServiceModal('bookingModal'); return false;">
-                                <span data-i18n="main.hero.slide1_cta">Book a Service</span>
+                            <a href="#" class="btn-primary" onclick="openServiceModal('quoteModal'); return false;">
+                                <span data-i18n="main.hero.slide1_cta">Request a Quote</span>
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             </a>
                         </div>
@@ -2524,9 +2525,10 @@
                         <div class="hero-card">
                             <div class="hero-card-header">
                                 <div class="hero-card-icon"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=100&h=100&fit=crop&auto=format" alt="Trusted home services"></div>
-                                <h3 data-i18n="main.hero.slide1_card_title">Trusted by Thousands</h3>
-                                <p data-i18n="main.hero.slide1_card_subtitle">Insured, verified home service professionals</p>
+                                <h3 data-i18n="main.hero.slide1_card_title">Built for Corporate Buyers</h3>
+                                <p data-i18n="main.hero.slide1_card_subtitle">Vetted, insured, certified — documentation on request</p>
                             </div>
+                            <!-- TODO: client to confirm real, defensible figures before launch — see plan §2 -->
                             <div class="hero-stats">
                                 <div class="stat">
                                     <span class="stat-number">1,200+</span>
@@ -2546,14 +2548,14 @@
                             <div class="badge-icon orange"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=45&h=45&fit=crop&auto=format" alt="Insured"></div>
                             <div class="badge-text">
                                 <strong data-i18n="main.hero.badge1_title">Insured</strong>
-                                <span data-i18n="main.hero.badge1_sub">All providers covered</span>
+                                <span data-i18n="main.hero.badge1_sub">Every placement covered</span>
                             </div>
                         </div>
                         <div class="floating-badge floating-badge-2">
-                            <div class="badge-icon blue"><img src="https://images.unsplash.com/photo-1495364141860-b0d03eccd065?w=45&h=45&fit=crop&auto=format" alt="Fast Booking"></div>
+                            <div class="badge-icon blue"><img src="https://images.unsplash.com/photo-1495364141860-b0d03eccd065?w=45&h=45&fit=crop&auto=format" alt="Certified Records"></div>
                             <div class="badge-text">
-                                <strong data-i18n="main.hero.badge2_title">Fast Booking</strong>
-                                <span data-i18n="main.hero.badge2_sub">Same-day available</span>
+                                <strong data-i18n="main.hero.badge2_title">Certified Records</strong>
+                                <span data-i18n="main.hero.badge2_sub">Verifiable per worker</span>
                             </div>
                         </div>
                     </div>
@@ -2648,9 +2650,9 @@
         <div class="section-container">
             <div class="features-header-wrap">
                 <div class="section-header">
-                    <span class="section-tag" data-i18n="main.about.tag">Our Purpose</span>
-                    <h2><span data-i18n="main.about.title_pre">More Than a</span> <span data-i18n="main.about.title_hl">Service Platform</span></h2>
-                    <p data-i18n="main.about.desc">ServiceKru trains, certifies, and places Malaysian women into dignified careers — digitalising and elevating the professional standard of Malaysia's home services workforce.</p>
+                    <span class="section-tag" data-i18n="main.about.tag">Why ServiceKru</span>
+                    <h2><span data-i18n="main.about.title_pre">Built for</span> <span data-i18n="main.about.title_hl">Procurement Standards</span></h2>
+                    <p data-i18n="main.about.desc">Every ServiceKru placement is trained, certified, vetted, and insured — with records your team can request and verify before a contract is signed.</p>
                 </div>
 
                 <div class="floating-badge floating-badge-fp-1">
@@ -2680,40 +2682,81 @@
                         <div class="feature-img-overlay"></div>
                     </div>
                     <div class="feature-card-body">
-                        <h3 data-i18n="main.about.card1_title">Certified & Trained</h3>
-                        <p data-i18n="main.about.card1_desc">All ServiceKrus complete our structured training programme and earn Digital Certification before their first job.</p>
+                        <h3 data-i18n="main.about.card1_title">Certification Records</h3>
+                        <p data-i18n="main.about.card1_desc">Every professional completes MCPC-accredited training and earns Digital Certification before their first placement — records available on request.</p>
                     </div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-img">
-                        <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=700&h=220&fit=crop&auto=format" alt="Background Checked">
+                        <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=700&h=220&fit=crop&auto=format" alt="Worker Vetting">
                         <div class="feature-img-overlay"></div>
                     </div>
                     <div class="feature-card-body">
-                        <h3 data-i18n="main.about.card2_title">Background Checked</h3>
-                        <p data-i18n="main.about.card2_desc">We ensure safety and reliability for every home and office with thorough background verification on all providers.</p>
+                        <h3 data-i18n="main.about.card2_title">Worker Vetting</h3>
+                        <p data-i18n="main.about.card2_desc">Every placement passes documented background screening before entering your site or premises.</p>
                     </div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-img">
-                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&h=220&fit=crop&auto=format" alt="Fully Insured">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&h=220&fit=crop&auto=format" alt="Insurance Coverage">
                         <div class="feature-img-overlay"></div>
                     </div>
                     <div class="feature-card-body">
-                        <h3 data-i18n="main.about.card3_title">Fully Insured</h3>
-                        <p data-i18n="main.about.card3_desc">Every booking is protected and insured for your peace of mind. Service guaranteed on every visit.</p>
+                        <h3 data-i18n="main.about.card3_title">Insurance Coverage</h3>
+                        <p data-i18n="main.about.card3_desc">Every job is covered, with a certificate of insurance available for your records on request.</p>
                     </div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-img">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&h=220&fit=crop&auto=format" alt="Rated and Reviewed">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&h=220&fit=crop&auto=format" alt="Service Consistency">
                         <div class="feature-img-overlay"></div>
                     </div>
                     <div class="feature-card-body">
-                        <h3 data-i18n="main.about.card4_title">Rated & Reviewed</h3>
-                        <p data-i18n="main.about.card4_desc">Transparent reviews and ratings after every job. Choose your provider based on real customer feedback.</p>
+                        <h3 data-i18n="main.about.card4_title">Service Consistency</h3>
+                        <p data-i18n="main.about.card4_desc">Every professional is trained to the same standard, supervised, and reviewed after every placement.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Certification & Training -->
+    <section class="our-story" id="certification" style="padding-top:0;">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="main.cert_teaser.tag">Digital Certification</span>
+                <h2><span data-i18n="main.cert_teaser.title_pre">Certified Through</span> <span data-i18n="main.cert_teaser.title_hl">MCPC-Accredited Training</span></h2>
+                <p data-i18n="main.cert_teaser.desc">Every ServiceKru professional trains through MECSc, Malaysia's MCPC-accredited cleaning certification centre — HRD Corp claimable, with records your team can verify.</p>
+            </div>
+
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
+                    </div>
+                    <h3 data-i18n="main.cert_teaser.card1_title">What Training Covers</h3>
+                    <p data-i18n="main.cert_teaser.card1_desc">Structured, multi-level courses covering cleaning fundamentals, floor and interior maintenance, and safety standards.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"/></svg>
+                    </div>
+                    <h3 data-i18n="main.cert_teaser.card2_title">The MECSc Partnership</h3>
+                    <p data-i18n="main.cert_teaser.card2_desc">Delivered with MECSc, Malaysia's #1 professional cleaning training centre, under nationally recognised MCPC accreditation.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                    </div>
+                    <h3 data-i18n="main.cert_teaser.card3_title">What You Can Verify</h3>
+                    <p data-i18n="main.cert_teaser.card3_desc">Certification records and course completions are available on request for every professional placed on your site.</p>
+                </div>
+            </div>
+
+            <div style="text-align:center;margin-top:2.5rem;">
+                <a href="redesigned-site/certification.html" class="btn-primary" data-i18n="main.cert_teaser.cta">
+                    View Certification Pathway →
+                </a>
             </div>
         </div>
     </section>
@@ -2840,26 +2883,25 @@
     </section>
 
     <!-- Story Modal -->
-    <!-- Book a Service Modal -->
-    <div class="service-modal" id="bookingModal">
+    <!-- Request a Quote Modal (B2B) -->
+    <div class="service-modal" id="quoteModal">
         <div class="service-modal-content">
-            <button class="story-modal-close" onclick="closeServiceModal('bookingModal')"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+            <button class="story-modal-close" onclick="closeServiceModal('quoteModal')"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
             <div class="section-header" style="margin-bottom: 2rem;">
-                <span class="section-tag" data-i18n="main.modal_book.tag">Book a Service</span>
-                <h2><span data-i18n="main.modal_book.title_pre">Book Trusted</span> <span data-i18n="main.modal_book.title_hl">Home Services</span></h2>
-                <p data-i18n="main.modal_book.desc">Certified professionals — trained, reviewed, and documents verified.</p>
+                <span class="section-tag" data-i18n="main.modal_quote.tag">Corporate Enquiry</span>
+                <h2><span data-i18n="main.modal_quote.title_pre">Request a</span> <span data-i18n="main.modal_quote.title_hl">Quote</span></h2>
+                <p data-i18n="main.modal_quote.desc">A vetted, insured, certified workforce for your site — scoped to your headcount, hours, and SLA.</p>
             </div>
 
             <ul style="list-style:none;padding:0;margin:0 0 2rem;display:flex;flex-direction:column;gap:0.85rem;">
-                <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="main.modal_book.li1a_pre">Home Cleaning (Condo/Apartment) from</span> RM90</li>
-                <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="main.modal_book.li1b_pre">Home Cleaning (Landed) from</span> RM120</li>
-                <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="main.modal_book.li2">Childcare &amp; Elder Care — flexible sessions</span></li>
-                <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="main.modal_book.li3">Background-checked, insured professionals</span></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="main.modal_quote.li1">MCPC-certified professionals, background checked</span></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="main.modal_quote.li2">Insured placements with certificate on request</span></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="main.modal_quote.li3">Scoped to headcount, hours, and service SLA</span></li>
             </ul>
 
             <div style="text-align:center;margin-top:1rem;">
-                <a href="redesigned-site/booking.html" class="btn-primary" style="font-size:1.1rem;padding:1rem 2.5rem;" data-i18n="main.modal_book.cta">
-                    Book Now →
+                <a href="https://wa.me/60173249590?text=Hi%20ServiceKru%2C%20I%27d%20like%20to%20enquire%20about%20corporate%20services%20for%20%5Bcompany%5D." target="_blank" rel="noopener" class="btn-primary" style="font-size:1.1rem;padding:1rem 2.5rem;" data-i18n="main.modal_quote.cta">
+                    Request a Quote via WhatsApp →
                 </a>
             </div>
         </div>
@@ -2938,8 +2980,8 @@
         <div class="footer-content">
             <div class="footer-brand">
                 <img src="assets/logo.png" alt="ServiceKru" class="logo-img logo-img--footer">
-                <p class="footer-tagline" data-i18n="main.footer.tagline">Trusted Home Services by Certified Professionals</p>
-                <p data-i18n="main.footer.about_desc">Connecting Malaysian families with certified, insured women professionals for cleaning, childcare, and elder care.</p>
+                <p class="footer-tagline" data-i18n="main.footer.tagline">Corporate Facility Services by Certified Professionals</p>
+                <p data-i18n="main.footer.about_desc">Supplying Malaysian businesses with vetted, insured, and certified professionals for corporate cleaning and facility care.</p>
             </div>
             <div class="footer-links">
                 <h4 data-i18n="footer.col_services">Services</h4>
@@ -2955,7 +2997,7 @@
                 <ul>
                     <li><a href="#" onclick="openServiceModal('becomeModal'); return false;" data-i18n="main.footer.link_become_pro">Become a Pro</a></li>
                     <li><a href="redesigned-site/become.html#how-it-works" data-i18n="main.footer.link_how_it_works">How It Works</a></li>
-                    <li><a href="#" onclick="openServiceModal('becomeModal'); return false;" data-i18n="main.footer.link_training">Training &amp; Certification</a></li>
+                    <li><a href="redesigned-site/certification.html" data-i18n="main.footer.link_training">Training &amp; Certification</a></li>
                     <li><a href="redesigned-site/become.html#enquiry" data-i18n="main.footer.link_register">Register Interest</a></li>
                 </ul>
             </div>
@@ -3058,7 +3100,7 @@
         // Close modal on Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                closeServiceModal('bookingModal');
+                closeServiceModal('quoteModal');
                 closeServiceModal('becomeModal');
             }
         });
@@ -3074,7 +3116,7 @@
             document.body.style.overflow = '';
         }
 
-        ['bookingModal', 'becomeModal', 'mecscModal'].forEach(function(id) {
+        ['quoteModal', 'becomeModal', 'mecscModal'].forEach(function(id) {
             document.getElementById(id).addEventListener('click', function(e) {
                 if (e.target === this) closeServiceModal(id);
             });
@@ -3085,26 +3127,27 @@
 window.I18N_EXTEND = {
   en: {
     /* nav */
-    'main.nav.book_service': 'Book a Service',
+    'main.nav.certification': 'Certification',
+    'main.nav.request_quote': 'Request a Quote',
     'main.nav.become_pro': 'Become a Pro',
 
     /* hero slide 1 */
-    'main.hero.slide1_badge': 'Certified Women Professionals',
+    'main.hero.slide1_badge': 'Corporate Home & Facility Services',
     'main.hero.slide1_title_pre': 'Trusted',
-    'main.hero.slide1_title_hl1': 'Home Services',
+    'main.hero.slide1_title_hl1': 'Facility Services',
     'main.hero.slide1_title_mid': 'by',
     'main.hero.slide1_title_hl2': 'Certified Professionals',
-    'main.hero.slide1_desc': 'Book reliable cleaning, childcare, and elder care services from certified, insured professionals — same-day available.',
-    'main.hero.slide1_cta': 'Book a Service',
-    'main.hero.slide1_card_title': 'Trusted by Thousands',
-    'main.hero.slide1_card_subtitle': 'Insured, verified home service professionals',
+    'main.hero.slide1_desc': 'A vetted, insured workforce for corporate cleaning and facility care — certified professionals, consistent service, and documentation your procurement team can verify.',
+    'main.hero.slide1_cta': 'Request a Quote',
+    'main.hero.slide1_card_title': 'Built for Corporate Buyers',
+    'main.hero.slide1_card_subtitle': 'Vetted, insured, certified — documentation on request',
     'main.hero.stat_providers': 'Providers',
     'main.hero.stat_rating': 'Rating',
     'main.hero.stat_bookings': 'Bookings',
     'main.hero.badge1_title': 'Insured',
-    'main.hero.badge1_sub': 'All providers covered',
-    'main.hero.badge2_title': 'Fast Booking',
-    'main.hero.badge2_sub': 'Same-day available',
+    'main.hero.badge1_sub': 'Every placement covered',
+    'main.hero.badge2_title': 'Certified Records',
+    'main.hero.badge2_sub': 'Verifiable per worker',
 
     /* hero slide 2 */
     'main.hero.slide2_badge': 'Empowering Women Through Meaningful Work',
@@ -3125,22 +3168,22 @@ window.I18N_EXTEND = {
     'main.hero.dot2_aria': 'Provider slide',
 
     /* about / features */
-    'main.about.tag': 'Our Purpose',
-    'main.about.title_pre': 'More Than a',
-    'main.about.title_hl': 'Service Platform',
-    'main.about.desc': 'ServiceKru trains, certifies, and places Malaysian women into dignified careers — digitalising and elevating the professional standard of Malaysia\'s home services workforce.',
+    'main.about.tag': 'Why ServiceKru',
+    'main.about.title_pre': 'Built for',
+    'main.about.title_hl': 'Procurement Standards',
+    'main.about.desc': 'Every ServiceKru placement is trained, certified, vetted, and insured — with records your team can request and verify before a contract is signed.',
     'main.about.fp_badge1_title': 'Certified',
     'main.about.fp_badge1_sub': 'Trained Pros',
     'main.about.fp_badge2_title': 'Insured',
     'main.about.fp_badge2_sub': 'Every Booking',
-    'main.about.card1_title': 'Certified & Trained',
-    'main.about.card1_desc': 'All ServiceKrus complete our structured training programme and earn Digital Certification before their first job.',
-    'main.about.card2_title': 'Background Checked',
-    'main.about.card2_desc': 'We ensure safety and reliability for every home and office with thorough background verification on all providers.',
-    'main.about.card3_title': 'Fully Insured',
-    'main.about.card3_desc': 'Every booking is protected and insured for your peace of mind. Service guaranteed on every visit.',
-    'main.about.card4_title': 'Rated & Reviewed',
-    'main.about.card4_desc': 'Transparent reviews and ratings after every job. Choose your provider based on real customer feedback.',
+    'main.about.card1_title': 'Certification Records',
+    'main.about.card1_desc': 'Every professional completes MCPC-accredited training and earns Digital Certification before their first placement — records available on request.',
+    'main.about.card2_title': 'Worker Vetting',
+    'main.about.card2_desc': 'Every placement passes documented background screening before entering your site or premises.',
+    'main.about.card3_title': 'Insurance Coverage',
+    'main.about.card3_desc': 'Every job is covered, with a certificate of insurance available for your records on request.',
+    'main.about.card4_title': 'Service Consistency',
+    'main.about.card4_desc': 'Every professional is trained to the same standard, supervised, and reviewed after every placement.',
 
     /* gallery */
     'main.gallery.tag': 'Our Work',
@@ -3178,16 +3221,28 @@ window.I18N_EXTEND = {
     'main.story.pillar3_title': 'Professional Recognition',
     'main.story.pillar3_desc': 'Elevating the status and dignity of home service workers through structured training and Digital Certification.',
 
-    /* booking modal */
-    'main.modal_book.tag': 'Book a Service',
-    'main.modal_book.title_pre': 'Book Trusted',
-    'main.modal_book.title_hl': 'Home Services',
-    'main.modal_book.desc': 'Certified professionals — trained, reviewed, and documents verified.',
-    'main.modal_book.li1a_pre': 'Home Cleaning (Condo/Apartment) from',
-    'main.modal_book.li1b_pre': 'Home Cleaning (Landed) from',
-    'main.modal_book.li2': 'Childcare & Elder Care — flexible sessions',
-    'main.modal_book.li3': 'Background-checked, insured professionals',
-    'main.modal_book.cta': 'Book Now →',
+    /* request a quote modal */
+    'main.modal_quote.tag': 'Corporate Enquiry',
+    'main.modal_quote.title_pre': 'Request a',
+    'main.modal_quote.title_hl': 'Quote',
+    'main.modal_quote.desc': 'A vetted, insured, certified workforce for your site — scoped to your headcount, hours, and SLA.',
+    'main.modal_quote.li1': 'MCPC-certified professionals, background checked',
+    'main.modal_quote.li2': 'Insured placements with certificate on request',
+    'main.modal_quote.li3': 'Scoped to headcount, hours, and service SLA',
+    'main.modal_quote.cta': 'Request a Quote via WhatsApp →',
+
+    /* certification teaser (homepage) */
+    'main.cert_teaser.tag': 'Digital Certification',
+    'main.cert_teaser.title_pre': 'Certified Through',
+    'main.cert_teaser.title_hl': 'MCPC-Accredited Training',
+    'main.cert_teaser.desc': 'Every ServiceKru professional trains through MECSc, Malaysia\'s MCPC-accredited cleaning certification centre — HRD Corp claimable, with records your team can verify.',
+    'main.cert_teaser.card1_title': 'What Training Covers',
+    'main.cert_teaser.card1_desc': 'Structured, multi-level courses covering cleaning fundamentals, floor and interior maintenance, and safety standards.',
+    'main.cert_teaser.card2_title': 'The MECSc Partnership',
+    'main.cert_teaser.card2_desc': 'Delivered with MECSc, Malaysia\'s #1 professional cleaning training centre, under nationally recognised MCPC accreditation.',
+    'main.cert_teaser.card3_title': 'What You Can Verify',
+    'main.cert_teaser.card3_desc': 'Certification records and course completions are available on request for every professional placed on your site.',
+    'main.cert_teaser.cta': 'View Certification Pathway →',
 
     /* become modal */
     'main.modal_become.tag': 'Start Your Career',
@@ -3201,8 +3256,8 @@ window.I18N_EXTEND = {
     'main.modal_become.cta': 'Explore Full Details',
 
     /* footer */
-    'main.footer.tagline': 'Trusted Home Services by Certified Professionals',
-    'main.footer.about_desc': 'Connecting Malaysian families with certified, insured women professionals for cleaning, childcare, and elder care.',
+    'main.footer.tagline': 'Corporate Facility Services by Certified Professionals',
+    'main.footer.about_desc': 'Supplying Malaysian businesses with vetted, insured, and certified professionals for corporate cleaning and facility care.',
     'main.footer.col_providers': 'For Providers',
     'main.footer.link_become_pro': 'Become a Pro',
     'main.footer.link_how_it_works': 'How It Works',
@@ -3212,26 +3267,27 @@ window.I18N_EXTEND = {
 
   ms: {
     /* nav */
-    'main.nav.book_service': 'Tempah Perkhidmatan',
+    'main.nav.certification': 'Certification', /* TODO: translate */
+    'main.nav.request_quote': 'Request a Quote', /* TODO: translate */
     'main.nav.become_pro': 'Jadi Pro',
 
     /* hero slide 1 */
-    'main.hero.slide1_badge': 'Wanita Profesional Bertauliah',
-    'main.hero.slide1_title_pre': 'Perkhidmatan',
-    'main.hero.slide1_title_hl1': 'Rumah Dipercayai',
-    'main.hero.slide1_title_mid': 'oleh',
-    'main.hero.slide1_title_hl2': 'Profesional Bertauliah',
-    'main.hero.slide1_desc': 'Tempah perkhidmatan pembersihan, penjagaan anak, dan penjagaan warga emas yang boleh dipercayai daripada profesional bertauliah dan dilindungi insurans — tersedia pada hari yang sama.',
-    'main.hero.slide1_cta': 'Tempah Perkhidmatan',
-    'main.hero.slide1_card_title': 'Dipercayai Ribuan Pelanggan',
-    'main.hero.slide1_card_subtitle': 'Profesional perkhidmatan rumah yang diinsuranskan dan disahkan',
+    'main.hero.slide1_badge': 'Corporate Home & Facility Services', /* TODO: translate */
+    'main.hero.slide1_title_pre': 'Trusted', /* TODO: translate */
+    'main.hero.slide1_title_hl1': 'Facility Services', /* TODO: translate */
+    'main.hero.slide1_title_mid': 'by', /* TODO: translate */
+    'main.hero.slide1_title_hl2': 'Certified Professionals', /* TODO: translate */
+    'main.hero.slide1_desc': 'A vetted, insured workforce for corporate cleaning and facility care — certified professionals, consistent service, and documentation your procurement team can verify.', /* TODO: translate */
+    'main.hero.slide1_cta': 'Request a Quote', /* TODO: translate */
+    'main.hero.slide1_card_title': 'Built for Corporate Buyers', /* TODO: translate */
+    'main.hero.slide1_card_subtitle': 'Vetted, insured, certified — documentation on request', /* TODO: translate */
     'main.hero.stat_providers': 'Penyedia',
     'main.hero.stat_rating': 'Penilaian',
     'main.hero.stat_bookings': 'Tempahan',
     'main.hero.badge1_title': 'Diinsuranskan',
-    'main.hero.badge1_sub': 'Semua penyedia dilindungi',
-    'main.hero.badge2_title': 'Tempahan Pantas',
-    'main.hero.badge2_sub': 'Tersedia pada hari yang sama',
+    'main.hero.badge1_sub': 'Every placement covered', /* TODO: translate */
+    'main.hero.badge2_title': 'Certified Records', /* TODO: translate */
+    'main.hero.badge2_sub': 'Verifiable per worker', /* TODO: translate */
 
     /* hero slide 2 */
     'main.hero.slide2_badge': 'Memperkasa Wanita Melalui Kerja Bermakna',
@@ -3252,22 +3308,22 @@ window.I18N_EXTEND = {
     'main.hero.dot2_aria': 'Slaid penyedia',
 
     /* about / features */
-    'main.about.tag': 'Tujuan Kami',
-    'main.about.title_pre': 'Lebih Daripada',
-    'main.about.title_hl': 'Platform Perkhidmatan',
-    'main.about.desc': 'ServiceKru melatih, mensijilkan, dan menempatkan wanita Malaysia dalam kerjaya yang bermaruah — mendigitalkan dan meningkatkan standard profesional tenaga kerja perkhidmatan rumah Malaysia.',
+    'main.about.tag': 'Why ServiceKru', /* TODO: translate */
+    'main.about.title_pre': 'Built for', /* TODO: translate */
+    'main.about.title_hl': 'Procurement Standards', /* TODO: translate */
+    'main.about.desc': 'Every ServiceKru placement is trained, certified, vetted, and insured — with records your team can request and verify before a contract is signed.', /* TODO: translate */
     'main.about.fp_badge1_title': 'Bertauliah',
     'main.about.fp_badge1_sub': 'Pro Terlatih',
     'main.about.fp_badge2_title': 'Diinsuranskan',
     'main.about.fp_badge2_sub': 'Setiap Tempahan',
-    'main.about.card1_title': 'Bertauliah & Terlatih',
-    'main.about.card1_desc': 'Semua ServiceKru melengkapkan program latihan berstruktur kami dan memperoleh Digital Certification sebelum kerja pertama mereka.',
-    'main.about.card2_title': 'Semakan Latar Belakang',
-    'main.about.card2_desc': 'Kami memastikan keselamatan dan kebolehpercayaan untuk setiap rumah dan pejabat dengan pengesahan latar belakang menyeluruh ke atas semua penyedia.',
-    'main.about.card3_title': 'Dilindungi Sepenuhnya',
-    'main.about.card3_desc': 'Setiap tempahan dilindungi dan diinsuranskan untuk ketenangan fikiran anda. Perkhidmatan dijamin pada setiap kunjungan.',
-    'main.about.card4_title': 'Dinilai & Disemak',
-    'main.about.card4_desc': 'Ulasan dan penilaian telus selepas setiap kerja. Pilih penyedia anda berdasarkan maklum balas pelanggan sebenar.',
+    'main.about.card1_title': 'Certification Records', /* TODO: translate */
+    'main.about.card1_desc': 'Every professional completes MCPC-accredited training and earns Digital Certification before their first placement — records available on request.', /* TODO: translate */
+    'main.about.card2_title': 'Worker Vetting', /* TODO: translate */
+    'main.about.card2_desc': 'Every placement passes documented background screening before entering your site or premises.', /* TODO: translate */
+    'main.about.card3_title': 'Insurance Coverage', /* TODO: translate */
+    'main.about.card3_desc': 'Every job is covered, with a certificate of insurance available for your records on request.', /* TODO: translate */
+    'main.about.card4_title': 'Service Consistency', /* TODO: translate */
+    'main.about.card4_desc': 'Every professional is trained to the same standard, supervised, and reviewed after every placement.', /* TODO: translate */
 
     /* gallery */
     'main.gallery.tag': 'Kerja Kami',
@@ -3305,16 +3361,28 @@ window.I18N_EXTEND = {
     'main.story.pillar3_title': 'Pengiktirafan Profesional',
     'main.story.pillar3_desc': 'Meningkatkan status dan maruah pekerja perkhidmatan rumah melalui latihan berstruktur dan Digital Certification.',
 
-    /* booking modal */
-    'main.modal_book.tag': 'Tempah Perkhidmatan',
-    'main.modal_book.title_pre': 'Tempah Perkhidmatan',
-    'main.modal_book.title_hl': 'Rumah Dipercayai',
-    'main.modal_book.desc': 'Profesional bertauliah — terlatih, disemak, dan dokumen disahkan.',
-    'main.modal_book.li1a_pre': 'Pembersihan Rumah (Kondo/Apartmen) dari',
-    'main.modal_book.li1b_pre': 'Pembersihan Rumah (Berkembar/Teres) dari',
-    'main.modal_book.li2': 'Penjagaan Anak & Warga Emas — sesi fleksibel',
-    'main.modal_book.li3': 'Profesional bersemak latar belakang dan diinsuranskan',
-    'main.modal_book.cta': 'Tempah Sekarang →',
+    /* request a quote modal */
+    'main.modal_quote.tag': 'Corporate Enquiry', /* TODO: translate */
+    'main.modal_quote.title_pre': 'Request a', /* TODO: translate */
+    'main.modal_quote.title_hl': 'Quote', /* TODO: translate */
+    'main.modal_quote.desc': 'A vetted, insured, certified workforce for your site — scoped to your headcount, hours, and SLA.', /* TODO: translate */
+    'main.modal_quote.li1': 'MCPC-certified professionals, background checked', /* TODO: translate */
+    'main.modal_quote.li2': 'Insured placements with certificate on request', /* TODO: translate */
+    'main.modal_quote.li3': 'Scoped to headcount, hours, and service SLA', /* TODO: translate */
+    'main.modal_quote.cta': 'Request a Quote via WhatsApp →', /* TODO: translate */
+
+    /* certification teaser (homepage) */
+    'main.cert_teaser.tag': 'Digital Certification', /* TODO: translate */
+    'main.cert_teaser.title_pre': 'Certified Through', /* TODO: translate */
+    'main.cert_teaser.title_hl': 'MCPC-Accredited Training', /* TODO: translate */
+    'main.cert_teaser.desc': 'Every ServiceKru professional trains through MECSc, Malaysia\'s MCPC-accredited cleaning certification centre — HRD Corp claimable, with records your team can verify.', /* TODO: translate */
+    'main.cert_teaser.card1_title': 'What Training Covers', /* TODO: translate */
+    'main.cert_teaser.card1_desc': 'Structured, multi-level courses covering cleaning fundamentals, floor and interior maintenance, and safety standards.', /* TODO: translate */
+    'main.cert_teaser.card2_title': 'The MECSc Partnership', /* TODO: translate */
+    'main.cert_teaser.card2_desc': 'Delivered with MECSc, Malaysia\'s #1 professional cleaning training centre, under nationally recognised MCPC accreditation.', /* TODO: translate */
+    'main.cert_teaser.card3_title': 'What You Can Verify', /* TODO: translate */
+    'main.cert_teaser.card3_desc': 'Certification records and course completions are available on request for every professional placed on your site.', /* TODO: translate */
+    'main.cert_teaser.cta': 'View Certification Pathway →', /* TODO: translate */
 
     /* become modal */
     'main.modal_become.tag': 'Mulakan Kerjaya Anda',
@@ -3328,8 +3396,8 @@ window.I18N_EXTEND = {
     'main.modal_become.cta': 'Terokai Butiran Penuh',
 
     /* footer */
-    'main.footer.tagline': 'Perkhidmatan Rumah Dipercayai oleh Profesional Bertauliah',
-    'main.footer.about_desc': 'Menghubungkan keluarga Malaysia dengan wanita profesional bertauliah dan diinsuranskan untuk pembersihan, penjagaan anak, dan penjagaan warga emas.',
+    'main.footer.tagline': 'Corporate Facility Services by Certified Professionals', /* TODO: translate */
+    'main.footer.about_desc': 'Supplying Malaysian businesses with vetted, insured, and certified professionals for corporate cleaning and facility care.', /* TODO: translate */
     'main.footer.col_providers': 'Untuk Penyedia',
     'main.footer.link_become_pro': 'Jadi Pro',
     'main.footer.link_how_it_works': 'Cara Ia Berfungsi',
@@ -3339,26 +3407,27 @@ window.I18N_EXTEND = {
 
   zh: {
     /* nav */
-    'main.nav.book_service': '预订服务',
+    'main.nav.certification': 'Certification', /* TODO: translate */
+    'main.nav.request_quote': 'Request a Quote', /* TODO: translate */
     'main.nav.become_pro': '成为专业人员',
 
     /* hero slide 1 */
-    'main.hero.slide1_badge': '认证女性专业团队',
-    'main.hero.slide1_title_pre': '值得信赖的',
-    'main.hero.slide1_title_hl1': '家居服务',
-    'main.hero.slide1_title_mid': '由',
-    'main.hero.slide1_title_hl2': '认证专业人员',
-    'main.hero.slide1_desc': '预订经认证、已投保的专业人员，为您提供可靠的清洁、儿童看护与长者护理服务——当天即可上门。',
-    'main.hero.slide1_cta': '立即预订',
-    'main.hero.slide1_card_title': '数千家庭的信赖之选',
-    'main.hero.slide1_card_subtitle': '经验证及投保的家居服务专业团队',
+    'main.hero.slide1_badge': 'Corporate Home & Facility Services', /* TODO: translate */
+    'main.hero.slide1_title_pre': 'Trusted', /* TODO: translate */
+    'main.hero.slide1_title_hl1': 'Facility Services', /* TODO: translate */
+    'main.hero.slide1_title_mid': 'by', /* TODO: translate */
+    'main.hero.slide1_title_hl2': 'Certified Professionals', /* TODO: translate */
+    'main.hero.slide1_desc': 'A vetted, insured workforce for corporate cleaning and facility care — certified professionals, consistent service, and documentation your procurement team can verify.', /* TODO: translate */
+    'main.hero.slide1_cta': 'Request a Quote', /* TODO: translate */
+    'main.hero.slide1_card_title': 'Built for Corporate Buyers', /* TODO: translate */
+    'main.hero.slide1_card_subtitle': 'Vetted, insured, certified — documentation on request', /* TODO: translate */
     'main.hero.stat_providers': '专业人员',
     'main.hero.stat_rating': '平均评分',
     'main.hero.stat_bookings': '成功预订',
     'main.hero.badge1_title': '已投保',
-    'main.hero.badge1_sub': '每位专业人员均受保障',
-    'main.hero.badge2_title': '快速预订',
-    'main.hero.badge2_sub': '当天即可上门',
+    'main.hero.badge1_sub': 'Every placement covered', /* TODO: translate */
+    'main.hero.badge2_title': 'Certified Records', /* TODO: translate */
+    'main.hero.badge2_sub': 'Verifiable per worker', /* TODO: translate */
 
     /* hero slide 2 */
     'main.hero.slide2_badge': '以有意义的工作，赋能女性',
@@ -3379,22 +3448,22 @@ window.I18N_EXTEND = {
     'main.hero.dot2_aria': '专业人员幻灯片',
 
     /* about / features */
-    'main.about.tag': '我们的使命',
-    'main.about.title_pre': '不只是',
-    'main.about.title_hl': '服务平台',
-    'main.about.desc': 'ServiceKru 培训、认证并安置马来西亚女性，投身体面的职业——同时推动家政行业数字化与专业升级。',
+    'main.about.tag': 'Why ServiceKru', /* TODO: translate */
+    'main.about.title_pre': 'Built for', /* TODO: translate */
+    'main.about.title_hl': 'Procurement Standards', /* TODO: translate */
+    'main.about.desc': 'Every ServiceKru placement is trained, certified, vetted, and insured — with records your team can request and verify before a contract is signed.', /* TODO: translate */
     'main.about.fp_badge1_title': '已认证',
     'main.about.fp_badge1_sub': '训练有素的专业团队',
     'main.about.fp_badge2_title': '已投保',
     'main.about.fp_badge2_sub': '每一次预订',
-    'main.about.card1_title': '专业认证 + 系统培训',
-    'main.about.card1_desc': '所有 ServiceKru 专业人员均完成系统化培训计划，并在首次上岗前取得 Digital Certification。',
-    'main.about.card2_title': '严格背景调查',
-    'main.about.card2_desc': '我们对所有专业人员进行彻底的背景核实，确保每一个家庭与办公场所都安心可靠。',
-    'main.about.card3_title': '全面投保',
-    'main.about.card3_desc': '每次预订均获完整保障与投保，让您安心。每一次上门服务，皆有承诺。',
-    'main.about.card4_title': '透明评价',
-    'main.about.card4_desc': '每次服务结束后皆有公开评价与评分。根据真实客户反馈，挑选最适合您的专业人员。',
+    'main.about.card1_title': 'Certification Records', /* TODO: translate */
+    'main.about.card1_desc': 'Every professional completes MCPC-accredited training and earns Digital Certification before their first placement — records available on request.', /* TODO: translate */
+    'main.about.card2_title': 'Worker Vetting', /* TODO: translate */
+    'main.about.card2_desc': 'Every placement passes documented background screening before entering your site or premises.', /* TODO: translate */
+    'main.about.card3_title': 'Insurance Coverage', /* TODO: translate */
+    'main.about.card3_desc': 'Every job is covered, with a certificate of insurance available for your records on request.', /* TODO: translate */
+    'main.about.card4_title': 'Service Consistency', /* TODO: translate */
+    'main.about.card4_desc': 'Every professional is trained to the same standard, supervised, and reviewed after every placement.', /* TODO: translate */
 
     /* gallery */
     'main.gallery.tag': '我们的服务实况',
@@ -3432,16 +3501,28 @@ window.I18N_EXTEND = {
     'main.story.pillar3_title': '赢得专业认可',
     'main.story.pillar3_desc': '透过系统化培训与 Digital Certification，提升家政服务从业者的社会地位与职业认同。',
 
-    /* booking modal */
-    'main.modal_book.tag': '预订服务',
-    'main.modal_book.title_pre': '预订值得信赖的',
-    'main.modal_book.title_hl': '家居服务',
-    'main.modal_book.desc': '认证专业人员——训练有素、严格审核，证件齐全核实。',
-    'main.modal_book.li1a_pre': '家居清洁（公寓）起价',
-    'main.modal_book.li1b_pre': '家居清洁（排屋/独立屋）起价',
-    'main.modal_book.li2': '儿童看护与长者护理——时段灵活',
-    'main.modal_book.li3': '经背景调查、已投保的专业人员',
-    'main.modal_book.cta': '立即预订 →',
+    /* request a quote modal */
+    'main.modal_quote.tag': 'Corporate Enquiry', /* TODO: translate */
+    'main.modal_quote.title_pre': 'Request a', /* TODO: translate */
+    'main.modal_quote.title_hl': 'Quote', /* TODO: translate */
+    'main.modal_quote.desc': 'A vetted, insured, certified workforce for your site — scoped to your headcount, hours, and SLA.', /* TODO: translate */
+    'main.modal_quote.li1': 'MCPC-certified professionals, background checked', /* TODO: translate */
+    'main.modal_quote.li2': 'Insured placements with certificate on request', /* TODO: translate */
+    'main.modal_quote.li3': 'Scoped to headcount, hours, and service SLA', /* TODO: translate */
+    'main.modal_quote.cta': 'Request a Quote via WhatsApp →', /* TODO: translate */
+
+    /* certification teaser (homepage) */
+    'main.cert_teaser.tag': 'Digital Certification', /* TODO: translate */
+    'main.cert_teaser.title_pre': 'Certified Through', /* TODO: translate */
+    'main.cert_teaser.title_hl': 'MCPC-Accredited Training', /* TODO: translate */
+    'main.cert_teaser.desc': 'Every ServiceKru professional trains through MECSc, Malaysia\'s MCPC-accredited cleaning certification centre — HRD Corp claimable, with records your team can verify.', /* TODO: translate */
+    'main.cert_teaser.card1_title': 'What Training Covers', /* TODO: translate */
+    'main.cert_teaser.card1_desc': 'Structured, multi-level courses covering cleaning fundamentals, floor and interior maintenance, and safety standards.', /* TODO: translate */
+    'main.cert_teaser.card2_title': 'The MECSc Partnership', /* TODO: translate */
+    'main.cert_teaser.card2_desc': 'Delivered with MECSc, Malaysia\'s #1 professional cleaning training centre, under nationally recognised MCPC accreditation.', /* TODO: translate */
+    'main.cert_teaser.card3_title': 'What You Can Verify', /* TODO: translate */
+    'main.cert_teaser.card3_desc': 'Certification records and course completions are available on request for every professional placed on your site.', /* TODO: translate */
+    'main.cert_teaser.cta': 'View Certification Pathway →', /* TODO: translate */
 
     /* become modal */
     'main.modal_become.tag': '开启您的事业',
@@ -3455,8 +3536,8 @@ window.I18N_EXTEND = {
     'main.modal_become.cta': '了解更多详情',
 
     /* footer */
-    'main.footer.tagline': '由认证专业人员提供值得信赖的家居服务',
-    'main.footer.about_desc': '为马来西亚家庭对接经认证、已投保的女性专业人员，提供清洁、儿童看护与长者护理服务。',
+    'main.footer.tagline': 'Corporate Facility Services by Certified Professionals', /* TODO: translate */
+    'main.footer.about_desc': 'Supplying Malaysian businesses with vetted, insured, and certified professionals for corporate cleaning and facility care.', /* TODO: translate */
     'main.footer.col_providers': '成为专业人员',
     'main.footer.link_become_pro': '成为专业人员',
     'main.footer.link_how_it_works': '运作方式',

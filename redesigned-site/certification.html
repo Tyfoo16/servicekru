@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="cert.page_title">Digital Certification &amp; Training — ServiceKru</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-orange: #ee751e;
+            --color-orange-dark: #d56510;
+            --color-orange-light: #fff4eb;
+            --color-blue: #1565C0;
+            --color-blue-dark: #0D47A1;
+            --color-pink: #1565C0;
+            --color-pink-dark: #0D47A1;
+            --color-pink-light: #BBDEFB;
+            --color-white: #FFFFFF;
+            --color-gray-100: #f8f9fa;
+            --color-gray-200: #e9ecef;
+            --color-gray-600: #6c757d;
+            --color-gray-800: #343a40;
+            --color-gray-900: #212529;
+            --font-primary: 'Poppins', sans-serif;
+            --font-secondary: 'Montserrat', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-white);
+            color: var(--color-gray-800);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ── Navigation (matches index.html / become.html) ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0, 69, 145, 0.08);
+        }
+
+        .logo { display: flex; align-items: center; text-decoration: none; gap: 0.25rem; }
+        .logo-img { height: 44px; width: auto; display: block; }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-gray-800);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:not(.nav-cta)::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-orange);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:not(.nav-cta):hover { color: var(--color-pink); }
+        .nav-links a:not(.nav-cta):hover::after { width: 100%; }
+
+        .nav-active { color: var(--color-orange) !important; font-weight: 600 !important; }
+        .nav-active::after { width: 100% !important; }
+
+        .nav-cta {
+            background: var(--color-orange);
+            color: white !important;
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 4px 15px rgba(173, 20, 87, 0.3);
+        }
+
+        .nav-cta:hover {
+            background: var(--color-orange-dark) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(173, 20, 87, 0.4);
+        }
+
+        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .mobile-menu-btn span { display: block; width: 25px; height: 3px; background: var(--color-pink); margin: 5px 0; border-radius: 2px; transition: all 0.3s ease; }
+
+        .lang-switcher { position: relative; display: inline-block; margin-left: 0.5rem; }
+        .lang-current { display: inline-flex; align-items: center; gap: 6px; background: transparent; border: 1px solid #e0e0e0; border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 0.875rem; color: var(--color-gray-800, #343a40); cursor: pointer; line-height: 1; }
+        .lang-current:hover { border-color: var(--color-orange, #ee751e); color: var(--color-orange, #ee751e); }
+        .lang-menu { position: absolute; top: calc(100% + 6px); right: 0; min-width: 160px; background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); list-style: none; margin: 0; padding: 6px; z-index: 1000; }
+        .lang-menu li { padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; color: var(--color-gray-800, #343a40); }
+        .lang-menu li:hover { background: #fff5ec; color: var(--color-orange, #ee751e); }
+        .lang-menu li.active { background: var(--color-orange, #ee751e); color: #fff; }
+        @media (max-width: 1280px) { .lang-switcher { order: 2; margin-left: auto; margin-right: 8px; } }
+
+        /* ── Shared Section Layout ── */
+        .section-container { max-width: 1200px; margin: 0 auto; }
+
+        .section-header { text-align: center; margin-bottom: 4rem; }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--color-pink-light);
+            color: var(--color-pink);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-secondary);
+            font-size: 3rem;
+            color: var(--color-gray-900);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .section-header h2 span { color: var(--color-orange); }
+
+        .section-header p {
+            color: var(--color-gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--color-orange);
+            color: white;
+            padding: 1.15rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 25px rgba(173, 20, 87, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--color-orange-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(238, 117, 30, 0.5);
+        }
+
+        /* ── Page Header ── */
+        .cert-hero {
+            padding: 9rem 2rem 4rem;
+            background: var(--color-gray-100);
+            text-align: center;
+        }
+
+        .cert-hero .section-header { margin-bottom: 0; }
+
+        /* ── Certification Pathway (matches become.html) ── */
+        .certification { padding: 5rem 2rem 6rem; background: var(--color-white); }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cert-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--color-gray-200);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .cert-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--color-orange); }
+        .cert-card:nth-child(even)::before { background: var(--color-pink); }
+
+        .cert-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0, 69, 145, 0.13);
+            border-color: transparent;
+        }
+
+        .cert-card-body { padding: 2rem; padding-top: 2.25rem; flex: 1; display: flex; flex-direction: column; gap: 1rem; }
+        .cert-card-top { display: flex; align-items: flex-start; gap: 0.75rem; }
+
+        .mcpc-badge {
+            display: inline-block;
+            background: var(--color-orange-light);
+            color: var(--color-orange);
+            padding: 0.3rem 0.85rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .cert-card:nth-child(even) .mcpc-badge { background: var(--color-pink-light); color: var(--color-pink); }
+
+        .cert-card-title { font-family: var(--font-secondary); font-size: 1.15rem; font-weight: 700; color: var(--color-gray-900); margin: 0; line-height: 1.3; }
+
+        .cert-benefits { list-style: none; padding: 0; margin: 0; flex: 1; }
+        .cert-benefits li { display: flex; align-items: flex-start; gap: 0.55rem; color: var(--color-gray-600); font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.65rem; }
+        .cert-benefits li:last-child { margin-bottom: 0; }
+
+        .cert-check { flex-shrink: 0; color: var(--color-orange); margin-top: 1px; }
+        .cert-card:nth-child(even) .cert-check { color: var(--color-pink); }
+
+        .cert-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--color-gray-200);
+            margin-top: auto;
+        }
+
+        .cert-duration-fee { font-weight: 700; color: var(--color-gray-900); font-size: 0.875rem; }
+
+        .hrd-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.28rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.73rem;
+            font-weight: 700;
+            border: 1px solid #a5d6a7;
+        }
+
+        @media (max-width: 768px) { .cert-grid { grid-template-columns: 1fr; } }
+
+        /* ── MECSc Partnership ── */
+        .partnership {
+            padding: 5rem 2rem;
+            background: var(--color-gray-100);
+        }
+
+        .partnership-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .partnership-logo { flex-shrink: 0; width: 110px; height: 110px; display: flex; align-items: center; justify-content: center; background: var(--color-gray-100); border-radius: 20px; padding: 1rem; }
+        .partnership-logo img { width: 100%; height: 100%; object-fit: contain; }
+        .partnership-body h3 { font-family: var(--font-secondary); font-size: 1.4rem; font-weight: 700; color: var(--color-gray-900); margin-bottom: 0.65rem; }
+        .partnership-body p { color: var(--color-gray-600); font-size: 0.98rem; }
+
+        @media (max-width: 640px) {
+            .partnership-card { flex-direction: column; text-align: center; padding: 2rem; }
+        }
+
+        /* ── What Employers Can Verify ── */
+        .verify {
+            padding: 5rem 2rem 6rem;
+            background: var(--color-white);
+        }
+
+        .verify-list {
+            list-style: none;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .verify-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            font-size: 1.02rem;
+            color: var(--color-gray-800);
+            background: var(--color-gray-100);
+            padding: 1.1rem 1.4rem;
+            border-radius: 14px;
+        }
+
+        .verify-list svg { flex-shrink: 0; color: var(--color-orange); margin-top: 3px; }
+
+        .cert-cta { text-align: center; margin-top: 3rem; }
+
+        /* ── Footer (matches become.html) ── */
+        footer { background: var(--color-gray-900); color: white; padding: 4rem 2rem 2rem; }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .logo-img--footer { height: 40px; margin-bottom: 1rem; }
+        .footer-tagline { font-weight: 600; margin-bottom: 0.75rem; color: white; }
+        .footer-brand p { color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; }
+
+        .footer-links h4 { font-family: var(--font-secondary); margin-bottom: 1.25rem; font-size: 1rem; }
+        .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+        .footer-links a { color: rgba(255, 255, 255, 0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+        .footer-links a:hover { color: var(--color-orange); }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 0.75rem 1rem; }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1.5rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                gap: 1rem;
+            }
+
+            .nav-links.active { display: flex; }
+            .mobile-menu-btn { display: block; }
+
+            .cert-hero { padding: 7rem 1.25rem 3rem; }
+            .section-header h2 { font-size: 2rem; }
+
+            .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="../index.html" class="logo">
+            <img src="../assets/logo.png" alt="ServiceKru" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="../index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="certification.html" class="nav-active" data-i18n="nav.certification">Certification</a></li>
+            <li><a href="become.html" data-i18n="become.nav.become_pro">Become a Pro</a></li>
+            <li><a href="https://wa.me/60173249590?text=Hi%20ServiceKru%2C%20I%27d%20like%20to%20enquire%20about%20corporate%20services%20for%20%5Bcompany%5D." target="_blank" rel="noopener" class="nav-cta" data-i18n="nav.request_quote">Request a Quote</a></li>
+        </ul>
+        <div class="lang-switcher">
+            <button class="lang-current" aria-haspopup="listbox" aria-expanded="false" data-i18n="nav.lang_aria" data-i18n-attr="aria-label">
+                <span data-lang-label>EN</span>
+                <svg width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+            </button>
+            <ul class="lang-menu" role="listbox" hidden>
+                <li data-lang="en" role="option">English</li>
+                <li data-lang="ms" role="option">Bahasa Melayu</li>
+                <li data-lang="zh" role="option">中文</li>
+            </ul>
+        </div>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="cert-hero">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="cert.hero.tag">Digital Certification</span>
+                <h2><span data-i18n="cert.hero.title_pre">Certified Through</span> <span data-i18n="cert.hero.title_hl">MCPC-Accredited Training</span></h2>
+                <p data-i18n="cert.hero.desc">Every ServiceKru professional completes structured, nationally recognised training before their first placement — with records your team can verify.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MCPC Certification Pathway -->
+    <section class="certification" id="pathway">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="cert.pathway.tag">Professional Certification</span>
+                <h2 data-i18n="cert.pathway.title">MCPC <span>Certification Pathway</span></h2>
+                <p data-i18n="cert.pathway.desc">Four structured levels of Malaysia's nationally recognised cleaning certification — every ServiceKru professional is trained against this standard.</p>
+            </div>
+            <div class="cert-grid">
+
+                <!-- MCPC 1 -->
+                <div class="cert-card">
+                    <div class="cert-card-body">
+                        <div class="cert-card-top">
+                            <span class="mcpc-badge">MCPC 1</span>
+                            <h3 class="cert-card-title">Cleaning Fundamentals</h3>
+                        </div>
+                        <ul class="cert-benefits">
+                            <li><svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Proper mopping, vacuuming &amp; buffing</li>
+                            <li><svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Chemical safety &amp; equipment care</li>
+                            <li><svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Washroom, window &amp; wall cleaning standards</li>
+                        </ul>
+                        <div class="cert-meta">
+                            <span class="cert-duration-fee">3 Days · RM1,900</span>
+                            <span class="hrd-badge">✓ HRD Corp Claimable</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCPC 2 -->
+                <div class="cert-card">
+                    <div class="cert-card-body">
+                        <div class="cert-card-top">
+                            <span class="mcpc-badge">MCPC 2</span>
+                            <h3 class="cert-card-title">Floor &amp; Interior Maintenance</h3>
+                        </div>
+                        <ul class="cert-benefits">
+                            <li><svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Machine scrubbing &amp; floor polishing</li>
+                            <li><svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Strip, reapply &amp; maintain floor emulsion</li>
+                            <li><svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> High-level &amp; exterior surface cleaning</li>
+                        </ul>
+                        <div class="cert-meta">
+                            <span class="cert-duration-fee">2 Days · RM1,900</span>
+                            <span class="hrd-badge">✓ HRD Corp Claimable</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCPC 3 -->
+                <div class="cert-card">
+                    <div class="cert-card-body">
+                        <div class="cert-card-top">
+                            <span class="mcpc-badge">MCPC 3</span>
+                            <h3 class="cert-card-title">Carpet &amp; Upholstery Care</h3>
+                        </div>
+                        <ul class="cert-benefits">
+                            <li><svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Spray extraction &amp; dry foam shampooing</li>
+                            <li><svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Upholstery &amp; carpet deep cleaning</li>
+                            <li><svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Professional stain removal techniques</li>
+                        </ul>
+                        <div class="cert-meta">
+                            <span class="cert-duration-fee">2 Days · RM1,900</span>
+                            <span class="hrd-badge">✓ HRD Corp Claimable</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCPC 4 -->
+                <div class="cert-card">
+                    <div class="cert-card-body">
+                        <div class="cert-card-top">
+                            <span class="mcpc-badge">MCPC 4</span>
+                            <h3 class="cert-card-title">Floor Restoration</h3>
+                        </div>
+                        <ul class="cert-benefits">
+                            <li><svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Vitrification (crystallization) of hard floors</li>
+                            <li><svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Semi-permanent seal application &amp; stripping</li>
+                            <li><svg class="cert-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Polish application &amp; long-term maintenance</li>
+                        </ul>
+                        <div class="cert-meta">
+                            <span class="cert-duration-fee">2 Days · RM2,600</span>
+                            <span class="hrd-badge">✓ HRD Corp Claimable</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MECSc Partnership -->
+    <section class="partnership" id="partnership">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="cert.partner.tag">In Partnership With</span>
+                <h2 data-i18n="cert.partner.title">The <span>MECSc</span> Partnership</h2>
+            </div>
+            <div class="partnership-card">
+                <div class="partnership-logo">
+                    <img src="../assets/mecsc-logo.png" alt="MECSc">
+                </div>
+                <div class="partnership-body">
+                    <h3 data-i18n="cert.partner.card_title">Malaysia's #1 Professional Cleaning Training Centre</h3>
+                    <p data-i18n="cert.partner.card_desc">All ServiceKru training is delivered in partnership with MECSc under nationally recognised MCPC accreditation — HRD Corp claimable, with a track record across Malaysia's cleaning industry.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Employers Can Verify -->
+    <section class="verify" id="verify">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="cert.verify.tag">For Employers</span>
+                <h2 data-i18n="cert.verify.title">What You Can <span>Verify</span></h2>
+                <p data-i18n="cert.verify.desc">Certified through MCPC-accredited training — records available for every professional placed on your site.</p>
+            </div>
+            <ul class="verify-list">
+                <li>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span data-i18n="cert.verify.li1">Which MCPC course levels a professional has completed</span>
+                </li>
+                <li>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span data-i18n="cert.verify.li2">Course completion dates and the MECSc training centre issuing them</span>
+                </li>
+                <li>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span data-i18n="cert.verify.li3">Background screening and insurance status for the placement</span>
+                </li>
+            </ul>
+            <div class="cert-cta">
+                <a href="https://wa.me/60173249590?text=Hi%20ServiceKru%2C%20I%27d%20like%20to%20request%20training%20details." target="_blank" rel="noopener" class="btn-primary" data-i18n="cert.verify.cta">
+                    Request Training Details →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="../assets/logo.png" alt="ServiceKru" class="logo-img logo-img--footer">
+                <p class="footer-tagline" data-i18n="main.footer.tagline">Corporate Facility Services by Certified Professionals</p>
+                <p data-i18n="main.footer.about_desc">Supplying Malaysian businesses with vetted, insured, and certified professionals for corporate cleaning and facility care.</p>
+            </div>
+            <div class="footer-links">
+                <h4 data-i18n="footer.col_services">Services</h4>
+                <ul>
+                    <li><a href="booking.html#services" data-i18n="footer.link_cleaning">Home Cleaning</a></li>
+                    <li><a href="booking.html#services" data-i18n="footer.link_childcare">Childcare</a></li>
+                    <li><a href="booking.html#services" data-i18n="footer.link_eldercare">Elder Care</a></li>
+                    <li><a href="booking.html" data-i18n="footer.link_booking">Book a Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4 data-i18n="main.footer.col_providers">For Providers</h4>
+                <ul>
+                    <li><a href="become.html" data-i18n="main.footer.link_become_pro">Become a Pro</a></li>
+                    <li><a href="become.html#how-it-works" data-i18n="main.footer.link_how_it_works">How It Works</a></li>
+                    <li><a href="certification.html" data-i18n="main.footer.link_training">Training &amp; Certification</a></li>
+                    <li><a href="become.html#enquiry" data-i18n="main.footer.link_register">Register Interest</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-i18n="footer.copyright">© 2026 ServiceKru. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
+
+    <script>
+    window.I18N_EXTEND = {
+      en: {
+        'cert.page_title': 'Digital Certification & Training — ServiceKru',
+        'cert.hero.tag': 'Digital Certification',
+        'cert.hero.title_pre': 'Certified Through',
+        'cert.hero.title_hl': 'MCPC-Accredited Training',
+        'cert.hero.desc': 'Every ServiceKru professional completes structured, nationally recognised training before their first placement — with records your team can verify.',
+        'cert.pathway.tag': 'Professional Certification',
+        'cert.pathway.title': 'MCPC Certification Pathway',
+        'cert.pathway.desc': "Four structured levels of Malaysia's nationally recognised cleaning certification — every ServiceKru professional is trained against this standard.",
+        'cert.partner.tag': 'In Partnership With',
+        'cert.partner.title': 'The MECSc Partnership',
+        'cert.partner.card_title': "Malaysia's #1 Professional Cleaning Training Centre",
+        'cert.partner.card_desc': "All ServiceKru training is delivered in partnership with MECSc under nationally recognised MCPC accreditation — HRD Corp claimable, with a track record across Malaysia's cleaning industry.",
+        'cert.verify.tag': 'For Employers',
+        'cert.verify.title': 'What You Can Verify',
+        'cert.verify.desc': 'Certified through MCPC-accredited training — records available for every professional placed on your site.',
+        'cert.verify.li1': 'Which MCPC course levels a professional has completed',
+        'cert.verify.li2': 'Course completion dates and the MECSc training centre issuing them',
+        'cert.verify.li3': 'Background screening and insurance status for the placement',
+        'cert.verify.cta': 'Request Training Details →',
+        'main.footer.tagline': 'Corporate Facility Services by Certified Professionals',
+        'main.footer.about_desc': 'Supplying Malaysian businesses with vetted, insured, and certified professionals for corporate cleaning and facility care.',
+        'main.footer.col_providers': 'For Providers',
+        'main.footer.link_become_pro': 'Become a Pro',
+        'main.footer.link_how_it_works': 'How It Works',
+        'main.footer.link_training': 'Training & Certification',
+        'main.footer.link_register': 'Register Interest',
+      },
+      ms: {
+        'cert.page_title': 'Digital Certification & Training — ServiceKru', /* TODO: translate */
+        'cert.hero.tag': 'Digital Certification', /* TODO: translate */
+        'cert.hero.title_pre': 'Certified Through', /* TODO: translate */
+        'cert.hero.title_hl': 'MCPC-Accredited Training', /* TODO: translate */
+        'cert.hero.desc': 'Every ServiceKru professional completes structured, nationally recognised training before their first placement — with records your team can verify.', /* TODO: translate */
+        'cert.pathway.tag': 'Professional Certification', /* TODO: translate */
+        'cert.pathway.title': 'MCPC Certification Pathway', /* TODO: translate */
+        'cert.pathway.desc': "Four structured levels of Malaysia's nationally recognised cleaning certification — every ServiceKru professional is trained against this standard.", /* TODO: translate */
+        'cert.partner.tag': 'In Partnership With', /* TODO: translate */
+        'cert.partner.title': 'The MECSc Partnership', /* TODO: translate */
+        'cert.partner.card_title': "Malaysia's #1 Professional Cleaning Training Centre", /* TODO: translate */
+        'cert.partner.card_desc': "All ServiceKru training is delivered in partnership with MECSc under nationally recognised MCPC accreditation — HRD Corp claimable, with a track record across Malaysia's cleaning industry.", /* TODO: translate */
+        'cert.verify.tag': 'For Employers', /* TODO: translate */
+        'cert.verify.title': 'What You Can Verify', /* TODO: translate */
+        'cert.verify.desc': 'Certified through MCPC-accredited training — records available for every professional placed on your site.', /* TODO: translate */
+        'cert.verify.li1': 'Which MCPC course levels a professional has completed', /* TODO: translate */
+        'cert.verify.li2': 'Course completion dates and the MECSc training centre issuing them', /* TODO: translate */
+        'cert.verify.li3': 'Background screening and insurance status for the placement', /* TODO: translate */
+        'cert.verify.cta': 'Request Training Details →', /* TODO: translate */
+        'main.footer.tagline': 'Corporate Facility Services by Certified Professionals', /* TODO: translate */
+        'main.footer.about_desc': 'Supplying Malaysian businesses with vetted, insured, and certified professionals for corporate cleaning and facility care.', /* TODO: translate */
+        'main.footer.col_providers': 'Untuk Penyedia',
+        'main.footer.link_become_pro': 'Jadi Pro',
+        'main.footer.link_how_it_works': 'Cara Ia Berfungsi',
+        'main.footer.link_training': 'Latihan & Persijilan',
+        'main.footer.link_register': 'Daftar Minat',
+      },
+      zh: {
+        'cert.page_title': 'Digital Certification & Training — ServiceKru', /* TODO: translate */
+        'cert.hero.tag': 'Digital Certification', /* TODO: translate */
+        'cert.hero.title_pre': 'Certified Through', /* TODO: translate */
+        'cert.hero.title_hl': 'MCPC-Accredited Training', /* TODO: translate */
+        'cert.hero.desc': 'Every ServiceKru professional completes structured, nationally recognised training before their first placement — with records your team can verify.', /* TODO: translate */
+        'cert.pathway.tag': 'Professional Certification', /* TODO: translate */
+        'cert.pathway.title': 'MCPC Certification Pathway', /* TODO: translate */
+        'cert.pathway.desc': "Four structured levels of Malaysia's nationally recognised cleaning certification — every ServiceKru professional is trained against this standard.", /* TODO: translate */
+        'cert.partner.tag': 'In Partnership With', /* TODO: translate */
+        'cert.partner.title': 'The MECSc Partnership', /* TODO: translate */
+        'cert.partner.card_title': "Malaysia's #1 Professional Cleaning Training Centre", /* TODO: translate */
+        'cert.partner.card_desc': "All ServiceKru training is delivered in partnership with MECSc under nationally recognised MCPC accreditation — HRD Corp claimable, with a track record across Malaysia's cleaning industry.", /* TODO: translate */
+        'cert.verify.tag': 'For Employers', /* TODO: translate */
+        'cert.verify.title': 'What You Can Verify', /* TODO: translate */
+        'cert.verify.desc': 'Certified through MCPC-accredited training — records available for every professional placed on your site.', /* TODO: translate */
+        'cert.verify.li1': 'Which MCPC course levels a professional has completed', /* TODO: translate */
+        'cert.verify.li2': 'Course completion dates and the MECSc training centre issuing them', /* TODO: translate */
+        'cert.verify.li3': 'Background screening and insurance status for the placement', /* TODO: translate */
+        'cert.verify.cta': 'Request Training Details →', /* TODO: translate */
+        'main.footer.tagline': 'Corporate Facility Services by Certified Professionals', /* TODO: translate */
+        'main.footer.about_desc': 'Supplying Malaysian businesses with vetted, insured, and certified professionals for corporate cleaning and facility care.', /* TODO: translate */
+        'main.footer.col_providers': '成为专业人员',
+        'main.footer.link_become_pro': '成为专业人员',
+        'main.footer.link_how_it_works': '运作方式',
+        'main.footer.link_training': '培训与认证',
+        'main.footer.link_register': '立即登记报名',
+      },
+    };
+    </script>
+    <script src="js/i18n.js"></script>
+</body>
+
+</html>
