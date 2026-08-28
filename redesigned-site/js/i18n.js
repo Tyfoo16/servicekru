@@ -44,8 +44,8 @@
       'nav.book': 'Tempah Sekarang',
       'nav.become': 'Jadi Kru',
       'nav.cta': 'Tempah Perkhidmatan',
-      'nav.certification': 'Certification', // TODO: translate
-      'nav.request_quote': 'Request a Quote', // TODO: translate
+      'nav.certification': 'Pensijilan',
+      'nav.request_quote': 'Mohon Sebut Harga',
       'nav.lang_aria': 'Pilih bahasa',
 
       'footer.tagline': 'Perkhidmatan rumah dipercayai oleh wanita profesional bertauliah di seluruh Malaysia.',
@@ -71,8 +71,8 @@
       'nav.book': '立即预订',
       'nav.become': '成为 Kru',
       'nav.cta': '预订服务',
-      'nav.certification': 'Certification', // TODO: translate
-      'nav.request_quote': 'Request a Quote', // TODO: translate
+      'nav.certification': '认证',
+      'nav.request_quote': '索取报价',
       'nav.lang_aria': '选择语言',
 
       'footer.tagline': '全马认证的女性专业团队,为您提供值得信赖的家居服务。',
