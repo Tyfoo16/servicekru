@@ -333,6 +333,52 @@
 
         .cert-cta { text-align: center; margin-top: 3rem; }
 
+        /* ── Coming Soon: Digital Verification ── */
+        .roadmap {
+            padding: 4rem 2rem 5rem;
+            background: var(--color-gray-100);
+        }
+
+        .roadmap-card {
+            max-width: 780px;
+            margin: 0 auto;
+            background: white;
+            border: 1px dashed var(--color-pink-light);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .roadmap-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--color-orange-light);
+            color: var(--color-orange-dark);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.25rem;
+        }
+
+        .roadmap-card h3 {
+            font-family: var(--font-secondary);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--color-gray-900);
+            margin-bottom: 0.75rem;
+        }
+
+        .roadmap-card p {
+            color: var(--color-gray-600);
+            font-size: 0.98rem;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
         /* ── Footer (matches become.html) ── */
         footer { background: var(--color-gray-900); color: white; padding: 4rem 2rem 2rem; }
 
@@ -574,6 +620,17 @@
         </div>
     </section>
 
+    <!-- Coming Soon: Digital Verification -->
+    <section class="roadmap" id="roadmap">
+        <div class="section-container">
+            <div class="roadmap-card">
+                <span class="roadmap-badge" data-i18n="cert.roadmap.badge">Coming Soon</span>
+                <h3 data-i18n="cert.roadmap.title">Live Digital Verification</h3>
+                <p data-i18n="cert.roadmap.desc">We're building an online verification portal so you can confirm a professional's certification status instantly. Until then, certification records are available on request via WhatsApp.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -638,6 +695,9 @@
         'cert.verify.li2': 'Course completion dates and the MECSc training centre issuing them',
         'cert.verify.li3': 'Background screening and insurance status for the placement',
         'cert.verify.cta': 'Request Training Details →',
+        'cert.roadmap.badge': 'Coming Soon',
+        'cert.roadmap.title': 'Live Digital Verification',
+        'cert.roadmap.desc': "We're building an online verification portal so you can confirm a professional's certification status instantly. Until then, certification records are available on request via WhatsApp.",
         'become.nav.become_pro': 'Become a Pro',
         'main.footer.tagline': 'Corporate Facility Services by Certified Professionals',
         'main.footer.about_desc': 'Supplying Malaysian businesses with vetted, insured, and certified professionals for corporate cleaning and facility care.',
@@ -667,6 +727,9 @@
         'cert.verify.li2': 'Tarikh penyelesaian kursus dan pusat latihan MECSc yang mengeluarkannya',
         'cert.verify.li3': 'Status saringan latar belakang dan insurans bagi penempatan',
         'cert.verify.cta': 'Mohon Butiran Latihan →',
+        'cert.roadmap.badge': 'Akan Datang',
+        'cert.roadmap.title': 'Pengesahan Digital Langsung',
+        'cert.roadmap.desc': 'Kami sedang membina portal pengesahan dalam talian supaya anda dapat mengesahkan status pensijilan seorang profesional dengan segera. Sementara itu, rekod pensijilan tersedia atas permintaan melalui WhatsApp.',
         'become.nav.become_pro': 'Jadi Profesional',
         'main.footer.tagline': 'Perkhidmatan Fasiliti Korporat oleh Profesional Bertauliah',
         'main.footer.about_desc': 'Membekalkan perniagaan Malaysia dengan profesional yang disaring, diinsuranskan, dan bertauliah untuk pembersihan korporat dan penjagaan fasiliti.',
@@ -696,6 +759,9 @@
         'cert.verify.li2': '课程完成日期及颁发的 MECSc 培训中心',
         'cert.verify.li3': '该派遣人员的背景审查与保险状态',
         'cert.verify.cta': '索取培训详情 →',
+        'cert.roadmap.badge': '即将推出',
+        'cert.roadmap.title': '在线实时认证核实',
+        'cert.roadmap.desc': '我们正在建设在线核实平台，让您可以即时确认专业人员的认证状态。在此之前，认证记录可通过 WhatsApp 应要求提供。',
         'become.nav.become_pro': '成为专业人员',
         'main.footer.tagline': '由认证专业人员提供的企业设施服务',
         'main.footer.about_desc': '为马来西亚企业提供经审核、已投保、已认证的专业人员，从事企业清洁与设施维护。',
