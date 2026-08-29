@@ -275,6 +275,44 @@
 
         @media (max-width: 768px) { .cert-grid { grid-template-columns: 1fr; } }
 
+        /* ── How Certification Works ── */
+        .pathways {
+            padding: 5rem 2rem;
+            background: var(--color-white);
+        }
+
+        .pathways-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pathway-card {
+            background: var(--color-gray-100);
+            border-radius: 20px;
+            padding: 2.25rem;
+        }
+
+        .pathway-card h3 {
+            font-family: var(--font-secondary);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--color-gray-900);
+            margin-bottom: 0.75rem;
+        }
+
+        .pathway-card p {
+            color: var(--color-gray-600);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 640px) {
+            .pathways-grid { grid-template-columns: 1fr; }
+        }
+
         /* ── MECSc Partnership ── */
         .partnership {
             padding: 5rem 2rem;
@@ -475,19 +513,40 @@
         <div class="section-container">
             <div class="section-header">
                 <span class="section-tag" data-i18n="cert.hero.tag">Digital Certification</span>
-                <h2><span data-i18n="cert.hero.title_pre">Certified Through</span> <span data-i18n="cert.hero.title_hl">MCPC-Accredited Training</span></h2>
-                <p data-i18n="cert.hero.desc">Every ServiceKru professional completes structured, nationally recognised training before their first placement — with records your team can verify.</p>
+                <h2><span data-i18n="cert.hero.title_pre">The</span> <span data-i18n="cert.hero.title_hl">ServiceKru Digital Certification</span></h2>
+                <p data-i18n="cert.hero.desc">Every ServiceKru professional is trained and certified before their first placement — issued through Accredible and backed by accredited training partners and our own internal assessment programme.</p>
             </div>
         </div>
     </section>
 
-    <!-- MCPC Certification Pathway -->
+    <!-- How Certification Works -->
+    <section class="pathways" id="how-it-works">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="cert.how.tag">How It Works</span>
+                <h2><span data-i18n="cert.how.title_pre">Two</span> <span data-i18n="cert.how.title_hl">Training Pathways</span></h2>
+                <p data-i18n="cert.how.desc">Every ServiceKru Digital Certification is backed by real training — delivered one of two ways, depending on the service line.</p>
+            </div>
+            <div class="pathways-grid">
+                <div class="pathway-card">
+                    <h3 data-i18n="cert.how.card1_title">Accredited Training Partners</h3>
+                    <p data-i18n="cert.how.card1_desc">For cleaning professionals, training is delivered by accredited external partners such as MECSc under MCPC accreditation — structured courses, HRD Corp claimable.</p>
+                </div>
+                <div class="pathway-card">
+                    <h3 data-i18n="cert.how.card2_title">Internal Training &amp; Assessment</h3>
+                    <p data-i18n="cert.how.card2_desc">For other service lines, professionals are trained and assessed through ServiceKru's own internal programme.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cleaning Certification Pathway -->
     <section class="certification" id="pathway">
         <div class="section-container">
             <div class="section-header">
-                <span class="section-tag" data-i18n="cert.pathway.tag">Professional Certification</span>
-                <h2 data-i18n="cert.pathway.title">MCPC <span>Certification Pathway</span></h2>
-                <p data-i18n="cert.pathway.desc">Four structured levels of Malaysia's nationally recognised cleaning certification — every ServiceKru professional is trained against this standard.</p>
+                <span class="section-tag" data-i18n="cert.pathway.tag">Cleaning Certification</span>
+                <h2><span data-i18n="cert.pathway.title_pre">Cleaning Certification Pathway</span> <span data-i18n="cert.pathway.title_hl">— via MECSc</span></h2>
+                <p data-i18n="cert.pathway.desc">Four structured levels of MCPC, Malaysia's nationally recognised cleaning certification — delivered through our accredited training partner, MECSc.</p>
             </div>
             <div class="cert-grid">
 
@@ -576,7 +635,7 @@
         <div class="section-container">
             <div class="section-header">
                 <span class="section-tag" data-i18n="cert.partner.tag">In Partnership With</span>
-                <h2 data-i18n="cert.partner.title">The <span>MECSc</span> Partnership</h2>
+                <h2><span data-i18n="cert.partner.title_pre">Our Accredited</span> <span data-i18n="cert.partner.title_hl">Training Partner</span></h2>
             </div>
             <div class="partnership-card">
                 <div class="partnership-logo">
@@ -595,17 +654,17 @@
         <div class="section-container">
             <div class="section-header">
                 <span class="section-tag" data-i18n="cert.verify.tag">For Employers</span>
-                <h2 data-i18n="cert.verify.title">What You Can <span>Verify</span></h2>
-                <p data-i18n="cert.verify.desc">Certified through MCPC-accredited training — records available for every professional placed on your site.</p>
+                <h2><span data-i18n="cert.verify.title_pre">What You Can</span> <span data-i18n="cert.verify.title_hl">Verify</span></h2>
+                <p data-i18n="cert.verify.desc">Certified through ServiceKru Digital Certification — whether issued via an accredited training partner or our internal programme — with records available for every professional placed on your site.</p>
             </div>
             <ul class="verify-list">
                 <li>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span data-i18n="cert.verify.li1">Which MCPC course levels a professional has completed</span>
+                    <span data-i18n="cert.verify.li1">Which certification level a professional has completed</span>
                 </li>
                 <li>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span data-i18n="cert.verify.li2">Course completion dates and the MECSc training centre issuing them</span>
+                    <span data-i18n="cert.verify.li2">Completion dates and the training partner or programme issuing it</span>
                 </li>
                 <li>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
@@ -678,21 +737,32 @@
       en: {
         'cert.page_title': 'Digital Certification & Training — ServiceKru',
         'cert.hero.tag': 'Digital Certification',
-        'cert.hero.title_pre': 'Certified Through',
-        'cert.hero.title_hl': 'MCPC-Accredited Training',
-        'cert.hero.desc': 'Every ServiceKru professional completes structured, nationally recognised training before their first placement — with records your team can verify.',
-        'cert.pathway.tag': 'Professional Certification',
-        'cert.pathway.title': 'MCPC Certification Pathway',
-        'cert.pathway.desc': "Four structured levels of Malaysia's nationally recognised cleaning certification — every ServiceKru professional is trained against this standard.",
+        'cert.hero.title_pre': 'The',
+        'cert.hero.title_hl': 'ServiceKru Digital Certification',
+        'cert.hero.desc': 'Every ServiceKru professional is trained and certified before their first placement — issued through Accredible and backed by accredited training partners and our own internal assessment programme.',
+        'cert.how.tag': 'How It Works',
+        'cert.how.title_pre': 'Two',
+        'cert.how.title_hl': 'Training Pathways',
+        'cert.how.desc': 'Every ServiceKru Digital Certification is backed by real training — delivered one of two ways, depending on the service line.',
+        'cert.how.card1_title': 'Accredited Training Partners',
+        'cert.how.card1_desc': 'For cleaning professionals, training is delivered by accredited external partners such as MECSc under MCPC accreditation — structured courses, HRD Corp claimable.',
+        'cert.how.card2_title': 'Internal Training & Assessment',
+        'cert.how.card2_desc': "For other service lines, professionals are trained and assessed through ServiceKru's own internal programme.",
+        'cert.pathway.tag': 'Cleaning Certification',
+        'cert.pathway.title_pre': 'Cleaning Certification Pathway',
+        'cert.pathway.title_hl': '— via MECSc',
+        'cert.pathway.desc': "Four structured levels of MCPC, Malaysia's nationally recognised cleaning certification — delivered through our accredited training partner, MECSc.",
         'cert.partner.tag': 'In Partnership With',
-        'cert.partner.title': 'The MECSc Partnership',
+        'cert.partner.title_pre': 'Our Accredited',
+        'cert.partner.title_hl': 'Training Partner',
         'cert.partner.card_title': "Malaysia's #1 Professional Cleaning Training Centre",
         'cert.partner.card_desc': "All ServiceKru training is delivered in partnership with MECSc under nationally recognised MCPC accreditation — HRD Corp claimable, with a track record across Malaysia's cleaning industry.",
         'cert.verify.tag': 'For Employers',
-        'cert.verify.title': 'What You Can Verify',
-        'cert.verify.desc': 'Certified through MCPC-accredited training — records available for every professional placed on your site.',
-        'cert.verify.li1': 'Which MCPC course levels a professional has completed',
-        'cert.verify.li2': 'Course completion dates and the MECSc training centre issuing them',
+        'cert.verify.title_pre': 'What You Can',
+        'cert.verify.title_hl': 'Verify',
+        'cert.verify.desc': 'Certified through ServiceKru Digital Certification — whether issued via an accredited training partner or our internal programme — with records available for every professional placed on your site.',
+        'cert.verify.li1': 'Which certification level a professional has completed',
+        'cert.verify.li2': 'Completion dates and the training partner or programme issuing it',
         'cert.verify.li3': 'Background screening and insurance status for the placement',
         'cert.verify.cta': 'Request Training Details →',
         'cert.roadmap.badge': 'Coming Soon',
@@ -710,21 +780,32 @@
       ms: {
         'cert.page_title': 'Pensijilan Digital & Latihan — ServiceKru',
         'cert.hero.tag': 'Pensijilan Digital',
-        'cert.hero.title_pre': 'Bertauliah Melalui',
-        'cert.hero.title_hl': 'Latihan Bertauliah MCPC',
-        'cert.hero.desc': 'Setiap profesional ServiceKru melengkapkan latihan berstruktur dan diiktiraf secara kebangsaan sebelum penempatan pertama — dengan rekod yang boleh disahkan oleh pasukan anda.',
-        'cert.pathway.tag': 'Pensijilan Profesional',
-        'cert.pathway.title': 'Laluan Pensijilan MCPC',
-        'cert.pathway.desc': "Empat peringkat berstruktur pensijilan pembersihan bertauliah Malaysia — setiap profesional ServiceKru dilatih mengikut standard ini.",
+        'cert.hero.title_pre': 'ServiceKru',
+        'cert.hero.title_hl': 'Digital Certification',
+        'cert.hero.desc': 'Setiap profesional ServiceKru dilatih dan disijilkan sebelum penempatan pertama — dikeluarkan melalui Accredible dan disokong oleh rakan latihan bertauliah serta program penilaian dalaman kami sendiri.',
+        'cert.how.tag': 'Cara Ia Berfungsi',
+        'cert.how.title_pre': 'Dua',
+        'cert.how.title_hl': 'Laluan Latihan',
+        'cert.how.desc': 'Setiap ServiceKru Digital Certification disokong oleh latihan sebenar — disampaikan melalui salah satu daripada dua cara, bergantung pada lini perkhidmatan.',
+        'cert.how.card1_title': 'Rakan Latihan Bertauliah',
+        'cert.how.card1_desc': 'Bagi profesional pembersihan, latihan disampaikan oleh rakan luar bertauliah seperti MECSc di bawah pentauliahan MCPC — kursus berstruktur, layak dituntut HRD Corp.',
+        'cert.how.card2_title': 'Latihan & Penilaian Dalaman',
+        'cert.how.card2_desc': 'Bagi lini perkhidmatan lain, profesional dilatih dan dinilai melalui program dalaman ServiceKru sendiri.',
+        'cert.pathway.tag': 'Pensijilan Pembersihan',
+        'cert.pathway.title_pre': 'Laluan Pensijilan Pembersihan',
+        'cert.pathway.title_hl': '— melalui MECSc',
+        'cert.pathway.desc': "Empat peringkat berstruktur MCPC, pensijilan pembersihan bertauliah Malaysia — disampaikan melalui rakan latihan bertauliah kami, MECSc.",
         'cert.partner.tag': 'Bekerjasama Dengan',
-        'cert.partner.title': 'Perkongsian MECSc',
+        'cert.partner.title_pre': 'Rakan Latihan',
+        'cert.partner.title_hl': 'Bertauliah Kami',
         'cert.partner.card_title': "Pusat Latihan Pembersihan Profesional #1 Malaysia",
         'cert.partner.card_desc': "Semua latihan ServiceKru disampaikan bersama MECSc di bawah pentauliahan MCPC yang diiktiraf secara kebangsaan — layak dituntut HRD Corp, dengan rekod tersohor dalam industri pembersihan Malaysia.",
         'cert.verify.tag': 'Untuk Majikan',
-        'cert.verify.title': 'Apa Yang Boleh Disahkan',
-        'cert.verify.desc': 'Bertauliah melalui latihan bertauliah MCPC — rekod tersedia bagi setiap profesional yang ditempatkan di tapak anda.',
-        'cert.verify.li1': 'Peringkat kursus MCPC yang telah diselesaikan oleh profesional',
-        'cert.verify.li2': 'Tarikh penyelesaian kursus dan pusat latihan MECSc yang mengeluarkannya',
+        'cert.verify.title_pre': 'Apa Yang Boleh',
+        'cert.verify.title_hl': 'Disahkan',
+        'cert.verify.desc': 'Bertauliah melalui ServiceKru Digital Certification — sama ada dikeluarkan melalui rakan latihan bertauliah atau program dalaman kami — dengan rekod tersedia bagi setiap profesional yang ditempatkan di tapak anda.',
+        'cert.verify.li1': 'Peringkat pensijilan yang telah diselesaikan oleh profesional',
+        'cert.verify.li2': 'Tarikh penyelesaian dan rakan latihan atau program yang mengeluarkannya',
         'cert.verify.li3': 'Status saringan latar belakang dan insurans bagi penempatan',
         'cert.verify.cta': 'Mohon Butiran Latihan →',
         'cert.roadmap.badge': 'Akan Datang',
@@ -742,21 +823,32 @@
       zh: {
         'cert.page_title': '数字认证与培训 — ServiceKru',
         'cert.hero.tag': '数字认证',
-        'cert.hero.title_pre': '认证来自',
-        'cert.hero.title_hl': 'MCPC 认证培训',
-        'cert.hero.desc': '每位 ServiceKru 专业人员在首次派遣前，均完成结构化、全国认可的培训——记录可供您的团队核实。',
-        'cert.pathway.tag': '专业认证',
-        'cert.pathway.title': 'MCPC 认证路径',
-        'cert.pathway.desc': "马来西亚全国认可清洁认证的四个结构化等级——每位 ServiceKru 专业人员均按此标准培训。",
+        'cert.hero.title_pre': 'ServiceKru',
+        'cert.hero.title_hl': 'Digital Certification',
+        'cert.hero.desc': '每位 ServiceKru 专业人员在首次派遣前均接受培训并获得认证——通过 Accredible 颁发，并由认证培训合作伙伴及我们自有的内部评核计划提供支持。',
+        'cert.how.tag': '运作方式',
+        'cert.how.title_pre': '两种',
+        'cert.how.title_hl': '培训路径',
+        'cert.how.desc': '每一份 ServiceKru Digital Certification 均以真实培训为基础——根据服务类别，通过以下两种方式之一提供。',
+        'cert.how.card1_title': '认证培训合作伙伴',
+        'cert.how.card1_desc': '对于清洁类专业人员，培训由 MECSc 等经认证的外部合作伙伴依据 MCPC 认证提供——结构化课程，可获 HRD Corp 索偿资格。',
+        'cert.how.card2_title': '内部培训与评核',
+        'cert.how.card2_desc': '对于其他服务类别，专业人员通过 ServiceKru 自有的内部计划接受培训与评核。',
+        'cert.pathway.tag': '清洁认证',
+        'cert.pathway.title_pre': '清洁认证路径',
+        'cert.pathway.title_hl': '——通过 MECSc',
+        'cert.pathway.desc': "马来西亚全国认可清洁认证 MCPC 的四个结构化等级——通过我们的认证培训合作伙伴 MECSc 提供。",
         'cert.partner.tag': '合作伙伴',
-        'cert.partner.title': 'MECSc 合作伙伴',
+        'cert.partner.title_pre': '我们的认证',
+        'cert.partner.title_hl': '培训合作伙伴',
         'cert.partner.card_title': "马来西亚 #1 专业清洁培训中心",
         'cert.partner.card_desc': "所有 ServiceKru 培训均与 MECSc 合作提供，并获全国认可的 MCPC 认证——可获 HRD Corp 索偿资格，在马来西亚清洁行业拥有良好往绩。",
         'cert.verify.tag': '雇主专区',
-        'cert.verify.title': '可核实内容',
-        'cert.verify.desc': '通过 MCPC 认证培训——每位派驻您场所的专业人员，其记录均可应要求提供。',
-        'cert.verify.li1': '专业人员已完成的 MCPC 课程等级',
-        'cert.verify.li2': '课程完成日期及颁发的 MECSc 培训中心',
+        'cert.verify.title_pre': '可核实',
+        'cert.verify.title_hl': '内容',
+        'cert.verify.desc': '通过 ServiceKru Digital Certification 认证——无论是经认证培训合作伙伴或我们的内部计划颁发——每位派驻您场所的专业人员，其记录均可应要求提供。',
+        'cert.verify.li1': '专业人员已完成的认证等级',
+        'cert.verify.li2': '完成日期，以及颁发的培训合作伙伴或计划',
         'cert.verify.li3': '该派遣人员的背景审查与保险状态',
         'cert.verify.cta': '索取培训详情 →',
         'cert.roadmap.badge': '即将推出',
