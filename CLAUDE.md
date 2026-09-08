@@ -12,7 +12,8 @@ ServiceKru is a Malaysian home services marketplace website connecting customers
 
 ## Site Structure
 
-- `index.html` - Main production site (single-page with section anchors)
+- `index.html` - Main production homepage: the Blue-Collar Digital OS landing page (served at `/`)
+- `home-legacy.html` - Previous homepage (home services marketplace single-page with section anchors), demoted but still reachable at `/home-legacy.html`
 - `golden-hour.html` - Alternative design variant
 - `redesigned-site/` - Multi-page redesign with separate pages for booking, services, FAQ, contact, become-a-provider
 
@@ -56,7 +57,7 @@ Static HTML site with no build process. Open HTML files directly in browser.
 
 **Breakpoints:** ≤768px mobile (hamburger nav, single-column), ≥769px desktop (full nav, multi-column grids)
 
-## Section Anchors (index.html)
+## Section Anchors (home-legacy.html)
 
 Required sections per `page-specs.md`:
 - `#hero` - Hero with dual CTA
