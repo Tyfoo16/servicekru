@@ -31,7 +31,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; scroll-padding-top: 84px; }
         body {
             font-family: var(--font-primary);
             background-color: var(--color-white);
@@ -41,89 +41,127 @@
         }
 
         /* ===== Navigation ===== */
-        nav {
+        .skip-link {
+            position: absolute; left: 1rem; top: -100px; z-index: 1200;
+            background: var(--color-pink); color: #fff;
+            padding: 0.7rem 1.1rem; border-radius: 8px;
+            font-size: 0.85rem; font-weight: 600; text-decoration: none;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus { top: 1rem; }
+
+        .site-header {
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            padding: 0.75rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 20px rgba(0, 69, 145, 0.08);
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 0 rgba(0, 69, 145, 0.08);
+            transition: box-shadow 0.3s ease, background 0.3s ease;
         }
-        .logo { display: flex; align-items: center; text-decoration: none; gap: 0.25rem; }
-        .logo-img { height: 44px; width: auto; display: block; }
+        .site-header.is-scrolled { box-shadow: 0 4px 24px rgba(0, 69, 145, 0.10); }
+
+        nav {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0.6rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: nowrap;
+        }
+        .logo { display: flex; align-items: center; text-decoration: none; gap: 0.25rem; flex-shrink: 0; }
+        .logo-img { height: 40px; width: auto; display: block; transition: height 0.3s ease; }
+        .site-header.is-scrolled .logo-img { height: 34px; }
         .logo-img--footer { height: 48px; margin-bottom: 0.75rem; }
 
-        .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
-        .nav-links a:not(.nav-cta):not(.nav-cta-outline) {
-            text-decoration: none;
-            color: var(--color-gray-800);
-            font-weight: 500;
-            font-size: 0.88rem;
-            transition: color 0.3s ease;
-            position: relative;
+        /* Group holding links + actions; becomes the mobile drawer */
+        .nav-group {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 2rem;
+            flex: 1 1 auto;
+            min-width: 0;
         }
-        .nav-links a:not(.nav-cta):not(.nav-cta-outline)::after {
+        .nav-links { display: flex; gap: 1.75rem; list-style: none; align-items: center; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-gray-700, #495057);
+            font-weight: 500;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            transition: color 0.25s ease;
+            position: relative;
+            padding: 0.35rem 0;
+        }
+        .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -4px; left: 0;
+            bottom: -2px; left: 0;
             width: 0; height: 2px;
             background: var(--color-orange);
-            transition: width 0.3s ease;
+            border-radius: 2px;
+            transition: width 0.25s ease;
         }
-        .nav-links a:not(.nav-cta):not(.nav-cta-outline):hover { color: var(--color-pink); }
-        .nav-links a:not(.nav-cta):not(.nav-cta-outline):hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--color-gray-900); }
+        .nav-links a:hover::after { width: 100%; }
         .nav-active { color: var(--color-orange-text) !important; font-weight: 600 !important; }
+        .nav-active::after { width: 100% !important; }
+
         a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, [tabindex]:focus-visible {
             outline: 3px solid var(--color-pink);
             outline-offset: 2px;
             border-radius: 4px;
         }
-        .nav-active::after { width: 100% !important; }
 
-        .nav-cta, .nav-cta-outline {
-            text-decoration: none;
-            padding: 0.6rem 1.15rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.82rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
+        /* Action cluster: one text-level path + one primary button */
+        .nav-actions { display: flex; align-items: center; gap: 1.1rem; }
+        .nav-link-cta {
+            background: none; border: none; cursor: pointer;
             font-family: var(--font-primary);
+            font-size: 0.9rem; font-weight: 600;
+            color: var(--color-pink);
             white-space: nowrap;
+            padding: 0.35rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.25s ease;
         }
+        .nav-link-cta:hover { border-bottom-color: var(--color-pink); }
         .nav-cta {
             background: var(--color-orange);
             color: white;
-            box-shadow: 0 4px 15px rgba(213, 101, 16, 0.3);
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-primary);
+            font-size: 0.88rem; font-weight: 600;
+            padding: 0.65rem 1.4rem;
+            border-radius: 50px;
+            white-space: nowrap;
+            box-shadow: 0 4px 14px rgba(213, 101, 16, 0.28);
+            transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
         }
-        .nav-cta:hover { background: var(--color-orange-dark); transform: translateY(-2px); }
-        .nav-cta-outline {
-            background: transparent;
-            color: var(--color-pink);
-            border: 2px solid var(--color-pink);
-        }
-        .nav-cta-outline:hover { background: var(--color-pink); color: white; }
+        .nav-cta:hover { background: var(--color-orange-dark); transform: translateY(-1px); box-shadow: 0 6px 18px rgba(213, 101, 16, 0.35); }
+
+        /* Utilities pinned to the far right */
+        .nav-utils { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
 
         /* Language switcher */
-        .lang-switcher { position: relative; margin-left: 0.5rem; }
+        .lang-switcher { position: relative; }
         .lang-current {
-            display: inline-flex; align-items: center; gap: 0.4rem;
-            background: var(--color-gray-100);
+            display: inline-flex; align-items: center; gap: 0.3rem;
+            background: none;
             border: 1px solid var(--color-gray-200);
-            color: var(--color-gray-800);
-            padding: 0.45rem 0.8rem;
+            color: var(--color-gray-700, #495057);
+            padding: 0.4rem 0.6rem;
             border-radius: 50px;
             font-family: var(--font-primary);
-            font-size: 0.8rem; font-weight: 600;
+            font-size: 0.78rem; font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: border-color 0.25s ease, color 0.25s ease;
         }
         .lang-current:hover { border-color: var(--color-orange); color: var(--color-orange-text); }
+        .lang-current .lang-globe { width: 15px; height: 15px; flex-shrink: 0; }
         .lang-menu {
             position: absolute;
             top: calc(100% + 8px); right: 0;
@@ -146,13 +184,28 @@
         .lang-menu li:hover { background: var(--color-orange-light); color: var(--color-orange); }
         .lang-menu li.active { background: var(--color-orange); color: white; font-weight: 600; }
 
-        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .mobile-menu-btn {
+            display: none; background: none; border: none; cursor: pointer;
+            padding: 0.5rem; width: 44px; height: 44px;
+        }
         .mobile-menu-btn span {
-            display: block; width: 25px; height: 3px;
+            display: block; width: 24px; height: 2.5px;
             background: var(--color-pink);
             margin: 5px 0; border-radius: 2px;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.2s ease;
         }
+        .mobile-menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+        .mobile-menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .mobile-menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+        .nav-backdrop {
+            position: fixed; inset: 0;
+            background: rgba(15, 23, 42, 0.35);
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.25s ease;
+            z-index: 999;
+        }
+        body.nav-open .nav-backdrop { opacity: 1; pointer-events: auto; }
 
         /* ===== Buttons ===== */
         .btn-primary {
@@ -652,25 +705,44 @@
             .os-split { grid-template-columns: 1fr; gap: 2.5rem; }
             .footer-content { grid-template-columns: 1fr 1fr; }
         }
-        @media (max-width: 768px) {
-            nav { padding: 0.75rem 1rem; }
-            .nav-links { display: none; }
+        /* Collapse before the bar can ever wrap or overflow */
+        @media (max-width: 1080px) {
+            nav { padding: 0.6rem 1.25rem; gap: 0.75rem; }
             .mobile-menu-btn { display: block; }
-            .lang-switcher { order: 2; margin-left: auto; margin-right: 8px; }
-            .nav-links.active {
-                display: flex !important;
-                flex-direction: column;
+            .nav-utils { margin-left: auto; }
+            .nav-group {
                 position: absolute;
                 top: 100%; left: 0; right: 0;
-                background: rgba(255,255,255,0.98);
-                backdrop-filter: blur(10px);
-                padding: 1rem 2rem 2rem;
-                box-shadow: 0 10px 30px rgba(0,69,145,0.1);
-                gap: 0.5rem;
+                background: #fff;
+                border-top: 1px solid var(--color-gray-200);
+                box-shadow: 0 18px 40px rgba(0, 69, 145, 0.14);
+                flex-direction: column;
                 align-items: stretch;
+                justify-content: flex-start;
+                gap: 0;
+                padding: 0.5rem 1.5rem 1.75rem;
+                max-height: calc(100vh - 100%);
+                overflow-y: auto;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
             }
-            .nav-links.active li { padding: 0.6rem 0; border-bottom: 1px solid var(--color-gray-200); list-style: none; text-align: center; }
-            .nav-links.active li:last-child, .nav-links.active li:nth-last-child(2) { border-bottom: none; }
+            body.nav-open .nav-group { opacity: 1; visibility: visible; transform: translateY(0); }
+            .nav-links { flex-direction: column; align-items: stretch; gap: 0; }
+            .nav-links li { border-bottom: 1px solid var(--color-gray-200); }
+            .nav-links a { display: block; padding: 0.95rem 0; font-size: 1rem; }
+            .nav-links a::after { display: none; }
+            .nav-actions { flex-direction: column; align-items: stretch; gap: 0.75rem; margin-top: 1.5rem; }
+            .nav-cta { width: 100%; padding: 0.95rem 1.25rem; font-size: 0.95rem; order: -1; }
+            .nav-link-cta {
+                width: 100%; padding: 0.9rem 1.25rem; font-size: 0.95rem;
+                border: 2px solid var(--color-pink); border-radius: 50px;
+            }
+            .nav-link-cta:hover { background: var(--color-pink); color: #fff; border-color: var(--color-pink); }
+        }
+        @media (max-width: 768px) {
+            nav { padding: 0.6rem 1rem; }
             .hero { padding: 6rem 1rem 3rem; }
             .hero h1 { font-size: 2.2rem; }
             .section { padding: 4.5rem 1rem; }
@@ -687,31 +759,43 @@
 </head>
 <body>
     <!-- ===== Navigation ===== -->
-    <nav>
-        <a href="#hero" class="logo">
-            <img src="assets/logo.png" alt="ServiceKru" class="logo-img">
-        </a>
-        <ul class="nav-links">
-            <li><a href="#pain-points" class="nav-active" data-i18n="land.nav.solutions">Solutions</a></li>
-            <li><a href="#e2w" data-i18n="land.nav.e2w">E2W Ecosystem</a></li>
-            <li><a href="#digital-os" data-i18n="land.nav.digital_os">Digital OS</a></li>
-            <li><a href="#esg" data-i18n="land.nav.about_esg">About &amp; ESG</a></li>
-            <li><button class="nav-cta" type="button" onclick="showTab('employers', true)" data-i18n="land.nav.cta_solutions">Get Business &amp; Home Solutions</button></li>
-            <li><button class="nav-cta-outline" type="button" onclick="showTab('jobseekers', true)" data-i18n="land.nav.cta_apply">Apply for Training &amp; Certification</button></li>
-        </ul>
-        <div class="lang-switcher">
-            <button class="lang-current" aria-haspopup="listbox" aria-expanded="false" data-i18n="nav.lang_aria" data-i18n-attr="aria-label">
-                <span data-lang-label>EN</span>
-                <svg width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
-            </button>
-            <ul class="lang-menu" role="listbox" hidden>
-                <li data-lang="en" role="option">English</li>
-                <li data-lang="ms" role="option">Bahasa Melayu</li>
-                <li data-lang="zh" role="option">中文</li>
-            </ul>
-        </div>
-        <button class="mobile-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
-    </nav>
+    <a class="skip-link" href="#hero" data-i18n="land.nav.skip">Skip to content</a>
+    <header class="site-header" id="siteHeader">
+        <nav aria-label="Main">
+            <a href="#hero" class="logo">
+                <img src="assets/logo.png" alt="ServiceKru" class="logo-img">
+            </a>
+
+            <div class="nav-group" id="navGroup">
+                <ul class="nav-links">
+                    <li><a href="#pain-points" class="nav-active" data-i18n="land.nav.solutions">Solutions</a></li>
+                    <li><a href="#e2w" data-i18n="land.nav.e2w">E2W Ecosystem</a></li>
+                    <li><a href="#digital-os" data-i18n="land.nav.digital_os">Digital OS</a></li>
+                    <li><a href="#esg" data-i18n="land.nav.about_esg">About &amp; ESG</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="nav-link-cta" type="button" onclick="showTab('jobseekers', true)" data-i18n="land.nav.cta_apply">Apply for Training</button>
+                    <button class="nav-cta" type="button" onclick="showTab('employers', true)" data-i18n="land.nav.cta_solutions">Get Solutions</button>
+                </div>
+            </div>
+
+            <div class="nav-utils">
+                <div class="lang-switcher">
+                    <button class="lang-current" aria-haspopup="listbox" aria-expanded="false" data-i18n="nav.lang_aria" data-i18n-attr="aria-label">
+                        <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18 15 15 0 010-18z"/></svg>
+                        <span data-lang-label>EN</span>
+                    </button>
+                    <ul class="lang-menu" role="listbox" hidden>
+                        <li data-lang="en" role="option">English</li>
+                        <li data-lang="ms" role="option">Bahasa Melayu</li>
+                        <li data-lang="zh" role="option">中文</li>
+                    </ul>
+                </div>
+                <button class="mobile-menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navGroup"><span></span><span></span><span></span></button>
+            </div>
+        </nav>
+    </header>
+    <div class="nav-backdrop" id="navBackdrop" hidden></div>
 
     <!-- ===== Hero ===== -->
     <section class="hero" id="hero">
@@ -1120,8 +1204,9 @@
                 'land.nav.e2w': 'E2W Ecosystem',
                 'land.nav.digital_os': 'Digital OS',
                 'land.nav.about_esg': 'About & ESG',
-                'land.nav.cta_solutions': 'Get Business & Home Solutions',
-                'land.nav.cta_apply': 'Apply for Training & Certification',
+                'land.nav.cta_solutions': 'Get Solutions',
+                'land.nav.cta_apply': 'Apply for Training',
+                'land.nav.skip': 'Skip to content',
 
                 'land.hero.badge': 'Blue-Collar Digital OS',
                 'land.hero.h1_pre': 'Empowering Workforce,',
@@ -1236,8 +1321,9 @@
                 'land.nav.e2w': 'Ekosistem E2W',
                 'land.nav.digital_os': 'OS Digital',
                 'land.nav.about_esg': 'Tentang & ESG',
-                'land.nav.cta_solutions': 'Dapatkan Penyelesaian Perniagaan & Rumah',
-                'land.nav.cta_apply': 'Mohon Latihan & Pensijilan',
+                'land.nav.cta_solutions': 'Dapatkan Penyelesaian',
+                'land.nav.cta_apply': 'Mohon Latihan',
+                'land.nav.skip': 'Langkau ke kandungan',
 
                 'land.hero.badge': 'OS Digital Pekerja Kolar Biru',
                 'land.hero.h1_pre': 'Memperkasa Tenaga Kerja,',
@@ -1352,8 +1438,9 @@
                 'land.nav.e2w': 'E2W 生态系统',
                 'land.nav.digital_os': '数字操作系统',
                 'land.nav.about_esg': '关于与 ESG',
-                'land.nav.cta_solutions': '获取商业与家居解决方案',
-                'land.nav.cta_apply': '申请培训与认证',
+                'land.nav.cta_solutions': '获取解决方案',
+                'land.nav.cta_apply': '申请培训',
+                'land.nav.skip': '跳至内容',
 
                 'land.hero.badge': '蓝领数字操作系统',
                 'land.hero.h1_pre': '赋能劳动力，',
@@ -1512,24 +1599,38 @@
             window.open(WA + encodeURIComponent(msg), '_blank');
         });
 
-        // Nav shadow on scroll
+        // Condensed header on scroll (class toggle, no inline style thrash)
+        var siteHeader = document.getElementById('siteHeader');
         window.addEventListener('scroll', function () {
-            var nav = document.querySelector('nav');
-            nav.style.boxShadow = window.scrollY > 50
-                ? '0 4px 30px rgba(0, 69, 145, 0.12)'
-                : '0 2px 20px rgba(0, 69, 145, 0.08)';
-        });
+            siteHeader.classList.toggle('is-scrolled', window.scrollY > 24);
+        }, { passive: true });
 
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function () {
-            document.querySelector('.nav-links').classList.toggle('active');
-            this.classList.toggle('active');
+        // Mobile drawer
+        var menuBtn = document.querySelector('.mobile-menu-btn');
+        var navBackdrop = document.getElementById('navBackdrop');
+
+        function setMenu(open) {
+            document.body.classList.toggle('nav-open', open);
+            menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            navBackdrop.hidden = !open;
+            document.body.style.overflow = open ? 'hidden' : '';
+        }
+        menuBtn.addEventListener('click', function () {
+            setMenu(menuBtn.getAttribute('aria-expanded') !== 'true');
         });
-        document.querySelectorAll('.nav-links a, .nav-links button').forEach(function (el) {
-            el.addEventListener('click', function () {
-                document.querySelector('.nav-links').classList.remove('active');
-                document.querySelector('.mobile-menu-btn').classList.remove('active');
-            });
+        navBackdrop.addEventListener('click', function () { setMenu(false); });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && menuBtn.getAttribute('aria-expanded') === 'true') {
+                setMenu(false);
+                menuBtn.focus();
+            }
+        });
+        document.querySelectorAll('#navGroup a, #navGroup button').forEach(function (el) {
+            el.addEventListener('click', function () { setMenu(false); });
+        });
+        // Reset drawer state if the viewport grows back to desktop
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 1080 && document.body.classList.contains('nav-open')) setMenu(false);
         });
 
         // Active nav link on scroll
@@ -1538,7 +1639,11 @@
         window.addEventListener('scroll', function () {
             var current = '';
             sections.forEach(function (sec) { if (window.scrollY >= sec.offsetTop - 130) current = sec.getAttribute('id'); });
-            navAnchors.forEach(function (a) { a.classList.toggle('nav-active', a.getAttribute('href') === '#' + current); });
+            navAnchors.forEach(function (a) {
+                var isActive = a.getAttribute('href') === '#' + current;
+                a.classList.toggle('nav-active', isActive);
+                if (isActive) { a.setAttribute('aria-current', 'true'); } else { a.removeAttribute('aria-current'); }
+            });
         });
     </script>
 </body>
