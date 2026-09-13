@@ -21,7 +21,14 @@
       "Bash(awk '/I18N_EXTEND/ && !e {e=NR} /i18n\\\\.js/ && !l {l=NR} END{print \"EXTEND@\" e \" loader@\" l \" ok=\" \\(e<l?\"yes\":\"NO\"\\)}' index.html)",
       "Bash(sed -n '750,770p' /Users/michaelyongfoo/custom-projects/servicekru/redesigned-site/booking.html)",
       "Bash(sed -n '750,775p' /Users/michaelyongfoo/custom-projects/servicekru/redesigned-site/become.html)",
-      "Bash(awk 'NR==2963' /Users/michaelyongfoo/custom-projects/servicekru/index.html)"
+      "Bash(awk 'NR==2963' /Users/michaelyongfoo/custom-projects/servicekru/index.html)",
+      "Bash(git log *)",
+      "Bash(awk ' *)",
+      "Bash(sort -u -t: -k1,1n)",
+      "Bash(awk -F\"commit \" '{print}')",
+      "Bash(gh auth *)",
+      "Bash(git config *)",
+      "Bash(ssh -T git@github.com -o BatchMode=yes -o ConnectTimeout=5)"
     ]
   }
 }
