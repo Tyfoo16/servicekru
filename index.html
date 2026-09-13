@@ -173,23 +173,6 @@
             box-shadow: 0 6px 25px rgba(213, 101, 16, 0.35);
         }
         .btn-primary:hover { background: var(--color-orange-dark); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(213, 101, 16, 0.4); }
-        .btn-ghost {
-            background: transparent;
-            color: var(--color-pink);
-            border: none;
-            padding: 1.1rem 0.75rem;
-            font-family: var(--font-primary);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            text-decoration: none;
-        }
-        .btn-ghost::after { content: '\2192'; transition: transform 0.25s ease; }
-        .btn-ghost:hover { color: var(--color-pink-dark); text-decoration: underline; text-underline-offset: 4px; }
-        .btn-ghost:hover::after { transform: translateX(4px); }
         .btn-secondary {
             background: transparent;
             color: var(--color-pink);
@@ -256,15 +239,6 @@
         .hero h1 .highlight-orange { color: var(--color-orange); }
         .hero p.hero-sub { font-size: 1.08rem; color: var(--color-gray-600); margin-bottom: 2rem; max-width: 540px; line-height: 1.8; }
         .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
-        .hero-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
-        .hero-tag {
-            background: rgba(255,255,255,0.7);
-            border: 1px solid var(--color-gray-200);
-            color: var(--color-gray-800);
-            font-size: 0.8rem; font-weight: 500;
-            padding: 0.4rem 0.9rem;
-            border-radius: 50px;
-        }
 
         .hero-visual { position: relative; animation: fadeInUp 0.8s ease-out 0.2s both; }
         .os-card {
@@ -282,21 +256,39 @@
             background: linear-gradient(90deg, var(--color-orange) 0%, var(--color-orange) 50%, var(--color-pink) 50%, var(--color-pink) 100%);
         }
         .os-card-title { font-family: var(--font-secondary); font-size: 1.05rem; color: var(--color-gray-900); margin-bottom: 1.25rem; text-align: center; }
-        .os-flow { display: flex; flex-direction: column; gap: 0.85rem; }
-        .os-step { display: flex; align-items: center; gap: 1rem; background: var(--color-gray-100); border-radius: 14px; padding: 0.9rem 1.1rem; }
-        .os-step-num {
-            width: 38px; height: 38px; flex-shrink: 0;
-            border-radius: 10px;
-            background: var(--color-blue);
+        .os-flow { display: flex; flex-direction: column; gap: 0.6rem; }
+        .os-step { display: flex; align-items: center; gap: 1rem; border-radius: 14px; padding: 0.9rem 1.1rem; transition: transform 0.25s ease; }
+        .os-step:hover { transform: translateX(4px); }
+        .os-step--orange { background: linear-gradient(135deg, var(--color-orange-light), var(--color-white)); }
+        .os-step--blue { background: linear-gradient(135deg, var(--color-pink-light), var(--color-white)); }
+        .os-step-icon {
+            position: relative; flex-shrink: 0;
+            width: 44px; height: 44px;
+            border-radius: 13px;
             color: white;
-            font-family: var(--font-secondary); font-weight: 700;
             display: flex; align-items: center; justify-content: center;
         }
-        .os-step:nth-child(2) .os-step-num { background: var(--color-blue); }
-        .os-step:nth-child(3) .os-step-num { background: var(--color-blue); }
+        .os-step-icon svg { width: 20px; height: 20px; }
+        .os-step--orange .os-step-icon { background: var(--color-orange); }
+        .os-step--blue .os-step-icon { background: var(--color-blue); }
+        .os-step-num {
+            position: absolute; bottom: -4px; right: -4px;
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            background: var(--color-gray-900);
+            color: white;
+            font-family: var(--font-secondary); font-weight: 700; font-size: 0.62rem;
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid var(--color-white);
+        }
         .os-step strong { display: block; font-size: 0.92rem; color: var(--color-gray-900); }
         .os-step span { font-size: 0.78rem; color: var(--color-gray-600); }
-        .os-arrow { text-align: center; color: var(--color-gray-200); line-height: 0.4; }
+        .os-arrow { position: relative; height: 18px; margin-left: calc(1.1rem + 22px); width: 2px; }
+        .os-arrow::before {
+            content: ''; position: absolute; top: 0; bottom: 0; left: -1px;
+            width: 2px; border-radius: 2px;
+            background: linear-gradient(180deg, var(--color-orange), var(--color-blue));
+        }
 
         /* ===== Shared section ===== */
         .section { padding: 6rem 2rem; }
@@ -390,7 +382,6 @@
         .e2w-step:nth-child(3) .e2w-num { background: var(--color-gray-900); }
         .e2w-step h3 { font-family: var(--font-secondary); font-size: 1.2rem; color: var(--color-gray-900); margin-bottom: 0.75rem; }
         .e2w-step p { color: var(--color-gray-600); font-size: 0.94rem; line-height: 1.7; max-width: 300px; margin: 0 auto; }
-        .e2w-badge { display: inline-block; margin-top: 1rem; font-size: 0.78rem; font-weight: 600; color: var(--color-pink); background: var(--color-pink-light); padding: 0.3rem 0.75rem; border-radius: 50px; }
 
         /* ===== Mid-page CTA band ===== */
         .cta-band { background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-pink-dark) 100%); color: white; text-align: center; }
@@ -443,8 +434,6 @@
         .claim-card:nth-child(2) .claim-icon { background: var(--color-pink); }
         .claim-card h3 { font-family: var(--font-secondary); font-size: 1.1rem; color: var(--color-gray-900); margin-bottom: 0.4rem; }
         .claim-card p { color: var(--color-gray-600); font-size: 0.92rem; line-height: 1.65; }
-        .powered-by { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--color-gray-800); }
-        .powered-by strong { color: var(--color-pink); }
 
         /* ===== Lead capture forms ===== */
         .get-started { background: linear-gradient(180deg, var(--color-orange-light) 0%, var(--color-white) 100%); }
@@ -652,7 +641,7 @@
         @media (max-width: 1024px) {
             .hero-inner { grid-template-columns: 1fr; text-align: center; }
             .hero p.hero-sub { margin: 0 auto 2rem; }
-            .hero-buttons, .hero-tags { justify-content: center; }
+            .hero-buttons { justify-content: center; }
             .hero-visual { max-width: 420px; margin: 3rem auto 0; }
             .hero h1 { font-size: 2.9rem; }
             .cards-3, .e2w-steps { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
@@ -739,30 +728,34 @@
                             <span data-i18n="land.hero.cta_solutions">Get Business &amp; Home Solutions</span>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </button>
-                        <button class="btn-ghost" type="button" onclick="showTab('jobseekers', true)" data-i18n="land.hero.cta_apply">Apply for Training &amp; Certification</button>
-                    </div>
-                    <div class="hero-tags">
-                        <span class="hero-tag" data-i18n="land.hero.tag_fnb">F&amp;B</span>
-                        <span class="hero-tag" data-i18n="land.hero.tag_me">M&amp;E Engineering</span>
-                        <span class="hero-tag" data-i18n="land.hero.tag_care">Domestic Home Care</span>
+                        <button class="btn-secondary" type="button" onclick="showTab('jobseekers', true)" data-i18n="land.hero.cta_apply">Apply for Training &amp; Certification</button>
                     </div>
                 </div>
                 <div class="hero-visual">
                     <div class="os-card">
                         <div class="os-card-title" data-i18n="land.hero.os_title">The E2W Engine</div>
                         <div class="os-flow">
-                            <div class="os-step">
-                                <div class="os-step-num">1</div>
+                            <div class="os-step os-step--orange">
+                                <div class="os-step-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/></svg>
+                                    <span class="os-step-num">1</span>
+                                </div>
                                 <div><strong data-i18n="land.hero.os1_title">Education</strong><span data-i18n="land.hero.os1_sub">Standardised vocational training</span></div>
                             </div>
-                            <div class="os-arrow">▾</div>
-                            <div class="os-step">
-                                <div class="os-step-num">2</div>
+                            <div class="os-arrow"></div>
+                            <div class="os-step os-step--blue">
+                                <div class="os-step-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+                                    <span class="os-step-num">2</span>
+                                </div>
                                 <div><strong data-i18n="land.hero.os2_title">Digital Certification</strong><span data-i18n="land.hero.os2_sub">Verifiable Career Passports</span></div>
                             </div>
-                            <div class="os-arrow">▾</div>
-                            <div class="os-step">
-                                <div class="os-step-num">3</div>
+                            <div class="os-arrow"></div>
+                            <div class="os-step os-step--blue">
+                                <div class="os-step-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                                    <span class="os-step-num">3</span>
+                                </div>
                                 <div><strong data-i18n="land.hero.os3_title">Workplace Placement</strong><span data-i18n="land.hero.os3_sub">Smart B2B &amp; B2C dispatch</span></div>
                             </div>
                         </div>
@@ -834,7 +827,7 @@
                     <p data-i18n="land.pain.c1_desc">High turnover rates, shortage of job-ready talent, and excessive recruitment &amp; training cost.</p>
                 </div>
                 <div class="info-card">
-                    <img class="card-photo card-photo--top" src="assets/challenge-me.jpg" alt="ServiceKru certified professionals at work" loading="lazy" decoding="async">
+                    <img class="card-photo" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&h=440&fit=crop&auto=format&q=80" alt="Electrician performing technical repair work" loading="lazy" decoding="async">
                     <div class="info-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-2-2z"/></svg></div>
                     <h3 data-i18n="land.pain.c2_title">M&amp;E / Technical Repair</h3>
                     <p data-i18n="land.pain.c2_desc">Lack of standardisation, unverified credentials, and absence of liability insurance.</p>
@@ -870,7 +863,6 @@
                     <p data-i18n="land.esg.p2_desc">Elevating informal labour into insured, digitally certified, and standardised service professionals.</p>
                 </div>
             </div>
-            <p class="esg-statement" data-i18n="land.esg.statement">ServiceKru bridges the gap from raw labour to certified professionals — building dignified careers for workers.</p>
         </div>
     </section>
 
@@ -893,7 +885,6 @@
                     <div class="e2w-thumb"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=240&h=240&fit=crop&auto=format&q=80" alt="Professional reviewing digital credentials on a laptop" loading="lazy" decoding="async"><span class="e2w-num">2</span></div>
                     <h3 data-i18n="land.e2w.s2_title">Digital Certification</h3>
                     <p data-i18n="land.e2w.s2_desc">Tamper-proof Digital Career Passports issued through Accredible and anchored to the blockchain, paired with occupational insurance coverage.</p>
-                    <span class="e2w-badge" data-i18n="land.e2w.s2_badge">Powered by Accredible</span>
                 </div>
                 <div class="e2w-step">
                     <div class="e2w-thumb"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=240&h=240&fit=crop&auto=format&q=80" alt="Warehouse professional coordinating logistics" loading="lazy" decoding="async"><span class="e2w-num">3</span></div>
@@ -954,7 +945,6 @@
                         <div>
                             <h3 data-i18n="land.dos.claim1_title">Transparent Verification</h3>
                             <p data-i18n="land.dos.claim1_desc">Scan the QR code to confirm credentials and training records instantly, anytime.</p>
-                            <span class="powered-by" data-i18n="land.dos.claim1_powered">Powered by <strong>Accredible</strong></span>
                         </div>
                     </div>
                     <div class="claim-card">
@@ -1139,9 +1129,6 @@
                 'land.hero.sub': 'ServiceKru is more than a service platform. We are an end-to-end Blue-Collar Digital OS integrating Education, Digital Certification, and Workplace Placement for F&B, M&E Engineering, and Domestic Home Care.',
                 'land.hero.cta_solutions': 'Get Business & Home Solutions',
                 'land.hero.cta_apply': 'Apply for Training & Certification',
-                'land.hero.tag_fnb': 'F&B',
-                'land.hero.tag_me': 'M&E Engineering',
-                'land.hero.tag_care': 'Domestic Home Care',
                 'land.hero.os_title': 'The E2W Engine',
                 'land.hero.os1_title': 'Education',
                 'land.hero.os1_sub': 'Standardised vocational training',
@@ -1174,7 +1161,6 @@
                 'land.esg.p1_desc': 'Enabling women across Malaysia to gain sustainable income and build long-term, dignified careers.',
                 'land.esg.p2_title': 'Modernising the Gig Economy',
                 'land.esg.p2_desc': 'Elevating informal labour into insured, digitally certified, and standardised service professionals.',
-                'land.esg.statement': 'ServiceKru bridges the gap from raw labour to certified professionals — building dignified careers for workers.',
 
                 'land.e2w.tag': 'The E2W Engine',
                 'land.e2w.h2': 'From Education to Work',
@@ -1183,7 +1169,6 @@
                 'land.e2w.s1_desc': 'Standardised training across F&B, M&E Engineering, Professional Care, and Home Care services.',
                 'land.e2w.s2_title': 'Digital Certification',
                 'land.e2w.s2_desc': 'Tamper-proof Digital Career Passports issued through Accredible and anchored to the blockchain, paired with occupational insurance coverage.',
-                'land.e2w.s2_badge': 'Powered by Accredible',
                 'land.e2w.s3_title': 'Smart OS Dispatch',
                 'land.e2w.s3_desc': 'Smart dispatch matching trained workforce with commercial (B2B) and residential (B2C) needs.',
 
@@ -1202,7 +1187,6 @@
                 'land.dos.pp_skill3': 'Insured',
                 'land.dos.claim1_title': 'Transparent Verification',
                 'land.dos.claim1_desc': 'Scan the QR code to confirm credentials and training records instantly, anytime.',
-                'land.dos.claim1_powered': 'Powered by Accredible',
                 'land.dos.claim2_title': 'Insurance Protected',
                 'land.dos.claim2_desc': 'Integrated occupational insurance protection covering both claims and workers.',
 
@@ -1261,9 +1245,6 @@
                 'land.hero.sub': 'ServiceKru lebih daripada sekadar platform perkhidmatan. Kami ialah OS Digital Kolar Biru hujung ke hujung yang menyepadukan Pendidikan, Pensijilan Digital dan Penempatan Kerja untuk F&B, Kejuruteraan M&E dan Penjagaan Rumah Domestik.',
                 'land.hero.cta_solutions': 'Dapatkan Penyelesaian Perniagaan & Rumah',
                 'land.hero.cta_apply': 'Mohon Latihan & Pensijilan',
-                'land.hero.tag_fnb': 'F&B',
-                'land.hero.tag_me': 'Kejuruteraan M&E',
-                'land.hero.tag_care': 'Penjagaan Rumah Domestik',
                 'land.hero.os_title': 'Enjin E2W',
                 'land.hero.os1_title': 'Pendidikan',
                 'land.hero.os1_sub': 'Latihan vokasional berpiawai',
@@ -1296,7 +1277,6 @@
                 'land.esg.p1_desc': 'Membolehkan wanita di seluruh Malaysia memperoleh pendapatan lestari dan membina kerjaya jangka panjang yang bermaruah.',
                 'land.esg.p2_title': 'Memodenkan Ekonomi Gig',
                 'land.esg.p2_desc': 'Mengangkat buruh tidak formal menjadi profesional perkhidmatan yang diinsuranskan, bersijil digital dan berpiawai.',
-                'land.esg.statement': 'ServiceKru merapatkan jurang daripada buruh mentah kepada profesional bertauliah — membina kerjaya bermaruah untuk pekerja.',
 
                 'land.e2w.tag': 'Enjin E2W',
                 'land.e2w.h2': 'Daripada Pendidikan ke Pekerjaan',
@@ -1305,7 +1285,6 @@
                 'land.e2w.s1_desc': 'Latihan berpiawai merentasi perkhidmatan F&B, Kejuruteraan M&E, Penjagaan Profesional dan Penjagaan Rumah.',
                 'land.e2w.s2_title': 'Pensijilan Digital',
                 'land.e2w.s2_desc': 'Pasport Kerjaya Digital kalis usik yang dikeluarkan melalui Accredible dan ditambat pada blockchain, digabungkan dengan perlindungan insurans pekerjaan.',
-                'land.e2w.s2_badge': 'Dikuasakan oleh Accredible',
                 'land.e2w.s3_title': 'Penghantaran OS Pintar',
                 'land.e2w.s3_desc': 'Penghantaran pintar yang memadankan tenaga kerja terlatih dengan keperluan komersial (B2B) dan kediaman (B2C).',
 
@@ -1324,7 +1303,6 @@
                 'land.dos.pp_skill3': 'Diinsuranskan',
                 'land.dos.claim1_title': 'Pengesahan Telus',
                 'land.dos.claim1_desc': 'Imbas kod QR untuk mengesahkan kelayakan dan rekod latihan serta-merta, pada bila-bila masa.',
-                'land.dos.claim1_powered': 'Dikuasakan oleh Accredible',
                 'land.dos.claim2_title': 'Dilindungi Insurans',
                 'land.dos.claim2_desc': 'Perlindungan insurans pekerjaan bersepadu yang melindungi kedua-dua tuntutan dan pekerja.',
 
@@ -1383,9 +1361,6 @@
                 'land.hero.sub': 'ServiceKru 不仅仅是一个服务平台。我们是端到端的蓝领数字操作系统，为餐饮（F&B）、机电工程（M&E）及家庭护理整合教育、数字认证与工作安置。',
                 'land.hero.cta_solutions': '获取商业与家居解决方案',
                 'land.hero.cta_apply': '申请培训与认证',
-                'land.hero.tag_fnb': 'F&B',
-                'land.hero.tag_me': 'M&E 机电工程',
-                'land.hero.tag_care': '家庭护理',
                 'land.hero.os_title': 'E2W 引擎',
                 'land.hero.os1_title': '教育',
                 'land.hero.os1_sub': '标准化职业培训',
@@ -1418,7 +1393,6 @@
                 'land.esg.p1_desc': '让马来西亚各地的女性获得可持续收入，建立长期而有尊严的职业生涯。',
                 'land.esg.p2_title': '让零工经济现代化',
                 'land.esg.p2_desc': '将非正规劳工提升为已投保、具数字认证且标准化的服务专业人员。',
-                'land.esg.statement': 'ServiceKru 弥合从原始劳工到认证专业人员之间的差距——为工作者打造有尊严的职业生涯。',
 
                 'land.e2w.tag': 'E2W 引擎',
                 'land.e2w.h2': '从教育到就业',
@@ -1427,7 +1401,6 @@
                 'land.e2w.s1_desc': '在 F&B、M&E 机电工程、专业护理及家庭护理服务中提供标准化培训。',
                 'land.e2w.s2_title': '数字认证',
                 'land.e2w.s2_desc': '通过 Accredible 颁发并锚定于区块链的防篡改数字职业护照，并配以职业保险保障。',
-                'land.e2w.s2_badge': '由 Accredible 提供支持',
                 'land.e2w.s3_title': '智能 OS 派单',
                 'land.e2w.s3_desc': '智能派单，将受训劳动力与商业（B2B）及住宅（B2C）需求相匹配。',
 
@@ -1446,7 +1419,6 @@
                 'land.dos.pp_skill3': '已投保',
                 'land.dos.claim1_title': '透明验证',
                 'land.dos.claim1_desc': '随时扫描二维码，即时确认资历与培训记录。',
-                'land.dos.claim1_powered': '由 Accredible 提供支持',
                 'land.dos.claim2_title': '保险保障',
                 'land.dos.claim2_desc': '整合的职业保险保障，同时涵盖客户索赔与工作者。',
 
