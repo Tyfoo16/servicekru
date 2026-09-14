@@ -217,6 +217,7 @@
             font-weight: 700;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
             transition: all 0.3s ease;
             border: none;
@@ -235,6 +236,7 @@
             font-weight: 700;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
             transition: all 0.3s ease;
             border: 3px solid var(--color-pink);
@@ -443,6 +445,7 @@
         .cta-band-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
         .cta-band .btn-primary { box-shadow: 0 10px 30px rgba(0,0,0,0.22); }
         .btn-on-dark {
+            display: inline-flex; align-items: center; justify-content: center;
             background: transparent; color: white;
             border: 2px solid rgba(255,255,255,0.7);
             padding: 1.05rem 2.15rem; border-radius: 50px;
@@ -1631,6 +1634,45 @@
         // Reset drawer state if the viewport grows back to desktop
         window.addEventListener('resize', function () {
             if (window.innerWidth > 1080 && document.body.classList.contains('nav-open')) setMenu(false);
+        });
+
+        // Equal-width paired CTA buttons (the pair always matches the longest label).
+        // Re-runs on font load, on viewport resize, and whenever i18n swaps the button
+        // text, so the match holds for every language and breakpoint, not just first paint.
+        var EQUALIZE_GROUPS = '.hero-buttons, .cta-band-btns';
+
+        function equalizeButtonGroup(group) {
+            var buttons = Array.prototype.filter.call(group.children, function (el) {
+                return el.tagName === 'BUTTON' || el.tagName === 'A';
+            });
+            if (buttons.length < 2) return;
+            buttons.forEach(function (b) { b.style.width = ''; });
+            var maxWidth = buttons.reduce(function (max, b) {
+                return Math.max(max, b.getBoundingClientRect().width);
+            }, 0);
+            buttons.forEach(function (b) { b.style.width = Math.ceil(maxWidth) + 'px'; });
+        }
+
+        function equalizeAllButtonGroups() {
+            document.querySelectorAll(EQUALIZE_GROUPS).forEach(equalizeButtonGroup);
+        }
+
+        function debounce(fn, wait) {
+            var t;
+            return function () {
+                clearTimeout(t);
+                t = setTimeout(fn, wait);
+            };
+        }
+
+        equalizeAllButtonGroups();
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(equalizeAllButtonGroups);
+        }
+        window.addEventListener('resize', debounce(equalizeAllButtonGroups, 150));
+        document.querySelectorAll(EQUALIZE_GROUPS).forEach(function (group) {
+            new MutationObserver(debounce(equalizeAllButtonGroups, 50))
+                .observe(group, { childList: true, subtree: true, characterData: true });
         });
 
         // Active nav link on scroll
