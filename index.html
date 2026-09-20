@@ -754,12 +754,8 @@
             .tab-panel { padding: 1.75rem 1.25rem; }
             .footer-content { grid-template-columns: 1fr; gap: 2rem; }
             .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
-            .hero-buttons { flex-direction: column; align-items: stretch; }
-            .hero-buttons .btn-primary,
-            .hero-buttons .btn-secondary { width: 100%; justify-content: center; }
-            .cta-band-btns { flex-direction: column; align-items: stretch; }
-            .cta-band-btns .btn-primary,
-            .cta-band-btns .btn-on-dark { width: 100%; justify-content: center; }
+            .btn-stack { flex-direction: column; align-items: stretch; }
+            .btn-stack > * { width: 100%; justify-content: center; }
         }
     </style>
 </head>
@@ -813,7 +809,7 @@
                     <span class="hero-badge" data-i18n="land.hero.badge">Blue-Collar Digital OS</span>
                     <h1><span data-i18n="land.hero.h1_pre">Empowering Workforce,</span> <span class="highlight-orange" data-i18n="land.hero.h1_hl">Redefining Blue-Collar Ecosystem.</span></h1>
                     <p class="hero-sub" data-i18n="land.hero.sub">ServiceKru is more than a service platform. We are an end-to-end Blue-Collar Digital OS integrating Education, Digital Certification, and Workplace Placement for F&amp;B, M&amp;E Engineering, and Domestic Home Care.</p>
-                    <div class="hero-buttons">
+                    <div class="hero-buttons btn-stack">
                         <button class="btn-primary" type="button" onclick="showTab('employers', true)">
                             <span data-i18n="land.hero.cta_solutions">Get Business &amp; Home Solutions</span>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -990,7 +986,7 @@
         <div class="section-container">
             <h2 data-i18n="land.ctaband.h2">Ready to build a certified workforce?</h2>
             <p data-i18n="land.ctaband.sub">Hire vetted professionals for your business or home — or start your own certified career.</p>
-            <div class="cta-band-btns">
+            <div class="cta-band-btns btn-stack">
                 <button class="btn-primary" type="button" onclick="showTab('employers', true)">
                     <span data-i18n="land.ctaband.primary">Get Business &amp; Home Solutions</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
