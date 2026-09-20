@@ -50,10 +50,18 @@ Static HTML site with no build process. Open HTML files directly in browser.
 
 **Fonts:** Poppins (body/UI), Montserrat (headings/logo)
 
-**Key colors:**
-- `--color-orange: #ee751e` - Primary CTAs, highlights
-- `--color-pink: #ad1457` - Logo "Service" portion
-- `--color-gray-800: #343a40` - Default text
+**Key colors** (`index.html`):
+- `--color-orange: #ee751e` - Primary CTAs, highlights (`-dark` #d56510 hover, `-light` #fff4eb tints, `-text` #b8560d for small text on light)
+- `--color-blue: #1565C0` - Secondary accent, CTA band (`-dark` #0D47A1, `-light` #BBDEFB tints)
+- `--color-gray-800: #343a40` - Default text (`-900` #212529 headings, footer, phone mockup)
+
+The palette is orange and blue only. Numbered step badges alternate orange, blue,
+orange — never a third colour. A badge takes its step's accent (see `.os-step-num`)
+rather than setting its own.
+
+There is no pink token in `index.html`; `--color-pink` was a stale alias holding the
+blue hex. `landing-variations/` still uses the old #ad1457 pink — those are design
+explorations, not production.
 
 **Breakpoints:** ≤768px mobile (hamburger nav, single-column), ≥769px desktop (full nav, multi-column grids)
 
