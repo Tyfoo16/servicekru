@@ -32,6 +32,15 @@ All specs live in `docs/specs/`:
 
 Static HTML site with no build process. Open HTML files directly in browser.
 
+## Deployment
+
+Cloudflare Pages serves `servicekru.my` from `main` (see `CNAME`, `_headers`, `_redirects`). There is no CI.
+
+Push verified changes straight to `main` — no need to ask first. Rules:
+- **Verify before pushing.** With no CI, rendering the page and measuring the change is the only gate. Never deploy a visual change that has not been checked in a browser.
+- **Fast-forward only.** If `main` has moved ahead, stop and report it rather than force-pushing or auto-merging.
+- **Still ask first** for destructive or hard-to-reverse changes: deleting files, rewriting history, or editing `CNAME`, `_headers`, or `_redirects`.
+
 ## Content Guidelines
 
 **Pricing format:** Always `RM120` (no space after RM), ranges use en-dash: `RM800–RM1,200/month`
