@@ -743,7 +743,7 @@
         /* Two-column hero caps the text column at ~600px, but the CTA pair needs
            ~690px on one row, so stack them at every desktop width. */
         @media (min-width: 1025px) {
-            .hero-buttons { flex-direction: column; align-items: stretch; max-width: 360px; }
+            .hero-buttons { display: grid; grid-template-columns: minmax(0, 1fr); grid-auto-rows: 1fr; max-width: 360px; }
             .hero-buttons > * { width: 100%; justify-content: center; }
         }
         @media (max-width: 768px) {
@@ -759,7 +759,7 @@
             .tab-panel { padding: 1.75rem 1.25rem; }
             .footer-content { grid-template-columns: 1fr; gap: 2rem; }
             .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
-            .btn-stack { flex-direction: column; align-items: stretch; }
+            .btn-stack { display: grid; grid-template-columns: minmax(0, 1fr); grid-auto-rows: 1fr; }
             .btn-stack > * { width: 100%; justify-content: center; }
         }
     </style>
@@ -812,7 +812,7 @@
             <div class="hero-inner">
                 <div class="hero-text">
                     <span class="hero-badge" data-i18n="land.hero.badge">Blue-Collar Digital OS</span>
-                    <h1><span data-i18n="land.hero.h1_pre">Empowering Workforce,</span> <span class="highlight-orange" data-i18n="land.hero.h1_hl">Redefining Blue-Collar Ecosystem.</span></h1>
+                    <h1><span data-i18n="land.hero.h1_pre">Empowering Workforce, </span><span class="highlight-orange" data-i18n="land.hero.h1_hl">Redefining Blue-Collar Ecosystem.</span></h1>
                     <p class="hero-sub" data-i18n="land.hero.sub">ServiceKru is more than a service platform. We are an end-to-end Blue-Collar Digital OS integrating Education, Digital Certification, and Workplace Placement for F&amp;B, M&amp;E Engineering, and Domestic Home Care.</p>
                     <div class="hero-buttons btn-stack">
                         <button class="btn-primary" type="button" onclick="showTab('employers', true)">
@@ -863,15 +863,15 @@
         </div>
         <div class="collaborators-track-wrap">
             <div class="collaborators-track">
-                <div class="collab-card"><div class="collab-logo" style="background:#fff3e8">☕</div><div class="collab-info"><div class="collab-name">Cheryl Lee</div><div class="collab-desc">Specialty Coffee Association — Authorised Trainer</div></div></div>
-                <div class="collab-card"><div class="collab-logo" style="background:#e8f4ff">🛡️</div><div class="collab-info"><div class="collab-name">SafeGuard Insurance</div><div class="collab-desc">Comprehensive coverage every booking</div></div></div>
-                <div class="collab-card"><div class="collab-logo" style="background:#fff;padding:3px"><img src="assets/mecsc-logo.png" alt="MECSc" style="width:38px;height:38px;object-fit:contain;"></div><div class="collab-info"><div class="collab-name">MECSc</div><div class="collab-desc">Accredited training partner</div></div></div>
-                <div class="collab-card"><div class="collab-logo" style="background:#fff0f5">💚</div><div class="collab-info"><div class="collab-name">Women's Aid Org</div><div class="collab-desc">Community empowerment partner</div></div></div>                <div class="collab-card"><div class="collab-logo" style="background:#e8f8ff">👥</div><div class="collab-info"><div class="collab-name">HRDC Malaysia</div><div class="collab-desc">Human resource development body</div></div></div>
+                <div class="collab-card"><div class="collab-logo" style="background:#fff3e8">☕</div><div class="collab-info"><div class="collab-name">Cheryl Lee</div><div class="collab-desc" data-i18n="land.partners.p1_desc">Specialty Coffee Association — Authorised Trainer</div></div></div>
+                <div class="collab-card"><div class="collab-logo" style="background:#e8f4ff">🛡️</div><div class="collab-info"><div class="collab-name">SafeGuard Insurance</div><div class="collab-desc" data-i18n="land.partners.p2_desc">Comprehensive coverage every booking</div></div></div>
+                <div class="collab-card"><div class="collab-logo" style="background:#fff;padding:3px"><img src="assets/mecsc-logo.png" alt="MECSc" style="width:38px;height:38px;object-fit:contain;"></div><div class="collab-info"><div class="collab-name">MECSc</div><div class="collab-desc" data-i18n="land.partners.p3_desc">Accredited training partner</div></div></div>
+                <div class="collab-card"><div class="collab-logo" style="background:#fff0f5">💚</div><div class="collab-info"><div class="collab-name">Women's Aid Org</div><div class="collab-desc" data-i18n="land.partners.p4_desc">Community empowerment partner</div></div></div>                <div class="collab-card"><div class="collab-logo" style="background:#e8f8ff">👥</div><div class="collab-info"><div class="collab-name">HRDC Malaysia</div><div class="collab-desc" data-i18n="land.partners.p5_desc">Human resource development body</div></div></div>
                 <!-- Duplicate set for seamless -50% scroll loop -->
-                <div class="collab-card"><div class="collab-logo" style="background:#fff3e8">☕</div><div class="collab-info"><div class="collab-name">Cheryl Lee</div><div class="collab-desc">Specialty Coffee Association — Authorised Trainer</div></div></div>
-                <div class="collab-card"><div class="collab-logo" style="background:#e8f4ff">🛡️</div><div class="collab-info"><div class="collab-name">SafeGuard Insurance</div><div class="collab-desc">Comprehensive coverage every booking</div></div></div>
-                <div class="collab-card"><div class="collab-logo" style="background:#fff;padding:3px"><img src="assets/mecsc-logo.png" alt="MECSc" style="width:38px;height:38px;object-fit:contain;"></div><div class="collab-info"><div class="collab-name">MECSc</div><div class="collab-desc">Accredited training partner</div></div></div>
-                <div class="collab-card"><div class="collab-logo" style="background:#fff0f5">💚</div><div class="collab-info"><div class="collab-name">Women's Aid Org</div><div class="collab-desc">Community empowerment partner</div></div></div>                <div class="collab-card"><div class="collab-logo" style="background:#e8f8ff">👥</div><div class="collab-info"><div class="collab-name">HRDC Malaysia</div><div class="collab-desc">Human resource development body</div></div></div>
+                <div class="collab-card"><div class="collab-logo" style="background:#fff3e8">☕</div><div class="collab-info"><div class="collab-name">Cheryl Lee</div><div class="collab-desc" data-i18n="land.partners.p1_desc">Specialty Coffee Association — Authorised Trainer</div></div></div>
+                <div class="collab-card"><div class="collab-logo" style="background:#e8f4ff">🛡️</div><div class="collab-info"><div class="collab-name">SafeGuard Insurance</div><div class="collab-desc" data-i18n="land.partners.p2_desc">Comprehensive coverage every booking</div></div></div>
+                <div class="collab-card"><div class="collab-logo" style="background:#fff;padding:3px"><img src="assets/mecsc-logo.png" alt="MECSc" style="width:38px;height:38px;object-fit:contain;"></div><div class="collab-info"><div class="collab-name">MECSc</div><div class="collab-desc" data-i18n="land.partners.p3_desc">Accredited training partner</div></div></div>
+                <div class="collab-card"><div class="collab-logo" style="background:#fff0f5">💚</div><div class="collab-info"><div class="collab-name">Women's Aid Org</div><div class="collab-desc" data-i18n="land.partners.p4_desc">Community empowerment partner</div></div></div>                <div class="collab-card"><div class="collab-logo" style="background:#e8f8ff">👥</div><div class="collab-info"><div class="collab-name">HRDC Malaysia</div><div class="collab-desc" data-i18n="land.partners.p5_desc">Human resource development body</div></div></div>
             </div>
         </div>
     </section>
@@ -1216,7 +1216,7 @@
                 'land.nav.skip': 'Skip to content',
 
                 'land.hero.badge': 'Blue-Collar Digital OS',
-                'land.hero.h1_pre': 'Empowering Workforce,',
+                'land.hero.h1_pre': 'Empowering Workforce, ',
                 'land.hero.h1_hl': 'Redefining Blue-Collar Ecosystem.',
                 'land.hero.sub': 'ServiceKru is more than a service platform. We are an end-to-end Blue-Collar Digital OS integrating Education, Digital Certification, and Workplace Placement for F&B, M&E Engineering, and Domestic Home Care.',
                 'land.hero.cta_solutions': 'Get Business & Home Solutions',
@@ -1230,6 +1230,11 @@
                 'land.hero.os3_sub': 'Smart B2B & B2C dispatch',
 
                 'land.partners.label': 'Trusted Partners & Collaborators',
+                'land.partners.p1_desc': 'Specialty Coffee Association — Authorised Trainer',
+                'land.partners.p2_desc': 'Comprehensive coverage every booking',
+                'land.partners.p3_desc': 'Accredited training partner',
+                'land.partners.p4_desc': 'Community empowerment partner',
+                'land.partners.p5_desc': 'Human resource development body',
 
                 'land.vision.tag': 'Vision & Mission',
                 'land.vision.h2': 'A Tech-Enabled Managed Platform',
@@ -1333,7 +1338,7 @@
                 'land.nav.skip': 'Langkau ke kandungan',
 
                 'land.hero.badge': 'OS Digital Pekerja Kolar Biru',
-                'land.hero.h1_pre': 'Memperkasa Tenaga Kerja,',
+                'land.hero.h1_pre': 'Memperkasa Tenaga Kerja, ',
                 'land.hero.h1_hl': 'Mentakrif Semula Ekosistem Kolar Biru.',
                 'land.hero.sub': 'ServiceKru lebih daripada sekadar platform perkhidmatan. Kami ialah OS Digital Kolar Biru hujung ke hujung yang menyepadukan Pendidikan, Pensijilan Digital dan Penempatan Kerja untuk F&B, Kejuruteraan M&E dan Penjagaan Rumah Domestik.',
                 'land.hero.cta_solutions': 'Dapatkan Penyelesaian Perniagaan & Rumah',
@@ -1347,6 +1352,11 @@
                 'land.hero.os3_sub': 'Penghantaran pintar B2B & B2C',
 
                 'land.partners.label': 'Rakan Kongsi & Kolaborator Dipercayai',
+                'land.partners.p1_desc': 'Specialty Coffee Association — Jurulatih Bertauliah',
+                'land.partners.p2_desc': 'Perlindungan menyeluruh setiap tempahan',
+                'land.partners.p3_desc': 'Rakan latihan bertauliah',
+                'land.partners.p4_desc': 'Rakan pemerkasaan komuniti',
+                'land.partners.p5_desc': 'Badan pembangunan sumber manusia',
 
                 'land.vision.tag': 'Visi & Misi',
                 'land.vision.h2': 'Platform Terurus Berteraskan Teknologi',
@@ -1464,6 +1474,11 @@
                 'land.hero.os3_sub': '智能 B2B 与 B2C 派单',
 
                 'land.partners.label': '值得信赖的合作伙伴与协作方',
+                'land.partners.p1_desc': '精品咖啡协会 — 认证讲师',
+                'land.partners.p2_desc': '每次预订均享全面保障',
+                'land.partners.p3_desc': '认证培训伙伴',
+                'land.partners.p4_desc': '社区赋能伙伴',
+                'land.partners.p5_desc': '人力资源发展机构',
 
                 'land.vision.tag': '愿景与使命',
                 'land.vision.h2': '科技赋能的托管平台',
